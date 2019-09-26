@@ -1,0 +1,32 @@
+#logo_container {
+  display: inline-block;
+  margin-left: 25%; }
+
+#logo_image {
+  margin-top: 10%;
+  color: blue; }
+
+#navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0; }
+
+#navigation > a {
+  text-decoration: none;
+  margin-left: 20px;
+  font-family: Arial, Helvetica, sans-serif; }
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none; }
+
+.nav-links > li {
+  cursor: pointer;
+  margin-left: 50px; }
+
+
+/*# sourceMappingURL=styles.chunk.css.map*/

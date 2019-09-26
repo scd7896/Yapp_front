@@ -104,7 +104,8 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\scd78\\Desktop\\Yapp_front\\componets\\AppLayOut.js";
+/* harmony import */ var _NavBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavBar */ "./componets/NavBar.js");
+var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/componets/AppLayOut.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /* 이 파일이 보통 리액트를 시작할때 보는 
@@ -112,25 +113,110 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     children에는 pages에 있는 index.js가 들어가서 뿌려지게됩니다.
 */
 
+
+
 const AppLayOut = ({
   children
 }) => {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 11
     },
     __self: undefined
-  }, __jsx("p", {
+  }, __jsx(_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 12
     },
     __self: undefined
-  }, "\uC0C1\uB2E8 nav bar \uC785\uB2C8\uB2E4"), children);
+  }), children);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AppLayOut);
+
+/***/ }),
+
+/***/ "./componets/NavBar.js":
+/*!*****************************!*\
+  !*** ./componets/NavBar.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_NavBar_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/NavBar.scss */ "./css/NavBar.scss");
+/* harmony import */ var _css_NavBar_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_NavBar_scss__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/componets/NavBar.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const NavBar = () => {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: undefined
+  }, __jsx("div", {
+    id: "logo_container",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: undefined
+  }, __jsx("p", {
+    id: "logo_image",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: undefined
+  }, " \uB85C\uACE0\uC774\uBBF8\uC9C0")), __jsx("div", {
+    id: "navigation",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: undefined
+  }, __jsx("ul", {
+    className: "nav-links",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: undefined
+  }, __jsx("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: undefined
+  }, "\uBAA8\uC9D1\uC911\uC778\uD504\uB85C\uC81D\uD2B8"), __jsx("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: undefined
+  }, "\uD504\uB85C\uC81D\uD2B8\uD6C4\uAE30"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NavBar);
+
+/***/ }),
+
+/***/ "./css/NavBar.scss":
+/*!*************************!*\
+  !*** ./css/NavBar.scss ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
@@ -765,7 +851,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _saga__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../saga */ "./saga/index.js");
 /* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../reducer */ "./reducer/index.js");
 
-var _jsxFileName = "C:\\Users\\scd78\\Desktop\\Yapp_front\\pages\\_app.js";
+var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 

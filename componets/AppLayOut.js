@@ -3,10 +3,13 @@ import React from 'react'
     첫 화면 뿌려주기시작하는 단계로 보는것이 무방합니다
     children에는 pages에 있는 index.js가 들어가서 뿌려지게됩니다.
 */
+
+import NavBar from './NavBar'
+
 const AppLayOut = ({children})=>{
     return(
         <div>
-            <p>상단 nav bar 입니다</p>
+            <NavBar></NavBar>
             {children}
         </div>
     )
