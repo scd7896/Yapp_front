@@ -16,7 +16,10 @@ const Index = ()=>{
     
     return(
         <div>
-            <button id = "test_button">눌러봐~</button>
+            <div id ="header_container">
+                <div id ="header"></div>
+                <input type = 'text' id = "header_input"></input>
+            </div>
         </div>
     )
 }

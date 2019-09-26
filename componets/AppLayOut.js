@@ -7,6 +7,7 @@ import React from 'react'
 import NavBar from './NavBar'
 
 const AppLayOut = ({children})=>{
+    
     return(
         <div>
             <NavBar></NavBar>
