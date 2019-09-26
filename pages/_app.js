@@ -11,6 +11,7 @@ import AppLayout from '../componets/AppLayOut'
 import rootSaga from '../saga'
 import reducer from '../reducer'
 
+import '../css/wrraper.scss'
 class MyApp extends App{
     static async getInitialProps({Component, ctx}){
         const pageProps = Component.getInitialProps
@@ -32,7 +33,7 @@ class MyApp extends App{
             </Head>
   
             <AppLayout>
-              <Component {...pageProps} />
+              <Component id = "wrraper" {...pageProps} />
             </AppLayout>
         </Provider>
         )

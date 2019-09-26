@@ -128,14 +128,29 @@ const Index = () => {
       lineNumber: 18
     },
     __self: undefined
-  }, __jsx("button", {
-    id: "test_button",
+  }, __jsx("div", {
+    id: "header_container",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: undefined
-  }, "\uB20C\uB7EC\uBD10~"));
+  }, __jsx("div", {
+    id: "header",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: undefined
+  }), __jsx("input", {
+    type: "text",
+    id: "header_input",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: undefined
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);

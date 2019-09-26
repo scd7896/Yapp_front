@@ -121,13 +121,13 @@ const AppLayOut = ({
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     },
     __self: undefined
   }, __jsx(_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 13
     },
     __self: undefined
   }), children);
@@ -159,47 +159,47 @@ const NavBar = () => {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 8
     },
     __self: undefined
   }, __jsx("div", {
     id: "logo_container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 9
     },
     __self: undefined
   }, __jsx("p", {
     id: "logo_image",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 10
     },
     __self: undefined
   }, " \uB85C\uACE0\uC774\uBBF8\uC9C0")), __jsx("div", {
     id: "navigation",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 12
     },
     __self: undefined
   }, __jsx("ul", {
     className: "nav-links",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 13
     },
     __self: undefined
   }, __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 14
     },
     __self: undefined
   }, "\uBAA8\uC9D1\uC911\uC778\uD504\uB85C\uC81D\uD2B8"), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: undefined
   }, "\uD504\uB85C\uC81D\uD2B8\uD6C4\uAE30"))));
@@ -213,6 +213,17 @@ const NavBar = () => {
 /*!*************************!*\
   !*** ./css/NavBar.scss ***!
   \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./css/wrraper.scss":
+/*!**************************!*\
+  !*** ./css/wrraper.scss ***!
+  \**************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -850,9 +861,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _componets_AppLayOut__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../componets/AppLayOut */ "./componets/AppLayOut.js");
 /* harmony import */ var _saga__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../saga */ "./saga/index.js");
 /* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../reducer */ "./reducer/index.js");
+/* harmony import */ var _css_wrraper_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../css/wrraper.scss */ "./css/wrraper.scss");
+/* harmony import */ var _css_wrraper_scss__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_css_wrraper_scss__WEBPACK_IMPORTED_MODULE_11__);
 
 var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -887,13 +901,13 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       store: store,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 26
       },
       __self: this
     }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
       },
       __self: this
     }, __jsx("meta", {
@@ -901,14 +915,14 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       content: "width=device-width, initial-scale=1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 28
       },
       __self: this
     }), __jsx("meta", {
       charSet: "utf-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 29
       },
       __self: this
     }), __jsx("link", {
@@ -916,26 +930,28 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       href: "//cdn.quilljs.com/1.2.6/quill.snow.css",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 30
       },
       __self: this
     }), __jsx("script", {
       src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 32
       },
       __self: this
     })), __jsx(_componets_AppLayOut__WEBPACK_IMPORTED_MODULE_8__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 35
       },
       __self: this
-    }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+    }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      id: "wrraper"
+    }, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 36
       },
       __self: this
     }))));
