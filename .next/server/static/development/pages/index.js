@@ -93,6 +93,69 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./componets/Park/ProjectCardView.js":
+/*!*******************************************!*\
+  !*** ./componets/Park/ProjectCardView.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_Park_ProjectCardView_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css/Park/ProjectCardView.scss */ "./css/Park/ProjectCardView.scss");
+/* harmony import */ var _css_Park_ProjectCardView_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_Park_ProjectCardView_scss__WEBPACK_IMPORTED_MODULE_1__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const ProjectCardView = ({
+  data
+}) => {
+  return __jsx("div", {
+    className: "project-cardview"
+  }, __jsx("img", {
+    className: "project-cardview-detail"
+  }), __jsx("img", {
+    className: "project-cardview-banner",
+    src: "https://www.10wallpaper.com/wallpaper/medium/1909/2019_Planetary_Nebula_Clouds_4K_Universe_medium.jpg"
+  }), __jsx("div", {
+    className: "project-cardview-contents"
+  }, __jsx("div", {
+    className: "jobgroup"
+  }, __jsx("div", {
+    className: "jobgroup-circle"
+  }), __jsx("div", {
+    className: "jobgroup-main"
+  }, "\uAC1C\uBC1C\uC790"), __jsx("div", {
+    className: "jobgroup-sub"
+  }, "\uD504\uB860\uD2B8,\uBC31\uC5D4\uB4DC")), __jsx("div", {
+    className: "project-cardview-main"
+  }, "\uD574\uCEE4\uD1A4 \uD300\uC6D0 \uBAA8\uC9D1"), __jsx("div", {
+    className: "project-cardview-step"
+  }, "\uD300 \uBE4C\uB529 \uB2E8\uACC4"), __jsx("div", {
+    className: "project-cardview-region"
+  }, "\uD300 \uBE4C\uB529 \uB2E8\uACC4"), __jsx("div", {
+    className: "project-cardview-time"
+  }, "5\uC2DC\uAC04 \uC804")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ProjectCardView);
+
+/***/ }),
+
+/***/ "./css/Park/ProjectCardView.scss":
+/*!***************************************!*\
+  !*** ./css/Park/ProjectCardView.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./css/kim/index.scss":
 /*!****************************!*\
   !*** ./css/kim/index.scss ***!
@@ -780,15 +843,13 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-=======
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _css_kim_index_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/kim/index.scss */ "./css/kim/index.scss");
-/* harmony import */ var _css_kim_index_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_kim_index_scss__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/pages/index.js";
->>>>>>> taekyung
+/* harmony import */ var _componets_Park_ProjectCardView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../componets/Park/ProjectCardView */ "./componets/Park/ProjectCardView.js");
+/* harmony import */ var _css_kim_index_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../css/kim/index.scss */ "./css/kim/index.scss");
+/* harmony import */ var _css_kim_index_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_kim_index_scss__WEBPACK_IMPORTED_MODULE_3__);
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 /* pages에는 파일이랑 폴더를 만드실 때 주의하셔야 합니다
@@ -808,101 +869,49 @@ const Index = () => {
       console.log('제이쿼리 동작 완료');
     });
   }, []);
-<<<<<<< HEAD
-  return __jsx("div", null, __jsx("div", {
+  return __jsx("div", {
+    id: "index_root"
+  }, __jsx("div", {
     id: "header_container"
   }, __jsx("div", {
     id: "header"
-  }), __jsx("input", {
-    type: "text",
-    id: "header_input"
-  })));
-=======
-  return __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: undefined
+  })), __jsx("div", {
+    id: "index_body"
   }, __jsx("div", {
-    id: "header_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: undefined
+    id: "header_input_container"
   }, __jsx("div", {
-    id: "header",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    },
-    __self: undefined
-  }), __jsx("div", {
-    id: "header_input_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23
-    },
-    __self: undefined
-  }, __jsx("div", {
-    id: "header_input_icon_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 24
-    },
-    __self: undefined
+    id: "header_input_icon_container"
   }, " "), __jsx("div", {
-    id: "right_input_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25
-    },
-    __self: undefined
+    id: "right_input_container"
   }, __jsx("input", {
     type: "text",
     id: "header_input",
-    placeholder: "\uAC80\uC0C9\uC5B4\uB97C \uC785\uB825 \uD574\uC8FC\uC138\uC694",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26
-    },
-    __self: undefined
+    placeholder: "\uAC80\uC0C9\uC5B4\uB97C \uC785\uB825 \uD574\uC8FC\uC138\uC694"
   }), __jsx("div", {
-    id: "header_input_button",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27
-    },
-    __self: undefined
-  }, "\uAC80\uC0C9")))), __jsx("div", {
-    id: "post_text_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: undefined
+    id: "header_input_button"
+  }, "\uAC80\uC0C9"))), __jsx("div", {
+    id: "post_text_container"
   }, __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: undefined
-  }, "\uCD5C\uC2E0\uB4F1\uB85D \uBAA8\uC9D1\uAE00"), __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35
-    },
-    __self: undefined
-  }, "\uB354 \uB9CE\uC740 \uBAA8\uC9D1\uAE00\uC744 \uB9CC\uB098\uBCF4\uC138\uC694")), __jsx("div", {
-    id: "post_card_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38
-    },
-    __self: undefined
-  }));
->>>>>>> taekyung
+    id: "post_text_head"
+  }, "\uCD5C\uC2E0\uB4F1\uB85D \uBAA8\uC9D1\uAE00"), __jsx("div", {
+    id: "post_text_sub_container"
+  }, __jsx("span", {
+    id: "post_text_sub"
+  }, "\uB354 \uB9CE\uC740 \uBAA8\uC9D1\uAE00\uC744 \uB9CC\uB098\uBCF4\uC138\uC694"), __jsx("span", {
+    id: "post_text_more"
+  }, "\uB354\uBCF4\uAE30"))), __jsx("div", {
+    id: "post_card_container"
+  }, [1, 2, 3, 4, 5, 6].map((e, i) => {
+    return __jsx(_componets_Park_ProjectCardView__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+  })), __jsx("div", {
+    id: "post_more_button_container"
+  }, __jsx("button", {
+    id: "post_more_button"
+  }, "\uB354\uBCF4\uAE30")), __jsx("p", {
+    id: "keyword_search_text"
+  }, "\uAD00\uC2EC \uD0A4\uC6CC\uB4DC\uB85C \uBCF4\uAE30"), __jsx("div", {
+    id: "keyword_list_box_container"
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);

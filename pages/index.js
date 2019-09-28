@@ -1,5 +1,7 @@
 import React,{useEffect} from 'react'
 import Link from 'next/link'
+
+import ProjectCardView from '../componets/Park/ProjectCardView'
 /* pages에는 파일이랑 폴더를 만드실 때 주의하셔야 합니다
     이유는 여기에 있는 파일명이 곧 url 주소가 되버립니다
     예를 들어 user.js 파일을 만들면 localhost:3000/user 로 접속하면 그 화면을 뿌려줍니다.
@@ -17,27 +19,41 @@ const Index = ()=>{
     },[])
     
     return(
-        <div>
+        <div id = "index_root">
             <div id ="header_container">
                 <div id ="header"></div>
-                <div id = "header_input_container">
-                    <div id = "header_input_icon_container"> </div>
-                    <div id = "right_input_container">
-                        <input type = 'text' id = "header_input" placeholder = "검색어를 입력 해주세요"></input>
-                        <div id = "header_input_button">
-                            검색
+            </div>
+                <div id = "index_body">
+                    <div id = "header_input_container">
+                        <div id = "header_input_icon_container"> </div>
+                        <div id = "right_input_container">
+                            <input type = 'text' id = "header_input" placeholder = "검색어를 입력 해주세요"></input>
+                            <div id = "header_input_button">
+                                검색
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id = "post_text_container">
-                <p>최신등록 모집글</p>
-                <p>더 많은 모집글을 만나보세요</p>
                 
-            </div>
-            <div id = "post_card_container">
-
-            </div>
+                    <div id = "post_text_container">
+                        <p id = "post_text_head">최신등록 모집글</p>
+                        <div id ="post_text_sub_container">
+                            <span id = "post_text_sub">더 많은 모집글을 만나보세요</span>  
+                            <span id = 'post_text_more'>더보기</span>
+                        </div>
+                    </div>
+                    <div id = "post_card_container">
+                        {[1,2,3,4,5,6].map((e,i)=>{
+                            return <ProjectCardView />
+                        })}
+                    </div>
+                    <div id = "post_more_button_container">
+                        <button id = "post_more_button">더보기</button>
+                    </div>
+                    <p id = "keyword_search_text">관심 키워드로 보기</p>
+                    <div id = "keyword_list_box_container">
+                        
+                    </div>
+                </div>
         </div>
     )
 }

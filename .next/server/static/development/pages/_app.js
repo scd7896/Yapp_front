@@ -854,6 +854,9 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
     }), __jsx("link", {
       rel: "stylesheet",
       href: "//cdn.quilljs.com/1.2.6/quill.snow.css"
+    }), __jsx("link", {
+      href: "https://fonts.googleapis.com/css?family=Montserrat",
+      rel: "stylesheet"
     }), __jsx("script", {
       src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     })), __jsx(_componets_AppLayOut__WEBPACK_IMPORTED_MODULE_8__["default"], null, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({

@@ -15143,7 +15143,7 @@ module.exports = (__webpack_require__(/*! dll-reference dll_01f9a3fa864a7b7414d8
 /*!***********************************************************************!*\
   !*** ./node_modules/redux-saga/dist/redux-saga-core-npm-proxy.esm.js ***!
   \***********************************************************************/
-/*! exports provided: default, CANCEL, SAGA_LOCATION, buffers, detach, runSaga, END, isEnd, eventChannel, channel, multicastChannel, stdChannel */
+/*! exports provided: CANCEL, SAGA_LOCATION, buffers, detach, runSaga, END, isEnd, eventChannel, channel, multicastChannel, stdChannel, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17684,6 +17684,9 @@ function (_App) {
       }), __jsx("link", {
         rel: "stylesheet",
         href: "//cdn.quilljs.com/1.2.6/quill.snow.css"
+      }), __jsx("link", {
+        href: "https://fonts.googleapis.com/css?family=Montserrat",
+        rel: "stylesheet"
       }), __jsx("script", {
         src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       })), __jsx(_componets_AppLayOut__WEBPACK_IMPORTED_MODULE_15__["default"], null, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({

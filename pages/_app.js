@@ -28,7 +28,7 @@ class MyApp extends App{
               <meta name="viewport" content="width=device-width, initial-scale=1" />
               <meta charSet="utf-8" />
               <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css" />
-              
+              <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             </Head>
   
