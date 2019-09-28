@@ -105,7 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _NavBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavBar */ "./componets/NavBar.js");
-var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/componets/AppLayOut.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /* 이 파일이 보통 리액트를 시작할때 보는 
@@ -118,19 +117,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const AppLayOut = ({
   children
 }) => {
-  return __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: undefined
-  }, __jsx(_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: undefined
-  }), children);
+  return __jsx("div", null, __jsx(_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], null), children);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AppLayOut);
@@ -150,59 +137,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _css_NavBar_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/NavBar.scss */ "./css/NavBar.scss");
 /* harmony import */ var _css_NavBar_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_NavBar_scss__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/componets/NavBar.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 const NavBar = () => {
-  return __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: undefined
-  }, __jsx("div", {
-    id: "logo_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: undefined
+  return __jsx("div", null, __jsx("div", {
+    id: "logo_container"
   }, __jsx("p", {
-    id: "logo_image",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: undefined
+    id: "logo_image"
   }, " \uB85C\uACE0\uC774\uBBF8\uC9C0")), __jsx("div", {
-    id: "navigation",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: undefined
+    id: "navigation"
   }, __jsx("ul", {
-    className: "nav-links",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: undefined
-  }, __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    },
-    __self: undefined
-  }, "\uBAA8\uC9D1\uC911\uC778\uD504\uB85C\uC81D\uD2B8"), __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: undefined
-  }, "\uD504\uB85C\uC81D\uD2B8\uD6C4\uAE30"))));
+    className: "nav-links"
+  }, __jsx("li", null, "\uBAA8\uC9D1\uC911\uC778\uD504\uB85C\uC81D\uD2B8"), __jsx("li", null, "\uD504\uB85C\uC81D\uD2B8\uD6C4\uAE30"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NavBar);
@@ -864,7 +812,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_wrraper_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../css/wrraper.scss */ "./css/wrraper.scss");
 /* harmony import */ var _css_wrraper_scss__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_css_wrraper_scss__WEBPACK_IMPORTED_MODULE_11__);
 
-var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -898,63 +845,20 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       store
     } = this.props;
     return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_6__["Provider"], {
-      store: store,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
-    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
-    }, __jsx("meta", {
+      store: store
+    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, null, __jsx("meta", {
       name: "viewport",
-      content: "width=device-width, initial-scale=1",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28
-      },
-      __self: this
+      content: "width=device-width, initial-scale=1"
     }), __jsx("meta", {
-      charSet: "utf-8",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29
-      },
-      __self: this
+      charSet: "utf-8"
     }), __jsx("link", {
       rel: "stylesheet",
-      href: "//cdn.quilljs.com/1.2.6/quill.snow.css",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: this
+      href: "//cdn.quilljs.com/1.2.6/quill.snow.css"
     }), __jsx("script", {
-      src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 32
-      },
-      __self: this
-    })), __jsx(_componets_AppLayOut__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35
-      },
-      __self: this
-    }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    })), __jsx(_componets_AppLayOut__WEBPACK_IMPORTED_MODULE_8__["default"], null, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
       id: "wrraper"
-    }, pageProps, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }))));
+    }, pageProps))));
   }
 
 }

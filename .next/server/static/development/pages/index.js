@@ -104,7 +104,6 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/kimserver/GitHub/Yapp_front/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /* pages에는 파일이랑 폴더를 만드실 때 주의하셔야 합니다
@@ -122,34 +121,13 @@ const Index = () => {
       console.log('제이쿼리 동작 완료');
     });
   }, []);
-  return __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: undefined
+  return __jsx("div", null, __jsx("div", {
+    id: "header_container"
   }, __jsx("div", {
-    id: "header_container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: undefined
-  }, __jsx("div", {
-    id: "header",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: undefined
+    id: "header"
   }), __jsx("input", {
     type: "text",
-    id: "header_input",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: undefined
+    id: "header_input"
   })));
 };
 
