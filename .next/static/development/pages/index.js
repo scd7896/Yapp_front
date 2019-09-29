@@ -21,9 +21,12 @@ var ProjectCardView = function ProjectCardView(_ref) {
   var data = _ref.data;
   return __jsx("div", {
     className: "project-cardview"
-  }, __jsx("img", {
+  }, __jsx("span", {
     className: "project-cardview-detail"
-  }), __jsx("img", {
+  }, " ", __jsx("img", {
+    className: "project-cardview-icon",
+    src: "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/16E3DB23-AD22-4AA7-99C8-8D692461CA17.svg"
+  })), __jsx("img", {
     className: "project-cardview-banner",
     src: "https://www.10wallpaper.com/wallpaper/medium/1909/2019_Planetary_Nebula_Clouds_4K_Universe_medium.jpg"
   }), __jsx("div", {
@@ -10043,13 +10046,23 @@ var Index = function Index() {
     id: "header_container"
   }, __jsx("div", {
     id: "header"
-  })), __jsx("div", {
+  }, __jsx("p", {
+    id: "header_in_text"
+  }, __jsx("span", {
+    id: "header_in_text_top"
+  }, "\uB69D\uB531\uB69D\uB531 \uB9CC\uB4E4\uACE0 \uC2F6\uC740"), __jsx("span", null, "\uD504\uB85C\uC81D\uD2B8\uB97C ", __jsx("br", null), "\uBC1C\uACAC\uD574\uBCF4\uC138\uC694 \uD83E\uDDD0")), __jsx("img", {
+    id: "header_in_img",
+    src: "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg"
+  }))), __jsx("div", {
     id: "index_body"
   }, __jsx("div", {
     id: "header_input_container"
   }, __jsx("div", {
     id: "header_input_icon_container"
-  }, " "), __jsx("div", {
+  }, __jsx("img", {
+    id: "header_input_icon",
+    src: "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/0A4A76EC-FF35-4D30-A469-340964DF83ED.svg"
+  })), __jsx("div", {
     id: "right_input_container"
   }, __jsx("input", {
     type: "text",

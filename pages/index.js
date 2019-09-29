@@ -21,11 +21,19 @@ const Index = ()=>{
     return(
         <div id = "index_root">
             <div id ="header_container">
-                <div id ="header"></div>
+                <div id ="header">
+                    <p id = "header_in_text">
+                    <span id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</span>
+                    <span>프로젝트를 <br></br>
+                        발견해보세요 🧐</span></p>
+                    <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
+                </div>
             </div>
                 <div id = "index_body">
                     <div id = "header_input_container">
-                        <div id = "header_input_icon_container"> </div>
+                        <div id = "header_input_icon_container">
+                            <img id = "header_input_icon" src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/0A4A76EC-FF35-4D30-A469-340964DF83ED.svg"/>
+                        </div>
                         <div id = "right_input_container">
                             <input type = 'text' id = "header_input" placeholder = "검색어를 입력 해주세요"></input>
                             <div id = "header_input_button">
@@ -51,7 +59,7 @@ const Index = ()=>{
                     </div>
                     <p id = "keyword_search_text">관심 키워드로 보기</p>
                     <div id = "keyword_list_box_container">
-                        
+
                     </div>
                 </div>
         </div>

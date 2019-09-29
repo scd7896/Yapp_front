@@ -128,11 +128,19 @@
     margin-top: 70px;
 }
 .project-cardview-detail{
-    width: 45px;
+    width: 43px;
     height: 44px;
+    object-fit: contain;
     background-color: #f4f4f8;
-
+    text-align: center;
     position:absolute;
     margin-top:383px;
     margin-left:301px;
+    border-radius: 30px;
+}
+.project-cardview-icon{
+    margin-top : 12.8px;
+    width: 12px;
+  height: 18px;
+  object-fit: contain;
 }
