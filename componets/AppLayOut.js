@@ -7,11 +7,17 @@ import React from 'react'
 import NavBar from './NavBar'
 
 const AppLayOut = ({children})=>{
-    
+    const style = {
+        zIndex : '1000'
+    }
     return(
         <div>
-            <NavBar></NavBar>
-            {children}
+            <NavBar style = {style}></NavBar>
+            <div style = {{zIndex : '0'}}>
+                {children}
+            </div>
+            
+            
         </div>
     )
 }
