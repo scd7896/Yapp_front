@@ -14,7 +14,7 @@ const Index = ()=>{
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
     useEffect(()=>{
         const index = document.querySelector('#index_root')
-        
+
     },[])
     
     return(
@@ -22,7 +22,7 @@ const Index = ()=>{
             <div id ="header_container">
                 <div id ="header">
                     <p id = "header_in_text">
-                    <span id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</span>
+                    <span id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</span><br></br>
                     <span>프로젝트를 <br></br>
                         발견해보세요 🧐</span></p>
                     <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
