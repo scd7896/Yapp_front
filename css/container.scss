@@ -18,15 +18,15 @@
     margin: 0 auto;
   }
 }
-
-//모바일 환경
+//nav 줄이기, 카드 줄이기
 @media (max-width: 991px) and (min-width: 768px) {
   .container {
     width: 750px;
     margin: 0 auto;
   }
 }
-@media (max-width: 768px) {
+//모바일 환경
+@media (max-width: 767px) {
   .container {
     width: 750px;
     margin: 0 auto;
