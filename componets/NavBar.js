@@ -9,7 +9,7 @@ const NavBar = () => {
         <div className="logo">
           <img src="" />
         </div>
-
+        
         <div className="nav_right">
           <span className="nav_list">
             <a href="/">모집중인 프로젝트</a>

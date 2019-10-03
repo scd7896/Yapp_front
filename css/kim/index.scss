@@ -2,12 +2,14 @@
     background-color: #f5f7fa;
 }
 #header_input_container{
-    margin-top : -50px;
-    margin-left : 9.6%;
+    
     width : 830px;
     height : 93px;
     background: #ffffff;
     box-shadow: 5px 7px 33px 0 rgba(0, 0, 0, 0.13);
+}
+#header_container{
+    background: #5c5cff;
 }
 #header_input_icon_container{
     float: left;
@@ -19,11 +21,7 @@
     margin-top : 25px;
 }
 #header{
-    
-    
     height: 524px;
-    width : 100%;
-    background: #5c5cff;
 }
 
 #header_input_button{
@@ -146,9 +144,9 @@
   color: #333333;
 }
 #header_in_text{
-    position : absolute;
+    
     top : 150px;
-    left : 25%;
+
     width: 500px;
     height: 224px;
     font-family: 'SourceHanSansK';
