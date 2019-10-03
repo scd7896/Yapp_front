@@ -23,12 +23,17 @@ const Index = ()=>{
         <div id = "index_root">
             <div id ="header_container" >
                 <div id ="header" className = 'container'>
-                    <p id = "header_in_text">
-                        <span id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</span><br></br>
-                        <span>프로젝트를</span> <br></br>
-                        <span>발견해보세요 🧐</span>
-                    </p>
-                    <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
+                    <div id = "header_contents">
+                        <span id = "header_in_text">
+                            <p id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</p>
+                            <p>프로젝트를</p> 
+                            <p>발견해보세요 🧐</p>
+                        </span>
+                        <span>
+                        <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
+                        </span>
+                    </div>
+
                     <div id = "header_input_container">
                         <div id = "header_input_icon_container">
                             <img id = "header_input_icon" src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/0A4A76EC-FF35-4D30-A469-340964DF83ED.svg"/>
