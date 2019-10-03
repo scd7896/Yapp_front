@@ -55,16 +55,16 @@
     border: none;
 }
 #index_body{
-    margin-left : 18.8%;
-    margin-right: 18.7%;
+    text-align: center
 }
 #post_text_container{
     margin-top : 171px;
     margin-bottom : 69px;
+    text-align: left;
 }
 
 #post_text_head{
-  width: 240px;
+  
   height: 56px;
   font-family: 'SourceHanSansK';
   font-size: 38px;
@@ -96,7 +96,7 @@
 }
 
 #post_text_more{
-  
+  border : none;
   margin-left : 12px;
   width: 59px;
   height: 33px;

@@ -47,9 +47,8 @@ const Index = ()=>{
                     </div>
                 </div>
             </div>
-                <div id = "index_body" >
+                <div id = "index_body" className = "container" >
                     
-                
                     <div id = "post_text_container">
                         <p id = "post_text_head">최신등록 모집글</p>
                         <div id ="post_text_sub_container">
