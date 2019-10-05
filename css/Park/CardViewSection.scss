@@ -1,0 +1,73 @@
+.CardView-Wrapper{
+    width: 1150px;
+    position: relative;
+    
+}
+
+.CardView-Hover-Left{
+
+    width: 50px;
+    height: 120px;
+    opacity: 0.2;
+    background-color: #2c2c2c;
+
+    
+    position: absolute;
+    top:107px;
+    z-index: 100;
+    display:none;
+
+    border : 0px;
+}
+
+.CardView-Hover-Right{
+
+    width: 50px;
+    height: 120px;
+    opacity: 0.2;
+    background-color: #2c2c2c;
+
+    display: block;
+    position: absolute;
+
+    z-index: 100;
+
+    top:107px;
+    left : 1100px;
+    display:none;
+
+    border : 0px;
+}
+
+.CardView-Wrapper:hover .CardView-Hover-Left{
+    display: block;
+    outline: 0px;
+
+    cursor: pointer;
+}
+
+.CardView-Wrapper:hover .CardView-Hover-Right{
+    display: block;
+    outline: 0px;
+
+    cursor: pointer;
+}
+
+.CardView-Section{
+    width: 100%;
+
+    overflow-x:hidden;
+    overflow-y:hidden;
+    display:block;
+    white-space: nowrap;
+}
+
+.CardView-Section .post-cardview {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+}
+.CardView-Section .project-cardview {
+    position: relative;
+    display: inline-block;
+}
