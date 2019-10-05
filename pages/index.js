@@ -13,6 +13,7 @@ import '../css/kim/index.scss'
 import ProjectCardView from '../componets/Park/ProjectCardView'
 import PostCardView from '../componets/Park/PostCardView'
 import HigherOrderCardView from '../componets/Park/HigherOrederCardVIew'
+import ProjectSection from '../componets/Park/ProjectSection'
 import '../css/container.scss'
 
 const Index = ()=>{
@@ -24,7 +25,7 @@ const Index = ()=>{
     },[])
 
     var PostCardViewSection = HigherOrderCardView(PostCardView, 'post');
-    var ProjectCardViewSection = HigherOrderCardView(ProjectCardView, 'project');
+    var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, 'project');
     
     return(
         <div id = "index_root">
@@ -63,19 +64,12 @@ const Index = ()=>{
                             <span id = 'post_text_more'>더보기</span>
                         </div>
                     </div>
-                    <div id = "post_card_container">
-                        {[1,2,3,4,5,6].map((e,i)=>{
-                            return <ProjectCardView />
-                        })}
-                    </div>
-                    <div id = "post_more_button_container">
-                        <button id = "post_more_button">더보기</button>
-                    </div>
+                    <ProjectSection/>
                     <p id = "keyword_search_text">관심 키워드로 보기</p>
                     <div id = "keyword_list_box_container">
 
                     </div>
-                    <ProjectCardViewSection scrollSize = {414} />
+                    <KeywordCardViewSection scrollSize = {414} />
                     <PostCardViewSection scrollSize = {610} />
                     
                 </div>
