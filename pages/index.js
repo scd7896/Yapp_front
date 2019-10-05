@@ -25,7 +25,7 @@ const Index = ()=>{
     },[])
 
     var PostCardViewSection = HigherOrderCardView(PostCardView, 'post');
-    var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, 'project');
+    var FamousCardViewSection = HigherOrderCardView(ProjectCardView, 'project');
     
     return(
         <div id = "index_root">
@@ -65,14 +65,23 @@ const Index = ()=>{
                         </div>
                     </div>
                     <ProjectSection/>
-                    <p id = "keyword_search_text">관심 키워드로 보기</p>
+                    <p id = "keyword_search_text"  className = "search_text">관심 키워드로 보기</p>
                     <div id = "keyword_list_box_container">
 
                     </div>
-                    <KeywordCardViewSection scrollSize = {414} />
-                    <PostCardViewSection scrollSize = {610} />
+                    <p className = "search_text">인기 모집글</p>
+                    <FamousCardViewSection scrollSize = {414} />
+                    
                     
                 </div>
+                <div className="bottom-contents-root">
+                    <div className = "container">
+                        <p  className = "search_text">베스트 프로젝트</p>    
+                        <PostCardViewSection scrollSize = {610} />
+                    </div>
+                </div>
+
+
         </div>
     )
 }
