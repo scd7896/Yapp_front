@@ -28,51 +28,71 @@ const Index = ()=>{
     var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, 'project');
     
     return(
-        <div id = "index_root">
-            <div id ="header_container" >
-                <div id ="header" className = 'container'>
-                    <div id = "header_contents">
-                        <span id = "header_in_text">
-                            <p id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</p>
-                            <p>프로젝트를</p> 
-                            <p>발견해보세요 🧐</p>
-                        </span>
-                        <span>
-                        <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
-                        </span>
-                    </div>
-
-                    <div id = "header_input_container">
-                        <div id = "header_input_icon_container">
-                            <img id = "header_input_icon" src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/0A4A76EC-FF35-4D30-A469-340964DF83ED.svg"/>
+        <div>
+            <div id = "index_root">
+                <div id ="header_container" >
+                    <div id ="header" className = 'container'>
+                        <div id = "header_contents">
+                            <span id = "header_in_text">
+                                <p id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</p>
+                                <p>프로젝트를</p> 
+                                <p>발견해보세요 🧐</p>
+                            </span>
+                            <span>
+                            <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
+                            </span>
                         </div>
-                        <div id = "right_input_container">
-                            <input type = 'text' id = "header_input" placeholder = "검색어를 입력 해주세요"></input>
-                            <div id = "header_input_button">
-                                검색
+
+                        <div id = "header_input_container">
+                            <div id = "header_input_icon_container">
+                                <img id = "header_input_icon" src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/0A4A76EC-FF35-4D30-A469-340964DF83ED.svg"/>
+                            </div>
+                            <div id = "right_input_container">
+                                <input type = 'text' id = "header_input" placeholder = "검색어를 입력 해주세요"></input>
+                                <div id = "header_input_button">
+                                    검색
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                <div id = "index_body" className = "container" >
-                    
-                    <div id = "post_text_container">
-                        <p id = "post_text_head">최신등록 모집글</p>
-                        <div id ="post_text_sub_container">
-                            <span id = "post_text_sub">더 많은 모집글을 만나보세요</span>  
-                            <span id = 'post_text_more'>더보기</span>
+                    <div id = "index_body" className = "container" >
+                        
+                        <div id = "post_text_container">
+                            <p id = "post_text_head">최신등록 모집글</p>
+                            <div id ="post_text_sub_container">
+                                <span id = "post_text_sub">더 많은 모집글을 만나보세요</span>  
+                                <span id = 'post_text_more'>더보기</span>
+                            </div>
                         </div>
-                    </div>
-                    <ProjectSection/>
-                    <p id = "keyword_search_text">관심 키워드로 보기</p>
-                    <div id = "keyword_list_box_container">
+                        <ProjectSection/>
+                        <p id = "keyword_search_text">관심 키워드로 보기</p>
+                        <div id = "keyword_list_box_container">
 
+                        </div>
+                        <div id = "nice_recruitment_container">
+                            <p id = "nice_recruitment_text">인기 모집글</p>
+                            <KeywordCardViewSection scrollSize = {414} />
+                        </div> 
+                    </div>        
+            </div>   
+            <div id = "footer_container" className = "container">
+                <div id = "best_projects_container">
+                    <p id = "best_project_title">베스트 프로젝트</p>
+                    <div id = "best_project_text_container">
+                        <span id = "best_project_text">Toys를 통해 만들어진 프로젝트 확인해보세요</span>
+                        <span id = "post_text_more">더보기</span>
                     </div>
-                    <KeywordCardViewSection scrollSize = {414} />
-                    <PostCardViewSection scrollSize = {610} />
+                    <div id = "card_view_section_container">
+                        <PostCardViewSection scrollSize = {610} />
+                    </div>
                     
                 </div>
+
+                <div id = "banner_image_container">
+                    <img id = "banner_image" src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/BA176384-E1C6-4F5D-9025-A20C7A2A75E5.svg"/>
+                </div>
+            </div>
         </div>
     )
 }

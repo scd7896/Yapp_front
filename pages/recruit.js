@@ -24,6 +24,7 @@ const recruit = ()=>{
                             })}
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
