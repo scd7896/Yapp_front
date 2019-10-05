@@ -1,9 +1,11 @@
+
 import React,{useState, useEffect} from 'react'
 import {useSelector} from 'react-redux';
 import RecruitSearch from '../componets/Kim/RecruitSearch'
 import Keyword from '../componets/Kim/Keyword'
 import CardView from '../componets/Park/ProjectCardView'
 import{keyword} from '../dummydatas/dummyKeywords'
+import FindSelectbox from "../componets/FindSelectbox";
 import '../css/kim/recruit.scss'
 const recruit = ()=>{
     const {selects} = useSelector(state=>state.button);
@@ -22,7 +24,7 @@ const recruit = ()=>{
                 <div className = "container" >
                     <div id = "search_container">
                         <p id ="project_serch_text">프로젝트 검색</p>
-                        <RecruitSearch />
+                        <FindSelectbox />
                     </div>
                     <div id = "keyword_container">
                         <p id = "keyword_text">추천 키워드</p>
@@ -40,8 +42,6 @@ const recruit = ()=>{
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+            </div>)}
 
-export default recruit
+export default recruit;

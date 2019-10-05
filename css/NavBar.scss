@@ -36,7 +36,7 @@ button {
   height: 48px;
 }
 .nav_list {
-  border-right: 1px solid #cccdd0;
+  border-right: 1px solid #e5e5e5;
   height: 100%;
   display: flex;
   align-items: center;
@@ -55,17 +55,29 @@ button {
   margin-right: 30px;
 }
 .nav_png {
-  margin: 0 30px;
-  border-right: 0.5px solid#cccdd0;
-}
+  padding: 0 30px;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
 
-.nav_png img {
-  margin-right: 12px;
+  & > button {
+    margin-left: 12px;
+  }
+}
+.nav_png button {
+  cursor: pointer;
   width: 48px;
   height: 48px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 30px;
 }
 
+.nav_button {
+  padding-left: 30px;
+}
 .nav_button button {
+  cursor: pointer;
   width: 152px;
   height: 40px;
   color: #5c63ff;
