@@ -1,34 +1,83 @@
-#logo_container{
-    display: inline-block;
-    margin-left : 25%;
-    
+body {
+  margin: 0;
 }
-#logo_image {
-    margin-top : 10%;
-    color : blue;
+a {
+  background: transparent;
+  text-decoration: none;
+  color: inherit;
 }
-#navigation {
-    display : flex;
-    justify-content: space-around;
-    align-items: center;
-    margin : 0;
-    padding : 0;
+button {
+  outline: 0 !important;
 }
 
-#navigation > a{
-    text-decoration: none;
-    margin-left: 20px;
-    font-family: Arial, Helvetica, sans-serif
+/* 메뉴 바 */
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 81px;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 0.2rem 0.25rem rgba(0, 0, 0, 0.09);
 }
 
-.nav-links{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
+.logo {
+  float: left;
+}
+.logo img {
+  width: 95px;
+  height: 50px;
 }
 
-.nav-links > li {
-    cursor: pointer;
-    margin-left : 50px;
+.nav_right {
+  float: right;
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+.nav_list {
+  border-right: 1px solid #cccdd0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav_list a {
+  font-family: SourceHanSansK;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: -1.1px;
+  text-align: left;
+  color: #333333;
+
+  margin-right: 30px;
+}
+.nav_png {
+  margin: 0 30px;
+  border-right: 0.5px solid#cccdd0;
+}
+
+.nav_png img {
+  margin-right: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.nav_button button {
+  width: 152px;
+  height: 40px;
+  color: #5c63ff;
+  font-family: SourceHanSansK;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: -1px;
+
+  border-radius: 23px;
+  border: solid 1px #5c63ff;
+  background-color: #ffffff;
 }

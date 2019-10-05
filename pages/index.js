@@ -13,13 +13,14 @@ import '../css/kim/index.scss'
 import ProjectCardView from '../componets/Park/ProjectCardView'
 import PostCardView from '../componets/Park/PostCardView'
 import HigherOrderCardView from '../componets/Park/HigherOrederCardVIew'
+import '../css/container.scss'
 
 const Index = ()=>{
     /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
     useEffect(()=>{
         const index = document.querySelector('#index_root')
-        
+
     },[])
 
     var PostCardViewSection = HigherOrderCardView(PostCardView, 'post');
@@ -27,16 +28,19 @@ const Index = ()=>{
     
     return(
         <div id = "index_root">
-            <div id ="header_container">
-                <div id ="header">
-                    <p id = "header_in_text">
-                    <span id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</span>
-                    <span>프로젝트를 <br></br>
-                        발견해보세요 🧐</span></p>
-                    <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
-                </div>
-            </div>
-                <div id = "index_body">
+            <div id ="header_container" >
+                <div id ="header" className = 'container'>
+                    <div id = "header_contents">
+                        <span id = "header_in_text">
+                            <p id = "header_in_text_top">뚝딱뚝딱 만들고 싶은</p>
+                            <p>프로젝트를</p> 
+                            <p>발견해보세요 🧐</p>
+                        </span>
+                        <span>
+                        <img id = "header_in_img" src = 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg' />
+                        </span>
+                    </div>
+
                     <div id = "header_input_container">
                         <div id = "header_input_icon_container">
                             <img id = "header_input_icon" src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/0A4A76EC-FF35-4D30-A469-340964DF83ED.svg"/>
@@ -48,7 +52,10 @@ const Index = ()=>{
                             </div>
                         </div>
                     </div>
-                
+                </div>
+            </div>
+                <div id = "index_body" className = "container" >
+                    
                     <div id = "post_text_container">
                         <p id = "post_text_head">최신등록 모집글</p>
                         <div id ="post_text_sub_container">
