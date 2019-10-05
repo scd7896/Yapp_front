@@ -1,12 +1,21 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import {useSelector} from 'react-redux';
 import RecruitSearch from '../componets/Kim/RecruitSearch'
 import Keyword from '../componets/Kim/Keyword'
-
+import CardView from '../componets/Park/ProjectCardView'
 import{keyword} from '../dummydatas/dummyKeywords'
 import '../css/kim/recruit.scss'
 const recruit = ()=>{
     const {selects} = useSelector(state=>state.button);
+    const [cardListDatas, setCardListDatas] = useState([])
+
+    useEffect(()=>{
+        const arr = [];
+        for(let i = 0; i<12 ; i++){
+            arr.push(0)
+        }
+        setCardListDatas(arr)
+    },[])
     return(
         <div id = "reqcruit_root">
             <div id = "recruit_container">
@@ -24,7 +33,11 @@ const recruit = ()=>{
                             })}
                         </div>
                     </div>
-                    
+                    <div id = "recruit_card_container">
+                        {cardListDatas ? cardListDatas.map((e,i)=>{
+                            return <CardView key = {i}/>
+                        }) :''}
+                    </div>
                 </div>
             </div>
         </div>
