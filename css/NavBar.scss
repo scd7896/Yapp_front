@@ -10,6 +10,9 @@ button {
   outline: 0 !important;
 }
 
+#Toys {
+  cursor: pointer;
+}
 /* 메뉴 바 */
 .navbar {
   display: flex;
@@ -42,7 +45,7 @@ button {
   align-items: center;
 }
 .nav_list a {
-  font-family: SourceHanSansK;
+  font-family: 'SourceHanSansK';
   font-size: 22px;
   font-weight: normal;
   font-style: normal;

@@ -16,8 +16,7 @@ const AppLayOut = ({children})=>{
             <div style = {{zIndex : '0'}}>
                 {children}
             </div>
-            
-            
+            <div id  = "footer"> </div>
         </div>
     )
 }

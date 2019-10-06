@@ -96,6 +96,7 @@
 }
 
 #post_text_more{
+  cursor: pointer;
   border : none;
   margin-left : 12px;
   width: 59px;
@@ -149,10 +150,10 @@
 }
 #header_in_text{
     margin-top : 150px;
-    width: 361px;
+    
     height: 224px;
     font-family: 'SourceHanSansK';
-    font-size: 54px;
+    font-size: 45px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -163,7 +164,7 @@
 
 }
 #header_in_text_top{
-  font-size: 43px;
+  font-size: 36px;
   font-weight: 300;
   letter-spacing: -2.15px;
 }
