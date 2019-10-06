@@ -3,6 +3,7 @@ import '../../css/Park/CardViewSection.scss'
 
 function HigherOrderCardViewSection(CardView, CardViewTypeStr){
     return class CardViewSectionWrapper extends React.Component{
+
         constructor(props){
             super(props);
 
@@ -107,7 +108,6 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
         componentDidMount(){
 
             this.WrapperDOM = this.wrapperRef.current;
-             ;  
 
         }
 

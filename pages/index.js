@@ -78,7 +78,7 @@ const Index = ()=>{
                         </div>
                         <div id = "nice_recruitment_container">
                             <p id = "nice_recruitment_text">인기 모집글</p>
-                            <KeywordCardViewSection scrollSize = {414} />
+                            <FamousCardViewSection scrollSize = {414} />
                         </div> 
                     </div>
                        
