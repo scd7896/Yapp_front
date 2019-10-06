@@ -1,0 +1,146 @@
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+.post-cardview{
+    width:590px;
+    height:298px;
+    display: inline-block;
+
+    margin-right: 20px;
+
+    text-align: left;
+}
+.post-cardview-image{
+    width:590px;
+    height:298px;
+    object-fit: cover;
+    position:absolute;
+}
+.post-cardview-banner{
+    width: 590px;
+    height: 93px;
+    opacity: 0.8;
+    background-color: #ffffff; 
+
+    position:absolute;
+
+    padding-top:14px;
+    padding-left:25px;
+
+    margin-top : 205px;
+}
+
+.post-cardview-title{
+
+    height: 34px;
+    font-family: "Noto Sans KR";
+    font-size: 23px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.48;
+    letter-spacing: -1.15px;
+    text-align: left;
+    color: #333333;
+
+    display: inline-block;
+}
+
+.post-cardview-info{
+    height: 34px;
+    
+
+    vertical-align: text-top;
+}
+
+.view_circle {
+    width : 16.4px;
+    height : 9.3px;
+
+    margin-left : 15.9px;
+    margin-top : 12.3px;
+
+    display: inline-block;
+}
+.post-cardview-view {
+    width: 20px;
+    height: 18px;
+    font-family: "Noto Sans KR";
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: #555555;
+
+    margin-left : 1.7px;
+    margin-top : 8px;
+
+    display: inline-block;
+}
+.post-cardview-heart{
+    width: 10.6px;
+    height: 9.3px;
+    border: solid 1px #969696;
+
+    margin-top : 12.3px;
+    margin-left : 4.3px;
+
+    display: inline-block;
+}
+
+.post-cardview-like{
+    width: 20px;
+    height: 18px;
+    font-family: "Noto Sans KR";
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: #555555;
+
+    margin-top : 8px;
+    margin-left : 1.7px;
+
+    display: inline-block;
+}
+.post-cardview-scoreboard{
+    margin-top : 6px;
+    display : inline-block;
+    text-align:top;
+}
+.post-cardview-score-title{
+    height: 20px;
+    font-family: "Noto Sans KR";
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: -0.7px;
+    text-align: left;
+    color: #333333;
+
+    display : inline-block;
+}
+.post-cardview-score-stars {
+    display : inline-block;
+    text-align:top;
+    margin-top : 3.6px;
+    margin-left : 10.5px;
+}
+.post-cardview-star{
+    width: 12.7px;
+    height: 12.1px;
+    object-fit: contain;
+
+}
+.post-cardview-score-stars .star-on{
+    background-color: #ffc900;
+}
+.post-cardview-score-stars .star-off{
+    background-color: #e0e0e0;
+}

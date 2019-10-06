@@ -12,7 +12,7 @@ app.prepare().then(()=>{
     server.get('*',(req, res)=>{
         return handle(req,res);
     })
-    server.listen(10024,()=>{
-        console.log('프론트 서버는 10024')
+    server.listen(10023,()=>{
+        console.log('프론트 서버는 10023')
     })
 })

@@ -1,8 +1,13 @@
 import React from "react";
+import Router from 'next/router'
+import Link from 'next/link'
 import "../css/NavBar.scss";
 import "../css/container.scss";
 
 const NavBar = () => {
+  const routeToMain = ()=>{
+    Router.push('/')
+  }
   return (
     <div className="navbar">
       <div className="container">
@@ -19,9 +24,9 @@ const NavBar = () => {
               fill="#1f254b"
               font-size="41"
               font-family="Montserrat-Bold, Montserrat"
-              font-weight="700"
+              font-weight="700"            
             >
-              <tspan x="0" y="0">
+              <tspan x="0" y="0" onClick = {routeToMain}>
                 Toys
               </tspan>
             </text>
@@ -30,7 +35,9 @@ const NavBar = () => {
 
         <div className="nav_right">
           <span className="nav_list">
-            <a href="/">모집중인 프로젝트</a>
+            <Link href = "/recruit">
+              <a>모집중인 프로젝트</a>
+            </Link>
             <a href="/find">프로젝트 후기</a>
           </span>
           <span className="nav_png">
