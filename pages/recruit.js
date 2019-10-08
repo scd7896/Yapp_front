@@ -6,6 +6,7 @@ import Keyword from '../componets/Kim/Keyword'
 import CardView from '../componets/Park/ProjectCardView'
 import{keyword} from '../dummydatas/dummyKeywords'
 import FindSelectbox from "../componets/FindSelectbox";
+import {SET_SELECTED_PAGES} from '../action'
 import '../css/kim/recruit.scss'
 const recruit = ()=>{
     const {selects} = useSelector(state=>state.button);
@@ -43,5 +44,11 @@ const recruit = ()=>{
                 </div>
             </div>
             </div>)}
-
+recruit.getInitialProps =async(context)=>{
+    context.store.dispatch({
+        type : SET_SELECTED_PAGES,
+        data : 'recruit'
+    })
+    return {}
+}
 export default recruit;
