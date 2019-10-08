@@ -1,5 +1,5 @@
 import produce from 'immer'
-import {ADD_SELECTORS_CONTENT, REMOVE_SELECTORS_CONTENT, SET_SELECTED_PAGES} from '../action'
+import {ADD_SELECTORS_CONTENT, REMOVE_SELECTORS_CONTENT, SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD} from '../action'
 const initialState ={
     selects : [],
     selectPage : ""
@@ -15,6 +15,9 @@ const button = (state = initialState , action) =>{
                 break;
             case SET_SELECTED_PAGES :
                 draft.selectPage = action.data;
+                break;
+            case CLEAR_SELECTED_KYEWORD :
+                draft.selects = [];
                 break;
         }
     })
