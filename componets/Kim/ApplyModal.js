@@ -1,12 +1,20 @@
 import React from 'react'
 import Modal from 'react-awesome-modal'
 import {useSelector, useDispatch} from 'react-redux'
+
+import ApplyCompleted from'./ApplyCompleted'
 import '../../css/container.scss'
 import '../../css/kim/componentcss/ApplyModal.scss'
+import { NEXT_APPLY_MODAL } from '../../action'
 const ApplyModal = ({visible, data})=>{
     const dispatch = useDispatch();
     const {applyModalLevel} = useSelector(state => state.button)
     
+    const nextModal = ()=>{
+        dispatch({
+            type :NEXT_APPLY_MODAL
+        })
+    }
     return(
         <div className = "container" >
             <Modal width = "62.5%" visible = {visible} effect="fadeInUp">
@@ -27,9 +35,9 @@ const ApplyModal = ({visible, data})=>{
                                     <span id = "modal_section_second_question" className = {applyModalLevel === 2 ? 'section_text_color_selected' : "section_text_color_noselected"}>이력뽐내기</span>
                                     <span id = "modal_section_third_completed" className = {applyModalLevel === 3 ? 'section_text_color_selected' : "section_text_color_noselected"}>지원완료</span>
                                 </div>
-                                
+                                <button onClick = {nextModal}>다음으로</button>            
                             </div>
-                        </div> :''
+                        </div> :<ApplyCompleted />
                     }
                     
                     
