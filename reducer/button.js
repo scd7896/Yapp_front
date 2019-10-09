@@ -4,7 +4,7 @@ import {NEXT_APPLY_MODAL, PREV_APPLY_MODAL,
 const initialState ={
     selects : [],
     selectPage : "",
-    applyModalLevel : 0, 
+    applyModalLevel : 1, 
 }
 const button = (state = initialState , action) =>{
     return  produce(state, (draft)=>{
