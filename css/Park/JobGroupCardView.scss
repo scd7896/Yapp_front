@@ -1,0 +1,54 @@
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+
+.jobgroup-cardview-wrapper-big{
+    width: 168px;
+    height: 168px;
+
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+
+    display: inline-block;
+}
+
+.jobgroup-cardview-wrapper-small{
+    height: 154px;
+    width : 102px;
+    background-color: #ffffff;
+    display: inline-block;
+}
+
+.jobgroup-cardview-svg-big{
+    width :  94px;
+    height: 94px;
+
+    margin-left : 37px;
+    margin-top : 19px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.jobgroup-cardview-svg-small{
+    width: 102px;
+    width: 102px;
+
+    margin-bottom : 16px;
+
+    display : block;
+}
+
+.jobgroup-cardview-title{
+    width: 100%;
+    text-align: center;
+    display: block;
+    overflow-x: hidden;
+
+    font-family: "Noto Sans KR";
+
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    color: #333333;
+}
