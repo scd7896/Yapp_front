@@ -12,6 +12,9 @@ const review = ()=>{
     const openModal = ()=>{
         setVisible(true)
     }
+    const closeModal = ()=>{
+        setVisible(false)
+    }
     const {selects} = useSelector(state=> state.button);
     return (
         <div className = "container">
@@ -20,8 +23,8 @@ const review = ()=>{
                     return <Keyword data = {e} index = {i} isSelected ={isSelected} key = {i} />
                 })}
             <div >
-                <button onClick = {openModal}>눌러봐</button>
-                <ApplyModal visible = {visible}/>
+                <button  onClick = {openModal}>눌러봐</button>
+                <ApplyModal closeModal = {closeModal} visible = {visible}/>
             </div>
         </div>
     )
