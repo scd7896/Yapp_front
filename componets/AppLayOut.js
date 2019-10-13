@@ -13,7 +13,7 @@ const AppLayOut = ({children})=>{
     return(
         <div>
             <NavBar style = {style}></NavBar>
-            <div style = {{zIndex : '0'}}>
+            <div>
                 {children}
             </div>
             <div id  = "footer"> </div>

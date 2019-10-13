@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react'
+import {useDispatch} from 'react-redux'
 import Link from 'next/link'
 
 
@@ -19,6 +20,7 @@ import '../css/container.scss'
 
 
 import {keywordSearch} from '../dummydatas/dummyKeywords'
+import { SET_SELECTED_PAGES } from '../action'
 const Index = ()=>{
     /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
@@ -103,5 +105,12 @@ const Index = ()=>{
             
         </div>
     )
+}
+Index.getInitialProps = async(context)=>{
+    context.store.dispatch({
+        type : SET_SELECTED_PAGES,
+        data : 'index'
+    })
+    return{}
 }
 export default Index

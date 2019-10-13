@@ -1,10 +1,12 @@
 import React from "react";
 import Router from 'next/router'
 import Link from 'next/link'
+import {useSelector} from 'react-redux'
 import "../css/NavBar.scss";
 import "../css/container.scss";
 
 const NavBar = () => {
+  const {selectPage} = useSelector(state => state.button)
   const routeToMain = ()=>{
     Router.push('/')
   }
@@ -35,10 +37,10 @@ const NavBar = () => {
 
         <div className="nav_right">
           <span className="nav_list">
-            <Link href = "/recruit">
-              <a>모집중인 프로젝트</a>
-            </Link>
-            <a href="/find">프로젝트 후기</a>
+            
+              <a id = {selectPage ==='recruit' ? "ubderline_menubar":""} href = "/recruit"> 모집중인 프로젝트</a>
+            
+            <a id = {selectPage ==='review' ? "ubderline_menubar":""} href="/review">프로젝트 후기</a>
           </span>
           <span className="nav_png">
             <button>
