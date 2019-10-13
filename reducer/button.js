@@ -1,10 +1,11 @@
 import produce from 'immer'
-import {NEXT_APPLY_MODAL, PREV_APPLY_MODAL,
+import {NEXT_APPLY_MODAL, PREV_APPLY_MODAL,OPEN_APPLY_MODAL,CLOSE_APPLY_MODAL,
     ADD_SELECTORS_CONTENT, REMOVE_SELECTORS_CONTENT, SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD} from '../action'
 const initialState ={
     selects : [],
     selectPage : "",
     applyModalLevel : 1, 
+    visible : false
 }
 const button = (state = initialState , action) =>{
     return  produce(state, (draft)=>{
@@ -27,6 +28,13 @@ const button = (state = initialState , action) =>{
             case PREV_APPLY_MODAL :
                 draft.applyModalLevel--;
                 break;
+            case OPEN_APPLY_MODAL :
+                draft.visible = true;
+                draft.applyModalLevel = 1;
+                break;
+            case CLOSE_APPLY_MODAL :
+                draft.visible = false;
+                draft.applyModalLevel = 1;
         }
     })
     

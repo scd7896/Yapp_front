@@ -6,11 +6,15 @@ import ApplyCompleted from'./ApplyCompleted'
 import ApplyFirst from './ApplyFirst'
 import '../../css/container.scss'
 import '../../css/kim/componentcss/ApplyModal.scss'
-import { NEXT_APPLY_MODAL } from '../../action'
-const ApplyModal = ({visible, closeModal,data})=>{
+import { NEXT_APPLY_MODAL, CLOSE_APPLY_MODAL } from '../../action'
+const ApplyModal = ({data})=>{
     const dispatch = useDispatch();
-    const {applyModalLevel} = useSelector(state => state.button)
-    
+    const {applyModalLevel, visible} = useSelector(state => state.button)
+    const closeModal = ()=>{
+        dispatch({
+            type: CLOSE_APPLY_MODAL
+        })
+    }
     const nextModal = ()=>{
         dispatch({
             type :NEXT_APPLY_MODAL
