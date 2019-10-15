@@ -3,6 +3,7 @@ import React,{useEffect} from 'react'
 import '../css/park/detail.scss'
 import '../css/container.scss'
 import JobGroupCardView from '../componets/Park/JobGroupCardView'
+import DetailQnA from '../componets/Park/DetailQnA'
 
 class Detail extends React.Component{
     static async getInitialProps(ctx){
@@ -16,10 +17,13 @@ class Detail extends React.Component{
     render(){
 
         var jobgroups = '디자이너';
-        var title = '모임장소 추천서비스';
+        var title = '모임장소 추천서비스모';
 
         return(
             <div id = 'detail_root'>
+
+                {/* 컨텐츠 영역입니다 */}
+
                 <div className = 'detail-title-wrapper'>
                     <div className = 'detail-title-container container'>
                         <div className = 'detail-title-jobgroup-wrapper'>
@@ -80,6 +84,10 @@ class Detail extends React.Component{
                     <JobGroupCardView type = 'small' jobgroup = 'designer' number = '2'/>
                     <JobGroupCardView type = 'small' jobgroup = 'planner' number = '1'/>
                 </div>
+
+                {/* QnA 영역입니다 */}
+
+                <DetailQnA/>                
 
             </div>
         )
