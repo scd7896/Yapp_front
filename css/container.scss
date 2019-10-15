@@ -18,8 +18,23 @@
     margin: 0 auto;
   }
 }
+
 //nav 줄이기, 카드 줄이기
 @media (max-width: 991px) and (min-width: 768px) {
+  /*
+  #projectcard-flex {
+    display: inline-block;
+    & + & {
+      margin-left: 19px;
+    }
+  }
+  .project-cardview {
+    width: 362px;
+    height: 500px;
+    background-color: #ffffff;
+    margin-bottom: 49px;
+  }
+  */
   .container {
     width: 750px;
     margin: 0 auto;
@@ -31,8 +46,19 @@
 }
 //모바일 환경
 @media (max-width: 767px) {
+  #projectcard-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .project-cardview {
+    width: 100%;
+    height: 65%;
+    background-color: #ffffff;
+    margin-bottom: 49px;
+  }
   .container {
-    width: 750px;
+    width: 85%;
     margin: 0 auto;
   }
 }
