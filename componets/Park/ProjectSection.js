@@ -8,7 +8,7 @@ export default class ProjectSection extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: [1, 2]
+      data: [1, 2, 3, 4, 5, 6]
     };
 
     this.handleMoreButton = this.handleMoreButton.bind(this);
@@ -16,7 +16,7 @@ export default class ProjectSection extends React.Component {
 
   handleMoreButton() {
     var oldData = JSON.parse(JSON.stringify(this.state.data));
-    var newData = oldData.concat([1, 2]);
+    var newData = oldData.concat([1, 2, 3, 4, 5, 6]);
     this.setState({ data: newData });
   }
 
@@ -25,13 +25,7 @@ export default class ProjectSection extends React.Component {
       <div id="project-section">
         <div id="post_card_container">
           {this.state.data.map((e, i) => {
-            return (
-              <div id="projectcard-flex">
-                <ProjectCardView />
-                <ProjectCardView />
-                <ProjectCardView />
-              </div>
-            );
+            return <ProjectCardView />;
           })}
         </div>
 
