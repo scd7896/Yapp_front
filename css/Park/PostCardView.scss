@@ -1,21 +1,21 @@
 @import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 .post-cardview{
-    width:590px;
+    width:49%;
     height:298px;
     display: inline-block;
 
-    margin-right: 20px;
+    margin-right: 1%;
 
     text-align: left;
 }
 .post-cardview-image{
-    width:590px;
+    width:100%;
     height:298px;
     object-fit: cover;
     position:absolute;
 }
 .post-cardview-banner{
-    width: 590px;
+    width: 100%;
     height: 93px;
     opacity: 0.8;
     background-color: #ffffff; 

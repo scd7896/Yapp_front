@@ -15,6 +15,9 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
             this.wrapperRef = React.createRef();
             this.cardViewRef = React.createRef();
+
+            
+            this.curContents = 0;
         }
 
         getNextDataFromServer(callback){
@@ -76,27 +79,26 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
         HandleClickLeft(e){
 
-            if(this.WrapperDOM.scrollLeft > this.props.scrollSize)
-                this.WrapperDOM.scrollLeft -= this.props.scrollSize;
-            else if(this.WrapperDOM.scrollLeft > 0)
-                this.WrapperDOM.scrollLeft = 0;
+            if(this.curContents > 0)
+                this.curContents --;
+
+            this.WrapperDOM.scrollLeft = this.WrapperDOM.children[this.curContents].offsetLeft;
 
 
         }
         HandleClickRight(e){
+            
+            this.curContents ++;
 
-            console.log('??');
-
-            if(this.WrapperDOM.scrollLeft >= (this.state.data.length -2) * this.props.scrollSize){
+            if(this.curContents >= this.state.data.length - 3){
                 this.getNextDataFromServer(function(){
-                    this.WrapperDOM.scrollLeft += this.props.scrollSize;
+                    this.WrapperDOM.scrollLeft = this.WrapperDOM.children[this.curContents].offsetLeft;
                 })
-
             }
             else{
-                this.WrapperDOM.scrollLeft +=this.props.scrollSize;
-
+                this.WrapperDOM.scrollLeft = this.WrapperDOM.children[this.curContents].offsetLeft;
             }
+
  
         }
 
@@ -107,7 +109,20 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
         componentDidMount(){
 
             this.WrapperDOM = this.wrapperRef.current;
-             ;  
+
+            
+            //ie 체크 후에 resize이벤트 등록
+            var agent = navigator.userAgent.toLowerCase();
+            if ( (navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
+
+            }
+            else{
+                (function(wrapperDom,_this){
+                    window.addEventListener('resize',function(){
+                        wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
+                    })
+                })(this.WrapperDOM,this);
+            }
 
         }
 
@@ -116,8 +131,20 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
             return (
                 <div  className = "CardView-Wrapper">
-                    <button className = "CardView-Hover-Left" onClick = {this.HandleClickLeft}></button>
-                    <button className = "CardView-Hover-Right" onClick = {this.HandleClickRight}></button>
+                    <button className = "CardView-Hover-Left" 
+                        onClick = {this.HandleClickLeft}
+                        style = {{top :  this.props.buttonTop }}>
+                        <svg className = 'CardView-Hover-Arrrow' xmlns="http://www.w3.org/2000/svg" width="14.484" height="26.139" viewBox="0 0 14.484 26.139">
+                        <path id="icon_prev" d="M1213.814,697.353l-11.655,11.655,11.655,11.655" transform="translate(-1200.745 -695.939)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <button className = "CardView-Hover-Right" 
+                        onClick = {this.HandleClickRight}
+                        style = {{top :  this.props.buttonTop}}>
+                        <svg className = 'CardView-Hover-Arrrow' xmlns="http://www.w3.org/2000/svg" width="14.484" height="26.139" viewBox="0 0 14.484 26.139">
+                        <path id="icon_next" d="M1213.814,697.353l-11.655,11.655,11.655,11.655" transform="translate(1215.228 722.078) rotate(180)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+                        </svg>
+                    </button>
                     <div ref = {this.wrapperRef} className = "CardView-Section">
                         {
                             this.state.data ? this.state.data.map((e)=>{
