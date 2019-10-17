@@ -72,8 +72,13 @@
 }
 .detail-title-contents-wrapper{
     width: 100%;
-    text-align: justify;
     margin-bottom: 46.5px;
+}
+
+.detail-title-flex{
+    width : 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -83,6 +88,9 @@
     vertical-align: top;;
 
     margin-top:-5px;
+}
+.detail-button-flex{
+    display:flex;
 }
 
 .detail-favorite-button{
