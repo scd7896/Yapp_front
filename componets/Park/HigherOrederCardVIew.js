@@ -79,6 +79,10 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
         }
 
+        checkMobile(){
+            return window.innerWidth <= 767;
+        }
+
 
         animatedScroll(target, endOffset, scrollDuration) {
 
@@ -145,9 +149,6 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                 }
             }
 
-            
-
- 
         }
 
         componentWillMount(){
@@ -165,13 +166,30 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
             }
             else{
+
+                // resize 시 새로 렌더링된 반응형 화면에 맞게 스크롤 위치를 렌더링한다.
+
                 (function(wrapperDom,_this){
                     window.addEventListener('resize',function(){
                         _this.scrollMutex = 0;
-                        wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
+
+                        if(! _this.checkMobile()){
+                            wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
+                        }
+                        else{
+                            if(_this.curContents == 0){
+                                wrapperDom.scrollLeft = 0;
+                            }
+                            else{
+                                wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
+                            }
+                        }
                     })
                 })(this.WrapperDOM,this);
             }
+
+
+            //터치 swipe 제어
 
 
 
