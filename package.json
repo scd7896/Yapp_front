@@ -27,6 +27,7 @@
     "react-select-plus": "^1.0.0-rc.3.patch12",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
+    "ssuggestor": "^1.0.0",
     "xmlhttprequest": "^1.8.0"
   },
   "browser": {
