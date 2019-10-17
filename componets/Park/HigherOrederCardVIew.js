@@ -18,6 +18,10 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
             
             this.curContents = 0;
+
+
+            //scroll 버튼을 누르면 스크롤 뮤텍스를 취득하지만, 화면 resize에 의해 mutex를 박탈당할수 있다.
+            this.scrollMutex = 0;
         }
 
         getNextDataFromServer(callback){
@@ -76,28 +80,72 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
         }
 
 
+        animatedScroll(target, endOffset, scrollDuration) {
+
+            //scroll 버튼을 누르면 스크롤 뮤텍스를 취득하지만, 화면 resize에 의해 mutex를 박탈당하며, 그 즉시 그와 관련된 행동을 중지해야한다.
+
+            ((_this) => {
+                var cosParameter = (endOffset - target.scrollLeft)/ 2,
+                start = target.scrollLeft,
+                scrollCount = 0,
+                oldTimestamp = performance.now();
+                function step (newTimestamp) {
+
+                    if(_this.scrollMutex == 1){
+                        scrollCount += Math.PI / (scrollDuration / (newTimestamp - oldTimestamp));
+                        if (scrollCount >= Math.PI) {
+                            target.scrollLeft = endOffset;
+                            _this.scrollMutex = 0;
+                            return;
+                        }
+                        console.log(scrollCount);
+    
+                        target.scrollLeft = start + Math.round(cosParameter - cosParameter * Math.cos(scrollCount));
+                        oldTimestamp = newTimestamp;
+                        window.requestAnimationFrame(step);
+                    }
+                    else{
+                            //scroll 버튼을 누르면 스크롤 뮤텍스를 취득하지만, 화면 resize에 의해 mutex를 박탈당할수 있다.
+                        return;
+                    }
+
+                }
+                window.requestAnimationFrame(step);
+            })(this);
+        
+
+        }
+
 
         HandleClickLeft(e){
 
-            if(this.curContents > 0)
-                this.curContents --;
-
-            this.WrapperDOM.scrollLeft = this.WrapperDOM.children[this.curContents].offsetLeft;
-
+            if(this.scrollMutex == 0){
+                this.scrollMutex = 1;
+                if(this.curContents > 0)
+                    this.curContents --;
+                
+                this.animatedScroll(this.WrapperDOM, this.WrapperDOM.children[this.curContents].offsetLeft, 700);
+            }
 
         }
         HandleClickRight(e){
-            
-            this.curContents ++;
 
-            if(this.curContents >= this.state.data.length - 3){
-                this.getNextDataFromServer(function(){
-                    this.WrapperDOM.scrollLeft = this.WrapperDOM.children[this.curContents].offsetLeft;
-                })
+            if(this.scrollMutex == 0){
+                this.scrollMutex = 1;
+
+                this.curContents ++;
+
+                if(this.curContents >= this.state.data.length - 3){
+                    this.getNextDataFromServer(function(){
+                        this.animatedScroll(this.WrapperDOM, this.WrapperDOM.children[this.curContents].offsetLeft, 700);
+                    })
+                }
+                else{
+                    this.animatedScroll(this.WrapperDOM, this.WrapperDOM.children[this.curContents].offsetLeft, 700);
+                }
             }
-            else{
-                this.WrapperDOM.scrollLeft = this.WrapperDOM.children[this.curContents].offsetLeft;
-            }
+
+            
 
  
         }
@@ -119,10 +167,13 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
             else{
                 (function(wrapperDom,_this){
                     window.addEventListener('resize',function(){
+                        _this.scrollMutex = 0;
                         wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
                     })
                 })(this.WrapperDOM,this);
             }
+
+
 
         }
 
