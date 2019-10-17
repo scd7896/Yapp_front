@@ -1,5 +1,6 @@
 //props.type - big, small
 //props.jobgroup - developer, designer, planner
+//props.toggle (props.type이 big일 때만 적용이 보장됨) - on, off , default 
 //props.number - 1,2,3... (optional)
 
 import '../../css/Park/JobGroupCardView.scss';
@@ -21,12 +22,12 @@ export default (props) => {
     var designer_svg = (
         <svg xmlns="http://www.w3.org/2000/svg" width={svg_size} height={svg_size} viewBox="0 0 94 94">
         <g id="그룹_1967" data-name="그룹 1967" transform="translate(-438 -1436)">
-            <circle id="타원_271" data-name="타원 271" cx="47" cy="47" r="47" transform="translate(438 1436)" fill={svg_color}/>
+            <circle id="타원_271" data-name="타원 271" cx="47" cy="47" r="47" transform="translate(438 1436)" fill={props.toggle == 'off' ?  '#f5f7fa' : svg_color}/>
             <g id="그룹_1894" data-name="그룹 1894" transform="translate(-592.863 967.411)">
-            <line id="선_181" data-name="선 181" x2="12.057" y2="12.057" transform="translate(1058.354 497.191)" fill="none" stroke="#7adfbe" stroke-miterlimit="10" stroke-width="3"/>
-            <path id="패스_1740" data-name="패스 1740" d="M1094.608,512.659l-20.785,20.785-15.937-13.306.468-22.948,22.948-.468Z" fill="none" stroke="#5963f5" stroke-miterlimit="10" stroke-width="3"/>
-            <rect id="사각형_2770" data-name="사각형 2770" width="33.924" height="5.774" transform="translate(1075.098 538.373) rotate(-45)" fill="none" stroke="#7adfbe" stroke-miterlimit="10" stroke-width="3"/>
-            <circle id="타원_270" data-name="타원 270" cx="2.121" cy="2.121" r="2.121" transform="translate(1069.164 508)" fill="none" stroke="#5963f5" stroke-miterlimit="10" stroke-width="3"/>
+            <line id="선_181" data-name="선 181" x2="12.057" y2="12.057" transform="translate(1058.354 497.191)" fill="none" stroke={props.toggle == 'off' ? '#b9b9b9' :"#7adfbe"} stroke-miterlimit="10" stroke-width="3"/>
+            <path id="패스_1740" data-name="패스 1740" d="M1094.608,512.659l-20.785,20.785-15.937-13.306.468-22.948,22.948-.468Z" fill="none" stroke={props.toggle == 'off' ? '#b9b9b9' :"#5963f5"} stroke-miterlimit="10" stroke-width="3"/>
+            <rect id="사각형_2770" data-name="사각형 2770" width="33.924" height="5.774" transform="translate(1075.098 538.373) rotate(-45)" fill="none" stroke={props.toggle == 'off' ? '#b9b9b9' :"#7adfbe"}stroke-miterlimit="10" stroke-width="3"/>
+            <circle id="타원_270" data-name="타원 270" cx="2.121" cy="2.121" r="2.121" transform="translate(1069.164 508)" fill="none" stroke={props.toggle == 'off' ? '#b9b9b9' :"#5963f5"} stroke-miterlimit="10" stroke-width="3"/>
             </g>
         </g>
         </svg>
@@ -82,12 +83,14 @@ export default (props) => {
     }
 
     return (
-        <div className = {'jobgroup-cardview-wrapper-' + props.type}>
-            <div className = {'jobgroup-cardview-svg-' + props.type}>
-                {cur_svg}
-            </div>
-            <div className = 'jobgroup-cardview-title'>
-                {cur_jobgruop}
+        <div className = {'jobgroup-cardview jobgroup-cardview-wrapper-' + props.type}>
+            <div className = {'jobgroup-cardview-toggle-' + (props.toggle ? props.toggle : 'default')}>
+                <div className = {'jobgroup-cardview-svg-' + props.type}>
+                    {cur_svg}
+                </div>
+                <div className = 'jobgroup-cardview-title'>
+                    {cur_jobgruop}
+                </div>
             </div>
         </div>
     )
