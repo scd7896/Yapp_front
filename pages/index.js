@@ -80,7 +80,7 @@ const Index = ()=>{
                         </div>
                         <div id = "nice_recruitment_container">
                             <p id = "nice_recruitment_text">인기 모집글</p>
-                            <KeywordCardViewSection scrollSize = {414} />
+                            <KeywordCardViewSection buttonTop = {170} />
                         </div> 
                     </div>
                        
@@ -93,7 +93,7 @@ const Index = ()=>{
                         <span id = "post_text_more">더보기</span>
                     </div>
                     <div id = "card_view_section_container">
-                        <PostCardViewSection scrollSize = {610} />
+                        <PostCardViewSection buttonTop = {107} />
                     </div>
                     
                 </div>
