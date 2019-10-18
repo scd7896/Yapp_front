@@ -1,0 +1,17 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.rect {
+  width: 74px;
+  height: 74px;
+  background-color: #f5f7fa;
+}
+.circle {
+  width: 102px;
+  height: 102px;
+  border-radius: 94px;
+  background-color: #f5f7fa;
+}
