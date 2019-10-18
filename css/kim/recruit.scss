@@ -1,11 +1,11 @@
-#reqcruit_root{
-    background: #f5f7fa;
-    padding-top : 50px;
+#reqcruit_root {
+  background: #f5f7fa;
+  padding-top: 50px;
 }
 
-#project_serch_text{
-  padding-top : 100px;
-  font-family: 'Montserrat';
+#project_serch_text {
+  padding-top: 100px;
+  font-family: "Montserrat";
   font-size: 38px;
   font-weight: 500;
   font-style: normal;
@@ -15,25 +15,28 @@
   text-align: left;
   color: #000000;
 }
-#keyword_container{
-    margin-top : 89px;
+#keyword_container {
+  margin-top: 89px;
 }
-#keyword_text{
-    height: 33px;
-    font-family: 'Montserrat';
-    font-size: 28px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.21;
-    letter-spacing: -1.4px;
-    text-align: left;
-    color: #1f254b;
+#keyword_text {
+  height: 33px;
+  font-family: "Montserrat";
+  font-size: 28px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.21;
+  letter-spacing: -1.4px;
+  text-align: left;
+  color: #1f254b;
 }
-#keyword_card_container{
-    text-align: center;
+#keyword_card_container {
+  text-align: center;
 }
-#recruit_card_container{
-    margin-top : 140px;
-    text-align: center;
+#recruit_card_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 140px;
+  text-align: center;
 }
