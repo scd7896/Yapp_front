@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "next build",
-    "start": "next start"
+    "build": "cross-env ANALYZE=true next build",
+    "prestart": "npm run build",
+    "start": "cross-env NODE_ENV=production PORT=80 pm2 start server.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,12 +15,14 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.0",
+    "cross-env": "^6.0.3",
     "express": "^4.17.1",
     "immer": "^3.2.0",
     "next": "^9.0.5",
     "next-redux-wrapper": "^3.0.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.2",
+    "pm2": "^4.1.2",
     "react": "^16.9.0",
     "react-awesome-modal": "^2.0.5",
     "react-dom": "^16.9.0",
@@ -27,6 +30,7 @@
     "react-select-plus": "^1.0.0-rc.3.patch12",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
+    "ssuggestor": "^1.0.0",
     "xmlhttprequest": "^1.8.0"
   },
   "browser": {

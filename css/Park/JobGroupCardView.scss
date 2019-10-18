@@ -1,20 +1,56 @@
 @import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 
+.jobgroup-cardview{
+
+}
+
+.jobgroup-cardview-wrapper-big .jobgroup-cardview-toggle-default{
+    width: 100%;
+    height: 100%;
+    border: solid 1px #e5e5e5;
+}
+
+.jobgroup-cardview-wrapper-big .jobgroup-cardview-toggle-on{
+    width: 100%;
+    height: 100%;
+    border: solid 1px #5c63ff;
+}
+
+.jobgroup-cardview-wrapper-big .jobgroup-cardview-toggle-on .jobgroup-cardview-title{
+    color: #5c63ff;
+}
+
+.jobgroup-cardview-wrapper-big .jobgroup-cardview-toggle-off{
+    width: 100%;
+    height: 100%;
+    border: solid 1px #b9b9b9
+}
+
+.jobgroup-cardview-wrapper-big .jobgroup-cardview-toggle-off .jobgroup-cardview-title{
+    color: #b9b9b9;
+}
+
 .jobgroup-cardview-wrapper-big{
     width: 168px;
     height: 168px;
 
-    border: solid 1px #e5e5e5;
+    
     background-color: #ffffff;
 
     display: inline-block;
+
+    margin-right: 14px;
 }
 
 .jobgroup-cardview-wrapper-small{
     height: 154px;
     width : 102px;
-    background-color: #ffffff;
+    background-color: #ffffff ;
     display: inline-block;
+
+    border: solid 0px !important;
+
+    margin-right: 59px;
 }
 
 .jobgroup-cardview-svg-big{

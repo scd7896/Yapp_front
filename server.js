@@ -3,7 +3,7 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({dev})
 const handle = app.getRequestHandler()
-
+const prod = process.env.NODE_ENV === 'production';
 app.prepare().then(()=>{
     const server = express()
     server.use(express.json())
@@ -14,7 +14,7 @@ app.prepare().then(()=>{
     server.get('*',(req, res)=>{
         return handle(req,res);
     })
-    server.listen(10023,()=>{
+    server.listen(prod? process.env.PORT : 10023,()=>{
         console.log('프론트 서버는 10023')
     })
 })
