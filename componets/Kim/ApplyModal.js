@@ -22,7 +22,7 @@ const ApplyModal = ({data})=>{
     }
     return(
         <div className = "container" >
-            <Modal width = "62.5%" visible = {visible} effect="fadeInUp">
+            <Modal visible = {visible} effect="fadeInUp">
                 <div id = "modal_container">
                     {applyModalLevel <=2 ?    
                         <div>
