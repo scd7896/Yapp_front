@@ -2,13 +2,10 @@ import React,{useEffect} from 'react'
 
 import '../css/park/detail.scss'
 import '../css/container.scss'
-import JobGroupCardView from '../componets/Park/JobGroupCardView'
-import DetailQnA from '../componets/Park/DetailQnA'
+import JobGroupCardView from './Park/JobGroupCardView'
+import DetailQnA from './Park/DetailQnA'
 
 class Detail extends React.Component{
-    static async getInitialProps(ctx){
-        return {}
-    }
 
     constructor(props){
         super(props);
@@ -79,7 +76,7 @@ class Detail extends React.Component{
 
                 <div className = 'detail-recruit-container container'>
                     <div className = 'detail-recruit-title  detail-block-title'>모집 직군</div>
-                    <JobGroupCardView type = 'big' jobgroup = 'designer' toggle = 'off'/>
+                    <JobGroupCardView type = 'big' jobgroup = 'designer' toggle = 'default'/>
                 </div>
 
                 <div className = 'detail-curmember-container container'>
