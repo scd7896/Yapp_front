@@ -29,11 +29,12 @@ textarea {
 //===================================
 
 .enroll_container {
-  padding: 72px 6.4%;
+  padding: 72px 5.8%;
   background-color: white;
   margin-bottom: 71px;
 
   & p {
+    margin-bottom: 14px;
     font-family: Montserrat;
     font-size: 26px;
     font-weight: 300;
@@ -109,7 +110,6 @@ textarea {
     border: none;
     border-bottom: 1px solid #b9b9b9;
     width: 98.5%;
-    padding-bottom: 20.5px;
     padding-left: 1.5%;
 
     font-family: Montserrat;
@@ -177,7 +177,7 @@ textarea {
 
 .QnA_title {
   background-color: white;
-  padding: 43px 40.5px;
+  padding: 43px 5.8%;
   border-bottom: 1.5px solid #f5f7fa;
 
   & h3 {
@@ -193,7 +193,14 @@ textarea {
   }
 }
 .QnA_container {
-  padding: 43px 40.5px;
+  padding: 43px 5.8%;
   background-color: white;
   margin-bottom: 71px;
+}
+
+//모바일 환경
+@media (max-width: 767px) {
+  .project_img .multerBox {
+    width: 100%;
+  }
 }

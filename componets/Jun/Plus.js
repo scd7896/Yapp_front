@@ -1,9 +1,19 @@
-import "../../css/Jun/enrollment_plus.scss";
+import React, { useState } from "react";
 import classNames from "classnames";
 
-function Plus({ shape, toggle }) {
+import "../../css/Jun/enrollment_plus.scss";
+
+function Plus({ shape }) {
+  const [number, setNumber] = useState(1);
+  const [open, setOpen] = useState(false);
+
+  const onIncrease = () => {
+    setNumber(number + 1);
+    setOpen(!open);
+  };
+
   return (
-    <div className={classNames("center", shape)}>
+    <div className={classNames("center", shape)} onClick={onIncrease}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="34"

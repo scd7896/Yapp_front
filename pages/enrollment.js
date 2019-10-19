@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import JobGroupCardView from "../componets/Park/JobGroupCardView";
 import Question from "../componets/Jun/Question";
 import Plus from "../componets/Jun/Plus";
@@ -7,6 +7,7 @@ import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
 
 const enrollment = () => {
+  console.log(Plus);
   return (
     <div className="container">
       <h1>모집글 작성</h1>
@@ -141,8 +142,8 @@ const enrollment = () => {
         <span id="toggle"></span>
       </div>
       <div className="QnA_container">
-        <Question num="1" />
-        <Plus shape="rect" toggle="false" />
+        <Question num={number} />
+        <Plus shape="rect" />
       </div>
     </div>
   );
