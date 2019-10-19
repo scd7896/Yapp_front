@@ -15,9 +15,9 @@ function Plus({ shape, toggle }) {
           data-name="+"
           transform="translate(0 59)"
           fill="#b9b9b9"
-          font-size="55"
-          font-family="SegoeUI, Segoe UI"
-          letter-spacing="-0.05em"
+          fontSize="55"
+          fontFamily="SegoeUI, Segoe UI"
+          letterSpacing="-0.05em"
         >
           <tspan x="0" y="0">
             +

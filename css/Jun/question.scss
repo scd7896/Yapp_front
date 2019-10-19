@@ -1,0 +1,49 @@
+.question_section {
+  margin-bottom: 45px;
+}
+.question_num {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 26px;
+
+  & h6 {
+    font-family: Futura;
+    font-size: 36px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: -1.8px;
+    text-align: left;
+    color: #1f254b;
+  }
+  & span {
+    font-family: Futura;
+    font-size: 36px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: -1.8px;
+    text-align: left;
+    color: #4244ff;
+  }
+}
+
+input {
+  display: flex;
+  align-items: flex-start;
+  width: 98%;
+  height: 96px;
+  padding-left: 2%;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: -1.6px;
+  text-align: left;
+  color: #b9b9b9;
+}

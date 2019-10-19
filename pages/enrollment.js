@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import JobGroupCardView from "../componets/Park/JobGroupCardView";
 import Question from "../componets/Jun/Question";
 import Plus from "../componets/Jun/Plus";
@@ -40,8 +40,8 @@ const enrollment = () => {
                   transform="translate(1240.958 357.5) rotate(90)"
                   fill="none"
                   stroke="#b9b9b9"
-                  stroke-miterlimit="10"
-                  stroke-width="2"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
                 />
                 <path
                   id="패스_1745"
@@ -50,8 +50,8 @@ const enrollment = () => {
                   transform="translate(-9.506 -5.481)"
                   fill="none"
                   stroke="#b9b9b9"
-                  stroke-miterlimit="10"
-                  stroke-width="2"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
                 />
                 <circle
                   id="타원_278"
@@ -62,8 +62,8 @@ const enrollment = () => {
                   transform="translate(1202.358 364.348)"
                   fill="none"
                   stroke="#b9b9b9"
-                  stroke-miterlimit="10"
-                  stroke-width="2"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
                 />
                 <path
                   id="패스_1746"
@@ -72,8 +72,8 @@ const enrollment = () => {
                   transform="translate(-3.233 -8.263)"
                   fill="none"
                   stroke="#b9b9b9"
-                  stroke-miterlimit="10"
-                  stroke-width="2"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
                 />
               </g>
             </svg>
