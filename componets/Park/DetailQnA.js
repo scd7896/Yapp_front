@@ -79,11 +79,13 @@ export default class DetailQnA extends React.Component{
                 <div className = 'detail-qna-container container'>
                     <div className = 'detail-qna-title'>Q&A</div>
                     <div className = 'detail-qna-input-container'>
-                        <div className = 'detail-qna-input-wrapper'>
-                            <textarea className = 'detail-qna-input' value = {this.state.value} onChange={this.handleChange} placeholder = '프로젝트에 궁금한 점을 남겨주세요'/>
-                        </div>
-                        <div className = 'detail-qna-submit'>
-                            댓글달기
+                        <div className = 'detail-qna-input-flex'>
+                            <div className = 'detail-qna-input-wrapper'>
+                                <textarea className = 'detail-qna-input' value = {this.state.value} onChange={this.handleChange} placeholder = '프로젝트에 궁금한 점을 남겨주세요'/>
+                            </div>
+                            <div className = 'detail-qna-submit'>
+                                댓글달기
+                            </div>
                         </div>
                     </div>
                     <div className = 'detail-qna-contents'>

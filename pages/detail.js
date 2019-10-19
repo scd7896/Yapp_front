@@ -79,7 +79,7 @@ class Detail extends React.Component{
 
                 <div className = 'detail-recruit-container container'>
                     <div className = 'detail-recruit-title  detail-block-title'>모집 직군</div>
-                    <JobGroupCardView type = 'big' jobgroup = 'designer' toggle = 'default'/>
+                    <JobGroupCardView type = 'big' jobgroup = 'designer' toggle = 'off'/>
                 </div>
 
                 <div className = 'detail-curmember-container container'>
