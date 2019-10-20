@@ -2,35 +2,58 @@
   background-color: #f5f7fa;
   width: 100%;
 }
-#header_input_container {
-  position: absolute;
-  bottom: -47px;
-  width: 830px;
-  height: 93px;
-  background: #ffffff;
-  box-shadow: 5px 7px 33px 0 rgba(0, 0, 0, 0.13);
-}
 #header_container {
   position: relative;
   background: #5c5cff;
 }
-#header_input_icon_container {
-  float: left;
-  width: 71px;
-  height: 94px;
-  text-align: center;
-}
-#header_input_icon {
-  margin-top: 25px;
-}
 #header {
-  padding-bottom: 50px;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 80px;
 }
 
-#header_input_button {
-  display: inline-block;
-  width: 170px;
-  height: 50px;
+#header_input_container {
+  position: relative;
+  padding: 12px 1.5%;
+  width: 80%;
+  height: 75px;
+  margin: 0 auto;
+  margin-top: -47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 5px 7px 33px 0 rgba(0, 0, 0, 0.13);
+}
+#header_inputIcon {
+  width: 8.6%;
+  text-align: center;
+  & img {
+    width: 30px;
+    height: 36px;
+  }
+}
+#header_inputBox {
+  width: 100%;
+
+  & input {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: left;
+    color: #666666;
+    border: none;
+  }
+}
+
+#header_inputButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20.5%;
+  height: 100%;
   background-color: #1f254b;
   font-size: 24px;
   font-weight: 500;
@@ -39,20 +62,9 @@
   line-height: 1.21;
   letter-spacing: -1.2px;
   text-align: center;
-  padding-top: 20px;
   color: #ffffff;
 }
-#header_input {
-  width: 571px;
-  height: 90px;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  text-align: left;
-  color: #666666;
-  border: none;
-}
+
 #index_body {
   text-align: center;
 }
@@ -63,8 +75,7 @@
 }
 
 #post_text_head {
-  height: 56px;
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 38px;
   font-weight: 500;
   font-style: normal;
@@ -74,12 +85,9 @@
   text-align: left;
   color: #333333;
 }
-#post_text_sub_container {
-  margin-top: -34px;
-}
 #post_text_sub {
   height: 33px;
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 22px;
   font-weight: normal;
   font-style: normal;
@@ -96,7 +104,7 @@
   margin-left: 12px;
   width: 59px;
   height: 33px;
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 22px;
   font-weight: 500;
   font-style: normal;
@@ -118,7 +126,7 @@
   box-shadow: 5px 7px 33px 0 rgba(0, 0, 0, 0.13);
   margin-left: -5%;
   background-color: #5c5cff;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   font-weight: 500;
   font-style: normal;
@@ -131,8 +139,8 @@
 
 #keyword_search_text {
   margin-top: 170px;
-
-  font-family: "SourceHanSansK";
+  margin-bottom: 68px;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 38px;
   font-weight: 500;
   font-style: normal;
@@ -144,9 +152,8 @@
 }
 #header_in_text {
   margin-top: 150px;
-
   height: 224px;
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 45px;
   font-weight: 500;
   font-style: normal;
@@ -183,7 +190,7 @@
 }
 
 #nice_recruitment_text {
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 38px;
   font-weight: 500;
   font-style: normal;
@@ -193,18 +200,18 @@
   text-align: left;
   color: #333333;
   margin-top: 103px;
+  margin-bottom: 68px;
 }
 
 #best_projects_container {
   text-align: left;
-  background: white;
 }
 
 #footer_container {
   text-align: center;
 }
 #best_project_title {
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 38px;
   font-weight: 500;
   font-style: normal;
@@ -217,7 +224,7 @@
 }
 
 #best_project_text {
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 18px;
   font-weight: normal;
   font-style: normal;
@@ -231,7 +238,6 @@
   text-align: left;
 }
 #best_project_text_container {
-  margin-top: -30px;
   margin-bottom: 83px;
 }
 
@@ -242,8 +248,8 @@
   text-align: left;
   margin-top: 125px;
 }
-#banner_image{
-    width: 100%;
-    height: 110px;
-    object-fit: contain;
+#banner_image {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
 }

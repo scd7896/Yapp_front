@@ -7,6 +7,9 @@ import "../css/container.scss";
 
 const NavBar = () => {
   const { selectPage } = useSelector(state => state.button);
+  const { user } = useSelector(state => state);
+  console.log(user)
+  
   const routeToMain = () => {
     Router.push("/");
   };
@@ -52,7 +55,17 @@ const NavBar = () => {
               프로젝트 후기
             </a>
           </span>
-          <span className="nav_png">
+
+          <span id = "nav_login_signup_container" style ={user.userId ? {display : "none"}:{display : 'block'}}>
+            <a
+              id ="nav_login_signup"
+              href = "/login"
+            >
+              로그인 / 회원가입
+            </a>
+          </span>
+          
+          <span className="nav_png" style = {!user.userId ?{display : "none"} :{}}>
             <button>
               <img
                 style={{ width: "25px", height: "32px" }}
@@ -66,9 +79,11 @@ const NavBar = () => {
               />
             </button>
           </span>
-          <span className="nav_button">
+
+          <span className="nav_button" style = {!user.userId ?{display : "none"} :{}} >
             <button>모집글 작성 ></button>
-          </span>
+          </span> 
+          
         </div>
         <div className="nav_right_mobile">
           <svg

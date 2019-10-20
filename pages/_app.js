@@ -18,6 +18,11 @@ class MyApp extends App {
       ? await Component.getInitialProps(ctx)
       : {};
     //getInitialProps 가 서버사이드렌더링 효과를 줄수 있게 도와주는거에요
+    if(ctx.isServer){
+      console.log(ctx.req.headers.cookie)
+    }
+    
+    
     pageProps.query = ctx.query;
     return { pageProps };
   }
@@ -26,8 +31,10 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <Head>
-          
-          <meta content="width=device-width,minimum-scale=1.0" name="viewport"/>
+          <meta
+            content="width=device-width,minimum-scale=1.0"
+            name="viewport"
+          />
           <meta charSet="utf-8" />
           <link
             rel="stylesheet"
@@ -40,10 +47,9 @@ class MyApp extends App {
           ></link>
           {/* google web font Noto Sans */}
           <link
-            href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean"
+            href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
             rel="stylesheet"
           ></link>
-
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         </Head>
 

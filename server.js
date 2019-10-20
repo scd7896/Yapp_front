@@ -11,6 +11,7 @@ app.prepare().then(()=>{
     server.get('/', (req,res)=>{
         return app.render(req,res, '/',{});
     })
+    
     server.get('*',(req, res)=>{
         return handle(req,res);
     })
