@@ -1,0 +1,144 @@
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+
+.mypage{
+    width: 100%;
+    height: 100%;
+}
+
+.mypage-sub-container{
+    padding-left : 11.8%;
+    padding-right: 11.8%;
+}
+
+.mypage-profile-section{
+    border-bottom:  solid 1px #E5E5E5;
+    width : 100%;
+    height: 295.5px;
+    background-color: #ffffff;
+    
+}
+
+.mypage-profile-flex{
+    
+    display: flex;
+}
+
+.mypage-profile-picture{
+    margin-top : 88px;
+    width: 148px;
+    height: 148px;
+
+    border-radius: 100%;
+    display: inline-block;
+
+    background-color: #f5f7fa;
+}
+
+.mypage-profile-detail{
+    margin-top : 88px;
+    margin-left : 41px;
+    display: inline-block;
+}
+
+.mypage-profile-nickname{
+    height: 47px;
+    font-family: "Noto Sans KR";
+    font-size: 32px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: -1.6px;
+    text-align: left;
+    color: #333333;
+}
+
+.mypage-profile-id{
+    height: 33px;
+    font-family: "Noto Sans KR";
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: left;
+    color: #666666;
+
+    margin-top: 5px;
+}
+
+.mypage-profile-edit-button{
+    width: 125px;
+    height: 39px;
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+    text-align: center;
+
+    padding-top : 9px;
+
+    font-family: "Noto Sans KR";
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    
+    color: #666666;
+
+    margin-top : 22px;
+}
+
+.mypage-tabs-container{
+    text-align: center;
+
+    height: 95.5px;
+}
+
+.mypage-tab{
+    width : 25%;
+    height: 100%;
+    display : inline-block;
+    text-align: center;
+}
+
+.mypage-tab-text{
+    margin-top : 33.5px;
+}
+
+.mypage-tab-active{
+    border-bottom : solid 3px #5c63ff;
+}
+
+.mypage-tab-active .mypage-tab-text{
+    height: 33px;
+    font-family: "Noto Sans KR";
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: center;
+    color: #5c63ff;
+}
+
+.mypage-tab-inactive .mypage-tab-text{
+    height: 33px;
+    font-family: "Noto Sans KR";
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: center;
+    color: #333333;
+}
+
+.mypage-bottom-section-bg{
+    background-color: #f5f7fa;
+    min-height: 64.3%;
+    width: 100%;
+}
