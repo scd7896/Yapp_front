@@ -2,13 +2,10 @@ import React,{useEffect} from 'react'
 
 import '../css/park/detail.scss'
 import '../css/container.scss'
-import JobGroupCardView from '../componets/Park/JobGroupCardView'
-import DetailQnA from '../componets/Park/DetailQnA'
+import JobGroupCardView from './Park/JobGroupCardView'
+import DetailQnA from './Park/DetailQnA'
 
 class Detail extends React.Component{
-    static async getInitialProps(ctx){
-        return {}
-    }
 
     constructor(props){
         super(props);
