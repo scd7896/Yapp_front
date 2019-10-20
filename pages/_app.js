@@ -12,12 +12,27 @@ import rootSaga from "../saga";
 import reducer from "../reducer";
 
 import "../css/wrraper.scss";
+import { GET_MYDATA_REQUEST } from "../action";
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
       : {};
     //getInitialProps 가 서버사이드렌더링 효과를 줄수 있게 도와주는거에요
+    const userToken = ctx.isServer? ctx.req.headers.cookie :'';
+
+    if(ctx.isServer){
+      console.log(ctx.req.headers.cookie)
+    }
+
+    const me = ctx.store.getState().user
+    if(!me.userId){
+      ctx.store.dispatch({
+        type : GET_MYDATA_REQUEST,
+        data : userToken
+      })
+    }
+    
     pageProps.query = ctx.query;
     return { pageProps };
   }

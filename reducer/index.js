@@ -7,10 +7,12 @@ import {combineReducers} from 'redux'
 import test from './test'
 import button from './button'
 import apply from './apply'
+import user from './user'
 const rootReducer = combineReducers({
     test,
     apply,
-    button
+    button,
+    user
 })
 
 export default rootReducer
