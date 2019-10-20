@@ -4,6 +4,16 @@ import '../../css/Park/mypage.scss';
 import '../../css/MyPage/MyPageRecruit.scss';
 
 class MyPageRecruit extends React.Component{
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            recruit : [
+                
+            ]
+        }
+    }
     
     render(){
         return (
