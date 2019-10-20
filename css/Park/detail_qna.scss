@@ -1,285 +1,278 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 
-.detail-qna-wrapper{
-    width : 100%;
-    padding-top: 58px;
-    background-color: #f5f7fa;
+.detail-qna-wrapper {
+  width: 100%;
+  padding-top: 58px;
+  background-color: #f5f7fa;
 
-    padding-bottom : 134px;
+  padding-bottom: 134px;
 }
 
+.detail-qna-title {
+  height: 44px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.22;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #333333;
 
-.detail-qna-title{
-    height: 44px;
-    font-family: 'Montserrat', sans-serif;;
-    font-size: 36px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.22;
-    letter-spacing: -1.8px;
-    text-align: left;
-    color: #333333;
-
-    display: block;
+  display: block;
 }
 
-.detail-qna-input-flex{
-    display : flex;
+.detail-qna-input-flex {
+  display: flex;
 }
 
-.detail-qna-input-wrapper{
-    width: calc(100% - 64px);
-    height: 72px;
-    background-color: #ffffff;
+.detail-qna-input-wrapper {
+  width: calc(100% - 64px);
+  height: 72px;
+  background-color: #ffffff;
 
-    display: inline-block;
-
-
+  display: inline-block;
 }
 
-.detail-qna-submit{
-    width: 170px;
-    height: 50px;
-    background-color: #5c63ff;
-    padding-top : 22px;
-    text-align:  center;
+.detail-qna-submit {
+  width: 170px;
+  height: 50px;
+  background-color: #5c63ff;
+  padding-top: 22px;
+  text-align: center;
 
-    font-family: 'Montserrat';
+  font-family: "Montserrat", sans-serif;
 
-    font-size: 24px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.21;
-    letter-spacing: -1.2px;
-    color: #ffffff;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.21;
+  letter-spacing: -1.2px;
+  color: #ffffff;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    display: inline-block;
+  display: inline-block;
 }
 
-.detail-qna-input{
-    resize: none;
-    margin-top : 21px;
+.detail-qna-input {
+  resize: none;
+  margin-top: 21px;
 
-    border : 0px;
-    height: 30px;
-    width: calc(100% - 64px);
+  border: 0px;
+  height: 30px;
+  width: calc(100% - 64px);
 
-    overflow: hidden;
+  overflow: hidden;
 
-    white-space: nowrap;    
+  white-space: nowrap;
 
-    font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
-    font-size: 24px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.21;
-    letter-spacing: -1.2px;
-    text-align: left;
-    color: #666666;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.21;
+  letter-spacing: -1.2px;
+  text-align: left;
+  color: #666666;
 
-    
-    margin-left : 32px;
-    margin-right : 32px;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
-.detail-qna-input:focus{
-    outline: 0px;
+.detail-qna-input:focus {
+  outline: 0px;
 }
 
-.detail-qna-input-container{
-    
-    margin-top : 65px;
-    display: block;
-    width: 100%;
+.detail-qna-input-container {
+  margin-top: 65px;
+  display: block;
+  width: 100%;
 }
 
-.detail-qna-contents{
-    padding-top: 5.5px;
-    background-color: #ffffff;
-    width: 100%;
+.detail-qna-contents {
+  padding-top: 5.5px;
+  background-color: #ffffff;
+  width: 100%;
 
-    margin-top: 48px;
-
+  margin-top: 48px;
 }
 
-.detail-q-wrapper{
-    width: 100%;
-    border-bottom:  solid 1px #E5E5E5;
-    padding-top : 47.5px;
-    padding-bottom: 23.5px;
+.detail-q-wrapper {
+  width: 100%;
+  border-bottom: solid 1px #e5e5e5;
+  padding-top: 47.5px;
+  padding-bottom: 23.5px;
 
-    display:flex;
+  display: flex;
 }
 
-.detail-q{
-    width: 32px;
-    height: 46px;
-    font-family: Futura;
-    font-size: 36px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.31;
-    letter-spacing: -1.8px;
-    text-align: left;
-    color: #1f254b;
+.detail-q {
+  width: 32px;
+  height: 46px;
+  font-family: Futura;
+  font-size: 36px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #1f254b;
 
-    display: inline-block;
+  display: inline-block;
 
-    vertical-align: top;
+  vertical-align: top;
 }
 
-.detail-q-content-wrapper{
-   display: inline-block;
-   margin-left : 29px;
-   width: calc(100% - 61px);
+.detail-q-content-wrapper {
+  display: inline-block;
+  margin-left: 29px;
+  width: calc(100% - 61px);
 }
 
 .detail-name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.22;
-    letter-spacing: -0.9px;
-    text-align: left;
-    color: #333333;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.22;
+  letter-spacing: -0.9px;
+  text-align: left;
+  color: #333333;
 
-    display: block;
+  display: block;
 }
 
-.detail-content{
-    font-family: "Noto Sans KR";
-    
-    font-size: 22px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: -1.1px;
-    text-align: left;
-    color: #333333;
+.detail-content {
+  font-family: "Noto Sans KR";
 
-    margin-top : 9px;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: -1.1px;
+  text-align: left;
+  color: #333333;
 
-    display: block;
+  margin-top: 9px;
+
+  display: block;
 }
 
-.detail-a-stair{
-    margin-left : 18px;
-    width: 26.5px;
-    height: 28.4px;
-    border-left: solid 2px #e5e5e5;
-    border-bottom:  solid 2px #e5e5e5;
+.detail-a-stair {
+  margin-left: 18px;
+  width: 26.5px;
+  height: 28.4px;
+  border-left: solid 2px #e5e5e5;
+  border-bottom: solid 2px #e5e5e5;
 
-    display: inline-block;
+  display: inline-block;
 }
 
-.detail-a{
-    margin-left :27.5px;
+.detail-a {
+  margin-left: 27.5px;
 
-    width: 27px;
-    height: 46px;
-    font-family: Futura;
-    font-size: 36px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.31;
-    letter-spacing: -1.8px;
-    text-align: left;
-    color: #4244ff;
+  width: 27px;
+  height: 46px;
+  font-family: Futura;
+  font-size: 36px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #4244ff;
 
-    display: inline-block;
+  display: inline-block;
 }
 
-.detail-a-content-wrapper{
-    margin-left : 37px;
-    display: inline-block;
+.detail-a-content-wrapper {
+  margin-left: 37px;
+  display: inline-block;
 
-    width: calc(100% - 138px);
+  width: calc(100% - 138px);
 }
 
-.detail-a-wrapper{
-    width: 100%;
-    border-bottom:  solid 1px #E5E5E5;
-    padding-top : 44.5px;
-    padding-bottom: 37.5px;
+.detail-a-wrapper {
+  width: 100%;
+  border-bottom: solid 1px #e5e5e5;
+  padding-top: 44.5px;
+  padding-bottom: 37.5px;
 
-    vertical-align: top;
+  vertical-align: top;
 
-    display: flex;
-    
+  display: flex;
 }
 
-.detail-wrapper-wrapper{
-    width: calc(100% - 90px);
-    margin-left : 45.5px;
-    margin-right: 45.5px;
+.detail-wrapper-wrapper {
+  width: calc(100% - 90px);
+  margin-left: 45.5px;
+  margin-right: 45.5px;
 }
 
-.detail-qna-more{
-    margin-top : -1px;
-    border-top:  solid 1px #E5E5E5;
-    background-color: #ffffff;
-    width: 100%;
+.detail-qna-more {
+  margin-top: -1px;
+  border-top: solid 1px #e5e5e5;
+  background-color: #ffffff;
+  width: 100%;
 
-    height: 88.5px;
-    text-align: center;
+  height: 88.5px;
+  text-align: center;
 }
 
-.detail-qna-more-contents{
-    cursor: pointer;
-    height: 36px;
+.detail-qna-more-contents {
+  cursor: pointer;
+  height: 36px;
 
-    margin-top : 25.5px;
+  margin-top: 25.5px;
 }
 
-.detail-qna-more-qna{
-    height: 29px;
-    font-family: 'Montserrat';
-    font-size: 24px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.21;
-    letter-spacing: -1.2px;
-    text-align: left;
-    color: #5c63ff;
+.detail-qna-more-qna {
+  height: 29px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: -1.2px;
+  text-align: left;
+  color: #5c63ff;
 
-    margin-top : 3px;
+  margin-top: 3px;
 
-    display: inline-block;
+  display: inline-block;
 }
 
-.detail-qna-more-more{
-    height: 36px;
-    font-family: "Noto Sans KR";
-    font-size: 24px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: -1.2px;
-    text-align: left;
-    color: #5c63ff;
+.detail-qna-more-more {
+  height: 36px;
+  font-family: "Noto Sans KR";
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.2px;
+  text-align: left;
+  color: #5c63ff;
 
-    margin-left : 8px;
+  margin-left: 8px;
 
-    display: inline-block;
+  display: inline-block;
 }
 
-.detail-qna-more-plus{
-    margin-top : 8.4px;
-    margin-left : 8.4px;
+.detail-qna-more-plus {
+  margin-top: 8.4px;
+  margin-left: 8.4px;
 
-    display: inline-block;
+  display: inline-block;
 }
