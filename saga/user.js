@@ -8,12 +8,13 @@ function getUserAPI(myCookie){
 }
 function* getUser(action){
     try{
+        console.log('요청 보내짐', action.data)
         const result = yield call(getUserAPI, action.data)
         yield put({
             type : GET_MYDATA_SUCCESS,
-            userToken :'유저토큰',
-            userNickName : "유저이름",
-            userId : "유저아이디"
+            userToken : result.userToken,
+            userNickName : result.userNickName,
+            userId : result.userId
         })
     }catch(e){
         console.error(e)
