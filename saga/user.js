@@ -9,7 +9,9 @@ function getUserAPI(myCookie){
 function* getUser(action){
     try{
         console.log('요청 보내짐', action.data)
+        
         const result = yield call(getUserAPI, action.data)
+        //throw '대단한에러';
         yield put({
             type : GET_MYDATA_SUCCESS,
             userToken : result.userToken,
@@ -30,7 +32,7 @@ function * watchGetUser(){
 }
 export default function* userSaga(){
     yield all([
-    
+        fork(watchGetUser)
 
     ])
 }
