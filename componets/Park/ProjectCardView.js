@@ -1,5 +1,5 @@
 import React from "react";
-
+import Router from 'next/router'
 import "../../css/Park/ProjectCardView.scss";
 const ProjectCardView = props => {
   var jobgroup_main = "개발자",
@@ -27,9 +27,11 @@ const ProjectCardView = props => {
     region = props.data.region;
     time = props.data.time;
   }
-
+  const moveToDetailPage = ()=>{
+    Router.push('/detail/1');
+  }
   return (
-    <div className="project-cardview">
+    <div className="project-cardview" onClick = {moveToDetailPage}>
       <img
         className="project-cardview-banner"
         src="https://www.10wallpaper.com/wallpaper/medium/1909/2019_Planetary_Nebula_Clouds_4K_Universe_medium.jpg"
