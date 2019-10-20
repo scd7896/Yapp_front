@@ -11,6 +11,9 @@ app.prepare().then(()=>{
     server.get('/', (req,res)=>{
         return app.render(req,res, '/',{});
     })
+    server.get('/mypage/:user_id/:routing', (req,res)=>{
+        return app.render(req,res,'/mypage', {user_id : req.params.user_id, routing : req.params.routing})
+    })
     server.get('*',(req, res)=>{
         return handle(req,res);
     })
