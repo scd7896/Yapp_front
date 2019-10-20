@@ -4,21 +4,28 @@ import {useSelector, useDispatch} from 'react-redux'
 
 import ApplyCompleted from'./ApplyCompleted'
 import ApplyFirst from './ApplyFirst'
+import ApplySecond from './ApplySecond'
 import '../../css/container.scss'
 import '../../css/kim/componentcss/ApplyModal.scss'
-import { NEXT_APPLY_MODAL, CLOSE_APPLY_MODAL } from '../../action'
+import { NEXT_APPLY_MODAL, CLOSE_APPLY_MODAL, PREV_APPLY_MODAL } from '../../action'
 const ApplyModal = ({data})=>{
+    
+    
     const dispatch = useDispatch();
     const {applyModalLevel, visible} = useSelector(state => state.button)
+    
     const closeModal = ()=>{
         dispatch({
             type: CLOSE_APPLY_MODAL
         })
     }
-    const nextModal = ()=>{
-        dispatch({
-            type :NEXT_APPLY_MODAL
-        })
+    const renderModal = (level)=>{
+        switch(level){
+            case 1 :
+                return <ApplyFirst></ApplyFirst>
+            case 2 :
+                return <ApplySecond></ApplySecond>
+        }
     }
     return(
         <div className = "container" >
@@ -46,10 +53,13 @@ const ApplyModal = ({data})=>{
                                 </div>
 
                                 <div>
-                                    <ApplyFirst />
+                                    {
+                                        renderModal(applyModalLevel)
+                                    }
 
                                 </div>
-                                <button onClick = {nextModal}>다음으로</button>            
+                                
+                                
                             </div>
                         </div> :<ApplyCompleted />
                     }
