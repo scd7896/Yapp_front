@@ -142,7 +142,7 @@ const enrollment = () => {
         <span id="toggle"></span>
       </div>
       <div className="QnA_container">
-        <Question num={number} />
+        <Question num="1" />
         <Plus shape="rect" />
       </div>
     </div>

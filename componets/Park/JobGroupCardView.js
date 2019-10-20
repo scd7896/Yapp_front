@@ -101,7 +101,7 @@ export default props => {
           cy="51"
           r="51"
           transform="translate(409 1814)"
-          fill={svg_color}
+          fill={props.toggle == "off" ? "#f5f7fa" : svg_color}
         />
         <path
           id="패스_1742"
@@ -109,7 +109,7 @@ export default props => {
           d="M1351.517,511.472l-8.326,8.326,8.61,8.61"
           transform="translate(-901.1 1345.383)"
           fill="none"
-          stroke="#4ce4bd"
+          stroke={props.toggle == "off" ? "#b9b9b9" : "#4ce4bd"}
           stroke-miterlimit="10"
           stroke-width="3"
         />
@@ -119,7 +119,7 @@ export default props => {
           d="M1385.832,528.407l8.326-8.326-8.61-8.61"
           transform="translate(-914.687 1345.383)"
           fill="none"
-          stroke="#4ce4bd"
+          stroke={props.toggle == "off" ? "#b9b9b9" : "#4ce4bd"}
           stroke-miterlimit="10"
           stroke-width="3"
         />
@@ -130,7 +130,7 @@ export default props => {
           y2="16.936"
           transform="translate(455.463 1856.854)"
           fill="none"
-          stroke="#4ce4bd"
+          stroke={props.toggle == "off" ? "#b9b9b9" : "#4ce4bd"}
           stroke-miterlimit="10"
           stroke-width="3"
         />
@@ -140,7 +140,7 @@ export default props => {
           d="M26.828,0A26.828,26.828,0,1,1,0,26.828,26.828,26.828,0,0,1,26.828,0Z"
           transform="translate(433.146 1838.427)"
           fill="none"
-          stroke="#5c63ff"
+          stroke={props.toggle == "off" ? "#b9b9b9" : "#5c63ff"}
           stroke-width="3"
         />
       </g>
@@ -162,7 +162,7 @@ export default props => {
           cy="51"
           r="51"
           transform="translate(729 1814)"
-          fill={svg_color}
+          fill={props.toggle == "off" ? "#f5f7fa" : svg_color}
         />
         <g id="그룹_1965" data-name="그룹 1965">
           <path
@@ -171,7 +171,7 @@ export default props => {
             d="M1231.886,532.81h-40.732V496.87h51.72v25.639"
             transform="translate(-438.287 1351.516)"
             fill="none"
-            stroke="#5963f5"
+            stroke={props.toggle == "off" ? "#b9b9b9" : "#5963f5"}
             stroke-miterlimit="10"
             stroke-width="3"
           />
@@ -181,7 +181,7 @@ export default props => {
             x2="55.456"
             transform="translate(751 1857.018)"
             fill="none"
-            stroke="#7adfbe"
+            stroke={props.toggle == "off" ? "#b9b9b9" : "#7adfbe"}
             stroke-miterlimit="10"
             stroke-width="3"
           />
@@ -191,7 +191,7 @@ export default props => {
             y1="12.999"
             transform="translate(763.172 1842)"
             fill="none"
-            stroke="#7adfbe"
+            stroke={props.toggle == "off" ? "#b9b9b9" : "#7adfbe"}
             stroke-miterlimit="10"
             stroke-width="3"
           />
@@ -201,7 +201,7 @@ export default props => {
             y1="12.999"
             transform="translate(797.457 1842)"
             fill="none"
-            stroke="#7adfbe"
+            stroke={props.toggle == "off" ? "#b9b9b9" : "#7adfbe"}
             stroke-miterlimit="10"
             stroke-width="3"
           />
@@ -216,7 +216,7 @@ export default props => {
               x2="19.045"
               transform="translate(0 9.522)"
               fill="none"
-              stroke="#7adfbe"
+              stroke={props.toggle == "off" ? "#b9b9b9" : "#7adfbe"}
               stroke-miterlimit="10"
               stroke-width="3"
             />
@@ -226,7 +226,7 @@ export default props => {
               y2="19.045"
               transform="translate(9.522)"
               fill="none"
-              stroke="#7adfbe"
+              stroke={props.toggle == "off" ? "#b9b9b9" : "#7adfbe"}
               stroke-miterlimit="10"
               stroke-width="3"
             />

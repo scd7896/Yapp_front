@@ -1,0 +1,45 @@
+#second_modal_container{
+    text-align: center;
+}
+#second_modal_footer_container{
+    display : flex;
+    justify-content :center;
+    width : 100%;
+    
+}
+#second_modal_prev_button{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    width: 43.8%;
+    height: 96px;
+    margin-right: 1.2%;
+    background-color: #e5e5e5;
+    font-family: 'Montserrat';
+    font-size: 36px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: -1.8px;
+    text-align: left;
+    color: #666666;
+}
+
+#second_modal_finish_button{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    width: 43.8%;
+    height: 96px;
+    background-color: #1f254b;
+    font-family: 'Montserrat';
+    font-size: 36px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: -1.8px;
+    text-align: left;
+    color: #ffffff;
+}

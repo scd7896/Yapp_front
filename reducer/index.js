@@ -6,8 +6,10 @@ import {combineReducers} from 'redux'
 */
 import test from './test'
 import button from './button'
+import apply from './apply'
 const rootReducer = combineReducers({
     test,
+    apply,
     button
 })
 

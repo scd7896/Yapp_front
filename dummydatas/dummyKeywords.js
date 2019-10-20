@@ -88,3 +88,4 @@ export const keywordSearch =[
         image : 'https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/99CC4B97-8187-41D7-B325-BCB5C251A548.svg'
     }
 ]
+
