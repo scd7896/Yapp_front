@@ -1,15 +1,15 @@
 import React from "react";
-import Router from 'next/router'
-import Link from 'next/link'
-import {useSelector} from 'react-redux'
+import Router from "next/router";
+import Link from "next/link";
+import { useSelector } from "react-redux";
 import "../css/NavBar.scss";
 import "../css/container.scss";
 
 const NavBar = () => {
-  const {selectPage} = useSelector(state => state.button)
-  const routeToMain = ()=>{
-    Router.push('/')
-  }
+  const { selectPage } = useSelector(state => state.button);
+  const routeToMain = () => {
+    Router.push("/");
+  };
   return (
     <div className="navbar">
       <div className="container">
@@ -26,9 +26,9 @@ const NavBar = () => {
               fill="#1f254b"
               font-size="41"
               font-family="Montserrat-Bold, Montserrat"
-              font-weight="700"            
+              font-weight="700"
             >
-              <tspan x="0" y="0" onClick = {routeToMain}>
+              <tspan x="0" y="0" onClick={routeToMain}>
                 Toys
               </tspan>
             </text>
@@ -37,10 +37,20 @@ const NavBar = () => {
 
         <div className="nav_right">
           <span className="nav_list">
-            
-              <a id = {selectPage ==='recruit' ? "ubderline_menubar":""} href = "/recruit"> 모집중인 프로젝트</a>
-            
-            <a id = {selectPage ==='review' ? "ubderline_menubar":""} href="/review">프로젝트 후기</a>
+            <a
+              id={selectPage === "recruit" ? "ubderline_menubar" : ""}
+              href="/recruit"
+            >
+              {" "}
+              모집중인 프로젝트
+            </a>
+
+            <a
+              id={selectPage === "review" ? "ubderline_menubar" : ""}
+              href="/review"
+            >
+              프로젝트 후기
+            </a>
           </span>
           <span className="nav_png">
             <button>
@@ -59,6 +69,56 @@ const NavBar = () => {
           <span className="nav_button">
             <button>모집글 작성 ></button>
           </span>
+        </div>
+        <div className="nav_right_mobile">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="10"
+            viewBox="0 0 30 5"
+          >
+            <line
+              id="선_109"
+              data-name="선 109"
+              x2="30"
+              transform="translate(0 1)"
+              fill="none"
+              stroke="#1f254b"
+              strokeWidth="5"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="10"
+            viewBox="0 0 30 5"
+          >
+            <line
+              id="선_109"
+              data-name="선 109"
+              x2="30"
+              transform="translate(0 1)"
+              fill="none"
+              stroke="#1f254b"
+              strokeWidth="5"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="10"
+            viewBox="0 0 30 5"
+          >
+            <line
+              id="선_109"
+              data-name="선 109"
+              x2="30"
+              transform="translate(0 1)"
+              fill="none"
+              stroke="#1f254b"
+              strokeWidth="5"
+            />
+          </svg>
         </div>
       </div>
     </div>

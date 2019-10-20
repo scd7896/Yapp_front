@@ -60,41 +60,45 @@ class Detail extends React.Component{
                     </div>
                 </div>
 
-                <div className = 'detail-info-container container'>
-                    <div className = 'detail-info-title detail-block-title'>진행 정보</div>
-                    <div className = 'detail-info-contents-wrapper'>
-                        <div className = 'detail-info-subtitle'>
-                            <div className = 'detail-info-subtitle-region'>지역</div>
-                            <div className = 'detail-info-subtitle-step'>진행단계</div>
-                        </div>
-                        <div className = 'detail-info-contents'>
-                            <div className = 'detail-info-region'>서울</div>
-                            <div className = 'detail-info-step'>팀 빌딩 단계</div>
-                        </div>
-                    </div>
-                </div>
+    
 
-                <div className = 'detail-recruit-container container'>
-                    <div className = 'detail-recruit-title  detail-block-title'>모집 직군</div>
-                    <JobGroupCardView type = 'big' jobgroup = 'designer' toggle = 'default'/>
-                </div>
-
-                <div className = 'detail-curmember-container container'>
-                    <div className = 'detail-curmember-title  detail-block-title'>모집 직군</div>
-                    <JobGroupCardView type = 'small' jobgroup = 'developer' number = '1'/>
-                    <JobGroupCardView type = 'small' jobgroup = 'designer' number = '1'/>
-                    <JobGroupCardView type = 'small' jobgroup = 'designer' number = '2'/>
-                    <JobGroupCardView type = 'small' jobgroup = 'planner' number = '1'/>
-                </div>
-
-                {/* QnA 영역입니다 */}
-
-                <DetailQnA/>                
-
+        <div className="detail-info-container container">
+          <div className="detail-info-title detail-block-title">진행 정보</div>
+          <div className="detail-info-contents-wrapper">
+            <div className="detail-info-subtitle">
+              <div className="detail-info-subtitle-region">지역</div>
+              <div className="detail-info-subtitle-step">진행단계</div>
             </div>
-        )
-    }
+            <div className="detail-info-contents">
+              <div className="detail-info-region">서울</div>
+              <div className="detail-info-step">팀 빌딩 단계</div>
+            </div>
+          </div>
+        </div>
 
+        <div className="detail-recruit-container container">
+          <div className="detail-recruit-title  detail-block-title">
+            모집 직군
+          </div>
+          <JobGroupCardView type="big" jobgroup="designer" toggle="default" />
+        </div>
+
+        <div className="detail-curmember-container container">
+          <div className="detail-curmember-title  detail-block-title">
+            모집 직군
+          </div>
+          <JobGroupCardView type="small" jobgroup="developer" number="1" />
+          <JobGroupCardView type="small" jobgroup="designer" number="1" />
+          <JobGroupCardView type="small" jobgroup="designer" number="2" />
+          <JobGroupCardView type="small" jobgroup="planner" number="1" />
+        </div>
+
+        {/* QnA 영역입니다 */}
+
+        <DetailQnA />
+      </div>
+    );
+  }
 }
 
-export default Detail
+export default Detail;
