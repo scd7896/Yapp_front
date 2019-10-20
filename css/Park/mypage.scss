@@ -1,5 +1,10 @@
 @import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 
+
+body{
+    background-color: #f5f7fa;
+}
+
 .mypage{
     width: 100%;
     height: 100%;
@@ -90,6 +95,10 @@
     margin-top : 22px;
 }
 
+.mypage-tab-section{
+    background-color: #ffffff;
+}
+
 .mypage-tabs-container{
     text-align: center;
 
@@ -105,6 +114,7 @@
 
 .mypage-tab-text{
     margin-top : 33.5px;
+    font-size: 22px;
 }
 
 .mypage-tab-active{
@@ -114,7 +124,6 @@
 .mypage-tab-active .mypage-tab-text{
     height: 33px;
     font-family: "Noto Sans KR";
-    font-size: 22px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -127,7 +136,7 @@
 .mypage-tab-inactive .mypage-tab-text{
     height: 33px;
     font-family: "Noto Sans KR";
-    font-size: 22px;
+    
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -138,7 +147,17 @@
 }
 
 .mypage-bottom-section-bg{
-    background-color: #f5f7fa;
-    min-height: 64.3%;
+
     width: 100%;
+}
+
+@media (max-width: 991px) {
+    .mypage-sub-container{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .mypage-tab-text{
+        font-size: 19px;
+    }
 }

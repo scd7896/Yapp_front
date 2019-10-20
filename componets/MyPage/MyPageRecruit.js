@@ -9,7 +9,8 @@ class MyPageRecruit extends React.Component{
         return (
             <div className = 'mypage-bottom-section-bg'>
                 <div className = 'container'>
-                    <div className = 'mypage-sub-container'>
+                    <div className = 'mypage-sub-container mypage-recruit-container'>
+
                     </div>
                 </div>
             </div>
