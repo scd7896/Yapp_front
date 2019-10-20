@@ -1,0 +1,35 @@
+import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/effects'
+import { GET_MYDATA_REQUEST, GET_MYDATA_FAILURE, GET_MYDATA_SUCCESS } from '../action'
+import axios from 'axios'
+function getUserAPI(myCookie){
+    //axios.get('/로그인api', {headers :{autholrize : myCookie}})
+    return {userToken : myCookie, userId : '유저아이디', userNickName : "유저닉네임"}
+    //return axios.get('/로그인api', {headers :{autholrize : myCookie}}) 이렇게 써요
+}
+function* getUser(action){
+    try{
+        const result = yield call(getUserAPI, action.data)
+        yield put({
+            type : GET_MYDATA_SUCCESS,
+            userToken :'유저토큰',
+            userNickName : "유저이름",
+            userId : "유저아이디"
+        })
+    }catch(e){
+        console.error(e)
+        yield put({
+            type : GET_MYDATA_FAILURE,
+            error : e
+        })
+    }
+}
+
+function * watchGetUser(){
+    yield takeEvery(GET_MYDATA_REQUEST, getUser)
+}
+export default function* userSaga(){
+    yield all([
+    
+
+    ])
+}

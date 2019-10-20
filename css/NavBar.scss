@@ -43,6 +43,7 @@ button {
   float: right;
   display: flex;
   align-items: center;
+  
   height: 48px;
 }
 .nav_list {
@@ -125,4 +126,21 @@ button {
     flex-direction: column;
     justify-content: space-between;
   }
+}
+#nav_login_signup{
+    font-family: 'SourceHanSansK';
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: left;
+    color: #333333;
+    
+}
+
+#nav_login_signup_container{
+  display: inline;
+  padding-left : 6.2%;
 }

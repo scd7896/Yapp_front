@@ -18,6 +18,11 @@ class MyApp extends App {
       ? await Component.getInitialProps(ctx)
       : {};
     //getInitialProps 가 서버사이드렌더링 효과를 줄수 있게 도와주는거에요
+    if(ctx.isServer){
+      console.log(ctx.req.headers.cookie)
+    }
+    
+    
     pageProps.query = ctx.query;
     return { pageProps };
   }
