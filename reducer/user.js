@@ -7,7 +7,8 @@ import {
 const initialState = {
   userToken: "",
   userNickName: "",
-  userId: ""
+  userId: "",
+  isLogging : false
 };
 
 const user = (state = initialState, action) => {
@@ -17,16 +18,19 @@ const user = (state = initialState, action) => {
         draft.userToken = "";
         draft.userNickName = "";
         draft.userId = "";
+        draft.isLogging = true;
         break;
       case GET_MYDATA_SUCCESS:
         draft.userToken = action.userToken;
         draft.userId = action.userId;
         draft.userNickName = action.userNickName;
+        draft.isLogging = false;
         break;
       case GET_MYDATA_FAILURE:
         draft.userToken = "";
         draft.userId = "";
         draft.userNickName = "";
+        draft.isLogging = false;
         break;
       default:
         break;
