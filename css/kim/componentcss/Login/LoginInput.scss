@@ -1,0 +1,45 @@
+#login_input_type{
+    margin-bottom : 50px;
+    border-top : none;
+    border-left : none;
+    border-right : none;
+    padding-bottom : 14.5px;
+    padding-left : 1.8%;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    width : 88.8%;
+}
+#login_input_type_fail{
+    margin-bottom : 50px;
+    border-top : none;
+    border-left : none;
+    border-right : none;
+    padding-bottom : 14.5px;
+    padding-left : 1.8%;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    border-bottom : 1px solid #ff3e85;
+    width : 88.8%;
+}
+::placeholder{
+    color : #b9b9b9;
+}
+#login_input_type:focus{
+    outline: none;
+    border-bottom : 1px solid #333333;
+}
+#login_input_type_fail:focus {
+    outline : none;
+}
