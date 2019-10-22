@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 
-import ApplyModal from '../componets/Kim/ApplyModal'
+
 import Keyword from '../componets/Kim/Keyword'
 import{keyword} from '../dummydatas/dummyKeywords'
 import { SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD, OPEN_APPLY_MODAL } from '../action'
@@ -24,8 +24,7 @@ const review = ()=>{
                     return <Keyword data = {e} index = {i} isSelected ={isSelected} key = {i} />
                 })}
             <div >
-                <button  onClick = {openModal}>눌러봐</button>
-                <ApplyModal/>
+                
             </div>
         </div>
     )

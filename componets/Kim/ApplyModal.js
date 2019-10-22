@@ -7,7 +7,7 @@ import ApplyFirst from './ApplyFirst'
 import ApplySecond from './ApplySecond'
 import '../../css/container.scss'
 import '../../css/kim/componentcss/ApplyModal.scss'
-import { NEXT_APPLY_MODAL, CLOSE_APPLY_MODAL, PREV_APPLY_MODAL } from '../../action'
+import { CLOSE_APPLY_MODAL } from '../../action'
 const ApplyModal = ({data})=>{
     
     
@@ -30,7 +30,7 @@ const ApplyModal = ({data})=>{
     return(
         <div className = "container" >
             <Modal visible = {visible} effect="fadeInUp">
-                <div id = "modal_container">
+                <div id = {applyModalLevel !== 3? "modal_container" : "modal_finish_container"}>
                     {applyModalLevel <=2 ?    
                         <div>
                             <div style ={{textAlign:"left"}}>

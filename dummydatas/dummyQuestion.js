@@ -25,3 +25,14 @@ export const qeustions = [
         position : '기획자',
         question : '유저의 경험중 메뉴바는 주로 어디에 두는 것 이 좋을까요?'
     }]
+
+export const portFolios = [{
+    id : 0,
+    title : '식당 웨이팅 서비스'
+},{
+    id : 1,
+    title : '식물관리 서비스'
+},{
+    id : 2,
+    title : '이미지 큐레이션 서비스'
+}]
