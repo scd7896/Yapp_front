@@ -8,7 +8,6 @@ import "../css/container.scss";
 const NavBar = () => {
   const { selectPage } = useSelector(state => state.button);
   const { user } = useSelector(state => state);
-  console.log(user)
   
   const routeToMain = () => {
     Router.push("/");
