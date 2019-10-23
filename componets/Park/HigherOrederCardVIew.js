@@ -168,7 +168,7 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                 (function(wrapperDom,_this){
                     window.addEventListener('resize',function(){
                         _this.scrollMutex = 0;
-                        wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
+                        //wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
                     })
                 })(this.WrapperDOM,this);
             }
