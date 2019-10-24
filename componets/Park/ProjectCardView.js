@@ -1,6 +1,8 @@
 import React from "react";
 import Router from 'next/router'
 import "../../css/Park/ProjectCardView.scss";
+import ProjectJobGroup from "./ProjectJobGroup";
+
 const ProjectCardView = props => {
   var jobgroup_main = "개발자",
     jobgroup_sub = "프론트,백엔드",
@@ -37,11 +39,8 @@ const ProjectCardView = props => {
         src="https://www.10wallpaper.com/wallpaper/medium/1909/2019_Planetary_Nebula_Clouds_4K_Universe_medium.jpg"
       ></img>
       <div className="project-cardview-contents">
-        <div className="jobgroup">
-          <div className="jobgroup-circle"></div>
-          <div className="jobgroup-main">{jobgroup_main}</div>
-          <div className="jobgroup-sub">{jobgroup_sub}</div>
-        </div>
+        <ProjectJobGroup jobgroup = {jobgroup_main}/>
+
         <div className="project-cardview-main">{title}</div>
         <div className="project-cardview-step">{step}</div>
         <div className="project-cardview-region">{region}</div>
