@@ -24,8 +24,8 @@ const LoginInput = ()=>{
         if(emailCheck !== true){
             return;
         }
-        const email = document.querySelector('.login_email').value
-        const password = document.querySelector('.login_password').value
+        const email = document.querySelector('#login_email').value
+        const password = document.querySelector('#login_password').value
         //login request 던져보자 ㅎㅎ
         dispatch({
             type : USER_LOGIN_REQUEST,
@@ -36,21 +36,21 @@ const LoginInput = ()=>{
     }
     return(
         <div>
-            <p><input className = "login_email" id= {emailCheck === null ? 'login_input_type': emailCheck ===false ? "login_input_type_fail": "login_input_type"} onChange = {testEmail} type = "text" placeholder ="아이디(이메일형식)"/></p>
+            <p><input id = "login_email" className= {emailCheck === null ? 'login_input_type': emailCheck ===false ? "login_input_type_fail": "login_input_type"} onChange = {testEmail} type = "text" placeholder ="아이디(이메일형식)"/></p>
             <p>
-                <span id = {emailCheck === false ? 'login_email_check_error' : 'display_none'}>이메일 형식으로 입력해주세요</span>
+                <span className = {emailCheck === false ? 'login_email_check_error' : 'display_none'}>이메일 형식으로 입력해주세요</span>
             </p>
             
-            <p id = {emailCheck === true ? "login_email_check_good" : "display_none"}>v</p>
-            <p><input className = "login_password" id = "login_input_type" type = "password" placeholder ="비밀번호"/></p>
-            <div id = "login_modal_footer_container">
-                <div id = "login_request_button" onClick = {loginRequest}><p id = "login_request_text">로그인</p></div>
-                <div id = "login_modal_footer_actions">
-                    <p id = "login_modal_password_forgot">비밀번호를 잊으셨나요?</p>
-                    <div id = "login_modal_signup_container">
+            <p className = {emailCheck === true ? "login_email_check_good" : "display_none"}>v</p>
+            <p><input id = "login_password" className = "login_input_type" type = "password" placeholder ="비밀번호"/></p>
+            <div className = "login_modal_footer_container">
+                <div className = "login_request_button" onClick = {loginRequest}><p className = "login_request_text">로그인</p></div>
+                <div className = "login_modal_footer_actions">
+                    <p className = "login_modal_password_forgot">비밀번호를 잊으셨나요?</p>
+                    <div className = "login_modal_signup_container">
                         
-                        <span id = "signup_first_toys"><span id = "signup_toys_bold">Toys</span>가 처음이신가요?</span>
-                        <span id = "signup_button_text" onClick = {moveToSignUp}>회원가입</span>
+                        <span className = "signup_first_toys"><span className = "signup_toys_bold">Toys</span>가 처음이신가요?</span>
+                        <span className = "signup_button_text" onClick = {moveToSignUp}>회원가입</span>
                     </div>
                     
                 </div>

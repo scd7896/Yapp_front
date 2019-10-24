@@ -1,4 +1,4 @@
-#login_input_type{
+.login_input_type{
     margin-top : 50px;
     border-top : none;
     border-left : none;
@@ -15,7 +15,7 @@
     text-align: left;
     width : 88.8%;
 }
-#login_input_type_fail{
+.login_input_type_fail{
     margin-top : 50px;
     border-top : none;
     border-left : none;
@@ -36,18 +36,18 @@
 ::placeholder{
     color : #b9b9b9;
 }
-#login_input_type:focus{
+.login_input_type:focus{
     outline: none;
     border-bottom : 1px solid #333333;
 }
-#login_input_type_fail:focus {
+.login_input_type_fail:focus {
     outline : none;
 }
 
-#display_none{
+.display_none{
     display: none;
 }
-#login_email_check_error{
+.login_email_check_error{
     font-family: "Noto Sans KR", sans-serif;
     font-size: 18px;
     font-weight: normal;
@@ -59,13 +59,13 @@
     color : #ff3e85;
 
 }
-#login_email_check_good{
+.login_email_check_good{
     margin-left : 86%;
     margin-top: -50px;
 }
 
 
-#login_modal_password_forgot{
+.login_modal_password_forgot{
     cursor: pointer;
     margin-top : 40px;
     margin-left : -6%;
@@ -80,12 +80,12 @@
     color: #333333;
 }
 
-#login_modal_signup_container{
+.login_modal_signup_container{
     margin-top : 23px;
     margin-bottom : 48px;
 }
 
-#signup_first_toys{
+.signup_first_toys{
     margin-left : -8%;
     font-size: 24px;
     font-weight : 300;
@@ -94,12 +94,12 @@
     color: #333333;
 }
 
-#signup_toys_bold{
+.signup_toys_bold{
     font-family: "Montserrat", sans-serif;
     font-weight: 900;
 }
 
-#signup_button_text{
+.signup_button_text{
     margin-left : 1.4%;
     font-family: "Noto Sans KR", sans-serif;
     font-size: 24px;
@@ -115,12 +115,12 @@
 }
 
 
-#login_modal_footer_container{
+.login_modal_footer_container{
     margin-top :76.5px;
     text-align: center;
 }
 
-#login_request_button{
+.login_request_button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,7 +130,7 @@
     cursor: pointer;
 }
 
-#login_request_text{
+.login_request_text{
     font-family: "Noto Sans KR", sans-serif;
     font-size: 28px;
     font-weight: 500;
