@@ -1,57 +1,83 @@
-#keyword_seatch_container{
-    display: inline-block;
-    width: 221px;
-    height: 221px;
-    background-color: #ffffff;
-    text-align: left;
-    margin-top : 15px;
-    margin-right : 19px;
+* {
+  margin: 0;
+}
+#keyword_search {
+  display: inline-block;
+  width: 15.5%;
+  background-color: #ffffff;
+  text-align: left;
+  padding: 1.5%;
+  & + & {
+    margin-left: 1.875%;
+  }
 }
 
-#keyword_search_img_container{
-    margin-bottom : 37px;
-    margin-top : 20px;
-    margin-left : 18px;
+#keyword_search_img_container {
+  margin-bottom: 26px;
 }
 
-#keyword_search_hashtag{
-    font-family: 'SourceHanSansK';
-    font-size: 24px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: -1.2px;
-    text-align: left;
-    color: #333333;
+#keyword_search_hashtag {
+  margin-bottom: 13px;
+  font-family: "SourceHanSansK";
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: -1.2px;
+  text-align: left;
+  color: #333333;
 }
 
-#keyword_search_contents_count{
-    width: 61px;
-    height: 32px;
-    border-radius: 15px;
-    background-color: #eaebff;
-    margin-top :5px;
-    text-align: center;
+#keyword_search_contents_count {
+  width: 61px;
+  height: 32px;
+  border-radius: 15px;
+  background-color: #eaebff;
+  margin-top: 5px;
+  text-align: center;
 }
 
-#keyword_search_contents_text{
-    font-family: 'SourceHanSansK';
-    
-    font-size: 24px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: #5c63ff;
-}
-#keyword_search_contents_container{
-    margin-left : 22px;
+#keyword_search_contents_text {
+  font-family: "SourceHanSansK";
+  font-size: 19px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #5c63ff;
 }
 
-#keyword_search_img_contents{
-    width: 46.1px;
-    height: 46.1px;
-    object-fit: contain;
+#keyword_search_img_contents {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) and (min-width: 725px) {
+  #keyword_search {
+    width: 28.3%;
+    padding: 1.5%;
+    margin-right: 2%;
+    margin-bottom: 13px;
+    & + & {
+      margin-left: 0;
+    }
+  }
+  #keyword_search_hashtag {
+    margin-bottom: 20px;
+  }
+}
+//모바일 환경
+@media (max-width: 724px) {
+  #keyword_search {
+    width: 44%;
+    padding: 1.5%;
+    margin-right: 3%;
+    margin-bottom: 10px;
+    & + & {
+      margin-left: 0;
+    }
+  }
 }
