@@ -44,6 +44,10 @@ const SignUpInput = ()=>{
             <p id = {emailCheck === true ? "login_email_check_good" : "display_none"}>v</p>
             <p><input className = "login_password" id = {isPasswordTypeCheck === null ? 'login_input_type': isPasswordTypeCheck ===false ? "login_input_type_fail": "login_input_type"} onChange = {passwordCheck}  type = "password" placeholder ="비밀번호"/></p>
             <p><input className = "login_password_equal_check" id = {isPasswordEqualCheck === null ? 'login_input_type': isPasswordEqualCheck ===false ? "login_input_type_fail": "login_input_type"} onChange = {passwordEqualCheck}  type = "password" placeholder ="비밀번호확인"/></p>
+
+            <div id = "">
+
+            </div>
         </div>
     )
 }
