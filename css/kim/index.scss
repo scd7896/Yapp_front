@@ -22,8 +22,8 @@
 
 #header_input_container {
   position: relative;
-  padding: 12px 1.5%;
-  width: 80%;
+  padding: 1.5%;
+  width: 77%;
   height: 75px;
   margin: 0 auto;
   margin-top: -47px;
@@ -35,6 +35,7 @@
 }
 #header_inputIcon {
   width: 8.6%;
+
   text-align: center;
   & img {
     width: 30px;
@@ -179,9 +180,6 @@
 #header_in_img {
   width: 460px;
   height: 460px;
-
-  z-index: 0;
-
   margin-top: -41.7px;
 }
 #header_contents {
@@ -262,4 +260,103 @@
   object-fit: contain;
 }
 
+//nav 줄이기, 카드 줄이기
+//테블릿 환경
+@media (max-width: 991px) and (min-width: 725px) {
+  // header section
+  #header {
+    width: 88%;
+  }
+  #header_input_container {
+    width: 85%;
+    height: 70px;
+  }
 
+  #header_in_img {
+    width: 320px;
+    height: 320px;
+    margin-top: -34px;
+    position: absolute;
+    right: 10%;
+    z-index: 1;
+  }
+  #header_in_text {
+    z-index: 2;
+    margin-top: 150px;
+    height: 224px;
+    font-size: 40px;
+  }
+  #header_in_text_top {
+    font-size: 33px;
+  }
+  #header_inputIcon {
+    margin-right: 10px;
+    & img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+//모바일 환경
+@media (max-width: 724px) {
+  // header section
+  #header {
+    width: 100%;
+  }
+  #header_input_container {
+    width: 97%;
+    height: 52px;
+  }
+
+  #header_in_img {
+    width: 270px;
+    height: 270px;
+    margin-top: -25px;
+    position: absolute;
+    right: 10%;
+    z-index: 1;
+  }
+  #header_in_text {
+    z-index: 2;
+    font-size: 28px;
+    height: 181px;
+    margin-top: 131px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #header_in_text_top {
+    font-size: 18px;
+  }
+
+  //모발일 - inputBox
+  #header_inputIcon {
+    margin-right: 10px;
+    & img {
+      width: 17px;
+      height: 17px;
+    }
+  }
+  #header_inputBox {
+    & input {
+      font-size: 16px;
+      font-weight: 200;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.19;
+      letter-spacing: -0.8px;
+      text-align: left;
+    }
+  }
+
+  #header_inputButton {
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: -0.7px;
+  }
+}

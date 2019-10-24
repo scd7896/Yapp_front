@@ -24,25 +24,7 @@ const NavBar = () => {
       
       <div className="container">
         <div className="logo">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="96"
-            height="50"
-            viewBox="0 0 96 50"
-          >
-            <text
-              id="Toys"
-              transform="translate(0 40)"
-              fill="#1f254b"
-              font-size="41"
-              font-family="Montserrat-Bold, Montserrat"
-              font-weight="700"
-            >
-              <tspan x="0" y="0" onClick={routeToMain}>
-                Toys
-              </tspan>
-            </text>
-          </svg>
+          <img src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3AA5A2F7-12E0-43B7-AF49-91A7451A8096.svg" />
         </div>
 
         <div className="nav_right">
@@ -63,14 +45,20 @@ const NavBar = () => {
             </a>
           </span>
 
-          <span id = "nav_login_signup_container" style ={user.userId ? {display : "none"}:{display : 'block'}}>
-            <p id ="nav_login_signup" onClick = {openLoginModal}>
+          <span
+            id="nav_login_signup_container"
+            style={user.userId ? { display: "none" } : { display: "block" }}
+          >
+            <a id="nav_login_signup" href="/login">
               로그인 / 회원가입
-            </p>
+            </a>
             
           </span>
-          
-          <span className="nav_png" style = {!user.userId ?{display : "none"} :{}}>
+
+          <span
+            className="nav_png"
+            style={!user.userId ? { display: "none" } : {}}
+          >
             <button>
               <img
                 style={{ width: "25px", height: "32px" }}
@@ -85,10 +73,12 @@ const NavBar = () => {
             </button>
           </span>
 
-          <span className="nav_button" style = {!user.userId ?{display : "none"} :{}} >
+          <span
+            className="nav_button"
+            style={!user.userId ? { display: "none" } : {}}
+          >
             <button>모집글 작성 ></button>
-          </span> 
-          
+          </span>
         </div>
         <div className="nav_right_mobile">
           <svg
