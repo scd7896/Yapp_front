@@ -1,6 +1,9 @@
 import React,{useState} from 'react'
+import {useDispatch} from 'react-redux'
 import '../../../css/kim/componentcss/Login/LoginInput.scss'
+import { SET_LOGIN_MODAL, USER_LOGIN_REQUEST } from '../../../action';
 const LoginInput = ()=>{
+    const dispatch = useDispatch();
     const [emailCheck, setEmailCheck] = useState(null)
     const testEmail = (e)=>{
         const check = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/
@@ -11,10 +14,49 @@ const LoginInput = ()=>{
         }
         
     }
+    const moveToSignUp = ()=>{
+        dispatch({
+            type : SET_LOGIN_MODAL,
+            data : 1
+        })
+    }
+    const loginRequest = ()=>{
+        if(emailCheck !== true){
+            return;
+        }
+        const email = document.querySelector('.login_email').value
+        const password = document.querySelector('.login_password').value
+        //login request 던져보자 ㅎㅎ
+        dispatch({
+            type : USER_LOGIN_REQUEST,
+            email : email,
+            password : password
+        })
+        
+    }
     return(
         <div>
-            <p><input id= {emailCheck === null ? 'login_input_type': emailCheck ===false ? "login_input_type_fail": "login_input_type"} onChange = {testEmail} type = "text" placeholder ="아이디(이메일형식)"/></p>
-            <p><input id = "login_input_type" type = "password" placeholder ="비밀번호"/></p>
+            <p><input className = "login_email" id= {emailCheck === null ? 'login_input_type': emailCheck ===false ? "login_input_type_fail": "login_input_type"} onChange = {testEmail} type = "text" placeholder ="아이디(이메일형식)"/></p>
+            <p>
+                <span id = {emailCheck === false ? 'login_email_check_error' : 'display_none'}>이메일 형식으로 입력해주세요</span>
+            </p>
+            
+            <p id = {emailCheck === true ? "login_email_check_good" : "display_none"}>v</p>
+            <p><input className = "login_password" id = "login_input_type" type = "password" placeholder ="비밀번호"/></p>
+            <div id = "login_modal_footer_container">
+                <div id = "login_request_button" onClick = {loginRequest}><p id = "login_request_text">로그인</p></div>
+                <div id = "login_modal_footer_actions">
+                    <p id = "login_modal_password_forgot">비밀번호를 잊으셨나요?</p>
+                    <div id = "login_modal_signup_container">
+                        
+                        <span id = "signup_first_toys"><span id = "signup_toys_bold">Toys</span>가 처음이신가요?</span>
+                        <span id = "signup_button_text" onClick = {moveToSignUp}>회원가입</span>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
         </div>
     )
 }

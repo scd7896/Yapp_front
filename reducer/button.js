@@ -1,5 +1,5 @@
 import produce from 'immer'
-import {NEXT_APPLY_MODAL, PREV_APPLY_MODAL,OPEN_APPLY_MODAL,CLOSE_APPLY_MODAL,
+import {SET_LOGIN_MODAL,NEXT_APPLY_MODAL, PREV_APPLY_MODAL,OPEN_APPLY_MODAL,CLOSE_APPLY_MODAL,
     ADD_SELECTORS_CONTENT, REMOVE_SELECTORS_CONTENT, SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD, OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL} from '../action'
 const initialState ={
     selects : [],
@@ -7,7 +7,7 @@ const initialState ={
     applyModalLevel : 1, 
     visible : false,
     loginVisible : false,
-    isLoginModal : true
+    isLoginModal : 0
 }
 const button = (state = initialState , action) =>{
     return  produce(state, (draft)=>{
@@ -52,8 +52,11 @@ const button = (state = initialState , action) =>{
 
             case CLOSE_LOGIN_MODAL :
                 draft.loginVisible = false;
+                draft.isLoginModal = 0;
                 break;
-
+            case SET_LOGIN_MODAL :
+                draft.isLoginModal = action.data;
+                break;
             default :
                 break;
         }
