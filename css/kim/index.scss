@@ -1,4 +1,4 @@
-// font-family: "SourceHanSansK"; 
+// font-family: "SourceHanSansK";
 // -->
 // font-family: "Noto Sans KR", sans-serif;
 
@@ -76,33 +76,36 @@
 
 #index_body {
   text-align: center;
+  margin-top: 28px;
 }
 #post_text_container {
-  margin-top: 171px;
-  margin-bottom: 69px;
+  margin-top: 148px;
+  margin-bottom: 65px;
   text-align: left;
 }
 
 #post_text_head {
   font-family: "Noto Sans KR", sans-serif;
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 500;
-  font-style: normal;
   font-stretch: normal;
+  font-style: normal;
   line-height: 1.47;
-  letter-spacing: -1.9px;
+  letter-spacing: -1.6px;
   text-align: left;
   color: #333333;
 }
+#post_text_sub_container {
+  margin-top: 8px;
+}
 #post_text_sub {
-  height: 33px;
   font-family: "Noto Sans KR", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: normal;
-  font-style: normal;
   font-stretch: normal;
+  font-style: normal;
   line-height: 1.5;
-  letter-spacing: -1.1px;
+  letter-spacing: -0.9px;
   text-align: left;
   color: #666666;
 }
@@ -113,20 +116,21 @@
   margin-left: 12px;
   width: 59px;
   height: 33px;
+
   font-family: "Noto Sans KR", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
-  font-style: normal;
   font-stretch: normal;
+  font-style: normal;
   line-height: 1.5;
-  letter-spacing: -1.1px;
+  letter-spacing: -0.9px;
   text-align: left;
   color: #4244ff;
 }
 
+//밑에 큰 더보기 버튼
 #post_more_button_container {
   text-align: center;
-  margin-top: 21px;
 }
 
 #post_more_button {
@@ -146,19 +150,6 @@
   color: #ffffff;
 }
 
-#keyword_search_text {
-  margin-top: 170px;
-  margin-bottom: 68px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 38px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.47;
-  letter-spacing: -1.9px;
-  text-align: left;
-  color: #333333;
-}
 #header_in_text {
   margin-top: 150px;
   height: 224px;
@@ -195,20 +186,6 @@
   text-align: center;
 }
 
-#nice_recruitment_text {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 38px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.47;
-  letter-spacing: -1.9px;
-  text-align: left;
-  color: #333333;
-  margin-top: 103px;
-  margin-bottom: 68px;
-}
-
 #best_projects_container {
   text-align: left;
 }
@@ -216,35 +193,9 @@
 #footer_container {
   text-align: center;
 }
-#best_project_title {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 38px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.47;
-  letter-spacing: -1.9px;
-  text-align: left;
-  color: #333333;
-  margin-top: 103px;
-}
 
-#best_project_text {
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: -0.9px;
-  text-align: left;
-  color: #666666;
-}
 #keyword_list_box_container {
   text-align: left;
-}
-#best_project_text_container {
-  margin-bottom: 83px;
 }
 
 #card_view_section_container {
@@ -307,6 +258,7 @@
   #header_input_container {
     width: 97%;
     height: 52px;
+    margin-top: -34px;
   }
 
   #header_in_img {
@@ -358,5 +310,52 @@
     font-style: normal;
     line-height: 1.29;
     letter-spacing: -0.7px;
+  }
+
+  //index-root section
+  #index_body {
+    margin-top: 0px;
+  }
+  #post_text_container {
+    margin-top: 100px;
+    margin-bottom: 28px;
+  }
+
+  #post_text_head {
+    font-size: 21px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.48;
+    letter-spacing: -1.05px;
+    text-align: left;
+    color: #333333;
+  }
+  #post_text_sub {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+    text-align: left;
+    color: #666666;
+  }
+
+  #post_text_more {
+    cursor: pointer;
+    border: none;
+    margin-left: 12px;
+    width: 59px;
+    height: 33px;
+
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+    text-align: left;
+    color: #4244ff;
   }
 }
