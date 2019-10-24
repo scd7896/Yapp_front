@@ -28,12 +28,14 @@ const LoginModal = ()=>{
         
         <Modal visible = {loginVisible}>
             <div className = "container">
-                <div id = "login_modal_header_container">
-                    <span><p id = "login_modal_header_contents">{isLoginModal === 0 ? "로그인" : "회원가입"}</p></span>
-                    <span><p id = "modal_cancle_button" onClick = {closeLoginModal}>X</p></span>
-                </div>
-                <div id = "login_modal_body_container">
-                    {renderBody(isLoginModal)}
+                <div id = "login_modal_container">
+                    <div id = "login_modal_header_container">
+                        <span><p id = "login_modal_header_contents">{isLoginModal === 0 ? "로그인" : "회원가입"}</p></span>
+                        <span><p id = "modal_cancle_button" onClick = {closeLoginModal}>X</p></span>
+                    </div>
+                    <div id = "login_modal_body_container">
+                        {renderBody(isLoginModal)}
+                    </div>
                 </div>
             </div>
         </Modal>
