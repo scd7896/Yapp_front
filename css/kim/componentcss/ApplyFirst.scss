@@ -65,7 +65,7 @@
 }
 
 #first_modal_header_title{
-    
+    margin-top : 3%;
     font-family: 'Montserrat';
     font-size: 48px;
     font-weight: 300;
@@ -74,7 +74,7 @@
     line-height: 1.21;
     letter-spacing: -2.4px;
     color: #ffffff;
-    margin-top : -1%;
+    
 }
 
 #first_modal_header_subtitle{
@@ -85,10 +85,10 @@
     font-style: normal;
     line-height: 1.23;
     letter-spacing: -1.3px;
-    margin-top : -2%;
+    
     color: #ffffff;
 }
-#first_modal_body_select{
+.first_modal_body_select{
     width : 43%;
     height : 96px;
     
@@ -101,7 +101,11 @@
     letter-spacing: -1.6px;
     text-align: left;
     color: #1f254b;
+    
+}
 
+.first_modal_body_arrow{
+    
 }
 
 #first_modal_body_option{

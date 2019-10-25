@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import {useDispatch,useSelector} from 'react-redux' 
+import DropDown from 'react-dropdown';
 import Question from './ApplyModalComponents/Question'
 import {qeustions} from '../../dummydatas/dummyQuestion'
 import '../../css/kim/componentcss/ApplyFirst.scss'
+import 'react-dropdown/style.css'
 import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from '../../action'
 const ApplyFirst = ()=>{
     const dispatch = useDispatch();
@@ -17,10 +19,11 @@ const ApplyFirst = ()=>{
             const answer = list.childNodes[i].querySelector("#qustion_to_answer_input")
             answer.value = ''
         }
-        setSelectPosition(e.target.value)
+        
+        setSelectPosition(e.value)
         dispatch({
             type : SET_APPLYQNA_DATA,
-            position: e.target.value,
+            position: e.value,
             answers : []
         })
     }
@@ -64,13 +67,7 @@ const ApplyFirst = ()=>{
                 <span id = "modal_position_selector_title"> <span>지원</span><span>직군</span> </span>
                 <span id = "modal_most_select_icon">*</span>
                 <div>
-                    <select id = "first_modal_body_select" onChange = {positionChange}>
-                        {applyJob.map((e,i)=>{
-                            return(
-                                <option id = "first_modal_body_option" key = {i}>{e}</option>
-                            )
-                        })}
-                    </select>
+                    <DropDown arrowClassName="first_modal_body_arrow" className ="first_modal_body_select" value = {selectPosition} onChange = {positionChange} options = {applyJob}/>
                 </div>
                 <div id = "first_modal_qna_container">
                         {qeustions

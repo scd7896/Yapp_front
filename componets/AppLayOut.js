@@ -3,7 +3,7 @@ import React from 'react'
     첫 화면 뿌려주기시작하는 단계로 보는것이 무방합니다
     children에는 pages에 있는 index.js가 들어가서 뿌려지게됩니다.
 */
-
+import LoginModal from './Kim/Login/LoginModal'
 import NavBar from './NavBar'
 
 const AppLayOut = ({children})=>{
@@ -13,6 +13,7 @@ const AppLayOut = ({children})=>{
     return(
         <div>
             <NavBar style = {style}></NavBar>
+            <LoginModal />
             <div>
                 {children}
             </div>

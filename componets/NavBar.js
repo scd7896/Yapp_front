@@ -1,20 +1,27 @@
 import React from "react";
 import Router from "next/router";
-import Link from "next/link";
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
 import "../css/NavBar.scss";
 import "../css/container.scss";
+import { OPEN_LOGIN_MODAL } from "../action";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const { selectPage } = useSelector(state => state.button);
   const { user } = useSelector(state => state);
-  console.log(user)
   
   const routeToMain = () => {
     Router.push("/");
   };
+  const openLoginModal = ()=>{
+    dispatch({
+      type : OPEN_LOGIN_MODAL
+    })
+  }
   return (
     <div className="navbar">
+      
       <div className="container">
         <div className="logo">
           <svg
@@ -57,12 +64,10 @@ const NavBar = () => {
           </span>
 
           <span id = "nav_login_signup_container" style ={user.userId ? {display : "none"}:{display : 'block'}}>
-            <a
-              id ="nav_login_signup"
-              href = "/login"
-            >
+            <p id ="nav_login_signup" onClick = {openLoginModal}>
               로그인 / 회원가입
-            </a>
+            </p>
+            
           </span>
           
           <span className="nav_png" style = {!user.userId ?{display : "none"} :{}}>
@@ -135,7 +140,9 @@ const NavBar = () => {
             />
           </svg>
         </div>
+        
       </div>
+      
     </div>
   );
 };

@@ -1,9 +1,23 @@
 #apply_completed_container{
     background: #5c63ff;
-    width: 100%;
     padding-top : 60px;
     padding-bottom : 53px;
     text-align: center;
+    @media (min-width: 1920px) {
+        width: 1200px;
+    }
+    @media (max-width: 1919px) and (min-width: 1200px){
+        width : 1024px;
+    }
+    @media (max-width: 1199px) and (min-width: 992px){
+        width : 970px;
+    }
+    @media (max-width: 991px) and (min-width: 768px) {
+        width: 750px;
+    }
+    @media (max-width: 767px){
+        width: 85%;
+    }
 }
 
 #apply_completed_icon{
