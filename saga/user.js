@@ -57,6 +57,8 @@ function* userLogin(action){
         })
     }catch(e){
         console.error(e)
+        //에러 코드에 따라서 비밀번호 틀리게할껀지 
+        //이메일의문제일지 결정
         yield put({
             type : USER_LOGIN_FAILURE,
             error : e
