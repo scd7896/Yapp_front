@@ -3,7 +3,8 @@
 import '../../css/Park/mypage.scss';
 import '../../css/MyPage/MyPageRecruit.scss';
 
-import RecruitSimpleComponent from './RecruitSimpleComponent.js'
+import RecruitSimpleContents from './RecruitSimpleContents.js'
+import ProjectSimpleHOC from './ProjectSimpleHOC.js'
 
 class MyPageRecruit extends React.Component{
 
@@ -31,6 +32,8 @@ class MyPageRecruit extends React.Component{
     }
     
     render(){
+
+        var RecruitSimpleComponent = ProjectSimpleHOC(RecruitSimpleContents);
 
         var recruitSimpleComponents = this.state.recruit.map((info) => 
             <RecruitSimpleComponent

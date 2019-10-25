@@ -1,18 +1,13 @@
+//ProjectSimpleHOC.js
+
 .mypage-finish *{
     color :  #b9b9b9 !important;
-}
-
-.mypage-finish .recruit-simple-finish-button{
-    background-color:  #e5e5e5 !important;
 }
 
 .mypage-finish .jobgroup-circle{
     background-color:  #b9b9b9 !important;
 }
 
-.mypage-finish .recruit-simple-finish-text{
-    color: #999999 !important;
-}
 
 .recruit-simple-container{
     margin-top : 30px;
@@ -60,6 +55,8 @@
 .recruit-simple-contents-container{
     display:inline-block;
 }
+
+//RecruitSimpleComponent.js
 
 .recruit-simple-applicant{
     height: 29px;
@@ -138,4 +135,12 @@
 
 .recruit-simple-finish-button{
     cursor: pointer;
+}
+
+.mypage-finish .recruit-simple-finish-button{
+    background-color:  #e5e5e5 !important;
+}
+
+.mypage-finish .recruit-simple-finish-text{
+    color: #999999 !important;
 }
