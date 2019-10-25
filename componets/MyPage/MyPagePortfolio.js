@@ -3,6 +3,9 @@
 import '../../css/Park/mypage.scss';
 import '../../css/MyPage/MyPagePortfolio.scss';
 
+import MyPortfolioSection from './MyPortfolioSection';
+import PortfolioAddSection from './PortfolioAddSection';
+
 class MyPagePortfolio extends React.Component{
     
     render(){
@@ -10,6 +13,8 @@ class MyPagePortfolio extends React.Component{
             <div className = 'mypage-bottom-section-bg'>
                 <div className = 'container'>
                     <div className = 'mypage-sub-container'>
+                        <PortfolioAddSection/>
+                        <MyPortfolioSection/>
                     </div>
                 </div>
             </div>
