@@ -8,15 +8,17 @@ import ApplySecond from './ApplySecond'
 import '../../css/container.scss'
 import '../../css/kim/componentcss/ApplyModal.scss'
 import { CLOSE_APPLY_MODAL } from '../../action'
-const ApplyModal = ({data})=>{
+const ApplyModal = ()=>{
     
     
     const dispatch = useDispatch();
     const {applyModalLevel, visible} = useSelector(state => state.button)
+    const {postId} = useSelector(state=> state.apply)
     
     const closeModal = ()=>{
         dispatch({
-            type: CLOSE_APPLY_MODAL
+            type: CLOSE_APPLY_MODAL,
+            
         })
     }
     const renderModal = (level)=>{

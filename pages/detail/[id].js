@@ -12,9 +12,11 @@ import {useDispatch} from 'react-redux'
 import { OPEN_APPLY_MODAL } from '../../action/index.js';
 var detailRouter = (props) => {
     const dispatch = useDispatch();
+    
     const openModal = ()=>{
         dispatch({
-            type : OPEN_APPLY_MODAL
+            type : OPEN_APPLY_MODAL,
+            postId : props.query.id
         })
     }
     return (
@@ -23,6 +25,7 @@ var detailRouter = (props) => {
 }
 
 detailRouter.getInitailProps = async function(ctx){
+    console.log(ctx.query)
     return {}
 }
 
