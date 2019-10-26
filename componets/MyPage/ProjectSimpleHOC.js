@@ -21,6 +21,8 @@ var ProjectSimpleHOC = (RightSection) => {
                         </div>
                     </div>
                     <RightSection 
+                        id = {props.id}
+                        onDelete = {props.onDelete}
                         info = {props.info}/>
     
                 </div>
