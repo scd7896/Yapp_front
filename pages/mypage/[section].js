@@ -76,8 +76,14 @@ class MyPage extends React.Component{
                                     <div className = 'mypage-profile-id'>
                                         사용자 ID
                                     </div>
-                                    <div className = 'mypage-profile-edit-button'>
-                                        프로필 수정
+                                    <div className = 'mypage-profile-button-container'>
+
+                                        <div className = 'mypage-profile-button'>
+                                            프로필 수정
+                                        </div>
+                                        <div className = 'mypage-profile-button'>
+                                            키워드 관리
+                                        </div>
                                     </div>
 
                                 </div>                        

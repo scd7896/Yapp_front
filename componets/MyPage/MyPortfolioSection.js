@@ -46,6 +46,7 @@ export default class MyPortfolioSection extends React.Component{
             <PorfolioSimpleComponent 
                 key = {post.id}
                 post = {post}
+                id = {post.id}
                 onDelete = {this.deletePortfolio}
             />
         )
