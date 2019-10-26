@@ -144,3 +144,92 @@
 .mypage-finish .recruit-simple-finish-text{
     color: #999999 !important;
 }
+//ApplySimpleContents.js
+
+.apply-simple-container{
+    display:inline-block;
+    margin-top : 39px;
+}
+
+.apply-simple-flex{
+    display:flex;
+}
+
+.apply-simple-cancel-button{
+    width: 128px;
+    height: 52px;
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+
+    display : inline-block;
+
+    text-align: center;
+
+    cursor : pointer;
+}
+
+.apply-simple-cancel-button-text{
+
+    margin-top : 11px;
+    
+
+    height: 29px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-align: center;
+    color: #666666;
+}
+
+.apply-simple-progress-status{
+    padding-left : 14.5px;
+    margin-top : 12px;
+    height: 29px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: -1px;
+    text-align: left;
+    color: #333333;
+
+    border-left : solid 1px #e5e5e5;
+}
+
+.apply-simple-progress-finish{
+    margin-right: 26px;
+}
+
+.apply-simple-progress-in{
+    margin-right : 44px;
+}
+
+.apply-simple-reading-status{
+    height: 29px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: -1px;
+    text-align: left;
+
+    margin-top : 12px;
+    margin-right : 15.5px;
+}
+
+.apply-simple-reading-true{
+    color : #ff3e85;
+}
+
+.apply-simple-reading-false{
+    color: #333333;
+}
+
