@@ -39,7 +39,7 @@ class PortfolioSimpleComponent extends React.Component{
                         </div>
                     </div>
                     <div className = 'portfolio-simple-right'>
-                        <div className = 'portfolio-simple-delete-button'>
+                        <div className = 'portfolio-simple-delete-button' onClick = {() => this.props.onDelete(this.props.id)}>
                             삭제
                         </div>
                         <div className = 'portfolio-simple-edit-button'>

@@ -8,11 +8,17 @@
 */
 
 import Detail from '../../componets/detail.js'
-
+import {useDispatch} from 'react-redux'
+import { OPEN_APPLY_MODAL } from '../../action/index.js';
 var detailRouter = (props) => {
-
+    const dispatch = useDispatch();
+    const openModal = ()=>{
+        dispatch({
+            type : OPEN_APPLY_MODAL
+        })
+    }
     return (
-        <Detail props = {props}/>
+        <Detail props = {props} openModal = {openModal}/>
     )
 }
 

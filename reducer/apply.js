@@ -1,8 +1,9 @@
 import produce from 'immer'
-import {SET_APPLYQNA_DATA} from '../action'
+import {SET_APPLYQNA_DATA, ADD_PORTFOLIO_MODAL, DEL_PORTFOLIO_MODAL} from '../action'
 const initialState ={
     position : '',
-    answers :[]
+    answers :[],
+    selectPortFolios : []
 }
 
 const apply = (state = initialState, action)=>{
@@ -12,7 +13,12 @@ const apply = (state = initialState, action)=>{
                 draft.position = action.position;
                 draft.answers = action.answers;
                 break;
-                
+            case ADD_PORTFOLIO_MODAL :
+                draft.selectPortFolios.push(action.data)
+                break;
+            case DEL_PORTFOLIO_MODAL :
+                draft.selectPortFolios = draft.selectPortFolios.filter((e)=>e.title!==action.data.title)
+                break;
             default :
                 break;
         }

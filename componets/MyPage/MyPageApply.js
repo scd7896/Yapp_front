@@ -3,7 +3,8 @@
 import '../../css/Park/mypage.scss';
 import '../../css/MyPage/MyPageApply.scss';
 
-import ApplySimpleComponent from './ApplySimpleComponent';
+import ProjectSimpleHOC from './ProjectSimpleHOC';
+import ApplySimpleContents from './ApplySimpleContents';
 
 class MyPageApply extends React.Component{
 
@@ -12,36 +13,61 @@ class MyPageApply extends React.Component{
 
         this.state = {
             apply : [{
+                id : 0,
                 title : '프로젝트 타이틀 1',
                 jobgroup : '디자이너',
                 reading : true,
                 finish : false
             },
             {
+                id : 1,
                 title : '프로젝트 타이틀 2',
                 jobgroup : '디자이너',
                 reading : true,
                 finish : false
             },
             {
+                id : 2,
                 title : '프로젝트 타이틀 3',
-                jobgroup : '디자이너',
+                jobgroup : '기획자',
                 reading : false,
                 finish : false
             },
             {
+                id : 3,
                 title : '프로젝트 타이틀 4',
                 jobgroup : '디자이너',
                 reading : false,
                 finish : true
             },
             {
+                id : 4,
                 title : '프로젝트 타이틀 5',
                 jobgroup : '디자이너',
                 reading : false,
                 finish : true
             }]
         }
+
+        this.onDelete = this.onDelete.bind(this);
+    }
+
+    async onDelete(victim){
+        var deleteConfirm = confirm('정말 지원을 취소하시겠습니까?');
+
+        //실제로 서버와 통신할 공간
+
+        var deleteResult = await true;
+
+        if(deleteConfirm  && deleteResult){
+            var curState = JSON.parse(JSON.stringify(this.state));
+            
+            curState.apply = curState.apply.filter(apply => apply.id != victim);
+
+            this.setState(curState);
+        }
+
+        //실제로는 전체 데이터를 긁어와야할수도있음
     }
     
     render(){
@@ -49,6 +75,9 @@ class MyPageApply extends React.Component{
         var totalNumber = this.state.apply.length;
         var readingNumber = 0; 
         var finishNumber = 0;
+        
+        var ApplySimpleComponent = ProjectSimpleHOC(ApplySimpleContents);
+        var onDelete = this.onDelete;
 
         var ApplySimpleComponents = this.state.apply.map((info) => {
 
@@ -61,7 +90,11 @@ class MyPageApply extends React.Component{
             }
 
             return (
-                <ApplySimpleComponent info = {info}/>
+                <ApplySimpleComponent 
+                    key = {info.id}
+                    id = {info.id}
+                    info = {info}
+                    onDelete = {onDelete}/>
             )
         })
 

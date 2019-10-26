@@ -78,7 +78,9 @@ const Index = () => {
             </div>
           </div>
           <ProjectSection />
-          <p id="keyword_search_text">관심 키워드로 보기</p>
+          <div id="post_text_container">
+            <p id="post_text_head">관심 키워드로 보기</p>
+          </div>
           <div id="keyword_list_box_container">
             {keywordSearch
               ? keywordSearch.map((e, i) => {
@@ -86,21 +88,28 @@ const Index = () => {
                 })
               : ""}
           </div>
+
           <div id="nice_recruitment_container">
-            <p id="nice_recruitment_text">인기 모집글</p>
+            <div id="post_text_container">
+              <p id="post_text_head">인기 모집글</p>
+            </div>
+
             <KeywordCardViewSection buttonTop={170} />
           </div>
         </div>
       </div>
       <div id="footer_container" className="container">
         <div id="best_projects_container">
-          <p id="best_project_title">베스트 프로젝트</p>
-          <div id="best_project_text_container">
-            <span id="best_project_text">
-              Toys를 통해 만들어진 프로젝트 확인해보세요
-            </span>
-            <span id="post_text_more">더보기</span>
+          <div id="post_text_container">
+            <p id="post_text_head">베스트 프로젝트</p>
+            <div id="post_text_sub_container">
+              <span id="post_text_sub">
+                Toys를 통해 만들어진 프로젝트 확인해보세요
+              </span>
+              <span id="post_text_more">더보기</span>
+            </div>
           </div>
+
           <div id="card_view_section_container">
             <PostCardViewSection buttonTop={107} />
           </div>
