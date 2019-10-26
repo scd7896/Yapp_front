@@ -233,3 +233,55 @@
     color: #333333;
 }
 
+//InterestSimpleContents.js
+
+.interest-simple-bookmark-button{
+    margin-top : 42px;
+    width: 52px;
+    height: 38.9px;
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+
+    padding-top : 13.1px;
+    text-align: center;
+
+    display: inline-block;
+    cursor: pointer;
+}
+
+.interest-simple-apply-button{
+
+    margin-left : 12px;
+    margin-top : 42px;
+    width: 128px;
+    height: 52px;
+    background-color: #5c63ff;;
+    text-align: center;
+
+    cursor: pointer;
+
+    display: inline-block;
+}
+
+.interest-simple-apply-button-text{
+
+    margin-top : 11px;
+
+    height: 29px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.interest-simple-flex{
+    display: flex;
+}
+
+.mypage-finish  .interest-simple-apply-button{
+    background-color : #e5e5e5 !important;
+}
