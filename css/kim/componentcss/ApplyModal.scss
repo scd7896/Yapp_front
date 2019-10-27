@@ -1,7 +1,4 @@
-#apply_head_modal_blank{
-    margin-top : 100px;
-    background-color: rgba(0,0, 0, 0.7)
-}
+
 #modal_container{
     text-align: center;
     width : 100%;
@@ -12,6 +9,10 @@
 #apply_modal_head_container{
     text-align: left;
     background-color: #ffffff;
+}
+#apply_head_modal_blank{
+    height : 100px;
+    background-color: rgba(0,0, 0, 0.0)
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */

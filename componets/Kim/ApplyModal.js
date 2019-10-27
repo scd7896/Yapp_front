@@ -14,7 +14,7 @@ const ApplyModal = ()=>{
     const dispatch = useDispatch();
     const {applyModalLevel, visible} = useSelector(state => state.button)
     const {postId} = useSelector(state=> state.apply)
-    
+    let modalContainer;
     const closeModal = ()=>{
         dispatch({
             type: CLOSE_APPLY_MODAL,
@@ -29,22 +29,25 @@ const ApplyModal = ()=>{
                 return <ApplySecond></ApplySecond>
         }
     }
+    
     useEffect(()=>{
-        const modalContainer = document.querySelector('#modal_container')
+        modalContainer = document.querySelector('#modal_container')
         const parent = modalContainer.parentElement;
-        parent.style.backgroundColor = "rgba(0,0,0,0)"
+        console.log(parent.style.backgroundColor)
+        
     },[])
     return(
         <div className = "container" >
             
             <Modal visible = {visible} effect="fadeInUp">
-                <div id = "apply_head_modal_blank"></div>
+                
                 <div id = {applyModalLevel !== 3? "modal_container" : "modal_finish_container"}>
                     
                     {applyModalLevel <=2 ?    
                         <div>
+                            <div id = "apply_head_modal_blank"></div> 
                             <div id = "apply_modal_head_container" >
-                                
+                                   
                                 <span><p id = "modal_title_text">프로젝트 지원하기</p></span>
                                 <span><p id = "modal_cancle_button" onClick = {closeModal}>X</p></span>
                             </div>
