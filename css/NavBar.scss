@@ -120,14 +120,10 @@ button {
     display: none;
   }
   .nav_right_mobile {
-    cursor: pointer;
-    height: 35px;
-    float: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: inline;
   }
 }
+
 #nav_login_signup {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 22px;
@@ -141,6 +137,5 @@ button {
 }
 
 #nav_login_signup_container {
-  display: inline;
-  padding-left: 6.2%;
+  padding-left: 10px;
 }

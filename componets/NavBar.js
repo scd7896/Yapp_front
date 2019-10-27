@@ -5,23 +5,23 @@ import { useSelector, useDispatch } from "react-redux";
 import "../css/NavBar.scss";
 import "../css/container.scss";
 import { OPEN_LOGIN_MODAL } from "../action";
+import Hamburger from "../componets/Jun/Hamburger";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const { selectPage } = useSelector(state => state.button);
   const { user } = useSelector(state => state);
-  
+
   const routeToMain = () => {
     Router.push("/");
   };
-  const openLoginModal = ()=>{
+  const openLoginModal = () => {
     dispatch({
-      type : OPEN_LOGIN_MODAL
-    })
-  }
+      type: OPEN_LOGIN_MODAL
+    });
+  };
   return (
     <div className="navbar">
-      
       <div className="container">
         <div className="logo">
           <svg
@@ -63,14 +63,19 @@ const NavBar = () => {
             </a>
           </span>
 
-          <span id = "nav_login_signup_container" style ={user.userId ? {display : "none"}:{display : 'block'}}>
-            <p id ="nav_login_signup" onClick = {openLoginModal}>
+          <span
+            id="nav_login_signup_container"
+            style={user.userId ? { display: "none" } : { display: "block" }}
+          >
+            <p id="nav_login_signup" onClick={openLoginModal}>
               로그인 / 회원가입
             </p>
-            
           </span>
-          
-          <span className="nav_png" style = {!user.userId ?{display : "none"} :{}}>
+
+          <span
+            className="nav_png"
+            style={!user.userId ? { display: "none" } : {}}
+          >
             <button>
               <img
                 style={{ width: "25px", height: "32px" }}
@@ -85,64 +90,17 @@ const NavBar = () => {
             </button>
           </span>
 
-          <span className="nav_button" style = {!user.userId ?{display : "none"} :{}} >
+          <span
+            className="nav_button"
+            style={!user.userId ? { display: "none" } : {}}
+          >
             <button>모집글 작성 ></button>
-          </span> 
-          
+          </span>
         </div>
         <div className="nav_right_mobile">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="10"
-            viewBox="0 0 30 5"
-          >
-            <line
-              id="선_109"
-              data-name="선 109"
-              x2="30"
-              transform="translate(0 1)"
-              fill="none"
-              stroke="#1f254b"
-              strokeWidth="5"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="10"
-            viewBox="0 0 30 5"
-          >
-            <line
-              id="선_109"
-              data-name="선 109"
-              x2="30"
-              transform="translate(0 1)"
-              fill="none"
-              stroke="#1f254b"
-              strokeWidth="5"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="10"
-            viewBox="0 0 30 5"
-          >
-            <line
-              id="선_109"
-              data-name="선 109"
-              x2="30"
-              transform="translate(0 1)"
-              fill="none"
-              stroke="#1f254b"
-              strokeWidth="5"
-            />
-          </svg>
+          <Hamburger></Hamburger>
         </div>
-        
       </div>
-      
     </div>
   );
 };
