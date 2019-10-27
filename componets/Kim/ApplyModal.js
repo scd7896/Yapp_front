@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Modal from 'react-awesome-modal'
 import {useSelector, useDispatch} from 'react-redux'
 
@@ -29,6 +29,11 @@ const ApplyModal = ()=>{
                 return <ApplySecond></ApplySecond>
         }
     }
+    useEffect(()=>{
+        const modalContainer = document.querySelector('#modal_container')
+        const parent = modalContainer.parentElement;
+        parent.style.marginTop = "10vh"
+    },[])
     return(
         <div className = "container" >
             <Modal visible = {visible} effect="fadeInUp">
