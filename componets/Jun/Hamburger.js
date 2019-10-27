@@ -7,7 +7,7 @@ function Hamburger() {
 
   return (
     <>
-      {open && (
+      {!open && (
         <div className="mobile-menu" onClick={onToggle}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -60,9 +60,9 @@ function Hamburger() {
         </div>
       )}
 
-      {!open && (
+      {open && (
         <>
-          <div className="menu-cover"></div>
+          <div className="menu-cover" onClick={onToggle}></div>
           <div className="menu-trigger">
             <div className="menu_close">
               <span onClick={onToggle}>
