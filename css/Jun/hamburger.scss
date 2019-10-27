@@ -1,3 +1,11 @@
+a {
+  cursor: pointer;
+}
+.menu-cover {
+  width: 100%;
+  opacity: 0.6;
+  background-color: #000000;
+}
 .mobile-menu {
   cursor: pointer;
   height: 35px;
@@ -7,16 +15,16 @@
   justify-content: space-between;
 }
 .menu-trigger {
-  position: absolute;
+  z-index: 1000;
+  position: fixed;
   right: 0;
   top: 0;
   width: 280px;
-  height: 639px;
-
-  width: 280px;
+  height: 100vh;
   background: white;
 }
 .menu_close {
+  cursor: pointer;
   display: flex;
   justify-content: flex-end;
   align-items: center;
