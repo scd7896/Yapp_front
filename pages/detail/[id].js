@@ -18,6 +18,7 @@ var detailRouter = (props) => {
             type : OPEN_APPLY_MODAL,
             postId : props.query.id
         })
+        
     }
     return (
         <Detail props = {props} openModal = {openModal}/>

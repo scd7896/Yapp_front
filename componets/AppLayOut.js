@@ -5,6 +5,7 @@ import React from 'react'
 */
 import LoginModal from './Kim/Login/LoginModal'
 import NavBar from './NavBar'
+import ApplyModal from './Kim/ApplyModal'
 
 const AppLayOut = ({children})=>{
     const style = {
@@ -14,6 +15,7 @@ const AppLayOut = ({children})=>{
         <div>
             <NavBar style = {style}></NavBar>
             <LoginModal />
+            <ApplyModal />
             <div>
                 {children}
             </div>
