@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import JobGroupCardView from "../componets/Park/JobGroupCardView";
 import Question from "../componets/Jun/Question";
+import SelectBox from "../componets/Jun/SelectBox";
 import Plus from "../componets/Jun/Plus";
 
 import "../css/Jun/enrollment.scss";
@@ -108,6 +109,7 @@ const enrollment = () => {
 
           <div className="select_info">
             <p>지역</p>
+            <SelectBox />
           </div>
           <div className="select_info">
             <p>진행단계</p>
