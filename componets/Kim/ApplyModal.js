@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import Modal from 'react-awesome-modal'
+import Modal from '../../lib/react-awesome-modal/lib/index'
 import {useSelector, useDispatch} from 'react-redux'
 
 import ApplyCompleted from'./ApplyCompleted'

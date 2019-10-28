@@ -1,5 +1,5 @@
 import React from 'react'
-import Modal from 'react-awesome-modal'
+import Modal from '../../../lib/react-awesome-modal/lib/index'
 import LoginInput from './LoginInput'
 import SignUpInput from './SignUpInput'
 import {useSelector, useDispatch} from 'react-redux'
