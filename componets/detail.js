@@ -2,23 +2,26 @@ import React,{useEffect} from 'react'
 
 import '../css/park/detail.scss'
 import '../css/container.scss'
+
+
 import JobGroupCardView from './Park/JobGroupCardView'
 import DetailQnA from './Park/DetailQnA'
+
 
 class Detail extends React.Component{
 
     constructor(props){
         super(props);
     }
-
+    
     render(){
-
+        
         var jobgroups = '디자이너';
         var title = '모임장소 추천서비스모';
-
+        
         return(
             <div id = 'detail_root'>
-
+                
                 {/* 컨텐츠 영역입니다 */}
 
                 <div className = 'detail-title-wrapper'>
@@ -40,9 +43,10 @@ class Detail extends React.Component{
                                         </g>
                                         </svg>
                                     </div>
-                                    <div className = "detail-apply-button">지원하기</div>
+                                    <div className = "detail-apply-button" onClick = {this.props.openModal}>지원하기</div>
+                                    
                                     </div>
-                                   
+                                    
                                 </div>
                             </div>
                         </div>

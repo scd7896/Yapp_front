@@ -8,6 +8,10 @@ a {
 }
 button {
   outline: 0 !important;
+  border: none !important;
+}
+input {
+  outline: 0 !important;
 }
 
 #Toys {
@@ -34,8 +38,8 @@ button {
   cursor: pointer;
 }
 .logo img {
-  width: 95px;
-  height: 50px;
+  width: 124px;
+  height: 66px;
 }
 
 .nav_right {
@@ -43,6 +47,7 @@ button {
   float: right;
   display: flex;
   align-items: center;
+
   height: 48px;
 }
 .nav_list {
@@ -52,7 +57,7 @@ button {
   align-items: center;
 }
 .nav_list a {
-  font-family: "SourceHanSansK";
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 22px;
   font-weight: normal;
   font-style: normal;
@@ -91,7 +96,7 @@ button {
   width: 152px;
   height: 40px;
   color: #5c63ff;
-  font-family: SourceHanSansK;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -118,11 +123,22 @@ button {
     display: none;
   }
   .nav_right_mobile {
-    cursor: pointer;
-    height: 35px;
-    float: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: inline;
   }
+}
+
+#nav_login_signup {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.1px;
+  text-align: left;
+  color: #333333;
+}
+
+#nav_login_signup_container {
+  padding-left: 10px;
 }

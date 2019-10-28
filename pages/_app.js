@@ -12,12 +12,27 @@ import rootSaga from "../saga";
 import reducer from "../reducer";
 
 import "../css/wrraper.scss";
+import { GET_MYDATA_REQUEST } from "../action";
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
       : {};
     //getInitialProps 가 서버사이드렌더링 효과를 줄수 있게 도와주는거에요
+    const userToken = ctx.isServer? ctx.req.headers.cookie :'';
+
+    if(ctx.isServer){
+      console.log(ctx.req.headers.cookie)
+    }
+
+    const me = ctx.store.getState().user
+    if(!me.userId){
+      ctx.store.dispatch({
+        type : GET_MYDATA_REQUEST,
+        data : userToken
+      })
+    }
+    
     pageProps.query = ctx.query;
     return { pageProps };
   }
@@ -26,8 +41,10 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <Head>
-          
-          <meta content="width=device-width,minimum-scale=1.0" name="viewport"/>
+          <meta
+            content="width=device-width,minimum-scale=1.0"
+            name="viewport"
+          />
           <meta charSet="utf-8" />
           <link
             rel="stylesheet"
@@ -40,10 +57,9 @@ class MyApp extends App {
           ></link>
           {/* google web font Noto Sans */}
           <link
-            href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean"
+            href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
             rel="stylesheet"
           ></link>
-
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         </Head>
 

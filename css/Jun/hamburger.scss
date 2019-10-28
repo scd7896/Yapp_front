@@ -1,0 +1,108 @@
+a {
+  cursor: pointer;
+}
+.menu-cover {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.6;
+  background-color: #000000;
+}
+.mobile-menu {
+  cursor: pointer;
+  height: 35px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-trigger {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  right: 0;
+  animation-duration: 1s;
+  animation-name: menuIn;
+}
+@keyframes menuIn {
+  0% {
+    right: -280px;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+.menu_close {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+  margin-top: 25px;
+}
+.hambergur_container {
+  margin-top: 32px;
+  margin-left: 42px;
+}
+.session_check {
+  margin-bottom: 95px;
+  & .session_check_href {
+    display: flex;
+    margin-top: 19px;
+  }
+  & h5 {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: -1.6px;
+    text-align: left;
+    color: #333333;
+  }
+  & a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 34px;
+    border: solid 1px #e5e5e5;
+    margin-right: 10px;
+
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #666666;
+  }
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  & a {
+    margin-bottom: 14px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: left;
+    color: #333333;
+  }
+}

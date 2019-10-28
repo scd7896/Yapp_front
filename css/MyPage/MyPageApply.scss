@@ -1,0 +1,58 @@
+.mypage-bottom-section-bg{
+    margin-bottom : 121.2px;
+}
+
+.mypage-apply-scoreboard{
+    width : 100%;
+    height: 149.9px;
+    background-color: #ffffff;
+
+    margin-top : 36px;
+    margin-bottom: 26.1px;
+
+    text-align: center;
+    
+    display : block;
+}
+
+.mypage-apply-scoreboard-section{
+    width : calc((100% - 2px) / 3);
+    height: 106.5px;
+
+    margin-top : 21.5px;
+
+    text-align: center;
+
+    display: inline-block;
+}
+
+.mypage-apply-scoreboard-center{
+    border-left : solid #B9B9B9 1px;
+    border-right : solid #B9B9B9 1px;
+}
+
+.mypage-apply-scoreboard-number{
+    height: 86px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 58px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.48;
+    letter-spacing: -2.9px;
+    color: #333333;
+
+    margin-top : -13px;
+}
+
+.mypage-apply-scoreboard-text{
+    height: 33px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    color: #333333;
+}

@@ -8,15 +8,25 @@
 */
 
 import Detail from '../../componets/detail.js'
-
+import {useDispatch} from 'react-redux'
+import { OPEN_APPLY_MODAL } from '../../action/index.js';
 var detailRouter = (props) => {
-
+    const dispatch = useDispatch();
+    
+    const openModal = ()=>{
+        dispatch({
+            type : OPEN_APPLY_MODAL,
+            postId : props.query.id
+        })
+        
+    }
     return (
-        <Detail props = {props}/>
+        <Detail props = {props} openModal = {openModal}/>
     )
 }
 
 detailRouter.getInitailProps = async function(ctx){
+    console.log(ctx.query)
     return {}
 }
 
