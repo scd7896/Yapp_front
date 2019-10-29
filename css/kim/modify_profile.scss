@@ -1,0 +1,148 @@
+.modify_profile_head_container{
+    border-bottom: 3px solid #f5f7fa;
+    padding-top : 94px;
+    padding-bottom : 29.5px;
+    text-align: center;
+}
+.modify_profile_head_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: -1.6px;
+    text-align: left;
+    margin-left : 25%;
+    color: #333333;
+}
+
+.modify_profile_body_container{
+    margin-left : 25%;
+    padding-top : 70.5px;
+    
+}
+.modify_profile_body_image_container{
+    display : flex;
+    margin-bottom : 59px;
+}
+.modify_profile_body_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: left;
+    color: #333333;
+}
+.modify_profile_body_image_view{
+    height : 148px;
+    width : 148px;
+    margin-left : 10%;
+    background: #f5f7fa;
+    border-radius: 70px;
+    margin-right: 5%;
+}
+.modify_profile_body_image_action_container{
+    display: flex;
+    align-items: flex-end;
+}
+.modify_profile_body_image_action_button{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 81px;
+    height: 44px;
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+    margin-right: 10px;
+}
+.modify_profile_body_image_action_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: left;
+    color: #666666;
+}
+.modify_profile_body_name_container{
+    padding-bottom : 47.5px;
+    display: flex;
+}
+
+.modify_profile_body_input_text{
+    margin-left : 17%;
+    border-left : none;
+    border-right: none;
+    border-top: none;
+    width : 40%;
+    border-bottom : 2px solid #f5f7fa;
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -1.1px;
+    text-align: left;
+}
+.tel{
+    margin-left : 13%;
+}
+.modify_profile_bottom_container{
+    display: flex;
+    padding-top : 36.5px;
+    padding-bottom : 42px;
+    justify-content: center;
+    border-top : 3px solid #f5f7fa;
+}
+
+.modify_profile_cancle_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 156px;
+    height: 63px;
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+    margin-right : 19px;
+}   
+.modify_profile_cancle_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #666666;
+}
+
+.modify_profile_commit_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 156px;
+    height: 63px;
+    background-color: #5c63ff;
+}
+.modify_profile_commit_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+}

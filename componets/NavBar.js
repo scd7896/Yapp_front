@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <div className="container">
-        <div className="logo">
+        <div className="logo" onClick = {routeToMain}>
           <img src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3AA5A2F7-12E0-43B7-AF49-91A7451A8096.svg"></img>
         </div>
 
