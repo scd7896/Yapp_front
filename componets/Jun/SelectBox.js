@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../../css/Jun/selectbox.scss";
 
-function SelectBox() {
+//prpos : placeholder, item배열, type(모양)
+//반환값 : val값 (input 선택된 값)
+function SelectBox({ placeholder, items }) {
   const [open, setOpen] = useState(false);
-  const [placeholder, setPlaceholder] = useState("선택하세요");
   const onToggle = () => setOpen(!open);
-  const onPlaceholder = () => setPlaceholder("서울");
 
   return (
     <div className="selectbox" onClick={onToggle}>
@@ -34,8 +34,9 @@ function SelectBox() {
         <>
           <div className="select_cover" onClick={onToggle}></div>
           <div className="select_open" onClick={onToggle}>
-            <div onClick={onPlaceholder}>서울</div>
-            <div>경기</div>
+            {items.map(item => (
+              <div>{item}</div>
+            ))}
           </div>
         </>
       )}

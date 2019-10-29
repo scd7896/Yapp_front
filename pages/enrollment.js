@@ -109,7 +109,10 @@ const enrollment = () => {
 
           <div className="select_info">
             <p>지역</p>
-            <SelectBox />
+            <SelectBox
+              placeholder="선택하세요"
+              items={["서울", "대구", "울산"]}
+            />
           </div>
           <div className="select_info">
             <p>진행단계</p>

@@ -33,6 +33,7 @@
   opacity: 0;
 }
 .select_open {
+  transition: 1s;
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.11);
   background-color: #ffffff;
   position: absolute;
@@ -49,6 +50,7 @@
   & div {
     padding: 15px 17px;
     width: 178px;
+    transition: 0.5s;
   }
   & div:hover {
     color: #333333;
