@@ -26,7 +26,7 @@ function SelectBox({ type, placeholder, items }) {
                 id="다각형_18"
                 data-name="다각형 18"
                 d="M8,0l8,10H0Z"
-                transform="translate(16 10) rotate(180)"
+                transform={val ? "" : "translate(16 10) rotate(180)"}
                 fill="#666"
               />
             </svg>
@@ -47,7 +47,7 @@ function SelectBox({ type, placeholder, items }) {
                 id="다각형_18"
                 data-name="다각형 18"
                 d="M8,0l8,10H0Z"
-                transform="translate(16 10) rotate(180)"
+                transform={val ? "" : "translate(16 10) rotate(180)"}
                 fill="#666"
               />
             </svg>
