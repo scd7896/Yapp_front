@@ -2,6 +2,7 @@ import Router from 'next/router'
 import React from 'react'
 import Link from 'next/link'
 
+
 import '../../css/Park/mypage.scss'
 import '../../css/container.scss'
 
@@ -57,7 +58,9 @@ class MyPage extends React.Component{
         else if(section == 'interest'){
             curSectionComponent = <MyPageInterest/>
         }
-
+        const goToModifyProfile = ()=>{
+            Router.push('/modify/profile');
+        }
         return (
             <div className = 'mypage'>     
 
@@ -78,7 +81,7 @@ class MyPage extends React.Component{
                                     </div>
                                     <div className = 'mypage-profile-button-container'>
 
-                                        <div className = 'mypage-profile-button'>
+                                        <div className = 'mypage-profile-button' onClick = {goToModifyProfile}>
                                             프로필 수정
                                         </div>
                                         <div className = 'mypage-profile-button'>

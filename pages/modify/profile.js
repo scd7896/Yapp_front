@@ -1,7 +1,11 @@
 import React from 'react'
+import Router from 'next/router'
 import '../../css/container.scss'
 import '../../css/kim/modify_profile.scss'
 const profile = ()=>{
+    const routeBack = ()=>{
+        Router.back();
+    }
     return(
         <div style ={{background : "#ffffff"}}>
             <div className = "modify_profile_head_container">
@@ -44,7 +48,7 @@ const profile = ()=>{
 
             </div>
             <div className = "modify_profile_bottom_container">
-                <div className = "modify_profile_cancle_button">
+                <div className = "modify_profile_cancle_button" onClick = {routeBack}>
                     <p className = "modify_profile_cancle_text">취소</p>
                 </div>
                 <div className = "modify_profile_commit_button">

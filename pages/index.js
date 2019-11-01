@@ -22,10 +22,6 @@ import { SET_SELECTED_PAGES } from "../action";
 const Index = () => {
   /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
-  useEffect(() => {
-    const index = document.querySelector("#index_root");
-  }, []);
-
   var PostCardViewSection = HigherOrderCardView(PostCardView, "post");
   var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
 

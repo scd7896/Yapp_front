@@ -20,6 +20,9 @@ const NavBar = () => {
       type: OPEN_LOGIN_MODAL
     });
   };
+  const goToMyPage = ()=>{
+    Router.push('/mypage/apply');
+  }
   return (
     <div className="navbar">
       <div className="container">
@@ -60,6 +63,7 @@ const NavBar = () => {
           >
             <button>
               <img
+                onClick = {goToMyPage}
                 style={{ width: "25px", height: "32px" }}
                 src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/34B2916A-4DBF-46B6-94E2-B9F802EE2A0B.svg"
               />
