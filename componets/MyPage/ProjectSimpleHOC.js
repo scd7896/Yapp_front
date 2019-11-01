@@ -23,6 +23,7 @@ var ProjectSimpleHOC = (RightSection) => {
                     <RightSection 
                         id = {props.id}
                         onDelete = {props.onDelete}
+                        handleToggle = {props.handleToggle}
                         info = {props.info}/>
     
                 </div>

@@ -76,8 +76,13 @@
 
 .recruit-simple-view{
     
+    margin-top : 51px;
     display: inline-block;
     margin-left : 12px;
+}
+
+.recruit-simple-view-flex{
+    display: flex;
 }
 
 .recruit-simple-view-text{
@@ -92,7 +97,12 @@
     text-align: right;
     color: #5c63ff;
 
-    margin-top : 51px;
+    display: inline-block;
+}
+
+.recruit-simple-view-svg{
+    margin-top : 12.2px;
+    margin-left : 6.6px;
 }
 
 .recruit-simple-finish-button{

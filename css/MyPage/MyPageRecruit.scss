@@ -1,0 +1,71 @@
+.recruit-simple-set{
+    display: block;
+    position: relative;
+}
+
+.recruit-simple-component{
+    
+}
+
+.recruit-simple-component-init{
+    visibility: visible;
+    opacity: 1;
+
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.recruit-simple-component-on{
+    visibility: visible;
+    opacity: 1;
+
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.recruit-simple-component-off{
+    visibility: hidden;
+    opacity: 0;
+
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+
+.applicant-list-init{
+    margin-top : -130px;
+    visibility: hidden;
+    opacity: 0;
+    max-height : 130px;
+    overflow-y: hidden;
+
+    z-index: -1;
+
+    transition: visibility 0s, opacity 0.5s linear,max-height 0.5s ease-out  ;
+
+}
+
+.applicant-list-on{
+    margin-top : -130px;
+    visibility: visible;
+    opacity: 1;
+
+    overflow-y: hidden;
+
+    max-height : 1000px;
+
+    z-index: -1;
+
+    transition: visibility 0s, opacity 0s linear ,max-height 0.5s ease-in;
+}
+
+.applicant-list-off{
+    margin-top : -130px;
+    visibility: hidden;
+    opacity: 0;
+    max-height : 130px;
+    overflow-y: hidden;
+
+    z-index: -1;
+
+
+    transition: visibility 0s, opacity 0.5s linear,max-height 0.5s ease-out  ;
+
+}
