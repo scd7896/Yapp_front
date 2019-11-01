@@ -115,6 +115,7 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
         
 
         }
+        
 
 
         HandleClickLeft(e){
@@ -144,12 +145,8 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                     this.animatedScroll(this.WrapperDOM, this.WrapperDOM.children[this.curContents].offsetLeft, 700);
                 }
             }
-
-            
-
- 
         }
-
+       
         componentWillMount(){
             this.getNextDataFromServer();
         }
@@ -172,11 +169,34 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                     })
                 })(this.WrapperDOM,this);
             }
-
-
-
+            
+            const cardViewWrapper = document.querySelector('.CardView-Wrapper')
+            
+            cardViewWrapper.addEventListener('mousedown', (event)=>{
+                const currentX = event.clientX;
+                let isDragStart = true;
+                function _handleMoveScroll(move){
+                    console.log(cardViewWrapper.scrollLeft)
+                    //console.log(currentX - move)
+                }
+                function _onMouseMove(event){
+                    if(!isDragStart){
+                        return;
+                    }
+                    _handleMoveScroll(event.clientX)
+                }
+                
+                document.addEventListener('mousemove',_onMouseMove)
+                document.addEventListener("mouseup", ()=>{
+                    isDragStart=false;
+                })   
+            
+            })
+           
         }
-
+        componentWillUnmount(){
+            
+        }
 
         render(){
 
