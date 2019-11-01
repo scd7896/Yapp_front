@@ -1,0 +1,237 @@
+//componets/MyPage/ApplicantList.js
+
+
+.applicant-list-container{
+    width : 100%;
+    padding-top : 40.6px;
+    padding-bottom: 40.6px;
+    background-color: #ffffff;
+}
+
+.applicant-list-sub-container{
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+}
+
+.applicant-list-header{
+    width : 100% ;
+    height: 125.1px;
+    border-bottom : solid #e5e5e5 1px;
+}
+
+.applicant-list-header-flex{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.applicant-list-title{
+    display : block;
+    height: 47px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: -1.6px;
+    text-align: left;
+    color: #333333;
+}
+
+.applicant-list-sub-title{
+    display: block;
+    margin-top : 9px;
+}
+
+.applicant-list-project-title{
+    height: 33px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: left;
+    color: #333333;
+}
+.applicant-list-number{
+    margin-left : 8px;
+    height: 33px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    text-align: left;
+    color: #999999;
+}
+
+.applicant-list-rollup{
+    margin-top : 27px;
+    display: flex;
+    cursor: pointer;
+}
+
+.applicant-list-rollup-text{
+    display:inline-block;
+
+    height: 29px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: -1px;
+    text-align: right;
+    color: #5c63ff;
+}
+
+.applicant-list-rollup-svg{
+    display:inline-block;
+
+    margin-left : 6.6px;
+}
+
+.applicant-list-jobgroup-container{
+    margin-top : 64px;
+}
+
+//componets/MyPage/ApplicantSimpleComponent.js
+
+.applicant-simple-container{
+    margin-top : 20px;
+
+    width: 100%;
+    height: 122px;
+    border: solid 1px #e5e5e5;
+    background-color: #ffffff;
+
+    display: block;
+}
+
+.applicant-simple-flex{
+    margin: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.applicant-simple-left{
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    object-fit: cover;
+    display: inline-block;
+    
+}
+.applicant-simple-left-flex{
+    display: flex;
+    white-space: nowrap;
+}
+
+.applicant-simple-img{
+    width: 78px;
+    height: 78px;
+    border-radius: 100%;
+    display: inline-block;
+
+    background-color:#f5f7fa;
+}
+
+.applicant-simple-contents{
+    display: inline-block;
+    margin-left : 16px;
+}
+
+.applicant-simple-nickname{
+    margin-top : 8px;
+
+    height: 33px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+
+    display: block;
+}
+
+.applicant-simple-portfolio{
+    margin-top : 2px;
+    display: block;
+}
+
+.applicant-simple-portfolio-flex{
+    display: flex;
+    width: 300px;
+    overflow: hidden;
+}
+
+.applicant-simple-flex{
+    display: flex;
+}
+
+.applicant-simple-portfolio-in{
+    height: 27px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+
+    display: inline-block;
+}
+
+.applicant-simple-portfolio-out{
+    margin-left : 6px;
+
+    height: 27px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #999999;
+
+    display: inline-block;
+}
+
+.applicant-simple-accept-button{
+    margin-top : 14px;
+
+    width: 126px;
+    height: 50px;
+    background-color: #5c63ff;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.applicant-simple-accept-button-text{
+    margin-top : 9px;
+
+    height: 28px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: #ffffff;
+}

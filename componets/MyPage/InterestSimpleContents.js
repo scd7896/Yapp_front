@@ -1,7 +1,7 @@
 import '../../css/MyPage/ProjectSimpleContainer.scss'
 import {useDispatch} from 'react-redux'
 import { OPEN_APPLY_MODAL } from '../../action/index.js';
-
+import ApplyModal from '../Kim/ApplyModal'
 var InterestSimpleContents = (props) =>
 {
     const dispatch = useDispatch();
@@ -33,7 +33,7 @@ var InterestSimpleContents = (props) =>
                         지원하기
                     </div>
                 </div>
-
+                
             </div>            
             
         </div>
