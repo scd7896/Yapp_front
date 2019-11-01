@@ -10,11 +10,19 @@ function SelectBox({ type, placeholder, items }) {
 
   const [val, setVal] = useState("");
 
+  const valStyle = {
+    color: "black"
+  };
+  const noneValStyle = {
+    color: "#b9b9b9"
+  };
   return (
     <div className={classNames("selectbox", type)} onClick={onToggle}>
       {!open && type == "under" && (
         <div className={classNames("select_default", "under")}>
-          <span>{!val ? placeholder : val}</span>
+          <span style={val ? valStyle : noneValStyle}>
+            {!val ? placeholder : val}
+          </span>
           <span id="dropDown">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +43,9 @@ function SelectBox({ type, placeholder, items }) {
       )}
       {type == "full" && (
         <div className={classNames("select_default", "full")}>
-          <span>{!val ? placeholder : val}</span>
+          <span style={val ? valStyle : noneValStyle}>
+            {!val ? placeholder : val}
+          </span>
           <span id="dropDown">
             <svg
               xmlns="http://www.w3.org/2000/svg"
