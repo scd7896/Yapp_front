@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import JobGroupCardView from "../componets/Park/JobGroupCardView";
 import Question from "../componets/Jun/Question";
+import SelectBox from "../componets/Jun/SelectBox";
 import Plus from "../componets/Jun/Plus";
 
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
 
 const enrollment = () => {
-  console.log(Plus);
   return (
     <div className="container">
       <h1>모집글 작성</h1>
@@ -108,9 +108,27 @@ const enrollment = () => {
 
           <div className="select_info">
             <p>지역</p>
+            <SelectBox
+              type="under"
+              placeholder="선택하세요"
+              items={[
+                { id: 1, text: "서울" },
+                { id: 2, text: "대구" },
+                { id: 3, text: "울산" }
+              ]}
+            />
           </div>
           <div className="select_info">
             <p>진행단계</p>
+            <SelectBox
+              type="full"
+              placeholder="선택하세요"
+              items={[
+                { id: 1, text: "서울" },
+                { id: 2, text: "대구" },
+                { id: 3, text: "울산" }
+              ]}
+            />
           </div>
         </div>
 

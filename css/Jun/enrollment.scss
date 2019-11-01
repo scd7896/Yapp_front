@@ -105,6 +105,7 @@ textarea {
 
 .project_title {
   margin-bottom: 93.5px;
+  color: black;
 
   & input {
     border: none;
@@ -120,7 +121,6 @@ textarea {
     line-height: 1.21;
     letter-spacing: -1.4px;
     text-align: left;
-    color: #b9b9b9;
   }
 }
 
@@ -142,7 +142,6 @@ textarea {
     line-height: 1.21;
     letter-spacing: -1.4px;
     text-align: left;
-    color: #b9b9b9;
   }
 }
 
@@ -159,6 +158,11 @@ textarea {
     letter-spacing: -1.4px;
     text-align: left;
     color: #333333;
+
+    margin-right: 119px;
+  }
+  & .select_info {
+    display: flex;
   }
   .select_info + .select_info {
     margin-top: 49.5px;
