@@ -49,7 +49,7 @@ const ApplyModal = ()=>{
                             <div id = "apply_modal_head_container" >
                                    
                                 <span><p id = "modal_title_text">프로젝트 지원하기</p></span>
-                                <span><p id = "modal_cancle_button" onClick = {closeModal}>X</p></span>
+                                <span><p id = "modal_cancle_button" onClick = {closeModal}><img src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/FEF83BDA-4E98-497A-9456-B1E169BDD060.svg"></img></p></span>
                             </div>
                             
                             <div id = "modal_body_container">
