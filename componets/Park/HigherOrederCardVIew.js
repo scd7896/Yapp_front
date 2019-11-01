@@ -188,6 +188,7 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                 
                 document.addEventListener('mousemove',_onMouseMove)
                 document.addEventListener("mouseup", ()=>{
+                    document.removeEventListener('mousemove', _onMouseMove)
                     isDragStart=false;
                 })   
             
