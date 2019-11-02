@@ -103,11 +103,16 @@ class applicant extends React.Component{
                     <div className = 'applicant-cotents-other'>
                         <div className = 'applicant-contents-other-title'>
                             <div className = 'applicant-flex'>
-
+                                <div className = 'applicant-contents-other-title-project'>
+                                    {this.props.project.title}
+                                </div>
+                                <div className = 'applicant-contents-other-title-title'>
+                                    의 다른 지원자 보기
+                                </div>
                             </div>
                         </div>
                         <div className = 'applicant-contents-other-container'>
-
+                            
                         </div>
                     </div>
                 </div>
