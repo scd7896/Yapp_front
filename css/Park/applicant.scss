@@ -1,0 +1,198 @@
+.applicant {
+    width : 100%;
+    min-height: 100%;
+    background-color: #fff;
+}
+
+//header
+
+.applicant-header{
+    padding-top : 112px;
+    width : 100%;
+    height: 184.5px;
+    border-bottom : solid #e5e5e5 1px;
+}
+
+.applicant-header-title{
+    display: block;
+
+    height: 62px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.48;
+    letter-spacing: -2.1px;
+    text-align: left;
+    color: #333333;
+}
+
+.applicant-header-subtitle{
+
+}
+
+.applicant-flex{
+    display: flex;
+}
+
+.applicant-project-title{
+  height: 45px;
+  font-family: "Noto Sans KR",sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.5px;
+  text-align: left;
+  color: #333333;
+  display: inline-block;
+}
+
+.applicant-project-jobgroup
+{
+    height: 45px;
+    font-family: SourceHanSansK;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.5px;
+    text-align: left;
+    color: #333333;
+    margin-left : 22px;
+    display: inline-block;
+}
+
+//contents
+
+.applicant-contents-header{
+    margin-top : 84.5px;
+    display : block;
+}
+
+.applicant-contents-profile-img{
+    display:inline-block;
+    width: 178px;
+    height: 178px;
+}
+
+.applicant-contents-profile{
+    margin-left : 30px;
+    display: inline-block;
+
+}
+
+.applicant-contents-profile-nickname{
+    height: 54px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.8px;
+    text-align: left;
+    color: #333333;
+
+    margin-top : 12px;
+    display: block;
+}
+
+
+.applicant-contents-profile{
+    display: block;
+    margin-top : 10px;
+}
+
+.applicant-cotents-profile-icon{
+    width: 32px;
+    height: 32px;
+    margin-top : 9px;
+    display:inline-block;
+}
+
+.applicant-contents-profile-text{
+    height: 41px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1.4px;
+    text-align: left;
+    color: #666666;
+
+    display: inline-block;
+}
+
+.applicant-contents-section-title{
+    margin-top : 102px;
+
+    height: 41px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1.4px;
+    text-align: left;
+    color: #333333;
+
+    display: block;
+
+    padding-bottom : 30.5px;
+    border-bottom : solid #e5e5e5 1px;
+}
+
+.applicant-contents-qna-container{
+    padding-top : 20px;
+    padding-bottom : 120px;
+    width : 100%;
+    display: block;
+}
+
+.applicant-contents-portfolio-container{
+    padding-top : 12px;
+    padding-top : 80px;
+    width : 100%;
+
+    display: flex;
+}
+
+.applicant-contents-other-container{
+    width : 100%;
+    padding-top :22px;
+    padding-bottom : 103px;
+    display : block;
+}
+
+.applicant-contents-approve{
+    width: 100%;
+    text-align: center;
+}
+
+.applicant-contents-approve-button{
+    width: 250px;
+    height: 74px;
+    background-color: #5c5cff;
+}
+
+.applicant-contents-other-title-project{
+    height: 41px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1.4px;
+    text-align: left;
+    color: #333333;
+
+    margin-left : 5px;
+}

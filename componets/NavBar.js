@@ -11,6 +11,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const { selectPage } = useSelector(state => state.button);
   const { user } = useSelector(state => state);
+  
 
   const routeToMain = () => {
     Router.push("/");
@@ -50,7 +51,7 @@ const NavBar = () => {
 
           <span
             id="nav_login_signup_container"
-            style={user.userId ? { display: "none" } : { display: "block" }}
+            style={user.userToken ? { display: "none" } : { display: "block" }}
           >
             <p id="nav_login_signup" onClick={openLoginModal}>
               로그인 / 회원가입
@@ -59,7 +60,7 @@ const NavBar = () => {
 
           <span
             className="nav_png"
-            style={!user.userId ? { display: "none" } : {}}
+            style={!user.userToken ? { display: "none" } : {}}
           >
             <button>
               <img
@@ -78,7 +79,7 @@ const NavBar = () => {
 
           <span
             className="nav_button"
-            style={!user.userId ? { display: "none" } : {}}
+            style={!user.userToken ? { display: "none" } : {}}
           >
             <button>모집글 작성 ></button>
           </span>

@@ -1,8 +1,13 @@
 import React from 'react'
+import '../../css/MyPage/MyPortfolioSection.scss'
+
 class PortfolioSimpleComponent extends React.Component{
     render(){
+
+        var type = this.props.type;
+
         return (
-            <div className = 'portfoilo-simple-container'>
+            <div className = {'portfoilo-simple-container ' + (type ? ('portfoilo-simple-container-'+type) : '')} >
                 <div className = 'portfolio-simple-container-space-between'>
                     <div className = 'portfolio-simple-left'>
                         <img 
