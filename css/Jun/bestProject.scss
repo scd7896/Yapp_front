@@ -1,0 +1,16 @@
+.bestProject {
+  display: flex;
+  align-items: flex-end;
+  & img {
+    z-index: 1;
+    width: 80%;
+  }
+  img:hover {
+    .hoverBox {
+      z-index: 3;
+      width: 80%;
+      height: 50px;
+      background: red;
+    }
+  }
+}
