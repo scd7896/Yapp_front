@@ -3,6 +3,8 @@ import '../css/container.scss'
 
 import ProjectJobGroup from '../componets/Park/ProjectJobGroup'
 import UserProfileImg from '../componets/Park/UserProfileImg'
+import PortfolioSimpleComponent from '../componets/MyPage/PortfolioSimpleComponent'
+import ApplicantSimpleComponent from '../componets/MyPage/ApplicantSimpleComponent'
 
 class applicant extends React.Component{
 
@@ -12,17 +14,57 @@ class applicant extends React.Component{
 
         return {
             project : {
+                id : 0,
                 title : '프로젝트 타이틀 1'
             },
             applicant : {
                 jobgroup : 'developer',
                 email : 'yapp@yapp.co.kr',
                 nickname : '장민정'
-            }
+            },
+            portfolio : [
+                {
+                    id : 1,
+                    img : '',
+                    title : '식당 웨이팅 관리 서비스',
+                    roll : 'UXUI디자인',
+                    stack : 'Adobe Xd, protopie',
+                    link : ''
+                },{
+                    id : 2,
+                    img : '',
+                    title : '안녕하세요 관리 서비스',
+                    roll : '개발',
+                    stack : 'Adobe Xd, protopie',
+                    link : ''
+                },{
+                    id : 3,
+                    img : '',
+                    title : '안녕하세요 관리 서비스',
+                    roll : '개발',
+                    stack : 'Adobe Xd, protopie',
+                    link : ''
+                }
+            ],
+            other : [
+                {
+                    id : 1,
+                    img : '',
+                    nickname : '장민정',
+                    portfolios : [{},{},{}]
+                },
+                {
+                    id : 0,
+                    img : '',
+                    nickname : '박준호',
+                    portfolios : [{},{}]
+                }
+            ]
         };
     }
 
     render(){
+        var projectId = this.props.project.id;
 
         return (
             <div className = 'applicant'>
@@ -90,11 +132,19 @@ class applicant extends React.Component{
                             지원자이력
                         </div>
                         <div className = 'applicant-contents-portfolio-container'>
-
+                            {
+                                this.props.portfolio.map(portfolio => 
+                                    <PortfolioSimpleComponent 
+                                        type ='applicant'
+                                        post = {portfolio}/>
+                                )
+                            }
                         </div>
                         <div className = 'applicant-contents-approve'>
                             <div className = 'applicant-contents-approve-button'>
-
+                                <div className = 'applicant-contents-approve-button-text'>
+                                    지원자 승인
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +162,12 @@ class applicant extends React.Component{
                             </div>
                         </div>
                         <div className = 'applicant-contents-other-container'>
-                            
+                            {
+                                this.props.other.map(applicant => <ApplicantSimpleComponent 
+                                    projectId = {projectId}
+                                    applicant = {applicant}
+                                    approve = 'false'/>)
+                            }
                         </div>
                     </div>
                 </div>

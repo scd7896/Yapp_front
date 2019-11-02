@@ -157,11 +157,15 @@
 }
 
 .applicant-contents-portfolio-container{
-    padding-top : 12px;
-    padding-top : 80px;
+    padding-top :33px;
+    margin-bottom : 89px;
     width : 100%;
 
-    display: flex;
+    display: block;
+}
+
+.applicant-cotents-other{
+    padding-top : 137px;
 }
 
 .applicant-contents-other-container{
@@ -177,9 +181,11 @@
 }
 
 .applicant-contents-approve-button{
+    margin-left : calc(50% - 125px);
     width: 250px;
     height: 74px;
     background-color: #5c5cff;
+    text-align: center;
 }
 
 .applicant-contents-other-title-project{
@@ -195,4 +201,39 @@
     color: #333333;
 
     margin-left : 5px;
+}
+
+.applicant-contents-other-title-title{
+    height: 41px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1.4px;
+    text-align: left;
+    color: #999999;
+
+    margin-left : 5px;
+}
+
+
+.portfolio-simple-container-applicant:nth-child(2n + 1){
+    margin-right : 30px;
+}
+
+.applicant-contents-approve-button-text{
+    padding-top : 19px;
+
+    height: 36px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: center;
+    color: #ffffff;
 }

@@ -7,7 +7,7 @@ class PortfolioSimpleComponent extends React.Component{
         var type = this.props.type;
 
         return (
-            <div className = {'portfoilo-simple-container ' + (type ? ('portfoilo-simple-container-'+type) : '')} >
+            <div className = {'portfolio-simple-container ' + (type ? ('portfolio-simple-container-'+type) : '')} >
                 <div className = 'portfolio-simple-container-space-between'>
                     <div className = 'portfolio-simple-left'>
                         <img 
@@ -43,14 +43,19 @@ class PortfolioSimpleComponent extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <div className = 'portfolio-simple-right'>
-                        <div className = 'portfolio-simple-delete-button' onClick = {() => this.props.onDelete(this.props.id)}>
-                            삭제
-                        </div>
-                        <div className = 'portfolio-simple-edit-button'>
-                            편집
-                        </div>
-                    </div>
+                    {
+                        type != 'applicant' ? 
+                        (
+                            <div className = 'portfolio-simple-right'>
+                                <div className = 'portfolio-simple-delete-button' onClick = {() => this.props.onDelete(this.props.id)}>
+                                    삭제
+                                </div>
+                                <div className = 'portfolio-simple-edit-button'>
+                                    편집
+                                </div>
+                            </div>
+                        ) : null
+                    }
                 </div>
             </div>
         );

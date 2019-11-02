@@ -28,6 +28,12 @@
     transition: visibility 0s, opacity 0.5s linear;
 }
 
+.recruit-simple-component-init-off{
+    visibility: hidden;
+    opacity: 0;
+}
+
+
 
 .applicant-list-init{
     margin-top : -130px;
@@ -68,4 +74,17 @@
 
     transition: visibility 0s, opacity 0.5s linear,max-height 0.5s ease-out  ;
 
+}
+
+
+.applicant-list-init-on{
+    margin-top : -130px;
+    visibility: visible;
+    opacity: 1;
+
+    overflow-y: hidden;
+
+    max-height : 1000px;
+
+    z-index: -1;
 }
