@@ -11,6 +11,12 @@ import MyPageRecruit from '../../componets/MyPage/MyPageRecruit';
 import MyPagePortfolio from '../../componets/MyPage/MyPagePortfolio';
 import MyPageInterest from '../../componets/MyPage/MyPageInterest';
 
+import fetch from 'isomorphic-unfetch'
+import baseURL from '../../url'
+
+import UserProfileImg from '../../componets/Park/UserProfileImg'
+import cookies from 'next-cookies';
+
 class MyPage extends React.Component{
 
     
@@ -32,9 +38,30 @@ class MyPage extends React.Component{
 
             }
 
-        console.log(ctx);
+        var userToken = cookies(ctx)['user-token'];
 
-        return {}
+        var data = {};
+
+        try{
+            var response = await fetch(baseURL + '/me',{
+                headers : {
+                    Authorization: "bearer " + userToken,
+                    accept : 'application/json'
+                }
+            });
+
+            if(! response.ok)
+                throw response.statusText;
+    
+            var resJson = await response.json();
+
+            data.user = resJson.user;
+        }
+        catch(err){
+            console.log(err);
+        }
+
+        return data;
     }
 
 
@@ -75,14 +102,16 @@ class MyPage extends React.Component{
                         <div className = 'mypage-sub-container'>
                             <div className = 'mypage-profile-flex'>
                                 <div className = 'mypage-profile-picture'>
-
+                                    <UserProfileImg size = {148} src = {this.props.user.profileImage}/>
+                                
                                 </div>
                                 <div className = 'mypage-profile-detail'>
+    
                                     <div className = 'mypage-profile-nickname'>
-                                        사용자이름
+                                        {this.props.user.name}
                                     </div>
                                     <div className = 'mypage-profile-id'>
-                                        사용자 ID
+                                        {this.props.user.email}
                                     </div>
                                     <div className = 'mypage-profile-button-container'>
 
@@ -107,28 +136,29 @@ class MyPage extends React.Component{
 
                     <div className = ' container'>
                         <div className = 'mypage-tabs-container mypage-sub-container'>
-                            <Link href='/mypage/apply'><a>
+                            
+                            <Link href='/mypage/[section]' as='/mypage/apply'><a>
                                 <div className = {'mypage-tab ' + (section=='apply' ? 'mypage-tab-active':'mypage-tab-inactive')}>
                                     <div className = 'mypage-tab-text'>
                                         지원현황
                                     </div>
                                 </div>
                             </a></Link>
-                            <Link href='/mypage/recruit'><a>
+                            <Link href='/mypage/[section]' as='/mypage/recruit'><a>
                                 <div className = {'mypage-tab ' + (section=='recruit' ? 'mypage-tab-active':'mypage-tab-inactive')}>
                                     <div className = 'mypage-tab-text'>
                                         모집글 관리
                                     </div>
                                 </div>
                             </a></Link>
-                            <Link href='/mypage/portfolio'><a>
+                            <Link href='/mypage/[section]' as='/mypage/portfolio'><a>
                                 <div className = {'mypage-tab ' + (section=='portfolio' ? 'mypage-tab-active':'mypage-tab-inactive')}>
                                     <div className = 'mypage-tab-text'>
                                         이력 관리
                                     </div>
                                 </div>
                             </a></Link>
-                            <Link href='/mypage/interest'><a>
+                            <Link href='/mypage/[section]' as='/mypage/interest'><a>
                                 <div className = {'mypage-tab ' + (section=='interest' ? 'mypage-tab-active':'mypage-tab-inactive')}>
                                     <div className = 'mypage-tab-text'>
                                         관심 프로젝트
