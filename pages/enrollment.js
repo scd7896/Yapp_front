@@ -9,14 +9,20 @@ import "../css/container.scss";
 import Axios from "axios";
 
 const enrollment = () => {
+  //각 inputs의 value값들 초기는 공백
   const [inputs, setInputs] = useState({
     region: "",
     level: ""
   });
+
   const { region, level } = inputs;
 
-  const changeSelect = value => {
-    setInputs({ [name]: value });
+  const onClick = e => {
+    const { name, value } = e;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
   };
 
   //마지막 제출하기 버튼 클리시
@@ -127,6 +133,7 @@ const enrollment = () => {
             <p>지역</p>
             <SelectBox
               name="region"
+              value={region}
               type="under"
               placeholder="선택하세요"
               items={[
@@ -134,23 +141,23 @@ const enrollment = () => {
                 { id: 2, text: "대구" },
                 { id: 3, text: "울산" }
               ]}
-              inputs={inputs}
-              changeSelect={changeSelect}
+              onClick={onClick}
             />
           </div>
           <div className="select_info">
             <p>진행단계</p>
             <SelectBox
-              name="job"
-              type="full"
+              name="level"
+              value={level}
+              type="under"
               placeholder="선택하세요"
               items={[
-                { id: 1, text: "개발자" },
-                { id: 2, text: "디자이너" },
-                { id: 3, text: "기획자" }
+                { id: 1, text: "기획완료" },
+                { id: 2, text: "디자인완료" },
+                { id: 3, text: "개발중" }
               ]}
               inputs={inputs}
-              changeSelect={changeSelect}
+              onClick={onClick}
             />
           </div>
         </div>
