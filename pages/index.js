@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
+import serverURL from '../url'
 
 /* pages에는 파일이랑 폴더를 만드실 때 주의하셔야 합니다
     이유는 여기에 있는 파일명이 곧 url 주소가 되버립니다
