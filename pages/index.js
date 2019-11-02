@@ -82,7 +82,7 @@ const Index = (props) => {
           {
             props.userToken ? 
             (
-            <div style = 'width: 100%;'>
+            <div style = {{width: '100%'}}>
               <div id="post_text_container">
                 <p id="post_text_head">관심 키워드로 보기</p>
               </div>
