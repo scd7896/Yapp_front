@@ -5,6 +5,7 @@ import { SET_LOGIN_MODAL, USER_LOGIN_REQUEST } from '../../../action';
 const LoginInput = ()=>{
     const dispatch = useDispatch();
     const [emailCheck, setEmailCheck] = useState(null)
+    const {loginFail} = useSelector(state => state.user)
     
     const testEmail = (e)=>{
         const check = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/
@@ -44,6 +45,8 @@ const LoginInput = ()=>{
             
             <p className = {emailCheck === true ? "login_email_check_good" : "display_none"}>v</p>
             <p><input id = "login_password" style ={{marginLeft : '-5%'}} className = "login_input_type" type = "password" placeholder ="비밀번호"/></p>
+            <span className = {loginFail === true ? 'login_email_check_error' : 'display_none'}>아이디/비밀번호가 일치하지 않습니다</span>
+
             <div className = "login_modal_footer_container">
                 <div className = "login_request_button" onClick = {loginRequest}><p className = "login_request_text">로그인</p></div>
                 <div className = "login_modal_footer_actions">
