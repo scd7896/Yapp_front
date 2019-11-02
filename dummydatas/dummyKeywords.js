@@ -94,64 +94,79 @@ export const keywordSearch =[
 
 export const keywordAllLists =[
     {
+        id : 1,
         name : IOS,
-        count : 12,    
+        
     },
     {
+        id : 2,
         name : ANDROID,
-        count : 3,
+        
     },
     {
+        id : 3,
         name : UI_UX,
-        count : 5,  
+        
     },
     {
+        id : 4,
         name : DESIGN ,
-        count : 9 ,
+        
     },
     {
+        id : 5,
         name : WEB,
-        count : 10,
+        
     },
     {
+        id : 6,
         name : IOS,
-        count : 12,    
+        
     },
     {
+        id : 7,
         name : ANDROID,
-        count : 3,
+        
     },
     {
+        id : 8,
         name : UI_UX,
-        count : 5,  
+        
     },
     {
+        id : 9,
         name : DESIGN ,
-        count : 9 ,
+        
     },
     {
+        id : 10,
         name : WEB,
-        count : 10,
+        
     },
     {
+        id : 11,
         name : IOS,
-        count : 12,    
+        
     },
     {
+        id : 12,
         name : ANDROID,
-        count : 3,
+        
     },
     {
+        id : 13,
         name : UI_UX,
-        count : 5,  
+        
     },
     {
+        id : 14,
         name : DESIGN ,
-        count : 9 ,
+        
     },
     {
+        id : 15,
         name : WEB,
-        count : 10,
+        
     },
 ]
 
