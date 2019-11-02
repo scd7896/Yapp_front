@@ -32,6 +32,8 @@ class MyPage extends React.Component{
 
             }
 
+        console.log(ctx);
+
         return {}
     }
 

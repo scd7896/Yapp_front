@@ -102,7 +102,7 @@
 }
 
 
-.applicant-contents-profile{
+.applicant-contents-profile-email{
     display: block;
     margin-top : 10px;
 }
@@ -151,17 +151,20 @@
 
 .applicant-contents-qna-container{
     padding-top : 20px;
-    padding-bottom : 120px;
     width : 100%;
     display: block;
 }
 
 .applicant-contents-portfolio-container{
-    padding-top : 12px;
-    padding-top : 80px;
+    padding-top :33px;
+    margin-bottom : 89px;
     width : 100%;
 
-    display: flex;
+    display: block;
+}
+
+.applicant-cotents-other{
+    padding-top : 137px;
 }
 
 .applicant-contents-other-container{
@@ -177,9 +180,11 @@
 }
 
 .applicant-contents-approve-button{
+    margin-left : calc(50% - 125px);
     width: 250px;
     height: 74px;
     background-color: #5c5cff;
+    text-align: center;
 }
 
 .applicant-contents-other-title-project{
@@ -195,4 +200,122 @@
     color: #333333;
 
     margin-left : 5px;
+}
+
+.applicant-contents-other-title-title{
+    height: 41px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1.4px;
+    text-align: left;
+    color: #999999;
+
+    margin-left : 5px;
+}
+
+
+.portfolio-simple-container-applicant:nth-child(2n + 1){
+    margin-right : 30px;
+}
+
+.applicant-contents-approve-button-text{
+    padding-top : 19px;
+
+    height: 36px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: center;
+    color: #ffffff;
+}
+
+//ApplicantQnA.js
+
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
+
+.applicant-qna-question{
+    display: block;
+    margin-bottom : 18px;
+}
+
+.applicant-qna-flex{
+    display:flex;
+}
+
+.applicant-qna-q{
+    height: 34px;
+    font-family: "Red Hat Display";
+    font-size: 26px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: -0.65px;
+    text-align: left;
+    color: #333333;
+
+    display: inline-block;
+}
+
+.applicant-qna-number{
+    height: 34px;
+    font-family: "Red Hat Display";
+    font-size: 26px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: -0.65px;
+    text-align: left;
+    color: #5c63ff;
+
+    display: inline-block;
+}
+
+.applicant-qna-title-text{
+    height: 36px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #333333;
+
+    margin-left : 6px;
+}
+
+.applicant-qna-answer{
+    display: inline-block;
+    width: auto;
+    border-radius: 8px;
+    background-color: #f5f7fa;
+    padding : 13px;
+}
+
+.applicant-qna-answer-text{
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #333333;
+    display: inline;
+}
+
+.applicant-qna-container{
+    margin-top : 46px;
 }

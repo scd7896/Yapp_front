@@ -1,5 +1,6 @@
 import '../../css/MyPage/ApplicantList.scss'
 import '../../css/Park/mypage.scss';
+import Router from 'next/router';
 
 var ApplicantSimpleComponent = (props) => {
 
@@ -9,6 +10,8 @@ var ApplicantSimpleComponent = (props) => {
     var profileNickname = props.applicant.nickname;
     var profilePortfolios = props.applicant.portfolios;
 
+    var toggleState = props.toggleState;
+
     return (
         <div className = 'applicant-simple-container'>
             <div className = 'applicant-simple-flex'>
@@ -17,7 +20,11 @@ var ApplicantSimpleComponent = (props) => {
                         <img className = 'applicant-simple-img'
                             src = {profileImg}/>
                         <div className = 'applicant-simple-contents'>
-                            <div className = 'applicant-simple-nickname'>
+                            <div className = 'applicant-simple-nickname' 
+                                onClick = {() => {
+                                    Router.push('/applicant')
+                                    
+                                }}>
                                 {profileNickname}
                             </div>
                             <div className = 'applicant-simple-portfolio'>
@@ -34,13 +41,17 @@ var ApplicantSimpleComponent = (props) => {
                     </div>
 
                 </div>
-                <div className = 'applicant-simple-right'>
-                    <div className = 'applicant-simple-accept-button'>
-                        <div className = 'applicant-simple-accept-button-text'>
-                            승인
+                {
+                    props.approve == 'false' ? null :
+                
+                    <div className = 'applicant-simple-right'>
+                        <div className = 'applicant-simple-accept-button'>
+                            <div className = 'applicant-simple-accept-button-text'>
+                                승인
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     )

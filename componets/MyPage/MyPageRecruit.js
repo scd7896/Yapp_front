@@ -36,12 +36,34 @@ class MyPageRecruit extends React.Component{
                     jobgroup : '기획자',
                     applicant : 20,
                     finish : true,
-                    toggle : 0 // 0 :init(off), 1 : on , 2 : off
+                    toggle : 0 // -1 : init(on) 0 :init(off), 1 : on , 2 : off
                 }
             ]
         }
 
         this.handleToggle = this.handleToggle.bind(this);
+    }
+
+    componentDidMount(){
+        var toggleState = window.sessionStorage.getItem('toggleState');
+
+        if(toggleState){
+            toggleState = JSON.parse(toggleState);
+            var toggleStateKeys = Object.keys(toggleState);
+            var curState = JSON.parse(JSON.stringify(this.state));
+
+            for(var i = 0 ; i < toggleStateKeys.length ; i ++){
+                var toggleStateKey = toggleStateKeys[i];
+
+                for(var j = 0 ; j < curState.recruit.length ; j ++){
+                    if(curState.recruit[j].id == toggleStateKey){
+                        curState.recruit[j].toggle = toggleState[toggleStateKey];
+                    }
+                }
+            }
+
+            this.setState(curState);
+        }
     }
 
     handleToggle(id){
@@ -51,7 +73,10 @@ class MyPageRecruit extends React.Component{
 
         for(var i = 0 ; i < curRecruit.length ; i ++){
             if(curRecruit[i].id == id){
-                if(curRecruit[i].toggle == 0){
+                if(curRecruit[i].toggle == -1){
+                    curRecruit[i].toggle = 2;
+                }
+                else if(curRecruit[i].toggle == 0){
                     curRecruit[i].toggle = 1;
                 }
                 else if(curRecruit[i].toggle == 1){
@@ -62,6 +87,21 @@ class MyPageRecruit extends React.Component{
                 }
             }
         }
+
+        var toggleState = {};
+
+        for(var i = 0 ; i < curRecruit.length ; i ++){
+            if(curRecruit[i].toggle == 1){
+                toggleState[curRecruit[i].id] = -1;
+            }
+            else{
+                if(toggleState.hasOwnProperty(curRecruit[i].id)){
+                    delete toggleState[curRecruit[i].id];
+                }
+            }
+        }
+
+        sessionStorage.setItem('toggleState', JSON.stringify(toggleState));
 
         this.setState(curState);
     }
@@ -76,7 +116,7 @@ class MyPageRecruit extends React.Component{
         
                 return (
                     <div className = 'recruit-simple-set'>
-                        <div className = {('recruit-simple-component-' + (toggle == 0 ? 'init' : (toggle == 1 ? 'off' : 'on')))}>
+                        <div className = {('recruit-simple-component-' + (toggle == -1 ? 'init-off' : (toggle == 0 ? 'init' : (toggle == 1 ? 'off' : 'on'))))}>
                             <RecruitSimpleComponent
                                 key = {info.id}
                                 id = {info.id}
@@ -84,7 +124,7 @@ class MyPageRecruit extends React.Component{
                                 handleToggle = {handleToggle} //HOC개조해야함
                             />
                         </div> 
-                        <div className = {('applicant-list-' + (toggle == 0 ? 'init' : (toggle == 1 ? 'on' : 'off')))}>
+                        <div className = {('applicant-list-' + (toggle == -1 ? 'init-on' : (toggle == 0 ? 'init' : (toggle == 1 ? 'on' : 'off'))))}>
                             <ApplicantList
                                 key = {info.id}
                                 id = {info.id}

@@ -35,6 +35,7 @@ class ApplicantList extends React.Component{
 
         var projectId = this.props.id;
         var state = this.state;
+        var toggleState = this.props.toggleState;
 
         var applicantList = Object.keys(state.applicant).map(function(jobgroup){
             var list = state.applicant[jobgroup].map(function(applicant){

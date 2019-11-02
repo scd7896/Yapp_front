@@ -39,7 +39,7 @@ export default class DetailQnA extends React.Component{
                                 Q
                             </div>
                             <div className = 'detail-q-content-wrapper'>
-                                <div clasName= 'detail-name'>
+                                <div className= 'detail-name'>
                                     {content.user}
                                 </div>
                                 <div className = 'detail-content'>
