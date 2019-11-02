@@ -1,7 +1,9 @@
 import React from 'react'
 import Router from 'next/router'
+
 import '../../css/container.scss'
 import '../../css/kim/modify_profile.scss'
+
 const profile = ()=>{
     const routeBack = ()=>{
         Router.back();

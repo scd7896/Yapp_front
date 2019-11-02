@@ -4,7 +4,14 @@ import "../../css/Jun/selectbox.scss";
 
 //prpos : name, placeholder, item배열, type(모양)
 //반환값 : val값 (input 선택된 값)
-function SelectBox({ name, value, type, placeholder, items, onClick }) {
+function SelectBox({
+  name = "",
+  value = "",
+  type = "",
+  placeholder = "",
+  items = [],
+  onClick = f => f
+}) {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
 
@@ -15,7 +22,6 @@ function SelectBox({ name, value, type, placeholder, items, onClick }) {
     color: "#b9b9b9"
   };
 
-  console.log("val값은" + value);
   const potato = value => {
     return function(event) {
       onClick({ name: name, value: value });
@@ -73,7 +79,6 @@ function SelectBox({ name, value, type, placeholder, items, onClick }) {
 
       {open && (
         <>
-          <div className="select_cover" onClick={onToggle}></div>
           <div className={classNames("select_open", type)} onClick={onToggle}>
             {items.map(item => (
               <div onClick={potato(item.text)} key={item.id}>
@@ -81,6 +86,7 @@ function SelectBox({ name, value, type, placeholder, items, onClick }) {
               </div>
             ))}
           </div>
+          <div className="select_cover" onClick={onToggle}></div>
         </>
       )}
     </div>

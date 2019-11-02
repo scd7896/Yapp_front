@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DropDown from "react-dropdown";
+import SelectBox from "../Jun/SelectBox";
 import Question from "./ApplyModalComponents/Question";
 import { qeustions } from "../../dummydatas/dummyQuestion";
 import "../../css/kim/componentcss/ApplyFirst.scss";
 import "react-dropdown/style.css";
 import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from "../../action";
+
 const ApplyFirst = () => {
   const dispatch = useDispatch();
   const { position, answers } = useSelector(state => state.apply);
-  const [applyJob, setApplyJob] = useState(["디자이너", "개발자", "기획자"]);
-  const [selectPosition, setSelectPosition] = useState("디자이너");
+
+  const [selectPosition, setSelectPosition] = useState("");
 
   const positionChange = e => {
     const list = document.querySelector("#first_modal_qna_container");
@@ -51,6 +53,21 @@ const ApplyFirst = () => {
       answers: writeAnswers
     });
   };
+
+  const [inputs, setInputs] = useState({
+    job: ""
+  });
+
+  const { job } = inputs;
+
+  const onClick = e => {
+    const { name, value } = e;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+
   return (
     <div id="first_modal_contents_container">
       <div id="first_modal_head_container">
@@ -75,13 +92,20 @@ const ApplyFirst = () => {
         </span>
         <span id="modal_most_select_icon">*</span>
 
-        <div id="first_modal_qna_container">
-          {qeustions
-            .filter(e => e.position === selectPosition)
-            .map((e, i) => (
-              <Question questionData={e.question} index={i} key={i}></Question>
-            ))}
-        </div>
+        <SelectBox
+          name="job"
+          value={job}
+          type="full"
+          placeholder="선택하세요"
+          items={[
+            { id: 1, text: "디자이너" },
+            { id: 2, text: "기획자" },
+            { id: 3, text: "개발자" }
+          ]}
+          inputs={inputs}
+          onClick={onClick}
+        />
+
         <div style={{ paddingBottom: "92px" }}>
           <div id="apply_modal_next_first_button" onClick={nextModal}>
             다음

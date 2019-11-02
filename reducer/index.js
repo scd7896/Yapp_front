@@ -8,11 +8,13 @@ import test from './test'
 import button from './button'
 import apply from './apply'
 import user from './user'
+import keywords from './keywords'
 const rootReducer = combineReducers({
     test,
     apply,
     button,
-    user
+    user,
+    keywords
 })
 
 export default rootReducer

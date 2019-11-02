@@ -1,7 +1,9 @@
 .selectbox {
   display: inline;
+  position: relative;
   cursor: pointer;
-  z-index: 10010;
+
+  z-index : 10010;
 }
 .select_default {
   display: flex;
@@ -56,6 +58,7 @@
   font-family: "Montserrat", sans-serif;
   position: absolute;
   text-align: left;
+  z-index: 10010;
   color: #b9b9b9;
   &.under {
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.11);

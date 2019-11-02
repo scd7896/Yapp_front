@@ -149,7 +149,7 @@ const enrollment = () => {
             <SelectBox
               name="level"
               value={level}
-              type="under"
+              type="full"
               placeholder="선택하세요"
               items={[
                 { id: 1, text: "기획완료" },
