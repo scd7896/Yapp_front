@@ -5,6 +5,7 @@ import ProjectJobGroup from '../componets/Park/ProjectJobGroup'
 import UserProfileImg from '../componets/Park/UserProfileImg'
 import PortfolioSimpleComponent from '../componets/MyPage/PortfolioSimpleComponent'
 import ApplicantSimpleComponent from '../componets/MyPage/ApplicantSimpleComponent'
+import ApplicantQnA from '../componets/Park/ApplicantQnA'
 
 class applicant extends React.Component{
 
@@ -59,6 +60,24 @@ class applicant extends React.Component{
                     nickname : '박준호',
                     portfolios : [{},{}]
                 }
+            ],
+            qna : [
+                {
+                    q : '연락 가능한 핸드폰 번호 or 카톡 적어주세요.',
+                    a : '카톡 id : ~~~~~~'
+                },
+                {
+                    q : '연락 가능한 핸드폰 번호 or 카톡 적어주세요.',
+                    a : '카톡 id : ~~~~~~'
+                },
+                {
+                    q : '연락 가능한 핸드폰 번호 or 카톡 적어주세요.',
+                    a : '카톡 id : ~~~~~~'
+                },
+                {
+                    q : '연락 가능한 핸드폰 번호 or 카톡 적어주세요.',
+                    a : '카톡 id : ~~~~~~'
+                }
             ]
         };
     }
@@ -96,7 +115,7 @@ class applicant extends React.Component{
                                 <div className = 'applicant-contents-profile-nickname'>
                                     {this.props.applicant.nickname}
                                 </div>
-                                <div className = 'applicant-contents-profile'>
+                                <div className = 'applicant-contents-profile-email'>
                                     <div className = 'applicant-flex'>
                                         <img className = 'applicant-cotents-profile-icon'></img>
                                         <div className = 'applicant-contents-profile-text'>
@@ -122,7 +141,12 @@ class applicant extends React.Component{
                             지원자의 답변
                         </div>
                         <div className = 'applicant-contents-qna-container'>
-
+                            {
+                                this.props.qna.map((qna,i) =>
+                                    <ApplicantQnA id = {i}
+                                    q = {qna.q}
+                                    a = {qna.a}/>
+                            )}
                         </div>
                     </div>
 

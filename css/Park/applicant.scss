@@ -102,7 +102,7 @@
 }
 
 
-.applicant-contents-profile{
+.applicant-contents-profile-email{
     display: block;
     margin-top : 10px;
 }
@@ -151,7 +151,6 @@
 
 .applicant-contents-qna-container{
     padding-top : 20px;
-    padding-bottom : 120px;
     width : 100%;
     display: block;
 }
@@ -236,4 +235,87 @@
     letter-spacing: -1.2px;
     text-align: center;
     color: #ffffff;
+}
+
+//ApplicantQnA.js
+
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
+
+.applicant-qna-question{
+    display: block;
+    margin-bottom : 18px;
+}
+
+.applicant-qna-flex{
+    display:flex;
+}
+
+.applicant-qna-q{
+    height: 34px;
+    font-family: "Red Hat Display";
+    font-size: 26px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: -0.65px;
+    text-align: left;
+    color: #333333;
+
+    display: inline-block;
+}
+
+.applicant-qna-number{
+    height: 34px;
+    font-family: "Red Hat Display";
+    font-size: 26px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: -0.65px;
+    text-align: left;
+    color: #5c63ff;
+
+    display: inline-block;
+}
+
+.applicant-qna-title-text{
+    height: 36px;
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #333333;
+
+    margin-left : 6px;
+}
+
+.applicant-qna-answer{
+    display: inline-block;
+    width: auto;
+    border-radius: 8px;
+    background-color: #f5f7fa;
+    padding : 13px;
+}
+
+.applicant-qna-answer-text{
+    font-family: "Noto Sans KR",sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #333333;
+    display: inline;
+}
+
+.applicant-qna-container{
+    margin-top : 46px;
 }
