@@ -25,11 +25,13 @@ const AppLayOut = ({children})=>{
     return(
         <div>
             <NavBar style = {style}></NavBar>
+            
             <LoginModal />
             <ApplyModal />
             <div>
                 {children}
             </div>
+            
             <div id  = "footer"> </div>
         </div>
     )
