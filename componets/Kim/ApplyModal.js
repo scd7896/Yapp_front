@@ -1,5 +1,5 @@
-import React from 'react'
-import Modal from 'react-awesome-modal'
+import React,{useEffect} from 'react'
+import Modal from '../../lib/react-awesome-modal/lib/index'
 import {useSelector, useDispatch} from 'react-redux'
 
 import ApplyCompleted from'./ApplyCompleted'
@@ -8,15 +8,17 @@ import ApplySecond from './ApplySecond'
 import '../../css/container.scss'
 import '../../css/kim/componentcss/ApplyModal.scss'
 import { CLOSE_APPLY_MODAL } from '../../action'
-const ApplyModal = ({data})=>{
+const ApplyModal = ()=>{
     
     
     const dispatch = useDispatch();
     const {applyModalLevel, visible} = useSelector(state => state.button)
-    
+    const {postId} = useSelector(state=> state.apply)
+    let modalContainer;
     const closeModal = ()=>{
         dispatch({
-            type: CLOSE_APPLY_MODAL
+            type: CLOSE_APPLY_MODAL,
+            
         })
     }
     const renderModal = (level)=>{
@@ -27,15 +29,27 @@ const ApplyModal = ({data})=>{
                 return <ApplySecond></ApplySecond>
         }
     }
+    
+    useEffect(()=>{
+        modalContainer = document.querySelector('#modal_container')
+        const parent = modalContainer.parentElement;
+        console.log(parent.style.backgroundColor)
+        
+    },[])
     return(
         <div className = "container" >
+            
             <Modal visible = {visible} effect="fadeInUp">
+                
                 <div id = {applyModalLevel !== 3? "modal_container" : "modal_finish_container"}>
+                    
                     {applyModalLevel <=2 ?    
                         <div>
-                            <div style ={{textAlign:"left"}}>
+                            <div id = "apply_head_modal_blank"></div> 
+                            <div id = "apply_modal_head_container" >
+                                   
                                 <span><p id = "modal_title_text">프로젝트 지원하기</p></span>
-                                <span><p id = "modal_cancle_button" onClick = {closeModal}>X</p></span>
+                                <span><p id = "modal_cancle_button" onClick = {closeModal}><img src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/FEF83BDA-4E98-497A-9456-B1E169BDD060.svg"></img></p></span>
                             </div>
                             
                             <div id = "modal_body_container">

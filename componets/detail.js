@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 
 import '../css/park/detail.scss'
 import '../css/container.scss'
-import ApplyModal from './Kim/ApplyModal'
+
 
 import JobGroupCardView from './Park/JobGroupCardView'
 import DetailQnA from './Park/DetailQnA'
@@ -21,7 +21,7 @@ class Detail extends React.Component{
         
         return(
             <div id = 'detail_root'>
-                <ApplyModal/>
+                
                 {/* 컨텐츠 영역입니다 */}
 
                 <div className = 'detail-title-wrapper'>

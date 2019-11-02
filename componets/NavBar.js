@@ -5,44 +5,29 @@ import { useSelector, useDispatch } from "react-redux";
 import "../css/NavBar.scss";
 import "../css/container.scss";
 import { OPEN_LOGIN_MODAL } from "../action";
+import Hamburger from "../componets/Jun/Hamburger";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const { selectPage } = useSelector(state => state.button);
   const { user } = useSelector(state => state);
-  
+
   const routeToMain = () => {
     Router.push("/");
   };
-  const openLoginModal = ()=>{
+  const openLoginModal = () => {
     dispatch({
-      type : OPEN_LOGIN_MODAL
-    })
+      type: OPEN_LOGIN_MODAL
+    });
+  };
+  const goToMyPage = ()=>{
+    Router.push('/mypage/apply');
   }
   return (
     <div className="navbar">
-      
       <div className="container">
-        <div className="logo">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="96"
-            height="50"
-            viewBox="0 0 96 50"
-          >
-            <text
-              id="Toys"
-              transform="translate(0 40)"
-              fill="#1f254b"
-              font-size="41"
-              font-family="Montserrat-Bold, Montserrat"
-              font-weight="700"
-            >
-              <tspan x="0" y="0" onClick={routeToMain}>
-                Toys
-              </tspan>
-            </text>
-          </svg>
+        <div className="logo" onClick = {routeToMain}>
+          <img src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3AA5A2F7-12E0-43B7-AF49-91A7451A8096.svg"></img>
         </div>
 
         <div className="nav_right">
@@ -63,16 +48,22 @@ const NavBar = () => {
             </a>
           </span>
 
-          <span id = "nav_login_signup_container" style ={user.userId ? {display : "none"}:{display : 'block'}}>
-            <p id ="nav_login_signup" onClick = {openLoginModal}>
+          <span
+            id="nav_login_signup_container"
+            style={user.userId ? { display: "none" } : { display: "block" }}
+          >
+            <p id="nav_login_signup" onClick={openLoginModal}>
               로그인 / 회원가입
             </p>
-            
           </span>
-          
-          <span className="nav_png" style = {!user.userId ?{display : "none"} :{}}>
+
+          <span
+            className="nav_png"
+            style={!user.userId ? { display: "none" } : {}}
+          >
             <button>
               <img
+                onClick = {goToMyPage}
                 style={{ width: "25px", height: "32px" }}
                 src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/34B2916A-4DBF-46B6-94E2-B9F802EE2A0B.svg"
               />
@@ -85,64 +76,17 @@ const NavBar = () => {
             </button>
           </span>
 
-          <span className="nav_button" style = {!user.userId ?{display : "none"} :{}} >
+          <span
+            className="nav_button"
+            style={!user.userId ? { display: "none" } : {}}
+          >
             <button>모집글 작성 ></button>
-          </span> 
-          
+          </span>
         </div>
         <div className="nav_right_mobile">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="10"
-            viewBox="0 0 30 5"
-          >
-            <line
-              id="선_109"
-              data-name="선 109"
-              x2="30"
-              transform="translate(0 1)"
-              fill="none"
-              stroke="#1f254b"
-              strokeWidth="5"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="10"
-            viewBox="0 0 30 5"
-          >
-            <line
-              id="선_109"
-              data-name="선 109"
-              x2="30"
-              transform="translate(0 1)"
-              fill="none"
-              stroke="#1f254b"
-              strokeWidth="5"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="10"
-            viewBox="0 0 30 5"
-          >
-            <line
-              id="선_109"
-              data-name="선 109"
-              x2="30"
-              transform="translate(0 1)"
-              fill="none"
-              stroke="#1f254b"
-              strokeWidth="5"
-            />
-          </svg>
+          <Hamburger></Hamburger>
         </div>
-        
       </div>
-      
     </div>
   );
 };

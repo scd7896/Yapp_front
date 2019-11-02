@@ -2,8 +2,21 @@
 #modal_container{
     text-align: center;
     width : 100%;
-    height : 600px;
+    height:100vh;
     overflow-y: scroll;
+    
+}
+#apply_modal_head_container{
+    text-align: left;
+    background-color: #ffffff;
+}
+#apply_head_modal_blank{
+    height : 100px;
+    background-color: rgba(0,0, 0, 0.0)
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 #modal_finish_container{
     text-align: center;
@@ -32,6 +45,7 @@
     color: #333333;
     width : 50%;
 }
+
 .modal_body_top_number{
     display: inline-block;
     padding-top : 10px;

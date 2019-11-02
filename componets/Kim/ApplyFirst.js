@@ -74,7 +74,10 @@ const ApplyFirst = ()=>{
                             .filter((e)=>e.position === selectPosition)
                             .map((e,i)=> <Question questionData ={e.question} index = {i} key ={i}></Question>)}
                 </div>
-                <div id = "apply_modal_next_first_button" onClick = {nextModal}>다음</div>
+                <div style ={{paddingBottom : "92px"}}>
+                    <div id = "apply_modal_next_first_button" onClick = {nextModal}>다음</div>
+                </div>
+                
             </div>
         </div>
     )

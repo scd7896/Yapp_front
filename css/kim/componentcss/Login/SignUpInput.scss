@@ -1,3 +1,59 @@
-#signup_body_container{
-    
+.signup_body_container{
+    margin-left : -5%;
+}
+.signup_bottom_modal_container{
+    margin-top: 80px;
+}
+
+.signup_request_button{
+    margin-left : 5%;
+    width : 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background : #5c5cff;
+    height: 92px;
+    cursor: pointer;
+}
+
+.signup_request_button_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1.4px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.login_move_request{
+    margin-top : 51px;
+    margin-bottom : 51px;
+}
+.login_move_request_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #333333;
+}
+.login_move_request_link{
+    margin-left : 1.4%;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #333333;
+    text-decoration: underline;
+    cursor: pointer;
 }
