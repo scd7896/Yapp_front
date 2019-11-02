@@ -1,7 +1,10 @@
 import React from 'react'
 import '../../css/container.scss'
 import '../../css/kim/keyword_management.scss'
+
+
 const management = ()=>{
+    const list = []
     return(
         <div>
             <div style = {{background : "#ffffff", borderBottom : "3px solid #f5f7fa"}}>
@@ -20,6 +23,9 @@ const management = ()=>{
                             <span className = "keyword_management_body_text">관심키워드 선택하고 </span>
                             <br/>
                             <span className = "keyword_management_body_text">메인페이지에서 만나보세요!</span>
+                        </div>
+                        <div>
+
                         </div>
                     </div>
                 </div>
