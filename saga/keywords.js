@@ -1,8 +1,33 @@
 import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/effects'
-import { SET_KEYWORDS_REQUEST, SET_KEYWORDS_SUCCESS, SET_KEYWORDS_FAILURE } from '../action'
+import { SET_KEYWORDS_REQUEST, SET_KEYWORDS_SUCCESS, SET_KEYWORDS_FAILURE, GET_KEYWORDS_REQUEST, GET_KEYWORDS_FAILURE, GET_KEYWORDS_SUCCESS } from '../action'
 
 import axios from 'axios'
 import url from '../url'
+const getKeywordsAPI = (token)=>{
+    return axios.get(`${url}/mypage/keywords`, {
+        headers :{
+            Authorization: `bearer ${token}`
+        }
+    })
+}
+function * getKeywords(action){
+    try{
+        const result = yield call(getKeywordsAPI, action.token)
+        console.log(result.data)
+        yield put({
+            type : GET_KEYWORDS_SUCCESS,
+            data : result.data.keywordFromUser
+        })
+    }catch{
+        yield put({
+            type : GET_KEYWORDS_FAILURE
+        })
+    }
+}
+function* watchGetKeywords(){
+    yield takeEvery(GET_KEYWORDS_REQUEST, getKeywords)
+}
+
 function  setKeywordsAPI(action){
     return axios.put(`${url}/mypage/keywords`, {"keywords" : action.data},{
         headers :{
@@ -28,6 +53,7 @@ function * watchSetKeywords(){
 }
 export default function* keywordsSaga(){
     yield all([
-        fork(watchSetKeywords)
+        fork(watchSetKeywords),
+        fork(watchGetKeywords)
     ])
 }

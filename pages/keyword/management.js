@@ -1,11 +1,11 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-
+import cookies from 'next-cookies'
 import KeywordBorder from '../../componets/Kim/KeywordBorder'
 import '../../css/container.scss'
 import '../../css/kim/keyword_management.scss'
 import {keywordAllLists} from '../../dummydatas/dummyKeywords'
-import { DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST } from '../../action'
+import { DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST, GET_KEYWORDS_REQUEST } from '../../action'
 
 const management = ()=>{
     const {selectList} = useSelector(state=> state.keywords)
@@ -61,6 +61,14 @@ const management = ()=>{
             
         </div>
     )
+}
+management.getInitialProps = async(context)=>{
+    const userToken = cookies(context)['user-token']
+    context.store.dispatch({
+        type : GET_KEYWORDS_REQUEST,
+        token : userToken
+    })
+    return{}
 }
 
 export default management;

@@ -1,5 +1,5 @@
 import produce from 'immer'
-import { ADD_KEYWORD_LIST, DEL_KEYWORD_LIST, DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST, SET_KEYWORDS_SUCCESS, SET_KEYWORDS_FAILURE } from '../action';
+import { ADD_KEYWORD_LIST, DEL_KEYWORD_LIST, DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST, SET_KEYWORDS_SUCCESS, SET_KEYWORDS_FAILURE, GET_KEYWORDS_REQUEST, GET_KEYWORDS_SUCCESS, GET_KEYWORDS_FAILURE } from '../action';
 import Router from 'next/router'
 const initialProps = {
     selectList : []
@@ -24,7 +24,16 @@ const keywords = (state = initialProps, action) =>{
             case SET_KEYWORDS_FAILURE :
                 alert("데이터가 정상적으로 반영이 안됬습니다")
                 break;
-                
+            case GET_KEYWORDS_REQUEST :
+                draft.selectList =[];
+                break;
+            case GET_KEYWORDS_SUCCESS :
+                draft.selectList = action.data;
+                break;
+            case GET_KEYWORDS_FAILURE :
+                draft.selectList =[];    
+                alert('데이터 수신실패');
+                break;
             default :
                 break;
         }
