@@ -2,7 +2,7 @@ import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/e
 import { GET_MYDATA_REQUEST, GET_MYDATA_FAILURE, GET_MYDATA_SUCCESS,
     USER_LOGIN_REQUEST,USER_LOGIN_FAILURE,USER_LOGIN_SUCCESS} from '../action'
 import axios from 'axios'
-import {url} from '../url'
+import url from '../url'
 function getUserAPI(myCookie){
     
     
