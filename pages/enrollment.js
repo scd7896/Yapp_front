@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import JobGroupCardView from "../componets/Park/JobGroupCardView";
 import Question from "../componets/Jun/Question";
 import SelectBox from "../componets/Jun/SelectBox";
@@ -6,8 +6,25 @@ import Plus from "../componets/Jun/Plus";
 
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
+import Axios from "axios";
 
 const enrollment = () => {
+  const [inputs, setInputs] = useState({
+    region: "",
+    level: ""
+  });
+  const { region, level } = inputs;
+
+  const changeSelect = value => {
+    setInputs({ [name]: value });
+  };
+
+  //마지막 제출하기 버튼 클리시
+  const submit = () => {
+    Axios.post({
+      selectValue: selectValue
+    });
+  };
   return (
     <div className="container">
       <h1>모집글 작성</h1>
@@ -109,6 +126,7 @@ const enrollment = () => {
           <div className="select_info">
             <p>지역</p>
             <SelectBox
+              name="region"
               type="under"
               placeholder="선택하세요"
               items={[
@@ -116,18 +134,23 @@ const enrollment = () => {
                 { id: 2, text: "대구" },
                 { id: 3, text: "울산" }
               ]}
+              inputs={inputs}
+              changeSelect={changeSelect}
             />
           </div>
           <div className="select_info">
             <p>진행단계</p>
             <SelectBox
+              name="job"
               type="full"
               placeholder="선택하세요"
               items={[
-                { id: 1, text: "서울" },
-                { id: 2, text: "대구" },
-                { id: 3, text: "울산" }
+                { id: 1, text: "개발자" },
+                { id: 2, text: "디자이너" },
+                { id: 3, text: "기획자" }
               ]}
+              inputs={inputs}
+              changeSelect={changeSelect}
             />
           </div>
         </div>
