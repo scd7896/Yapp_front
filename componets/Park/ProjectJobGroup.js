@@ -3,6 +3,7 @@ import "../../css/Park/ProjectCardView.scss";
 export default (props) => {
 
     var jobgroup = props.jobgroup;
+    var size = props.size;
     var jobgroupCircleClass = '';
 
     if(props.jobgroup == '개발자' || props.jobgroup =='developer'){
@@ -19,7 +20,7 @@ export default (props) => {
     }
 
     return (        
-        <div className="jobgroup">
+        <div className={"jobgroup " + (props.size ? "jobgroup-"+size : '')}>
             <div className={"jobgroup-circle " + jobgroupCircleClass}></div>
             <div className="jobgroup-main">{jobgroup}</div>
         </div>

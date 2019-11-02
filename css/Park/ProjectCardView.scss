@@ -51,6 +51,7 @@
 }
 
 
+
 .jobgroup-main {
   height: 29px;
   font-family: "Noto Sans KR";
@@ -87,6 +88,23 @@
   display: inline-block;
   vertical-align: text-top;
 }
+
+.jobgroup-big .jobgroup-circle{
+  margin-top : 18px;
+}
+
+.jobgroup-big .jobgroup-main{
+  height: 45px;
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.5px;
+  text-align: left;
+  color: #333333;
+}
+
 .project-cardview-main {
   height: 29px;
   font-family: "Noto Sans KR";
