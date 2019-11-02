@@ -5,6 +5,7 @@ import withRedux from "next-redux-wrapper";
 import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
+import cookies from 'next-cookies'
 
 import AppLayout from "../componets/AppLayOut";
 
@@ -19,10 +20,10 @@ class MyApp extends App {
       ? await Component.getInitialProps(ctx)
       : {};
     //getInitialProps 가 서버사이드렌더링 효과를 줄수 있게 도와주는거에요
-    const userToken = ctx.isServer? ctx.req.headers.cookie :'';
-
+    const userToken = cookies(ctx)['user-token']
+    console.log(userToken)
     if(ctx.isServer){
-      console.log(ctx.req.headers.cookie)
+      console.log(userToken)
     }
 
     const me = ctx.store.getState().user
