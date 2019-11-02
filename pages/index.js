@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import serverURL from '../url'
+import nextCookies from 'next-cookies'
+
+import fetch from 'isomorphic-unfetch'
 
 /* pages에는 파일이랑 폴더를 만드실 때 주의하셔야 합니다
     이유는 여기에 있는 파일명이 곧 url 주소가 되버립니다
@@ -20,7 +23,7 @@ import "../css/container.scss";
 
 import { keywordSearch } from "../dummydatas/dummyKeywords";
 import { SET_SELECTED_PAGES } from "../action";
-const Index = () => {
+const Index = (props) => {
   /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
   var PostCardViewSection = HigherOrderCardView(PostCardView, "post");
@@ -74,17 +77,24 @@ const Index = () => {
               <span id="post_text_more">더보기</span>
             </div>
           </div>
-          <ProjectSection />
-          <div id="post_text_container">
-            <p id="post_text_head">관심 키워드로 보기</p>
-          </div>
-          <div id="keyword_list_box_container">
-            {keywordSearch
-              ? keywordSearch.map((e, i) => {
-                  return <KeywordSearch data={e} key={i} />;
-                })
-              : ""}
-          </div>
+          <ProjectSection projects = {props.projects} />
+          
+          {
+            props.userToken ? 
+            (
+            <div style = 'width: 100%;'>
+              <div id="post_text_container">
+                <p id="post_text_head">관심 키워드로 보기</p>
+              </div>
+              <div id="keyword_list_box_container">
+                {keywordSearch
+                  ? keywordSearch.map((e, i) => {
+                      return <KeywordSearch data={e} key={i} />;
+                    })
+                  : ""}
+              </div>
+            </div>) : null
+          }
 
           <div id="nice_recruitment_container">
             <div id="post_text_container">
@@ -127,6 +137,45 @@ Index.getInitialProps = async context => {
     type: SET_SELECTED_PAGES,
     data: "index"
   });
-  return {};
+
+  var projects = [];
+
+  var data = {};
+
+  //최신등록 모집글 목록 불러오기
+
+  try{
+
+    var projectsResponse = await fetch(serverURL + '/projects' , {
+      headers : {
+        accept: 'application/json'
+      }
+    })
+
+    if(!projectsResponse.ok){
+      throw(projectsResponse.status);
+    }
+    else{
+      var projectsResponseJSON = await projectsResponse.json();
+
+      projects = projectsResponseJSON.projects;
+    }
+  
+  }
+  catch(err){
+    console.log(err);
+  }
+
+  data.projects = projects
+
+  //로그인 정보 불러오기
+
+  var userToken = nextCookies(context)['user-token'];
+
+  if(userToken){
+    data.userToken = userToken;
+  }
+
+  return data;
 };
 export default Index;
