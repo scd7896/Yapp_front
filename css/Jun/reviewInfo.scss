@@ -1,0 +1,16 @@
+#view,
+#like {
+  margin-right: 10px;
+
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: -0.38px;
+  text-align: left;
+  color: #555555;
+  & svg {
+    margin-right: 4px;
+  }
+}
