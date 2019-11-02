@@ -40,6 +40,9 @@ function userLoginAPI(userData){
     
     
     return axios.post(`${url}/getToken`, {email : userData.email, password : userData.password})
+        .catch(err=>{
+            throw '로그인실패'
+        })
     //로그인의 에러처리
 }
 
@@ -52,6 +55,7 @@ function* userLogin(action){
         }
         
         const result = yield call(userLoginAPI, userData)
+        console.log(result)
         document.cookie = `user-token=${result.data.token}`
         
         yield put({
@@ -60,8 +64,7 @@ function* userLogin(action){
         })
         
     }catch(e){
-        console.error(e)
-        document.cookie = `user-token=`   
+        console.log("잡긴했음?")
         //에러 코드에 따라서 비밀번호 틀리게할껀지 
         //이메일의문제일지 결정
         yield put({
@@ -72,7 +75,7 @@ function* userLogin(action){
 }
 
 function * watchUserLogin(){
-    yield takeEvery(USER_LOGIN_REQUEST, userLogin)
+    yield takeLatest(USER_LOGIN_REQUEST, userLogin)
 }
 export default function* userSaga(){
     yield all([

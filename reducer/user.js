@@ -13,6 +13,7 @@ const initialState = {
   userId: "",
   isLogging : false,
   nowLogging : false,
+  loginFail : false
 };
 
 const user = (state = initialState, action) => {
@@ -53,7 +54,14 @@ const user = (state = initialState, action) => {
         draft.userToken = "";
         draft.userNickName = "";
         draft.userId = "";
+        draft.loginFail = false;
         break;  
+      case USER_LOGIN_FAILURE :
+        draft.nowLogging = false;
+        draft.userToken = "";
+        draft.userNickName = "";
+        draft.userId = "";
+        draft.loginFail = true;
       default:
         break;
     }
