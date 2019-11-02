@@ -26,14 +26,14 @@ class MyApp extends App {
       console.log(userToken)
     }
 
-    const me = ctx.store.getState().user
-    if(!me.userId){
+    const me = ctx.store.getState().user;
+    if (!me.userId) {
       ctx.store.dispatch({
-        type : GET_MYDATA_REQUEST,
-        data : userToken
-      })
+        type: GET_MYDATA_REQUEST,
+        data: userToken
+      });
     }
-    
+
     pageProps.query = ctx.query;
     return { pageProps };
   }

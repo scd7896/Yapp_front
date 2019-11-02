@@ -1,7 +1,11 @@
 .selectbox {
   display: inline;
   cursor: pointer;
+<<<<<<< HEAD
   z-index : 10010;
+=======
+  z-index: 10010;
+>>>>>>> review
 }
 .select_default {
   display: flex;
@@ -51,6 +55,7 @@
   opacity: 0;
 }
 .select_open {
+  z-index: 10011;
   background-color: #ffffff;
   font-family: "Montserrat", sans-serif;
   position: absolute;
