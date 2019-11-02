@@ -13,6 +13,9 @@
 }
 
 #keyword_search_img_container {
+  display: flex;
+  align-items: center;
+  height: 60px;
   margin-bottom: 26px;
 }
 
@@ -58,7 +61,7 @@
 @media (max-width: 991px) and (min-width: 725px) {
   #keyword_search {
     width: 28.3%;
-    padding: 1.5%;
+    
     margin-right: 2%;
     margin-bottom: 13px;
     & + & {
@@ -73,7 +76,7 @@
 @media (max-width: 724px) {
   #keyword_search {
     width: 44%;
-    padding: 1.5%;
+    
     margin-right: 3%;
     margin-bottom: 10px;
     & + & {

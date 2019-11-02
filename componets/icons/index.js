@@ -2,7 +2,7 @@ import React from 'react'
 import { ANDROID, IOS, WEB, UI_UX, DESIGN } from './name'
 
 const icons = ({keyword, isSelected})=>{
-    
+
     switch(keyword){
         case ANDROID :
             return (
@@ -32,8 +32,54 @@ const icons = ({keyword, isSelected})=>{
             </svg>
           )
         case WEB :
+          return(
+            <svg xmlns="http://www.w3.org/2000/svg" width="49.315" height="39.267" viewBox="0 0 49.315 39.267">
+              <g id="그룹_2076" data-name="그룹 2076" transform="translate(-382 -2412)">
+                <g id="icon_webservice" transform="translate(-3 10)">
+                  <rect id="사각형_2757" data-name="사각형 2757" width="9.348" height="6.874" transform="translate(405.752 2433.393)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                  <line id="선_168" data-name="선 168" x2="22.805" transform="translate(399.023 2440.267)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                  <rect id="사각형_2765" data-name="사각형 2765" width="30.393" height="46.612" transform="translate(432.964 2403) rotate(90)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"}  stroke-miterlimit="10" stroke-width="2"/>
+                  <line id="선_179" data-name="선 179" x1="49.315" transform="translate(385 2426.492)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"}  stroke-miterlimit="10" stroke-width="2"/>
+                </g>
+              </g>
+            </svg>
+
+          )
+          
         case UI_UX :
+          return(
+            <svg xmlns="http://www.w3.org/2000/svg" width="49.728" height="40.35" viewBox="0 0 49.728 40.35">
+              <g id="그룹_2074" data-name="그룹 2074" transform="translate(-873.461 -2404.988)">
+                <g id="icon_uiux" transform="translate(874.461 2405.988)">
+                  <rect id="사각형_2767" data-name="사각형 2767" width="18.398" height="10.354" transform="translate(29.33 13.998)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                  <g id="icon_uiux-2" data-name="icon_uiux">
+                    <rect id="사각형_2764" data-name="사각형 2764" width="18.398" height="10.354" transform="translate(0 13.998)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                    <line id="선_169" data-name="선 169" x1="5.149" transform="translate(24.181 5.177)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"}stroke-miterlimit="10" stroke-width="2"/>
+                    <line id="선_170" data-name="선 170" x1="5.149" transform="translate(24.181 33.172)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                    <line id="선_171" data-name="선 171" x1="10.932" transform="translate(18.398 19.592)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                    <line id="선_172" data-name="선 172" y2="30.647" transform="translate(24.181 3.849)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                    <rect id="사각형_2766" data-name="사각형 2766" width="18.398" height="10.354" transform="translate(29.33)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                    <rect id="사각형_2768" data-name="사각형 2768" width="18.398" height="10.354" transform="translate(29.33 27.995)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+
+          )
         case DESIGN :
+          return(
+            <svg xmlns="http://www.w3.org/2000/svg" width="49.173" height="48.809" viewBox="0 0 49.173 48.809">
+              <g id="그룹_2077" data-name="그룹 2077" transform="translate(-615.996 -2393.105)">
+                <g id="icon_design" transform="translate(663.754 2421.113) rotate(135)">
+                  <line id="선_180" data-name="선 180" y1="13.78" transform="translate(13.966 23.989)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                  <path id="패스_1739" data-name="패스 1739" d="M25.259,0H1.5L0,16.711,13.381,29.557,26.762,16.711Z" transform="translate(0.584 8.211)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                  <rect id="사각형_2769" data-name="사각형 2769" width="27.416" height="4.666" transform="translate(0 0)" fill="none" stroke={isSelected ? "#7adfbe" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                  <circle id="타원_269" data-name="타원 269" cx="1.714" cy="1.714" r="1.714" transform="translate(12.252 21.276)" fill="none" stroke={isSelected ? "#5963f5" : "#b9b9b9"} stroke-miterlimit="10" stroke-width="2"/>
+                </g>
+              </g>
+            </svg>
+
+          )
         default :
             return <>hello world</>;
     }

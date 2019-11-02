@@ -24,6 +24,9 @@ const NavBar = () => {
   const goToMyPage = ()=>{
     Router.push('/mypage/apply');
   }
+  const goToEnrollment = ()=>{
+    Router.push('/enrollment')
+  }
   return (
     <div className="navbar">
       <div className="container">
@@ -81,7 +84,7 @@ const NavBar = () => {
             className="nav_button"
             style={!user.userToken ? { display: "none" } : {}}
           >
-            <button>모집글 작성 ></button>
+            <button onClick = {goToEnrollment}>모집글 작성 ></button>
           </span>
         </div>
         <div className="nav_right_mobile">
