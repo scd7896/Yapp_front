@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import JobGroupCardView from "../componets/Park/JobGroupCardView";
 import Question from "../componets/Jun/Question";
 import SelectBox from "../componets/Jun/SelectBox";
@@ -6,8 +6,31 @@ import Plus from "../componets/Jun/Plus";
 
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
+import Axios from "axios";
 
 const enrollment = () => {
+  //각 inputs의 value값들 초기는 공백
+  const [inputs, setInputs] = useState({
+    region: "",
+    level: ""
+  });
+
+  const { region, level } = inputs;
+
+  const onClick = e => {
+    const { name, value } = e;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+
+  //마지막 제출하기 버튼 클리시
+  const submit = () => {
+    Axios.post({
+      selectValue: selectValue
+    });
+  };
   return (
     <div className="container">
       <h1>모집글 작성</h1>
@@ -109,6 +132,8 @@ const enrollment = () => {
           <div className="select_info">
             <p>지역</p>
             <SelectBox
+              name="region"
+              value={region}
               type="under"
               placeholder="선택하세요"
               items={[
@@ -116,18 +141,23 @@ const enrollment = () => {
                 { id: 2, text: "대구" },
                 { id: 3, text: "울산" }
               ]}
+              onClick={onClick}
             />
           </div>
           <div className="select_info">
             <p>진행단계</p>
             <SelectBox
-              type="full"
+              name="level"
+              value={level}
+              type="under"
               placeholder="선택하세요"
               items={[
-                { id: 1, text: "서울" },
-                { id: 2, text: "대구" },
-                { id: 3, text: "울산" }
+                { id: 1, text: "기획완료" },
+                { id: 2, text: "디자인완료" },
+                { id: 3, text: "개발중" }
               ]}
+              inputs={inputs}
+              onClick={onClick}
             />
           </div>
         </div>

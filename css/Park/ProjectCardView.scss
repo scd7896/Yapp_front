@@ -2,7 +2,8 @@
 #post_card_container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  //justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .project-cardview {
@@ -11,6 +12,14 @@
   background-color: #ffffff;
   margin-bottom: 49px;
   display: inline-block;
+  & + & {
+    &:nth-child(3n-1) {
+      margin-left: 3.5%;
+    }
+    &:nth-child(3n) {
+      margin-left: 3.5%;
+    }
+  }
 }
 
 .project-cardview:hover {
@@ -40,18 +49,21 @@
   display: inline-block;
   vertical-align: text-top;
 }
-.jobgroup-circle-developer{
+.jobgroup-circle-developer {
   background-color: #66efe2 !important;
 }
-.jobgroup-circle-designer{
+.jobgroup-circle-designer {
   background-color: #ff3e85 !important;
 }
-.jobgroup-circle-planner{
+.jobgroup-circle-planner {
   background-color: #ffc900 !important;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> enrollment_page
 .jobgroup-main {
   height: 29px;
   font-family: "Noto Sans KR";

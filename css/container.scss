@@ -31,6 +31,14 @@
     width: 48.5%;
     background-color: #ffffff;
     margin-bottom: 49px;
+    & + & {
+      &:nth-child(2n) {
+        margin-left: 3%;
+      }
+      &:nth-child(2n-1) {
+        margin-left: 0;
+      }
+    }
   }
 }
 //모바일 환경
@@ -44,5 +52,6 @@
     width: 100%;
     background-color: #ffffff;
     margin-bottom: 49px;
+    margin-right: 0;
   }
 }
