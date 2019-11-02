@@ -91,3 +91,67 @@ export const keywordSearch =[
     }
 ]
 
+
+export const keywordAllLists =[
+    {
+        name : IOS,
+        count : 12,    
+    },
+    {
+        name : ANDROID,
+        count : 3,
+    },
+    {
+        name : UI_UX,
+        count : 5,  
+    },
+    {
+        name : DESIGN ,
+        count : 9 ,
+    },
+    {
+        name : WEB,
+        count : 10,
+    },
+    {
+        name : IOS,
+        count : 12,    
+    },
+    {
+        name : ANDROID,
+        count : 3,
+    },
+    {
+        name : UI_UX,
+        count : 5,  
+    },
+    {
+        name : DESIGN ,
+        count : 9 ,
+    },
+    {
+        name : WEB,
+        count : 10,
+    },
+    {
+        name : IOS,
+        count : 12,    
+    },
+    {
+        name : ANDROID,
+        count : 3,
+    },
+    {
+        name : UI_UX,
+        count : 5,  
+    },
+    {
+        name : DESIGN ,
+        count : 9 ,
+    },
+    {
+        name : WEB,
+        count : 10,
+    },
+]
+

@@ -1,7 +1,9 @@
 import React from 'react'
+
+import KeywordBorder from '../../componets/Kim/KeywordBorder'
 import '../../css/container.scss'
 import '../../css/kim/keyword_management.scss'
-
+import {keywordAllLists} from '../../dummydatas/dummyKeywords'
 
 const management = ()=>{
     const list = []
@@ -24,10 +26,13 @@ const management = ()=>{
                             <br/>
                             <span className = "keyword_management_body_text">메인페이지에서 만나보세요!</span>
                         </div>
-                        <div>
-
+                        <div style = {{marginTop : "50px"}}>
+                            {keywordAllLists.map((el, i)=>{
+                                return <KeywordBorder data = {el} isSelected = {false} key = {i}/>
+                            })}
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
