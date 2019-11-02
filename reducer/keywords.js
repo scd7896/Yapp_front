@@ -1,6 +1,6 @@
 import produce from 'immer'
-import { ADD_KEYWORD_LIST, DEL_KEYWORD_LIST, DEL_KEYWORDS_ALL } from '../action';
-
+import { ADD_KEYWORD_LIST, DEL_KEYWORD_LIST, DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST, SET_KEYWORDS_SUCCESS, SET_KEYWORDS_FAILURE } from '../action';
+import Router from 'next/router'
 const initialProps = {
     selectList : []
 }
@@ -18,6 +18,13 @@ const keywords = (state = initialProps, action) =>{
             case DEL_KEYWORDS_ALL :
                 draft.selectList = []
                 break;
+            case SET_KEYWORDS_SUCCESS :
+                Router.push('/mypage/apply')
+                break;
+            case SET_KEYWORDS_FAILURE :
+                alert("데이터가 정상적으로 반영이 안됬습니다")
+                break;
+                
             default :
                 break;
         }

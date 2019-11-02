@@ -5,14 +5,23 @@ import KeywordBorder from '../../componets/Kim/KeywordBorder'
 import '../../css/container.scss'
 import '../../css/kim/keyword_management.scss'
 import {keywordAllLists} from '../../dummydatas/dummyKeywords'
-import { DEL_KEYWORDS_ALL } from '../../action'
+import { DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST } from '../../action'
 
 const management = ()=>{
     const {selectList} = useSelector(state=> state.keywords)
+    const {userToken} = useSelector(state=> state.user)
     const dispatch = useDispatch();
     const delAllKeywords = ()=>{
         dispatch({
             type : DEL_KEYWORDS_ALL
+        })
+    }
+    const submitKeywords = ()=>{
+        
+        dispatch({
+            type : SET_KEYWORDS_REQUEST,
+            data : selectList,
+            token : userToken
         })
     }
     return(
@@ -46,7 +55,7 @@ const management = ()=>{
             <div style = {{background : "#ffffff"}}>
                 <div className = "keyword_management_bottom_container">
                     <div className = "keyword_management_refresh_container" onClick = {delAllKeywords}><p className = "keyword_management_bottom_text">초기화</p></div>
-                    <div className = "keyword_management_refresh_container keyword_commit"><p className = "keyword_management_bottom_text keyword_commit_text">완료</p></div>
+                    <div className = "keyword_management_refresh_container keyword_commit" onClick = {submitKeywords}><p className = "keyword_management_bottom_text keyword_commit_text">완료</p></div>
                 </div>
             </div>
             
