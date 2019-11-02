@@ -61,6 +61,9 @@ class MyPage extends React.Component{
         const goToModifyProfile = ()=>{
             Router.push('/modify/profile');
         }
+        const goToKeywordManagement = ()=>{
+            Router.push('/keyword/management');
+        }
         return (
             <div className = 'mypage'>     
 
@@ -84,7 +87,7 @@ class MyPage extends React.Component{
                                         <div className = 'mypage-profile-button' onClick = {goToModifyProfile}>
                                             프로필 수정
                                         </div>
-                                        <div className = 'mypage-profile-button'>
+                                        <div className = 'mypage-profile-button' onClick = {goToKeywordManagement}>
                                             키워드 관리
                                         </div>
                                     </div>
