@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {useDispatch,useSelector} from 'react-redux' 
 import DropDown from 'react-dropdown';
+import SelectBox from '../Jun/SelectBox'
 import Question from './ApplyModalComponents/Question'
 import {qeustions} from '../../dummydatas/dummyQuestion'
 import '../../css/kim/componentcss/ApplyFirst.scss'
@@ -9,9 +10,20 @@ import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from '../../action'
 const ApplyFirst = ()=>{
     const dispatch = useDispatch();
     const {position, answers} = useSelector(state=> state.apply)
-    const [applyJob, setApplyJob] = useState(['디자이너', '개발자', '기획자'])
-    const [selectPosition, setSelectPosition] = useState('디자이너')
     
+    const [selectPosition, setSelectPosition] = useState('')
+    const applyJob = [
+        {
+            id : "디자이너",
+            text : "디자이너"
+        },{
+            id : "개발자",
+            text : "개발자"
+        },{
+            id : "기획자",
+            text : "기획자"
+        }
+    ]
     const positionChange = (e)=>{
         const list = document.querySelector('#first_modal_qna_container')
         const length = qeustions.filter((e)=> e.position === selectPosition).length;
@@ -66,14 +78,11 @@ const ApplyFirst = ()=>{
             <div id = "first_modal_body_container">
                 <span id = "modal_position_selector_title"> <span>지원</span><span>직군</span> </span>
                 <span id = "modal_most_select_icon">*</span>
-                <div>
-                    <DropDown arrowClassName="first_modal_body_arrow" className ="first_modal_body_select" value = {selectPosition} onChange = {positionChange} options = {applyJob}/>
-                </div>
-                <div id = "first_modal_qna_container">
-                        {qeustions
-                            .filter((e)=>e.position === selectPosition)
-                            .map((e,i)=> <Question questionData ={e.question} index = {i} key ={i}></Question>)}
-                </div>
+                
+
+                <SelectBox items = {applyJob} name = {'selectPosition'} value = {selectPosition} type = "full"/>
+
+
                 <div style ={{paddingBottom : "92px"}}>
                     <div id = "apply_modal_next_first_button" onClick = {nextModal}>다음</div>
                 </div>

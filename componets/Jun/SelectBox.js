@@ -4,7 +4,7 @@ import "../../css/Jun/selectbox.scss";
 
 //prpos : name, placeholder, item배열, type(모양)
 //반환값 : val값 (input 선택된 값)
-function SelectBox({ name, value, type, placeholder, items, onClick }) {
+function SelectBox({ name = "", value = "", type = "", placeholder = "", items = [], onClick = f=>f }) {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
 
