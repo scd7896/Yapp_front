@@ -25,37 +25,37 @@ const PostCardView = (props)=>{
     }
 
     var Star_on_d = Star_on.map((e) =>
-        <img class = "post-cardview-star star-on"></img>
+        <img className = "post-cardview-star star-on"></img>
     )
 
     var Star_off_d = Star_off.map((e) =>
-        <img class = "post-cardview-star star-off"></img>
+        <img className = "post-cardview-star star-off"></img>
     )
 
     return(
-        <div class = "post-cardview">
+        <div className = "post-cardview">
             <img 
-                class = "post-cardview-image" 
+                className = "post-cardview-image" 
                 src = "https://www.10wallpaper.com/wallpaper/medium/1909/2019_Planetary_Nebula_Clouds_4K_Universe_medium.jpg"
             ></img>
-            <div class = "post-cardview-banner">
-                <div class = "post-cardview-info">
-                    <div class = "post-cardview-title">
+            <div className = "post-cardview-banner">
+                <div className = "post-cardview-info">
+                    <div className = "post-cardview-title">
                         {title}
                     </div>
-                    <img class = "view_circle"></img>
-                    <div class = "post-cardview-view">
+                    <img className = "view_circle"></img>
+                    <div className = "post-cardview-view">
                         {view}
                     </div>
-                    <img clas = "post-cardview-heart"></img>
-                    <div class = "post-cardview-like">{like}</div>
+                    <img className = "post-cardview-heart"></img>
+                    <div className = "post-cardview-like">{like}</div>
                 </div>
 
-                <div class = "post-cardview-scoreboard">
-                    <div class = "post-cardview-score-title">
+                <div className = "post-cardview-scoreboard">
+                    <div className = "post-cardview-score-title">
                         프로젝트 만족도
                     </div>
-                    <div class = "post-cardview-score-stars">
+                    <div className = "post-cardview-score-stars">
                         {Star_on_d}
                         {Star_off_d}
                     </div>

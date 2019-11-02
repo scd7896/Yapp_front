@@ -98,7 +98,6 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                             _this.scrollMutex = 0;
                             return;
                         }
-                        console.log(scrollCount);
     
                         target.scrollLeft = start + Math.round(cosParameter - cosParameter * Math.cos(scrollCount));
                         oldTimestamp = newTimestamp;
