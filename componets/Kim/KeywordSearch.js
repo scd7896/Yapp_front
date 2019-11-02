@@ -1,12 +1,13 @@
 import React from "react";
 
 import "../../css/kim/componentcss/KeywordSearch.scss";
-const KeywordSearch = ({ data }) => {
+import Icons from '../icons/index'
+const KeywordSearch = ({ data, selected }) => {
   return (
     <div id="keyword_search">
       <div id="keyword_container">
         <div id="keyword_search_img_container">
-          <img id="keyword_search_img_contents" src={data.image} />
+          <Icons keyword = {data.name} isSelected = {selected}/>
         </div>
         <div id="keyword_search_contents_container">
           <p id="keyword_search_hashtag">#{data.name}</p>
