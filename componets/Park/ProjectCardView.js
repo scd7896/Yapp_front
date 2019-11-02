@@ -41,7 +41,7 @@ const ProjectCardView = props => {
   return (
  
       <div className="project-cardview">
-      <Link href = {props.project ? ('/detail/' + props.project.projectId) : ''}>
+      <Link href={props.project ? '/detail/[id]' : ''} as = {props.project ? ('/detail/' + props.project.projectId) : ''}>
       <a>
         <img
           className="project-cardview-banner"
