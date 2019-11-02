@@ -46,7 +46,7 @@ function SelectBox({
                 id="다각형_18"
                 data-name="다각형 18"
                 d="M8,0l8,10H0Z"
-                transform={value ? "" : "translate(16 10) rotate(180)"}
+                transform={open ? "" : "translate(16 10) rotate(180)"}
                 fill="#666"
               />
             </svg>
@@ -69,7 +69,7 @@ function SelectBox({
                 id="다각형_18"
                 data-name="다각형 18"
                 d="M8,0l8,10H0Z"
-                transform={value ? "" : "translate(16 10) rotate(180)"}
+                transform={open ? "" : "translate(16 10) rotate(180)"}
                 fill="#666"
               />
             </svg>
@@ -86,7 +86,7 @@ function SelectBox({
               </div>
             ))}
           </div>
-          <div className="select_cover" onClick={onToggle}></div>
+          {/* <div className="select_cover" onClick={onToggle}></div> */}
         </>
       )}
     </div>
