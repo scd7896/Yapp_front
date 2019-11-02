@@ -45,6 +45,7 @@ const user = (state = initialState, action) => {
         break;
         
       case USER_LOGIN_SUCCESS :
+        draft.userToken = action.userToken;
         break;
 
       case USER_LOGIN_REQUEST :

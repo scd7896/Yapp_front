@@ -52,11 +52,13 @@ function* userLogin(action){
         }
         
         const result = yield call(userLoginAPI, userData)
-        document.cookie = `user-token=${result.data.token}`    
+        document.cookie = `user-token=${result.data.token}`
+        
         yield put({
             type : USER_LOGIN_SUCCESS,
             userToken : result.data.token,
         })
+        
     }catch(e){
         console.error(e)
         document.cookie = `user-token=`   

@@ -26,6 +26,7 @@ const apply = (state = initialState, action)=>{
             case OPEN_APPLY_MODAL :
                 draft.postId = action.postId;
                 break;
+            
             default :
                 break;
         }

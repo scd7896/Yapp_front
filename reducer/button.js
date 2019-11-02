@@ -1,6 +1,6 @@
 import produce from 'immer'
 import {SET_LOGIN_MODAL,NEXT_APPLY_MODAL, PREV_APPLY_MODAL,OPEN_APPLY_MODAL,CLOSE_APPLY_MODAL,
-    ADD_SELECTORS_CONTENT, REMOVE_SELECTORS_CONTENT, SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD, OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL} from '../action'
+    ADD_SELECTORS_CONTENT, REMOVE_SELECTORS_CONTENT, SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD, OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE} from '../action'
 const initialState ={
     selects : [],
     selectPage : "",
@@ -57,6 +57,8 @@ const button = (state = initialState , action) =>{
             case SET_LOGIN_MODAL :
                 draft.isLoginModal = action.data;
                 break;
+            case USER_LOGIN_SUCCESS :    
+                draft.loginVisible = false;
             default :
                 break;
         }
