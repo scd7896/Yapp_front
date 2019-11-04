@@ -5,6 +5,9 @@ import Keyword from "../componets/Kim/Keyword";
 import BestProject from "../componets/Jun/ReviewPage/BestProject";
 import ReviewCard from "../componets/Jun/ReviewPage/ReviewCard";
 import { keyword } from "../dummydatas/dummyKeywords";
+import AwesomeSlider from "react-awesome-slider";
+import AwsSliderStyles from "../css//Jun/AwsSliderStyles.scss";
+
 import {
   SET_SELECTED_PAGES,
   CLEAR_SELECTED_KYEWORD,
@@ -42,7 +45,11 @@ const review = () => {
           <div id="review_title">
             <h5>베스트 프로젝트</h5>
           </div>
-          <BestProject></BestProject>
+          <AwesomeSlider cssModule={AwsSliderStyles}>
+            <div data-src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/B57E5EE6-9C76-4723-9D0F-F1EFE29CABC6.png" />
+            <div data-src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/B57E5EE6-9C76-4723-9D0F-F1EFE29CABC6.png" />
+            <div data-src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/B57E5EE6-9C76-4723-9D0F-F1EFE29CABC6.png" />
+          </AwesomeSlider>
 
           <div className="recommend_tag">
             <p>추천태그</p>
