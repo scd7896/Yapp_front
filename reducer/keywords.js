@@ -28,7 +28,10 @@ const keywords = (state = initialProps, action) =>{
                 draft.selectList =[];
                 break;
             case GET_KEYWORDS_SUCCESS :
-                draft.selectList = action.data;
+                
+                for(let i = 0 ; i< action.data.length; i++){
+                    draft.selectList.push(action.data[i])
+                }
                 break;
             case GET_KEYWORDS_FAILURE :
                 draft.selectList =[];    

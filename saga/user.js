@@ -56,7 +56,7 @@ function* userLogin(action){
         }
         
         const result = yield call(userLoginAPI, userData)
-        console.log(result)
+        
         document.cookie = `user-token=${result.data.token}`
         
         yield put({
@@ -65,7 +65,7 @@ function* userLogin(action){
         })
         
     }catch(e){
-        console.log("잡긴했음?")
+        
         //에러 코드에 따라서 비밀번호 틀리게할껀지 
         //이메일의문제일지 결정
         yield put({

@@ -28,9 +28,6 @@ const ApplyModal = () => {
   };
 
   useEffect(() => {
-    modalContainer = document.querySelector("#modal_container");
-    const parent = modalContainer.parentElement;
-    console.log(parent.style.backgroundColor);
   }, []);
   return (
     <div className="container">

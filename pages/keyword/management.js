@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import cookies from 'next-cookies'
 import KeywordBorder from '../../componets/Kim/KeywordBorder'
@@ -24,6 +24,12 @@ const management = ()=>{
             token : userToken
         })
     }
+    useEffect(()=>{
+        dispatch({
+            type : GET_KEYWORDS_REQUEST,
+            token : userToken
+        })
+    },[])
     return(
         <div>
             <div style = {{background : "#ffffff", borderBottom : "3px solid #f5f7fa"}}>
@@ -45,7 +51,9 @@ const management = ()=>{
                         </div>
                         <div style = {{marginTop : "50px"}}>
                             {keywordAllLists.map((el, i)=>{
+                                
                                 const check = selectList.findIndex((list)=> list === el.id)
+                                
                                 return <KeywordBorder data = {el} isSelected = {check === -1? false : true} key = {i}/>
                             })}
                         </div>
@@ -63,11 +71,7 @@ const management = ()=>{
     )
 }
 management.getInitialProps = async(context)=>{
-    const userToken = cookies(context)['user-token']
-    context.store.dispatch({
-        type : GET_KEYWORDS_REQUEST,
-        token : userToken
-    })
+    
     return{}
 }
 
