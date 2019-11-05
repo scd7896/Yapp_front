@@ -4,7 +4,14 @@ import "../../css/Jun/selectbox.scss";
 
 //prpos : name, placeholder, item배열, type(모양)
 //반환값 : val값 (input 선택된 값)
-function SelectBox({ name = "", value = "", type = "", placeholder = "", items = [], onClick = f=>f }) {
+function SelectBox({
+  name = "",
+  value = "",
+  type = "",
+  placeholder = "",
+  items = [],
+  onClick = f => f
+}) {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
 
@@ -15,7 +22,6 @@ function SelectBox({ name = "", value = "", type = "", placeholder = "", items =
     color: "#b9b9b9"
   };
 
-  console.log("val값은" + value);
   const potato = value => {
     return function(event) {
       onClick({ name: name, value: value });
@@ -40,7 +46,7 @@ function SelectBox({ name = "", value = "", type = "", placeholder = "", items =
                 id="다각형_18"
                 data-name="다각형 18"
                 d="M8,0l8,10H0Z"
-                transform={value ? "" : "translate(16 10) rotate(180)"}
+                transform={open ? "" : "translate(16 10) rotate(180)"}
                 fill="#666"
               />
             </svg>
@@ -63,7 +69,7 @@ function SelectBox({ name = "", value = "", type = "", placeholder = "", items =
                 id="다각형_18"
                 data-name="다각형 18"
                 d="M8,0l8,10H0Z"
-                transform={value ? "" : "translate(16 10) rotate(180)"}
+                transform={open ? "" : "translate(16 10) rotate(180)"}
                 fill="#666"
               />
             </svg>
@@ -73,7 +79,6 @@ function SelectBox({ name = "", value = "", type = "", placeholder = "", items =
 
       {open && (
         <>
-          <div className="select_cover" onClick={onToggle}></div>
           <div className={classNames("select_open", type)} onClick={onToggle}>
             {items.map(item => (
               <div onClick={potato(item.text)} key={item.id}>
@@ -81,6 +86,7 @@ function SelectBox({ name = "", value = "", type = "", placeholder = "", items =
               </div>
             ))}
           </div>
+          {/* <div className="select_cover" onClick={onToggle}></div> */}
         </>
       )}
     </div>

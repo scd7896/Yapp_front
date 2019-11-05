@@ -8,6 +8,9 @@ app.prepare().then(()=>{
     const server = express()
     server.use(express.json())
     server.use(express.urlencoded({extended: true}))
+    server.get('/keyword/management', (req,res)=>{
+        return app.render(req,res, '/keyword/management')
+    })
     server.get('/', (req,res)=>{
         return app.render(req,res, '/',{});
     })
