@@ -10,6 +10,9 @@
 import Detail from '../../componets/detail.js'
 import {useDispatch} from 'react-redux'
 import { OPEN_APPLY_MODAL } from '../../action/index.js';
+import fetch from 'isomorphic-unfetch';
+import baseURL from '../../url'
+
 var detailRouter = (props) => {
     const dispatch = useDispatch();
     
@@ -26,7 +29,7 @@ var detailRouter = (props) => {
 }
 
 detailRouter.getInitailProps = async function(ctx){
-    console.log(ctx.query)
+
     return {}
 }
 
