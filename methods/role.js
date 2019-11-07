@@ -1,1 +1,1 @@
-export default [기획자, 개발자, 디자이너, 기타];
+export default ['기획자', '개발자', '디자이너', '기타'];
