@@ -24,13 +24,28 @@ var detailRouter = (props) => {
         
     }
     return (
-        <Detail props = {props} openModal = {openModal}/>
+        <Detail props = {props} openModal = {openModal} project = {props.project}/>
     )
 }
 
 detailRouter.getInitailProps = async function(ctx){
 
-    return {}
+    var data  = {};
+    var projectId = parseInt(ctx.query.id);
+
+    var res = await fetch(baseURL + '/' + projectId, {
+        headers : {
+            accept: 'application/json'
+        }
+    });
+
+    if(res.ok){
+        var resJSON = await res.json();
+        data.project = resJSON;
+    }
+    
+
+    return data;
 }
 
 export default detailRouter
