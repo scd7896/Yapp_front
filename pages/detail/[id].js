@@ -33,12 +33,31 @@ detailRouter.getInitailProps = async function(ctx){
     var data  = {};
     var projectId = parseInt(ctx.query.id);
 
-    var res = await fetch(baseURL + '/' + projectId, {
+    var res = await fetch(`${baseURL}/projects/${projectId}`, {
         headers : {
             accept: 'application/json'
         }
     });
-
+    /*
+    res.data의 데이터 형태
+        {
+            "projectId": 0,
+            "title": "string", 
+            "content": "string",
+            "thumbnailImage": "string",
+            "attachFile": "string",
+            "role": 0,
+            "viewCnt": 0,
+            "createAt": "Unknown Type: date",
+            "userId": "string",
+            "interviewQuestions": [
+                {
+                "sn": 1,
+                "content": "일주일에 1회 시간내서 참여 가능하신가요?"
+                }
+                ]
+            }
+    */
     if(res.ok){
         var resJSON = await res.json();
         data.project = resJSON;

@@ -14,7 +14,7 @@ const enrollment = () => {
     region: "",
     level: ""
   });
-
+  const [thumbnailImage, setThumbnailImage] = useState(null)
   const { region, level } = inputs;
 
   const onClick = e => {
@@ -24,9 +24,38 @@ const enrollment = () => {
       [name]: value
     });
   };
+  const changeImage =(event)=>{
+    const fileButton = document.createElement('input')
+    fileButton.setAttribute('type', 'file')
+    fileButton.setAttribute('accept', 'image/*')
+    fileButton.setAttribute('method', 'post')
+    fileButton.click()
+    fileButton.addEventListener('change', async()=>{
+      const file = fileButton.files[0]
+      setThumbnailImage(file)
+      console.log(thumbnailImage)
+    })
+  }
 
   //마지막 제출하기 버튼 클리시
   const submit = () => {
+    /*
+    모집하기 글 작성시 필요한 데이터들, 
+    header에 user-token 보내기
+      {
+        "title": "string",
+        "content": "string",
+        "role": 0,
+        "step": 0,
+        "location": 0,
+        "thumbnailImage": "string",
+        "interviewQuestions": [
+          {
+            "content": "참여할 것입니까?"
+          }
+        ]
+      }
+    */
     Axios.post({
       selectValue: selectValue
     });
@@ -44,7 +73,7 @@ const enrollment = () => {
             <span id="nec">*</span>
           </div>
 
-          <form className="multerBox">
+          <form className="multerBox" onClick = {changeImage}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="51.807"
