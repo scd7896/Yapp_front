@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {useDispatch} from 'react-redux'
 import '../../../css/kim/componentcss/Login/SignUpInput.scss'
 import '../../../css/kim/componentcss/Login/LoginInput.scss'
-import { SET_LOGIN_MODAL } from '../../../action'
+import { SET_LOGIN_MODAL, USER_JOIN_REQUEST } from '../../../action'
 const SignUpInput = ()=>{
     const dispatch = useDispatch();
     const [emailCheck, setEmailCheck] = useState(null)

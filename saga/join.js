@@ -1,5 +1,5 @@
 import baseURL from '../url'
-
+import {USER_JOIN_REQUEST, USER_JOIN_SUCCESS, USER_JOIN_FAILURE} from '../action'
 function userJoinAPI(userData){
 
     return axios.post(baseURL + '/join', 

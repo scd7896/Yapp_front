@@ -6,6 +6,9 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAILURE,
+  USER_JOIN_REQUEST,
+  USER_JOIN_SUCCESS,
+  USER_JOIN_FAILURE,
   REPAIR_PASSWORD
 } from "../action";
 const initialState = {
