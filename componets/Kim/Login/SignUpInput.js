@@ -8,6 +8,7 @@ const SignUpInput = ()=>{
     const [emailCheck, setEmailCheck] = useState(null)
     const [isPasswordTypeCheck, setisPasswordTypeCheck] = useState(null)
     const [isPasswordEqualCheck, setIsPasswordEqualCheck] = useState(null)
+    const {loginFail} = useSelector(state => state.user)
 
     const testEmail = (e)=>{
         const check = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/
@@ -43,6 +44,37 @@ const SignUpInput = ()=>{
             data : 0
         })
     }
+    const joinRequest = () => {
+
+        const name = document.querySelector('#sign_up_name').value
+        const email = document.querySelector('#sign_up_email').value
+        const password = document.querySelector('#login_password').value
+        const passwordEqualCheck = document.querySelector('#login_password_equal_check').value
+
+        if(password == passwordEqualCheck){
+            dispatch({
+                type : USER_JOIN_REQUEST,
+                name : name,
+                email : email,
+                password : password,
+                password2 : passwordEqualCheck
+            })
+        }
+    }
+
+    useEffect(()=>{
+        const container = document.getElementsByClassName('signup_body_container')[0];
+
+        container.addEventListener('keypress', (event)=>{
+            if(event.keyCode ===13){
+                joinRequest()
+            }
+            
+        })
+    },[])
+
+    //loginFail 에 대한 메세지를 component에서 보여줘야함(아직 퍼블리싱 안 됨)
+
     return(
         <div className = "signup_body_container">
             <p><input id = "sign_up_name" className= "login_input_type" type = "text" placeholder ="이름"/></p>
@@ -60,7 +92,7 @@ const SignUpInput = ()=>{
                 <span className = {isPasswordEqualCheck === false ? 'login_email_check_error' : 'display_none'}>비밀번호가 일치하지 않습니다</span>
             </p>
             <div className = "signup_bottom_modal_container">
-                <div className = "signup_request_button">
+                <div className = "signup_request_button" onClick = {joinRequest}>
                     <p className = "signup_request_button_text">계정 만들기</p>
                 </div>
                 <div className = "login_move_request">
