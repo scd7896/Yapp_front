@@ -82,6 +82,6 @@ export default function* userSaga(){
     yield all([
         fork(watchGetUser),
         fork(watchUserLogin)
-
+        
     ])
 }

@@ -48,9 +48,11 @@ const user = (state = initialState, action) => {
         
       case USER_LOGIN_SUCCESS :
         draft.userToken = action.userToken;
+        draft.nowLogging = false;
+        draft.loginFail = false;
         break;
 
-      case USER_LOGIN_REQUEST :
+      case USER_LOGIN_REQUEST : //실제로 적용안되고있음 확인후 삭제할것
         draft.nowLogging = false;
         draft.userToken = "";
         draft.userNickName = "";
@@ -64,6 +66,26 @@ const user = (state = initialState, action) => {
         draft.userId = "";
         draft.loginFail = true;
         break;
+
+      case USER_JOIN_REQUEST :
+        draft.nowLogging = true;
+        draft.userToken = "";
+        draft.userNickName = "";
+        draft.userId = "";
+        break;
+      case USER_JOIN_SUCCESS :
+        draft.userToken = action.userToken;
+        draft.nowLogging = false;
+        draft.loginFail = false;
+        break;
+      case USER_JOIN_FAILURE :
+        draft.nowLogging = false;
+        draft.userToken = "";
+        draft.userNickName = "";
+        draft.userId = "";
+        draft.loginFail = true;
+        break;
+        
       case REPAIR_PASSWORD :
         draft.loginFail = false;
         break;
