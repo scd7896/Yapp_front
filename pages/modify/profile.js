@@ -62,6 +62,8 @@ const profile = ()=>{
 }
 
 profile.getInitialProps = async(context)=>{
+    /* get /user/profile 로 데이터 가져오기
+        put /user/profile 로 데이터 보내기  */
     return {}
 }
 export default profile

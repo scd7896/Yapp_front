@@ -6,6 +6,7 @@ import '../../css/MyPage/MyPagePortfolio.scss';
 import MyPortfolioSection from './MyPortfolioSection';
 import PortfolioAddSection from './PortfolioAddSection';
 
+/* /user/portfolio  데이터 가져오고, post /user/portfolio로 보내기  */
 class MyPagePortfolio extends React.Component{
     
     render(){
