@@ -10,6 +10,9 @@
 import Detail from '../../componets/detail.js'
 import {useDispatch} from 'react-redux'
 import { OPEN_APPLY_MODAL } from '../../action/index.js';
+import fetch from 'isomorphic-unfetch';
+import baseURL from '../../url'
+
 var detailRouter = (props) => {
     const dispatch = useDispatch();
     
@@ -21,13 +24,28 @@ var detailRouter = (props) => {
         
     }
     return (
-        <Detail props = {props} openModal = {openModal}/>
+        <Detail props = {props} openModal = {openModal} project = {props.project}/>
     )
 }
 
 detailRouter.getInitailProps = async function(ctx){
-    console.log(ctx.query)
-    return {}
+
+    var data  = {};
+    var projectId = parseInt(ctx.query.id);
+
+    var res = await fetch(baseURL + '/' + projectId, {
+        headers : {
+            accept: 'application/json'
+        }
+    });
+
+    if(res.ok){
+        var resJSON = await res.json();
+        data.project = resJSON;
+    }
+    
+
+    return data;
 }
 
 export default detailRouter

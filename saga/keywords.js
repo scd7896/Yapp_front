@@ -13,7 +13,6 @@ const getKeywordsAPI = (token)=>{
 function * getKeywords(action){
     try{
         const result = yield call(getKeywordsAPI, action.token)
-        console.log(result.data)
         yield put({
             type : GET_KEYWORDS_SUCCESS,
             data : result.data.keywordFromUser

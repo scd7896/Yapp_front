@@ -1,7 +1,7 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import '../../../css/kim/componentcss/Login/LoginInput.scss'
-import { SET_LOGIN_MODAL, USER_LOGIN_REQUEST } from '../../../action';
+import { SET_LOGIN_MODAL, USER_LOGIN_REQUEST, REPAIR_PASSWORD } from '../../../action';
 const LoginInput = ()=>{
     const dispatch = useDispatch();
     const [emailCheck, setEmailCheck] = useState(null)
@@ -22,10 +22,20 @@ const LoginInput = ()=>{
             data : 1
         })
     }
-    const loginRequest = ()=>{
+    const repairPassword = ()=>{
+        if(loginFail === false){
+            return;
+        }
+        dispatch({
+            type :REPAIR_PASSWORD
+        })
+    }
+    const loginRequest = (event)=>{
+        
         if(emailCheck !== true){
             return;
         }
+        
         const email = document.querySelector('#login_email').value
         const password = document.querySelector('#login_password').value
         //login request 던져보자 ㅎㅎ
@@ -36,17 +46,31 @@ const LoginInput = ()=>{
         })
         
     }
+
+    useEffect(()=>{
+        const container = document.querySelector("#login_container")
+
+        container.addEventListener('keypress', (event)=>{
+            if(event.keyCode ===13){
+                console.log(emailCheck)
+                loginRequest()
+            }
+            
+        })
+    },[])
     return(
-        <div>
+        <div id = "login_container">            
             <p><input id = "login_email" style ={{marginLeft : '-5%'}} className= {emailCheck === null ? 'login_input_type': emailCheck ===false ? "login_input_type_fail": "login_input_type"} onChange = {testEmail} type = "text" placeholder ="아이디(이메일형식)"/></p>
             <p style = {{textAlign:"left", paddingLeft : '3%'}}>
                 <span className = {emailCheck === false ? 'login_email_check_error' : 'display_none'}>이메일 형식으로 입력해주세요</span>
+            </p>    
+            <p className = {emailCheck === true ? "login_email_check_good" : "display_none"}>v</p>
+            <p><input id = "login_password" onChange = {repairPassword} style ={{marginLeft : '-5%'}} className = "login_input_type" type = "password" placeholder ="비밀번호"/></p>
+            <p style = {{textAlign:"left", paddingLeft : '3%'}}>
+                <span className = {loginFail === true ? 'login_email_check_error' : 'display_none'}>아이디/비밀번호가 일치하지 않습니다</span>
             </p>
             
-            <p className = {emailCheck === true ? "login_email_check_good" : "display_none"}>v</p>
-            <p><input id = "login_password" style ={{marginLeft : '-5%'}} className = "login_input_type" type = "password" placeholder ="비밀번호"/></p>
-            <span className = {loginFail === true ? 'login_email_check_error' : 'display_none'}>아이디/비밀번호가 일치하지 않습니다</span>
-
+            
             <div className = "login_modal_footer_container">
                 <div className = "login_request_button" onClick = {loginRequest}><p className = "login_request_text">로그인</p></div>
                 <div className = "login_modal_footer_actions">

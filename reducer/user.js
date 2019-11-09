@@ -5,7 +5,8 @@ import {
   GET_MYDATA_SUCCESS,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
-  USER_LOGIN_FAILURE
+  USER_LOGIN_FAILURE,
+  REPAIR_PASSWORD
 } from "../action";
 const initialState = {
   userToken: "",
@@ -62,6 +63,10 @@ const user = (state = initialState, action) => {
         draft.userNickName = "";
         draft.userId = "";
         draft.loginFail = true;
+        break;
+      case REPAIR_PASSWORD :
+        draft.loginFail = false;
+        break;
       default:
         break;
     }

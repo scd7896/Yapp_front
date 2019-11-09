@@ -238,13 +238,13 @@ export default props => {
 
   var cur_svg, cur_jobgruop;
 
-  if (props.jobgroup == "developer") {
+  if (props.jobgroup == "developer" || props.jobgroup == "개발자") {
     cur_svg = dev_svg;
     cur_jobgruop = "개발자";
-  } else if (props.jobgroup == "designer") {
+  } else if (props.jobgroup == "designer"|| props.jobgroup == "디자이너") {
     cur_svg = designer_svg;
     cur_jobgruop = "디자이너";
-  } else if (props.jobgroup == "planner") {
+  } else if (props.jobgroup == "planner" || props.jobgroup == "기획자") {
     cur_svg = planner_svg;
     cur_jobgruop = "기획자";
   }

@@ -6,6 +6,9 @@ import '../css/container.scss'
 
 import JobGroupCardView from './Park/JobGroupCardView'
 import DetailQnA from './Park/DetailQnA'
+import role from '../methods/role'
+import ProjectJobGroup from './Park/ProjectJobGroup'
+
 
 
 class Detail extends React.Component{
@@ -16,8 +19,15 @@ class Detail extends React.Component{
     
     render(){
         
-        var jobgroups = '디자이너';
-        var title = '모임장소 추천서비스모';
+        var jobgroups = role[this.props.role];
+        var title = this.props.title;
+        var content = this.props.content ? this.props.content : '';
+        var contentLines = content.split('\n').map(contentLine =>  (
+            <span>
+              {contentLine}<br/>
+            </span>
+          )
+        );
         
         return(
             <div id = 'detail_root'>
@@ -27,8 +37,7 @@ class Detail extends React.Component{
                 <div className = 'detail-title-wrapper'>
                     <div className = 'detail-title-container container'>
                         <div className = 'detail-title-jobgroup-wrapper'>
-                            <div className = 'detail-title-jobgroup-mark'></div>
-                            <div className = 'detail-title-jobgroups'>{jobgroups}</div>
+                            <ProjectJobGroup jobgroup = {jobgroups}/>
                         </div>
                         <div className = 'detail-title-contents-wrapper'>
                             <div className = 'detail-title-flex'>
@@ -59,8 +68,7 @@ class Detail extends React.Component{
                         프로젝트 간단 소개
                     </div>
                     <div className= 'detail-introduce-contents'>
-                        모임장소 정할 때 중간지점 찾아주는 모바일 앱 서비스입니다. 서비스 기능 정의는 다 되어 있습니다!<br/>
-                        현재 iOS 개발자와, 안드로이드 개발자 팀원이 있으며 서비스 디자인 해주실 디자이너 분이 필요한 상황입니다.<br/>
+                        {contentLines}
                     </div>
                 </div>
 
@@ -84,7 +92,7 @@ class Detail extends React.Component{
           <div className="detail-recruit-title  detail-block-title">
             모집 직군
           </div>
-          <JobGroupCardView type="big" jobgroup="designer" toggle="default" />
+          <JobGroupCardView type="big" jobgroup={jobgroups} toggle="default" />
         </div>
 
         <div className="detail-curmember-container container">

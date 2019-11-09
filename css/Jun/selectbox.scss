@@ -1,11 +1,10 @@
 .selectbox {
   display: inline;
-  position: relative;
+  //position: relative;
   cursor: pointer;
-
-  z-index: 10010;
 }
 .select_default {
+  z-index: 10010;
   display: flex;
   justify-content: space-between;
   font-family: "Montserrat", sans-serif;
@@ -44,14 +43,13 @@
 }
 
 .select_cover {
-  position: absolute;
+  position: fixed;
   z-index: 10011;
-  top: -400px;
+  top: 0;
   right: 0;
   width: 100%;
   height: 200vh;
   opacity: 0;
-  overflow-y: scroll;
 }
 .select_open {
   z-index: 10012;
@@ -94,4 +92,8 @@
     color: #333333;
     background-color: #e5e5e5;
   }
+}
+.potatoBox {
+  z-index: 10012;
+  border: 1px solid red;
 }
