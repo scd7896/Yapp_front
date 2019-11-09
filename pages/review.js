@@ -45,12 +45,13 @@ const review = () => {
           <div id="review_title">
             <h5>베스트 프로젝트</h5>
           </div>
-          <AwesomeSlider cssModule={AwsSliderStyles}>
+          {/* <AwesomeSlider cssModule={AwsSliderStyles}>
             <div data-src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/B57E5EE6-9C76-4723-9D0F-F1EFE29CABC6.png" />
             <div data-src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/B57E5EE6-9C76-4723-9D0F-F1EFE29CABC6.png" />
             <div data-src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/B57E5EE6-9C76-4723-9D0F-F1EFE29CABC6.png" />
-          </AwesomeSlider>
+          </AwesomeSlider> */}
 
+          <BestProject></BestProject>
           <div className="recommend_tag">
             <p>추천태그</p>
             {keyword.map((e, i) => {
