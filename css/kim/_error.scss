@@ -3,6 +3,9 @@
     padding-top : 10%;
     justify-content: center;
     align-items: center;
+    @media (max-width: 991px) {
+        flex-direction: column;
+    }
 }
 .error_page_left_container{
     display : flex ;
