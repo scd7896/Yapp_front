@@ -15,7 +15,7 @@ const enrollment = () => {
     level: ""
   });
   const [step, setStep] = useState(1);
-  const [thumbnailImage, setThumbnailImage] = useState(null)
+  const [thumbnailImage, setThumbnailImage] = useState(null);
   const { region, level } = inputs;
 
   const onClick = e => {
@@ -25,18 +25,18 @@ const enrollment = () => {
       [name]: value
     });
   };
-  const changeImage =(event)=>{
-    const fileButton = document.createElement('input')
-    fileButton.setAttribute('type', 'file')
-    fileButton.setAttribute('accept', 'image/*')
-    fileButton.setAttribute('method', 'post')
-    fileButton.click()
-    fileButton.addEventListener('change', async()=>{
-      const file = fileButton.files[0]
-      setThumbnailImage(file)
-      console.log(thumbnailImage)
-    })
-  }
+  const changeImage = event => {
+    const fileButton = document.createElement("input");
+    fileButton.setAttribute("type", "file");
+    fileButton.setAttribute("accept", "image/*");
+    fileButton.setAttribute("method", "post");
+    fileButton.click();
+    fileButton.addEventListener("change", async () => {
+      const file = fileButton.files[0];
+      setThumbnailImage(file);
+      console.log(thumbnailImage);
+    });
+  };
 
   //마지막 제출하기 버튼 클리시
   const submit = () => {
@@ -64,40 +64,44 @@ const enrollment = () => {
   return (
     <div className="enroll_contents">
       <div className="enroll_header">
-        <div className ="container">
-          <div className="enroll_title">
-            모집글 작성
-          </div>
+        <div className="container">
+          <div className="enroll_title">모집글 작성</div>
           <div className="enroll_step_tabs">
-            <div className={"enroll_step_wrapper " + (step == 1 ? "enroll_step_wrapper_on" : '')} onClick={() => setStep(1)}>
-              <div className="enroll_step_number">
-                01
-              </div>
-              <div className="enroll_step_text">
-                프로젝트 정보
-              </div>
+            <div
+              className={
+                "enroll_step_wrapper " +
+                (step == 1 ? "enroll_step_wrapper_on" : "")
+              }
+              onClick={() => setStep(1)}
+            >
+              <div className="enroll_step_number">01</div>
+              <div className="enroll_step_text">프로젝트 정보</div>
             </div>
-            <div className={"enroll_step_wrapper " + (step == 2 ? "enroll_step_wrapper_on" : '')} onClick={() => setStep(2)}>
-              <div className="enroll_step_number">
-                02
-              </div>
-              <div className="enroll_step_text">
-                지원자에게 질문
-              </div>
+            <div
+              className={
+                "enroll_step_wrapper " +
+                (step == 2 ? "enroll_step_wrapper_on" : "")
+              }
+              onClick={() => setStep(2)}
+            >
+              <div className="enroll_step_number">02</div>
+              <div className="enroll_step_text">지원자에게 질문</div>
             </div>
-            <div className={"enroll_step_wrapper " + (step == 3 ? "enroll_step_wrapper_on" : '')} onClick={() => setStep(3)}>
-              <div className="enroll_step_number">
-                03
-              </div>
-              <div className="enroll_step_text">
-                작성 완료
-              </div>
-            </div>      
+            <div
+              className={
+                "enroll_step_wrapper " +
+                (step == 3 ? "enroll_step_wrapper_on" : "")
+              }
+              onClick={() => setStep(3)}
+            >
+              <div className="enroll_step_number">03</div>
+              <div className="enroll_step_text">작성 완료</div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="container enroll_sections"> 
-        <div className={"enroll_wrapper_" + (step == 1 ? 'block' : 'none' )}>
+      <div className="container enroll_sections">
+        <div className={"enroll_wrapper_" + (step == 1 ? "block" : "none")}>
           <div className="enroll_container">
             <p>* 필수입력항목입니다</p>
 
@@ -107,7 +111,7 @@ const enrollment = () => {
                 <span id="nec">*</span>
               </div>
 
-              <form className="multerBox" onClick = {changeImage}>
+              <form className="multerBox" onClick={changeImage}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="51.807"
@@ -212,12 +216,14 @@ const enrollment = () => {
                 <SelectBox
                   name="level"
                   value={level}
-                  type="full"
+                  type="under"
                   placeholder="선택하세요"
                   items={[
-                    { id: 1, text: "기획완료" },
-                    { id: 2, text: "디자인완료" },
-                    { id: 3, text: "개발중" }
+                    { id: 1, text: "팀빌딩 단계" },
+                    { id: 2, text: "아이디어 구상 단계" },
+                    { id: 3, text: "기획 완성단계" },
+                    { id: 4, text: "디자인 완성단계" },
+                    { id: 5, text: "프로토타입 완성단계" }
                   ]}
                   inputs={inputs}
                   onClick={onClick}
@@ -242,13 +248,17 @@ const enrollment = () => {
                 <span id="nec">*</span>
               </div>
               <div className="section_content">
-                <JobGroupCardView type="small" jobgroup="developer" number="1" />
+                <JobGroupCardView
+                  type="small"
+                  jobgroup="developer"
+                  number="1"
+                />
                 <Plus shape="circle" toggle="false" />
               </div>
             </div>
           </div>
         </div>
-        <div className={"enroll_wrapper_" + (step == 2 ? 'block' : 'none' )}>
+        <div className={"enroll_wrapper_" + (step == 2 ? "block" : "none")}>
           <div className="QnA_title">
             <h3>지원자에게 질문하기</h3>
             <span id="toggle"></span>
@@ -258,8 +268,9 @@ const enrollment = () => {
             <Plus shape="rect" />
           </div>
         </div>
-        <div className={"enroll_wrapper_" + (step == 3 ? 'block' : 'none' )}>
-        </div>
+        <div
+          className={"enroll_wrapper_" + (step == 3 ? "block" : "none")}
+        ></div>
       </div>
     </div>
   );
