@@ -28,6 +28,7 @@ function* getUser(action){
             type : GET_MYDATA_FAILURE,
             error : e
         })
+        Router.push('/error/500')
     }
 }
 
