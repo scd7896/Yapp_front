@@ -14,7 +14,7 @@ const enrollment = () => {
     region: "",
     level: ""
   });
-  const [thumbnailImage, setThumbnailImage] = useState(null)
+  const [thumbnailImage, setThumbnailImage] = useState({file : null, fileUrl : ''})
   const { region, level } = inputs;
 
   const onClick = e => {
@@ -32,8 +32,8 @@ const enrollment = () => {
     fileButton.click()
     fileButton.addEventListener('change', async()=>{
       const file = fileButton.files[0]
-      setThumbnailImage(file)
-      console.log(thumbnailImage)
+      const fileUrl = URL.createObjectURL(file)
+      setThumbnailImage({file : file , fileUrl : fileUrl})
     })
   }
 
@@ -56,6 +56,12 @@ const enrollment = () => {
         ]
       }
     */
+    const title = document.querySelector('#section_title_content').value
+    const content = document.querySelector('#section_intro_contents').value
+    const formData = new FormData();
+    formData.append("title", title)
+    formData.append("content", content)
+    formData.append("thumbnailImage", thumbnailImage.file)
     Axios.post({
       selectValue: selectValue
     });
@@ -68,69 +74,76 @@ const enrollment = () => {
         <p>* 필수입력항목입니다</p>
 
         <div className="project_img">
+          
           <div className="section">
             <span id="section_title">모집글 이미지 선택</span>
             <span id="nec">*</span>
           </div>
 
-          <form className="multerBox" onClick = {changeImage}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="51.807"
-              height="36.242"
-              viewBox="0 0 51.807 36.242"
-            >
-              <g
-                id="그룹_1897"
-                data-name="그룹 1897"
-                transform="translate(-1190.151 -356.5)"
-              >
-                <rect
-                  id="사각형_2772"
-                  data-name="사각형 2772"
-                  width="34.242"
-                  height="49.807"
-                  transform="translate(1240.958 357.5) rotate(90)"
-                  fill="none"
-                  stroke="#b9b9b9"
-                  strokeMiterlimit="10"
-                  strokeWidth="2"
-                />
-                <path
-                  id="패스_1745"
-                  data-name="패스 1745"
-                  d="M1244.764,391.744h-19.689l-3.76-4.664,3.041-3.767,6.8-8.424,6.8,8.424Z"
-                  transform="translate(-9.506 -5.481)"
-                  fill="none"
-                  stroke="#b9b9b9"
-                  strokeMiterlimit="10"
-                  strokeWidth="2"
-                />
-                <circle
-                  id="타원_278"
-                  data-name="타원 278"
-                  cx="3.424"
-                  cy="3.424"
-                  r="3.424"
-                  transform="translate(1202.358 364.348)"
-                  fill="none"
-                  stroke="#b9b9b9"
-                  strokeMiterlimit="10"
-                  strokeWidth="2"
-                />
-                <path
-                  id="패스_1746"
-                  data-name="패스 1746"
-                  d="M1219.066,394.652h-17.655l4.414-5.471,4.414-5.464,4.414,5.464,1,1.237Z"
-                  transform="translate(-3.233 -8.263)"
-                  fill="none"
-                  stroke="#b9b9b9"
-                  strokeMiterlimit="10"
-                  strokeWidth="2"
-                />
-              </g>
-            </svg>
-            <p>이미지 선택</p>
+          <form className={thumbnailImage.fileUrl.length === 0 ? "multerBox" : "background_none"} onClick = {changeImage}>
+            {thumbnailImage.fileUrl.length !== 0 ? 
+              <div>
+                <img className = "thumbnail_image" src = {thumbnailImage.fileUrl}/>
+              </div>: 
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="51.807"
+                  height="36.242"
+                  viewBox="0 0 51.807 36.242"
+                >
+                  <g
+                    id="그룹_1897"
+                    data-name="그룹 1897"
+                    transform="translate(-1190.151 -356.5)"
+                  >
+                    <rect
+                      id="사각형_2772"
+                      data-name="사각형 2772"
+                      width="34.242"
+                      height="49.807"
+                      transform="translate(1240.958 357.5) rotate(90)"
+                      fill="none"
+                      stroke="#b9b9b9"
+                      strokeMiterlimit="10"
+                      strokeWidth="2"
+                    />
+                    <path
+                      id="패스_1745"
+                      data-name="패스 1745"
+                      d="M1244.764,391.744h-19.689l-3.76-4.664,3.041-3.767,6.8-8.424,6.8,8.424Z"
+                      transform="translate(-9.506 -5.481)"
+                      fill="none"
+                      stroke="#b9b9b9"
+                      strokeMiterlimit="10"
+                      strokeWidth="2"
+                    />
+                    <circle
+                      id="타원_278"
+                      data-name="타원 278"
+                      cx="3.424"
+                      cy="3.424"
+                      r="3.424"
+                      transform="translate(1202.358 364.348)"
+                      fill="none"
+                      stroke="#b9b9b9"
+                      strokeMiterlimit="10"
+                      strokeWidth="2"
+                    />
+                    <path
+                      id="패스_1746"
+                      data-name="패스 1746"
+                      d="M1219.066,394.652h-17.655l4.414-5.471,4.414-5.464,4.414,5.464,1,1.237Z"
+                      transform="translate(-3.233 -8.263)"
+                      fill="none"
+                      stroke="#b9b9b9"
+                      strokeMiterlimit="10"
+                      strokeWidth="2"
+                    />
+                  </g>
+                </svg>
+                <p>이미지 선택</p>
+              </div>}
           </form>
         </div>
 
@@ -140,7 +153,7 @@ const enrollment = () => {
             <span id="nec">*</span>
           </div>
 
-          <input placeholder="프로젝트 제목을 입력하세요"></input>
+          <input id = "section_title_content" placeholder="프로젝트 제목을 입력하세요"></input>
         </div>
 
         <div className="project_introduce">
@@ -149,7 +162,7 @@ const enrollment = () => {
             <span id="nec">*</span>
           </div>
 
-          <textarea placeholder="프로젝트를 간단히 소개해주세요"></textarea>
+          <textarea id="section_intro_contents" placeholder="프로젝트를 간단히 소개해주세요"></textarea>
         </div>
 
         <div className="project_info">
