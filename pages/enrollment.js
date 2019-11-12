@@ -14,8 +14,7 @@ const enrollment = () => {
     region: "",
     level: ""
   });
-  const [step, setStep] = useState(1);
-  const [thumbnailImage, setThumbnailImage] = useState(null);
+  const [thumbnailImage, setThumbnailImage] = useState({file : null, fileUrl : ''})
   const { region, level } = inputs;
 
   const onClick = e => {
@@ -25,18 +24,18 @@ const enrollment = () => {
       [name]: value
     });
   };
-  const changeImage = event => {
-    const fileButton = document.createElement("input");
-    fileButton.setAttribute("type", "file");
-    fileButton.setAttribute("accept", "image/*");
-    fileButton.setAttribute("method", "post");
-    fileButton.click();
-    fileButton.addEventListener("change", async () => {
-      const file = fileButton.files[0];
-      setThumbnailImage(file);
-      console.log(thumbnailImage);
-    });
-  };
+  const changeImage =(event)=>{
+    const fileButton = document.createElement('input')
+    fileButton.setAttribute('type', 'file')
+    fileButton.setAttribute('accept', 'image/*')
+    fileButton.setAttribute('method', 'post')
+    fileButton.click()
+    fileButton.addEventListener('change', async()=>{
+      const file = fileButton.files[0]
+      const fileUrl = URL.createObjectURL(file)
+      setThumbnailImage({file : file , fileUrl : fileUrl})
+    })
+  }
 
   //마지막 제출하기 버튼 클리시
   const submit = () => {
@@ -57,61 +56,36 @@ const enrollment = () => {
         ]
       }
     */
+    const title = document.querySelector('#section_title_content').value
+    const content = document.querySelector('#section_intro_contents').value
+    const formData = new FormData();
+    formData.append("title", title)
+    formData.append("content", content)
+    formData.append("thumbnailImage", thumbnailImage.file)
     Axios.post({
       selectValue: selectValue
     });
   };
   return (
-    <div className="enroll_contents">
-      <div className="enroll_header">
-        <div className="container">
-          <div className="enroll_title">모집글 작성</div>
-          <div className="enroll_step_tabs">
-            <div
-              className={
-                "enroll_step_wrapper " +
-                (step == 1 ? "enroll_step_wrapper_on" : "")
-              }
-              onClick={() => setStep(1)}
-            >
-              <div className="enroll_step_number">01</div>
-              <div className="enroll_step_text">프로젝트 정보</div>
-            </div>
-            <div
-              className={
-                "enroll_step_wrapper " +
-                (step == 2 ? "enroll_step_wrapper_on" : "")
-              }
-              onClick={() => setStep(2)}
-            >
-              <div className="enroll_step_number">02</div>
-              <div className="enroll_step_text">지원자에게 질문</div>
-            </div>
-            <div
-              className={
-                "enroll_step_wrapper " +
-                (step == 3 ? "enroll_step_wrapper_on" : "")
-              }
-              onClick={() => setStep(3)}
-            >
-              <div className="enroll_step_number">03</div>
-              <div className="enroll_step_text">작성 완료</div>
-            </div>
+    <div className="container">
+      <h1>모집글 작성</h1>
+
+      <div className="enroll_container">
+        <p>* 필수입력항목입니다</p>
+
+        <div className="project_img">
+          
+          <div className="section">
+            <span id="section_title">모집글 이미지 선택</span>
+            <span id="nec">*</span>
           </div>
-        </div>
-      </div>
-      <div className="container enroll_sections">
-        <div className={"enroll_wrapper_" + (step == 1 ? "block" : "none")}>
-          <div className="enroll_container">
-            <p>* 필수입력항목입니다</p>
 
-            <div className="project_img">
-              <div className="section">
-                <span id="section_title">모집글 이미지 선택</span>
-                <span id="nec">*</span>
-              </div>
-
-              <form className="multerBox" onClick={changeImage}>
+          <form className={thumbnailImage.fileUrl.length === 0 ? "multerBox" : "background_none"} onClick = {changeImage}>
+            {thumbnailImage.fileUrl.length !== 0 ? 
+              <div>
+                <img className = "thumbnail_image" src = {thumbnailImage.fileUrl}/>
+              </div>: 
+              <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="51.807"
@@ -169,108 +143,97 @@ const enrollment = () => {
                   </g>
                 </svg>
                 <p>이미지 선택</p>
-              </form>
-            </div>
+              </div>}
+          </form>
+        </div>
 
-            <div className="project_title">
-              <div className="section">
-                <span id="section_title">프로젝트 제목</span>
-                <span id="nec">*</span>
-              </div>
+        <div className="project_title">
+          <div className="section">
+            <span id="section_title">프로젝트 제목</span>
+            <span id="nec">*</span>
+          </div>
 
-              <input placeholder="프로젝트 제목을 입력하세요"></input>
-            </div>
+          <input id = "section_title_content" placeholder="프로젝트 제목을 입력하세요"></input>
+        </div>
 
-            <div className="project_introduce">
-              <div className="section">
-                <span id="section_title">프로젝트 간단소개</span>
-                <span id="nec">*</span>
-              </div>
+        <div className="project_introduce">
+          <div className="section">
+            <span id="section_title">프로젝트 간단소개</span>
+            <span id="nec">*</span>
+          </div>
 
-              <textarea placeholder="프로젝트를 간단히 소개해주세요"></textarea>
-            </div>
+          <textarea id="section_intro_contents" placeholder="프로젝트를 간단히 소개해주세요"></textarea>
+        </div>
 
-            <div className="project_info">
-              <div className="section">
-                <span id="section_title">진행 정보</span>
-                <span id="nec">*</span>
-              </div>
+        <div className="project_info">
+          <div className="section">
+            <span id="section_title">진행 정보</span>
+            <span id="nec">*</span>
+          </div>
 
-              <div className="select_info">
-                <p>지역</p>
-                <SelectBox
-                  name="region"
-                  value={region}
-                  type="under"
-                  placeholder="선택하세요"
-                  items={[
-                    { id: 1, text: "서울" },
-                    { id: 2, text: "대구" },
-                    { id: 3, text: "울산" }
-                  ]}
-                  onClick={onClick}
-                />
-              </div>
-              <div className="select_info">
-                <p>진행단계</p>
-                <SelectBox
-                  name="level"
-                  value={level}
-                  type="under"
-                  placeholder="선택하세요"
-                  items={[
-                    { id: 1, text: "팀빌딩 단계" },
-                    { id: 2, text: "아이디어 구상 단계" },
-                    { id: 3, text: "기획 완성단계" },
-                    { id: 4, text: "디자인 완성단계" },
-                    { id: 5, text: "프로토타입 완성단계" }
-                  ]}
-                  inputs={inputs}
-                  onClick={onClick}
-                />
-              </div>
-            </div>
-
-            <div className="project_recruitJob">
-              <div className="section">
-                <span id="section_title">모집직군</span>
-                <span id="nec">*</span>
-              </div>
-              <JobGroupCardView type="big" jobgroup="planner" toggle="off" />
-              <JobGroupCardView type="big" jobgroup="developer" toggle="off" />
-              <JobGroupCardView type="big" jobgroup="designer" toggle="on" />
-              <JobGroupCardView type="big" jobgroup="designer" toggle="off" />
-            </div>
-
-            <div className="project_member">
-              <div className="section">
-                <span id="section_title">현재 팀원</span>
-                <span id="nec">*</span>
-              </div>
-              <div className="section_content">
-                <JobGroupCardView
-                  type="small"
-                  jobgroup="developer"
-                  number="1"
-                />
-                <Plus shape="circle" toggle="false" />
-              </div>
-            </div>
+          <div className="select_info">
+            <p>지역</p>
+            <SelectBox
+              name="region"
+              value={region}
+              type="under"
+              placeholder="선택하세요"
+              items={[
+                { id: 1, text: "서울" },
+                { id: 2, text: "대구" },
+                { id: 3, text: "울산" }
+              ]}
+              onClick={onClick}
+            />
+          </div>
+          <div className="select_info">
+            <p>진행단계</p>
+            <SelectBox
+              name="level"
+              value={level}
+              type="full"
+              placeholder="선택하세요"
+              items={[
+                { id: 1, text: "기획완료" },
+                { id: 2, text: "디자인완료" },
+                { id: 3, text: "개발중" }
+              ]}
+              inputs={inputs}
+              onClick={onClick}
+            />
           </div>
         </div>
-        <div className={"enroll_wrapper_" + (step == 2 ? "block" : "none")}>
-          <div className="QnA_title">
-            <h3>지원자에게 질문하기</h3>
-            <span id="toggle"></span>
+
+        <div className="project_recruitJob">
+          <div className="section">
+            <span id="section_title">모집직군</span>
+            <span id="nec">*</span>
           </div>
-          <div className="QnA_container">
-            <Question num="1" />
-            <Plus shape="rect" />
+          <JobGroupCardView type="big" jobgroup="planner" toggle="off" />
+          <JobGroupCardView type="big" jobgroup="developer" toggle="off" />
+          <JobGroupCardView type="big" jobgroup="designer" toggle="on" />
+          <JobGroupCardView type="big" jobgroup="designer" toggle="off" />
+        </div>
+
+        <div className="project_member">
+          <div className="section">
+            <span id="section_title">현재 팀원</span>
+            <span id="nec">*</span>
+          </div>
+          <div className="section_content">
+            <JobGroupCardView type="small" jobgroup="developer" number="1" />
+            <Plus shape="circle" toggle="false" />
           </div>
         </div>
-        <div
-          className={"enroll_wrapper_" + (step == 3 ? "block" : "none")}
-        ></div>
+      </div>
+
+      <div className="QnA_title">
+        <h3>지원자에게 질문하기</h3>
+        <span id="toggle"></span>
+      </div>
+      <div className="QnA_container">
+        <Question num="1" />
+        <Plus shape="rect" />
       </div>
     </div>
   );
