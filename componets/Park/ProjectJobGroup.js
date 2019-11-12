@@ -1,7 +1,13 @@
+import {useDispatch, useSelector} from 'react-redux'
 import "../../css/Park/ProjectCardView.scss";
+const jobListValue = {
+    "개발자" : 1,
+    "디자이너" : 2,
+    "기획자" : 4
+}
 
 export default (props) => {
-
+    const dispatch = useDispatch();
     var jobgroup = props.jobgroup;
     var size = props.size;
     var jobgroupCircleClass = '';

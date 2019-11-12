@@ -3,6 +3,7 @@ import { SET_KEYWORDS_REQUEST, SET_KEYWORDS_SUCCESS, SET_KEYWORDS_FAILURE, GET_K
 
 import axios from 'axios'
 import url from '../url'
+import Router from 'next/router'
 const getKeywordsAPI = (token)=>{
     return axios.get(`${url}/mypage/keywords`, {
         headers :{
@@ -21,6 +22,7 @@ function * getKeywords(action){
         yield put({
             type : GET_KEYWORDS_FAILURE
         })
+        Router.push('/error/500')
     }
 }
 function* watchGetKeywords(){

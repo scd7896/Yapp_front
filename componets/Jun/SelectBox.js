@@ -83,7 +83,7 @@ function SelectBox({
             {items.map(item => (
               <div
                 className="potatoBox"
-                onClick={potato(item.text)}
+                onClick={potato(item)}
                 key={item.id}
               >
                 {item.text}

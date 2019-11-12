@@ -21,8 +21,9 @@ const enrollment = () => {
     const { name, value } = e;
     setInputs({
       ...inputs,
-      [name]: value
+      [name]: {id : value.id, text : value.text}
     });
+    console.log(region, level)
   };
   const changeImage =(event)=>{
     const fileButton = document.createElement('input')
@@ -62,6 +63,9 @@ const enrollment = () => {
     formData.append("title", title)
     formData.append("content", content)
     formData.append("thumbnailImage", thumbnailImage.file)
+    formData.append('step', level.id)
+    formData.append('location', region.id)
+
     Axios.post({
       selectValue: selectValue
     });
@@ -175,7 +179,7 @@ const enrollment = () => {
             <p>지역</p>
             <SelectBox
               name="region"
-              value={region}
+              value={region.text}
               type="under"
               placeholder="선택하세요"
               items={[
@@ -190,7 +194,7 @@ const enrollment = () => {
             <p>진행단계</p>
             <SelectBox
               name="level"
-              value={level}
+              value={level.text}
               type="full"
               placeholder="선택하세요"
               items={[
@@ -212,7 +216,7 @@ const enrollment = () => {
           <JobGroupCardView type="big" jobgroup="planner" toggle="off" />
           <JobGroupCardView type="big" jobgroup="developer" toggle="off" />
           <JobGroupCardView type="big" jobgroup="designer" toggle="on" />
-          <JobGroupCardView type="big" jobgroup="designer" toggle="off" />
+          
         </div>
 
         <div className="project_member">
