@@ -16,17 +16,21 @@
 
   &.under {
     padding: 0 17px;
-    width: 178px;
+    min-width: 178px;
     height: 44px;
     border-bottom: solid #b9b9b9 0.8px;
     font-size: 28px;
     line-height: 1.21;
     letter-spacing: -1.4px;
+    & span {
+      padding: 0 10px;
+    }
   }
+
   &.full {
     align-items: center;
     padding: 0 25px;
-    width: 466px;
+    min-width: 466px;
     height: 96px;
     border: solid #b9b9b9 0.8px;
     font-size: 32px;
@@ -68,7 +72,7 @@
     letter-spacing: -1.4px;
     & div {
       padding: 15px 17px;
-      width: 178px;
+      min-width: 178px;
       transition: 0.5s;
     }
   }
@@ -82,7 +86,7 @@
     letter-spacing: -1.6px;
     & div {
       padding: 30px 25px;
-      width: 466px;
+      min-width: 466px;
       transition: 0.5s;
       border-top: solid 0.5px #e5e5e5;
     }
@@ -95,5 +99,4 @@
 }
 .potatoBox {
   z-index: 10012;
-  border: 1px solid red;
 }
