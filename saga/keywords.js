@@ -18,11 +18,11 @@ function * getKeywords(action){
             type : GET_KEYWORDS_SUCCESS,
             data : result.data.keywordFromUser
         })
-    }catch{
+    }catch (err){
         yield put({
             type : GET_KEYWORDS_FAILURE
         })
-        Router.push('/error/500')
+        Router.push('/error/404')
     }
 }
 function* watchGetKeywords(){

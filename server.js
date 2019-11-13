@@ -12,11 +12,11 @@ app.prepare().then(()=>{
         return app.render(req,res, '/keyword/management')
     })
     
-    server.get('/error/500', (req,res)=>{
-        req.status = 503;
-        req.statusCode = 503;
-        res.status = 503;
-        res.statusCode = 503;
+    server.get('/error/:code', (req,res)=>{
+        req.status = req.params.code;
+        req.statusCode = req.params.code;
+        res.status = req.params.code;
+        res.statusCode = req.params.code;
         
         return app.render(req, res, "/_error")
     })

@@ -6,7 +6,7 @@ import ErrorContents from '../componets/Kim/error/atomic/ErrorContents'
 import ErrorImage from '../componets/Kim/error/atomic/ErrorImage'
 import '../css/kim/_error.scss'
 const MyError = ({statusCode})=>{
-    
+    console.log(statusCode)
     return(
         <div className = "error_page_container">
             

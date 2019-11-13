@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ErrorCode = ({errorStatus})=>{
-    const text = errorStatus === 404 ? `404 error` : `500 error`
+    const text = errorStatus == 404 ? `404 error` : `500 error`
     return(
         <p style = {{
             fontFamily: 'RedHatDisplay',
