@@ -9,7 +9,10 @@ import {
   USER_JOIN_REQUEST,
   USER_JOIN_SUCCESS,
   USER_JOIN_FAILURE,
-  REPAIR_PASSWORD
+  REPAIR_PASSWORD,
+  GET_MYPORTFOLIO_REQUEST,
+  GET_MYPORTFOLIO_SUCCESS,
+  GET_MYPORTFOLIO_FAILURE
 } from "../action";
 const initialState = {
   userToken: "",
@@ -17,7 +20,8 @@ const initialState = {
   userId: "",
   isLogging : false,
   nowLogging : false,
-  loginFail : false
+  loginFail : false,
+  portFolioList : []
 };
 
 const user = (state = initialState, action) => {
@@ -91,6 +95,17 @@ const user = (state = initialState, action) => {
         
       case REPAIR_PASSWORD :
         draft.loginFail = false;
+        break;
+
+      case GET_MYPORTFOLIO_REQUEST :
+        draft.portFolioList  = []
+        break;
+      case GET_MYPORTFOLIO_SUCCESS :
+          
+        break;
+
+      case GET_MYPORTFOLIO_FAILURE : 
+
         break;
       default:
         break;

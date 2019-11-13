@@ -7,11 +7,12 @@ import ApplyFirst from "./ApplyFirst";
 import ApplySecond from "./ApplySecond";
 import "../../css/container.scss";
 import "../../css/kim/componentcss/ApplyModal.scss";
-import { CLOSE_APPLY_MODAL } from "../../action";
+import { CLOSE_APPLY_MODAL, GET_MYPORTFOLIO_REQUEST } from "../../action";
 const ApplyModal = () => {
   const dispatch = useDispatch();
   const { applyModalLevel, visible } = useSelector(state => state.button);
   const { postId } = useSelector(state => state.apply);
+  const {userToken} = useSelector(state=> state.user)
   let modalContainer;
   const closeModal = () => {
     dispatch({
@@ -28,6 +29,10 @@ const ApplyModal = () => {
   };
 
   useEffect(() => {
+    dispatch({
+      type : GET_MYPORTFOLIO_REQUEST,
+      data : userToken
+    })
   }, []);
   return (
     <div className="container">
