@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Router from "next/router";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -6,13 +6,15 @@ import "../css/NavBar.scss";
 import "../css/container.scss";
 import { OPEN_LOGIN_MODAL } from "../action";
 import Hamburger from "../componets/Jun/Hamburger";
+import NavBarSubMenu from './Kim/Navbar/atomic/NavbarSubMenu'
+import NavbarSubMenu from "./Kim/Navbar/atomic/NavbarSubMenu";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const { selectPage } = useSelector(state => state.button);
   const { user } = useSelector(state => state);
   
-
+  const [subOpen, setSubOpen] = useState(false)
   const routeToMain = () => {
     Router.push("/");
   };
@@ -21,8 +23,8 @@ const NavBar = () => {
       type: OPEN_LOGIN_MODAL
     });
   };
-  const goToMyPage = ()=>{
-    Router.push('/mypage/apply');
+  const openSubMenu = ()=>{
+    setSubOpen(!subOpen)
   }
   const goToEnrollment = ()=>{
     Router.push('/enrollment')
@@ -65,13 +67,17 @@ const NavBar = () => {
             className="nav_png"
             style={!user.userToken ? { display: "none" } : {}}
           >
-            <button>
-              <img
-                onClick = {goToMyPage}
-                style={{ width: "25px", height: "32px" }}
-                src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/34B2916A-4DBF-46B6-94E2-B9F802EE2A0B.svg"
-              />
-            </button>
+            <div className = "mypage_navbar_container">
+              <button>
+                <img
+                  onClick = {openSubMenu}
+                  style={{ width: "25px", height: "32px" }}
+                  src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/34B2916A-4DBF-46B6-94E2-B9F802EE2A0B.svg"
+                />
+              </button>
+              <NavbarSubMenu open = {subOpen}/>
+            </div>
+            
             <button>
               <img
                 style={{ width: "20px", height: "26px" }}

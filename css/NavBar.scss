@@ -142,3 +142,10 @@ input {
 #nav_login_signup_container {
   padding-left: 10px;
 }
+
+.mypage_navbar_container{
+  display : flex;
+  position : relative;
+  flex-direction: column;
+  align-items: center;
+}
