@@ -75,6 +75,7 @@ const user = (state = initialState, action) => {
         break;
 
       case USER_JOIN_REQUEST :
+        
         draft.nowLogging = true;
         draft.userToken = "";
         draft.userNickName = "";
@@ -86,6 +87,7 @@ const user = (state = initialState, action) => {
         draft.loginFail = false;
         break;
       case USER_JOIN_FAILURE :
+        console.log(action)
         draft.nowLogging = false;
         draft.userToken = "";
         draft.userNickName = "";

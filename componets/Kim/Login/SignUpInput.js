@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
-import {useDispatch} from 'react-redux'
+import React,{useState, useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import '../../../css/kim/componentcss/Login/SignUpInput.scss'
 import '../../../css/kim/componentcss/Login/LoginInput.scss'
 import { SET_LOGIN_MODAL, USER_JOIN_REQUEST } from '../../../action'
+
 const SignUpInput = ()=>{
     const dispatch = useDispatch();
     const [emailCheck, setEmailCheck] = useState(null)
@@ -50,8 +51,9 @@ const SignUpInput = ()=>{
         const email = document.querySelector('#sign_up_email').value
         const password = document.querySelector('#login_password').value
         const passwordEqualCheck = document.querySelector('#login_password_equal_check').value
-
+        
         if(password == passwordEqualCheck){
+            console.log('체크테스트')
             dispatch({
                 type : USER_JOIN_REQUEST,
                 name : name,
@@ -59,6 +61,7 @@ const SignUpInput = ()=>{
                 password : password,
                 password2 : passwordEqualCheck
             })
+            
         }
     }
 

@@ -1,18 +1,17 @@
 import baseURL from '../url'
 import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/effects'
 import {USER_JOIN_REQUEST, USER_JOIN_SUCCESS, USER_JOIN_FAILURE} from '../action'
+import axios from 'axios'
 function userJoinAPI(userData){
-
-    return axios.post(baseURL + '/join', 
+    
+    return axios.post(`${baseURL}/join`, 
             {
                 name : userData.name,
                 email : userData.email, 
                 password : userData.password,
-                password : userData.password2
+                password2 : userData.password2
             }
-        ).catch(err=>{
-            throw '로그인실패'
-        })
+        )
     //로그인의 에러처리
 }
 
