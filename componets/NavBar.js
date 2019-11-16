@@ -24,6 +24,7 @@ const NavBar = () => {
     });
   };
   const openSubMenu = ()=>{
+    
     setSubOpen(!subOpen)
   }
   const goToEnrollment = ()=>{
