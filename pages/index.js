@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import Link from "next/link";
 import serverURL from '../url'
 import nextCookies from 'next-cookies'
@@ -22,13 +22,19 @@ import ProjectSection from "../componets/Park/ProjectSection";
 import "../css/container.scss";
 
 import { keywordSearch } from "../dummydatas/dummyKeywords";
-import { SET_SELECTED_PAGES } from "../action";
+import { SET_SELECTED_PAGES, GET_MYDATA_REQUEST } from "../action";
 const Index = (props) => {
   /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
   var PostCardViewSection = HigherOrderCardView(PostCardView, "post");
   var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
-
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    // dispatch({
+    //   type : GET_MYDATA_REQUEST,
+    //   data : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTc0MDA3NDc0fQ.NT0cRRB_YYyjEU_BYeVvt1hspiiyNQ2LJJi3GJMzZVA'
+    // })
+  })
   return (
     <div>
       <div id="index_root">
@@ -170,11 +176,6 @@ Index.getInitialProps = async context => {
 
   //로그인 정보 불러오기
 
-  var userToken = nextCookies(context)['user-token'];
-
-  if(userToken){
-    data.userToken = userToken;
-  }
 
   return data;
 };

@@ -2,6 +2,7 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 import withRedux from "next-redux-wrapper";
+import withReduxSaga from 'next-redux-saga'
 import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
@@ -13,28 +14,40 @@ import rootSaga from "../saga";
 import reducer from "../reducer";
 
 import "../css/wrraper.scss";
-import { GET_MYDATA_REQUEST } from "../action";
+import url from '../url'
+import { GET_MYDATA_REQUEST, GET_MYDATA_SUCCESS, GET_MYDATA_FAILURE } from "../action";
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
       : {};
     //getInitialProps 가 서버사이드렌더링 효과를 줄수 있게 도와주는거에요
+    pageProps.query = ctx.query;
     const userToken = cookies(ctx)['user-token']
-    
-    if(ctx.isServer){
-      console.log(userToken)
-    }
-
     const me = ctx.store.getState().user;
     if (!me.userId) {
-      ctx.store.dispatch({
-        type: GET_MYDATA_REQUEST,
-        data: userToken
-      });
+      try{
+        const result = await axios.get(`${url}/me`,{
+          headers : {
+              Authorization: `bearer ${userToken}`
+          }
+        })
+        
+        ctx.store.dispatch({
+          type : GET_MYDATA_SUCCESS,
+          userToken : userToken,
+          userEmail : result.data.user.email,
+          userId : result.data.user.userId,
+          userName : result.data.user.name
+        })
+      }catch(e){
+        ctx.store.dispatch({
+          type : GET_MYDATA_FAILURE
+        })
+      }
     }
-
-    pageProps.query = ctx.query;
+    
+    
     return { pageProps };
   }
   render() {
@@ -88,4 +101,4 @@ const configureStore = (initialState, option) => {
   sagaMiddleware.run(rootSaga);
   return store;
 };
-export default withRedux(configureStore)(MyApp);
+export default withRedux(configureStore)((MyApp));

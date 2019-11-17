@@ -16,8 +16,9 @@ import {
 } from "../action";
 const initialState = {
   userToken: "",
-  userNickName: "",
   userId: "",
+  userEmail : "",
+  userName : "",
   isLogging : false,
   nowLogging : false,
   loginFail : false,
@@ -27,59 +28,40 @@ const initialState = {
 const user = (state = initialState, action) => {
   return produce(state, draft => {
     switch (action.type) {
-      case GET_MYDATA_REQUEST:
-        draft.userToken = "";
-        draft.userNickName = "";
-        draft.userId = "";
-        draft.isLogging = true;
-        break;
+
       case GET_MYDATA_SUCCESS:
+        console.log(action)
         draft.userToken = action.userToken;
         draft.userId = action.userId;
-        draft.userNickName = action.userNickName;
-        draft.isLogging = false;
+        draft.userEmail = action.userEmail;
+        draft.userName = action.userName;
+        
         break;
       case GET_MYDATA_FAILURE:
-        draft.userToken = "";
-        draft.userId = "";
-        draft.userNickName = "";
-        draft.isLogging = false;
+        
         break;
-      
-      case USER_LOGIN_REQUEST :
-        draft.nowLogging = true;
-        draft.userToken = "";
-        draft.userNickName = "";
-        draft.userId = "";
-        break;
+    
         
       case USER_LOGIN_SUCCESS :
         draft.userToken = action.userToken;
+        draft.userId = action.userId;
+        draft.userEmail = action.userEmail;
+        draft.userName = action.userName;
         draft.nowLogging = false;
         draft.loginFail = false;
         break;
 
       case USER_LOGIN_REQUEST : //실제로 적용안되고있음 확인후 삭제할것
         draft.nowLogging = false;
-        draft.userToken = "";
-        draft.userNickName = "";
-        draft.userId = "";
         draft.loginFail = false;
         break;  
       case USER_LOGIN_FAILURE :
         draft.nowLogging = false;
-        draft.userToken = "";
-        draft.userNickName = "";
-        draft.userId = "";
         draft.loginFail = true;
         break;
 
       case USER_JOIN_REQUEST :
-        
         draft.nowLogging = true;
-        draft.userToken = "";
-        draft.userNickName = "";
-        draft.userId = "";
         break;
       case USER_JOIN_SUCCESS :
         draft.userToken = action.userToken;
@@ -89,9 +71,7 @@ const user = (state = initialState, action) => {
       case USER_JOIN_FAILURE :
         console.log(action)
         draft.nowLogging = false;
-        draft.userToken = "";
-        draft.userNickName = "";
-        draft.userId = "";
+        
         draft.loginFail = true;
         break;
         
@@ -99,16 +79,16 @@ const user = (state = initialState, action) => {
         draft.loginFail = false;
         break;
 
-      case GET_MYPORTFOLIO_REQUEST :
-        draft.portFolioList  = []
-        break;
-      case GET_MYPORTFOLIO_SUCCESS :
+      // case GET_MYPORTFOLIO_REQUEST :
           
-        break;
+      //   break;
+      // case GET_MYPORTFOLIO_SUCCESS :
+          
+      //   break;
 
-      case GET_MYPORTFOLIO_FAILURE : 
+      // case GET_MYPORTFOLIO_FAILURE : 
 
-        break;
+      //   break;
       default:
         break;
     }

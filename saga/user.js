@@ -2,39 +2,9 @@ import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/e
 import { GET_MYDATA_REQUEST, GET_MYDATA_FAILURE, GET_MYDATA_SUCCESS,
     USER_LOGIN_REQUEST,USER_LOGIN_FAILURE,USER_LOGIN_SUCCESS, GET_MYPORTFOLIO_REQUEST, GET_MYPORTFOLIO_SUCCESS, GET_MYPORTFOLIO_FAILURE} from '../action'
 import axios from 'axios'
+import Router from 'next/router'
 import url from '../url'
 
-function getUserAPI(myCookie){
-    
-    
-    return {userToken : myCookie, userId : '유저아이디', userNickName : "유저닉네임"}
-    //return axios.get('/로그인api', {headers :{autholrize : myCookie}}) 이렇게 써요
-}
-function* getUser(action){
-    try{
-        
-        
-        const result = yield call(getUserAPI, action.data)
-        
-        yield put({
-            type : GET_MYDATA_SUCCESS,
-            userToken : result.userToken,
-            userNickName : result.userNickName,
-            userId : result.userId
-        })
-    }catch(e){
-        console.error(e)
-        yield put({
-            type : GET_MYDATA_FAILURE,
-            error : e
-        })
-        Router.push('/error/500')
-    }
-}
-
-function * watchGetUser(){
-    yield takeEvery(GET_MYDATA_REQUEST, getUser)
-}
 
 function userLoginAPI(userData){
     
@@ -59,10 +29,14 @@ function* userLogin(action){
         const result = yield call(userLoginAPI, userData)
         
         document.cookie = `user-token=${result.data.token}`
-        
+        const mydata = yield call(getUserAPI,result.data.token)
+        console.log(mydata)
         yield put({
             type : USER_LOGIN_SUCCESS,
             userToken : result.data.token,
+            userEmail : mydata.data.user.email,
+            userId : mydata.data.user.userId,
+            userName : mydata.data.user.name
         })
         
     }catch(e){
