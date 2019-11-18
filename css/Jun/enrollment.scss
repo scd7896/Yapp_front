@@ -162,7 +162,9 @@ textarea {
     margin-right: 119px;
   }
   & .select_info {
+    width : 50%;
     display: flex;
+    justify-content: space-between;
   }
   .select_info + .select_info {
     margin-top: 49.5px;
