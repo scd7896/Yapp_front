@@ -6,14 +6,17 @@ import Plus from "../componets/Jun/Plus";
 
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
+
 import Axios from "axios";
 
-const enrollment = () => {
+import Frist from '../componets/Kim/enrollment/template/First'
+const enrollment = ({lev}) => {
   //각 inputs의 value값들 초기는 공백
   const [inputs, setInputs] = useState({
     region: "",
     level: ""
   });
+  console.log(lev)
   const [thumbnailImage, setThumbnailImage] = useState({file : null, fileUrl : ''})
   const { region, level } = inputs;
 
@@ -72,6 +75,8 @@ const enrollment = () => {
   };
   return (
     <div className="container">
+
+      <Frist />
       <h1>모집글 작성</h1>
 
       <div className="enroll_container">
@@ -242,5 +247,8 @@ const enrollment = () => {
     </div>
   );
 };
+enrollment.getInitialProps = async(ctx)=>{
 
+  return{lev : ctx.query.level}
+}
 export default enrollment;
