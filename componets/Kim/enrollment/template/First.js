@@ -6,6 +6,8 @@ import JobGroupCardView from '../../../Park/JobGroupCardView'
 import './css/First.scss'
 import '../../../../css/Jun/enrollment.scss'
 const First = ()=>{
+    const dispatch = useDispatch()
+    const {projectTitle, projectContent, projectPosition} = useSelector(state=> state.enrollment)
     const [inputs, setInputs] = useState({
         region: "",
         level: "",
@@ -21,8 +23,7 @@ const First = ()=>{
         console.log(region, level)
     };  
 
-    const dispatch = useDispatch()
-    const {projectTitle, projectContent, projectPosition} = useSelector(state=> state.enrollment)
+    
     const changeTitle = (e)=>{
         
         dispatch({
