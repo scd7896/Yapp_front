@@ -8,12 +8,11 @@ class MyPortfolioPost extends React.Component{
         super(props);
 
         this.state={
-            title : '',
-            roll : '',
-            stack : '',
+            title : (this.props.portfolio ? this.props.portfolio.title : ''),
+            roll : (this.props.portfolio ? this.props.portfolio.myRole : ''),
+            stack : (this.props.portfolio ? this.props.portfolio.useStack : ''),
             link : '',
-            img : null,
-            previewURL : ''
+            previewURL : (this.props.portfolio ? this.props.portfolio.thumbnailImage : '')
         }
 
         this.handleLinkChange = this.handleLinkChange.bind(this);
