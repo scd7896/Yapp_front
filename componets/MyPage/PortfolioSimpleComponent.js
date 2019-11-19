@@ -2,9 +2,22 @@ import React from 'react'
 import '../../css/MyPage/MyPortfolioSection.scss'
 
 class PortfolioSimpleComponent extends React.Component{
+
+    deletePortfolio(victim){
+
+        var deleteConfirm = confirm('정말 삭제하시겠습니까?');
+
+        if(deleteConfirm){
+            
+        }
+    }
+
+
     render(){
 
         var type = this.props.type;
+        var addPost = this.props.addPost;
+        var portfolio = this.props.portfolio;
 
         return (
             <div className = {'portfolio-simple-container ' + (type ? ('portfolio-simple-container-'+type) : '')} >
@@ -51,10 +64,14 @@ class PortfolioSimpleComponent extends React.Component{
                         type != 'applicant' ? 
                         (
                             <div className = 'portfolio-simple-right'>
-                                <div className = 'portfolio-simple-delete-button' onClick = {() => this.props.onDelete(this.props.id)}>
+                                <div 
+                                    className = 'portfolio-simple-delete-button' 
+                                    onClick = {() => {
+                                        this.deletePortfolio(this.props.id)
+                                    }}>
                                     삭제
                                 </div>
-                                <div className = 'portfolio-simple-edit-button'>
+                                <div className = 'portfolio-simple-edit-button' onClick = {() => addPost(portfolio)}>
                                     편집
                                 </div>
                             </div>

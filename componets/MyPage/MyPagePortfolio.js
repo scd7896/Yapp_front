@@ -92,10 +92,10 @@ class MyPagePortfolio extends React.Component{
 
         fetch(baseURL + '/mypage/portfolio' , {
             headers : {
-                method : 'GET',
                 'Authorization' : 'bearer ' + userToken,
                 'accept' : 'application/json'
-            }
+            },
+            method : 'GET'
         }).then(
             res =>
             {

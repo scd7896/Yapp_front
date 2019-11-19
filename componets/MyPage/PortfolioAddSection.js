@@ -7,8 +7,6 @@ class PortfolioAddSection extends React.Component{
         super(props);
     }
 
-
-
     render() {
 
         var postPortfolioSection = this.props.post.map(post => 
