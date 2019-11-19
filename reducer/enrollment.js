@@ -5,7 +5,7 @@ import {
   PROJECT_ENROLLMENT_REQUEST
 } from "../action";
 import Router from "next/router";
-import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE } from "../action/enrollment";
+import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION } from "../action/enrollment";
 
 const initialProps = {
   selectList: [],
@@ -44,9 +44,17 @@ const enrollment = (state = initialProps, action) => {
         draft.projectRegion = action.data.region.id;
         draft.projectLevel = action.data.level.id;
         draft.projectLong = action.data.long.id;
-      
+
         //Router.push('/enrollment/2')
         break
+
+      case ADD_PORJECT_POSITION :
+        draft.projectPosition += action.data;
+        break;
+      case RMV_PORJECT_POSITION :
+        draft.projectPosition -= action.data
+        break;
+        
       default:
         break;
     }

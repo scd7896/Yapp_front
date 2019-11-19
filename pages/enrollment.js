@@ -77,7 +77,7 @@ const enrollment = ({lev}) => {
     <div className="container">
 
       <Frist />
-      <h1>모집글 작성</h1>
+      <h1>모집글 작성하기</h1>
 
       <div className="enroll_container">
         <p>* 필수입력항목입니다</p>
@@ -200,7 +200,7 @@ const enrollment = ({lev}) => {
             <SelectBox
               name="level"
               value={level.text}
-              type="under"
+              type="full"
               placeholder="선택하세요"
               items={[
                 { id: 1, text: "기획완료" },

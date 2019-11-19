@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { SET_PROJECT_TITLE, MOVE_TO_SECONDPAGE, SET_PROJECT_CONTENTS } from '../../../../action/enrollment'
+import { SET_PROJECT_TITLE, MOVE_TO_SECONDPAGE, SET_PROJECT_CONTENTS, RMV_PORJECT_POSITION, ADD_PORJECT_POSITION } from '../../../../action/enrollment'
 import SelectBox from '../../../Jun/SelectBox'
+import JobGroupCardView from '../../../Park/JobGroupCardView'
 import './css/First.scss'
 import '../../../../css/Jun/enrollment.scss'
 const First = ()=>{
@@ -21,7 +22,7 @@ const First = ()=>{
     };  
 
     const dispatch = useDispatch()
-    const {projectTitle, projectContent} = useSelector(state=> state.enrollment)
+    const {projectTitle, projectContent, projectPosition} = useSelector(state=> state.enrollment)
     const changeTitle = (e)=>{
         
         dispatch({
@@ -40,6 +41,24 @@ const First = ()=>{
             type : MOVE_TO_SECONDPAGE,
             data : inputs
         })
+    }
+    const jobGroupSelect = (number)=> ()=>{
+        const ckValue = projectPosition & number
+        if(ckValue != 0){
+            dispatch({
+                type : RMV_PORJECT_POSITION,
+                data : number
+            })
+        }else{
+            dispatch({
+                type : ADD_PORJECT_POSITION,
+                data : number
+            })
+        }
+    }
+    const jobGroupToggle = (number)=>{
+        const ckValue = projectPosition & number
+        return ckValue !== 0
     }
     return(
         <div>
@@ -121,6 +140,18 @@ const First = ()=>{
                 </div>
             </div>
             <div className = "enrollment_first_position_container">
+                <div onClick = {jobGroupSelect(1)}>
+                    <JobGroupCardView type="big" jobgroup="planner" 
+                    toggle={jobGroupToggle(1)? "on":"off"} />
+                </div>
+                <div onClick = {jobGroupSelect(2)}>
+                    <JobGroupCardView type="big" jobgroup="developer" 
+                    toggle={jobGroupToggle(2)? "on":"off"} />
+                </div>
+                <div onClick = {jobGroupSelect(4)}>
+                    <JobGroupCardView type="big" jobgroup="designer" 
+                    toggle={jobGroupToggle(4) ? "on":"off"} />
+                </div>
                 
             </div>
         </div>
