@@ -12,7 +12,6 @@ import cookies from '../../methods/cookies'
 import baseURL from '../../url'
 import { Router } from 'next/router';
 
-/* /user/portfolio  데이터 가져오고, post /user/portfolio로 보내기  */
 class MyPagePortfolio extends React.Component{
 
     constructor(props){
@@ -30,6 +29,16 @@ class MyPagePortfolio extends React.Component{
         this.deletePost = this.deletePost.bind(this);
         this.addPost = this.addPost.bind(this);
     }
+
+    /*
+        포트폴리오 신규 등록 루틴
+        각 MyPortfolioPost의 registerPortfolio()
+        -> fetchPortfolios() 
+    */
+
+    /* 
+        포트폴리오 삭제 루틴
+    */
 
     /*
         포트폴리오 수정 루틴
