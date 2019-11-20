@@ -18,7 +18,7 @@ const initialProps = {
   projectPosition : 0,
   projectNowTeam : [0,0,0],
   projectKeyword : [],
-  projectImage : ""
+  projectImage : {file : null, url : null}
 };
 
 const enrollment = (state = initialProps, action) => {
@@ -34,9 +34,7 @@ const enrollment = (state = initialProps, action) => {
       case SET_PROJECT_TITLE :
         draft.projectTitle = action.data
         break;
-      case SET_PROJECT_IMAGE :
-        draft.projectImage = action.data
-        break;
+      
       case SET_PROJECT_LONG :
         draft.projectLong = action.data
         break;
@@ -62,6 +60,13 @@ const enrollment = (state = initialProps, action) => {
         break;
       case RMV_PROJECT_KEYWORD :
         draft.projectKeyword = draft.projectKeyword.filter((el)=> el!==action.data)
+        break;
+
+      case SET_PROJECT_IMAGE :
+        draft.projectImage= {
+          file : action.data.file,
+          url : action.data.fileUrl
+        }
         break;
       default:
         break;
