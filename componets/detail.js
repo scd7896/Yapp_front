@@ -15,10 +15,29 @@ import projectLocation from '../methods/location'
 import projectStep from '../methods/step'
 import projectPeriod from '../methods/expectedPeriod'
 
+import fetch from 'isomorphic-unfetch'
+
 class Detail extends React.Component{
 
     constructor(props){
         super(props);
+
+        this.state = {
+          favorite : false
+        }
+
+        this.projectId = this.props.query.id;
+    }
+
+    handleClickFavorite(){
+    }
+
+    fetchIsFavorite(){
+      
+    }
+
+    componentDidMount(){
+      
     }
     
     render(){
@@ -59,6 +78,7 @@ class Detail extends React.Component{
         if(this.props.project && this.props.user.userId && 
           this.props.project.userId == this.props.userId){
             <div className = 'detail-button-flex'>
+            <div className = "detail-apply-button">수정</div>
               <div className = "detail-apply-button">모집마감</div>
             </div>
         }
