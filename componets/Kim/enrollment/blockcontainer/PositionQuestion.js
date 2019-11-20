@@ -1,6 +1,8 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import './css/PositionQuestion.scss'
+
+import QuestionLine from '../atomic/QuestionLine'
 import { ADD_QUESTION_LIST } from '../../../../action/enrollment';
 
 const PositionQuestion = ({isRender, text, index})=>{
@@ -22,7 +24,7 @@ const PositionQuestion = ({isRender, text, index})=>{
             <div>
                 {
                     projectQuestion[index].map((el,i)=>{
-
+                        return <QuestionLine position = {index} jindex = {i} text ={el.text}/>
                     })
                 }
                 

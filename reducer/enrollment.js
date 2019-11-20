@@ -5,7 +5,7 @@ import {
   PROJECT_ENROLLMENT_REQUEST
 } from "../action";
 import Router from "next/router";
-import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD, ADD_QUESTION_LIST } from "../action/enrollment";
+import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD, ADD_QUESTION_LIST, SET_QUESTION_TEXT } from "../action/enrollment";
 
 const initialProps = {
   selectList: [],
@@ -75,6 +75,9 @@ const enrollment = (state = initialProps, action) => {
           id: draft.projectQuestion[action.data][0].id,
           text : ""
         })
+        break;
+      case SET_QUESTION_TEXT :
+        draft.projectQuestion[action.index][action.jindex].text = action.data
         break;
       default:
         break;
