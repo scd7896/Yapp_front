@@ -40,6 +40,7 @@ enrollment.getInitialProps = async(ctx)=>{
     ctx.store.dispatch({
 
     })
+    return{lev : ctx.query.level }
   }else{
     Router.push('/error/404')
   }
