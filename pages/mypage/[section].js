@@ -40,6 +40,17 @@ class MyPage extends React.Component{
 
         var userToken = cookies(ctx)['user-token'];
 
+        if(userToken == '' || userToken === undefined){
+            if (ctx.res) {
+                ctx.res.writeHead(302, {
+                    Location: '/index'
+                })
+                ctx.res.end();
+            } else {
+                Router.push('/index');
+            }
+        }
+
         var data = {};
 
         try{
