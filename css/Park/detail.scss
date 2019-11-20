@@ -5,13 +5,14 @@
     background-color: #ffffff;
 }
 
-.detail-tilte-wrapper{
+.detail-title-wrapper{
     width: 100%;
+    padding-top:100px !important;
     border-bottom: solid 1px #E5E5E5 ;
 }
 
 .detail-title-container {
-    margin-top:100px !important;
+    margin-top : 0px !important;
     margin-bottom: 46.5px;
     
 }
@@ -21,6 +22,11 @@
     margin-top : 12px;
 
     display:inline-block;
+}
+
+.detail-title-jobgroup-wrapper .jobgroup{
+    display: inline-block;
+    margin-right : 20px;
 }
 
 .detail-title-jobgroup-mark{
@@ -35,7 +41,7 @@
 }
 
 .detail-title-jobgroups{
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 25px;
     font-weight: normal;
     font-style: normal;
@@ -104,6 +110,28 @@
     padding-top:21.116px;
 }
 
+.detail-edit-button{
+    width: 183px;
+    height: 46.884px;
+    border: solid 1px #b9b9b9;
+
+    display: inline-block;
+
+    text-align: center;
+    
+    padding-top : 20px;
+
+    
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.21;
+    letter-spacing: -1.2px;
+    color: #666666;
+}
+
 
 .detail-apply-button{
     width: 183px;
@@ -112,7 +140,7 @@
     text-align: center;
     margin-left : 16px;
 
-    font-family: 'Montserrat';
+    font-family: 'Noto Sans KR',sans-serif;
     font-size: 24px;
     font-weight: bold;
     font-style: normal;
@@ -154,7 +182,7 @@
 }
 
 .detail-introduce-contents span{
-    font-family:  "Noto Sans KR";
+    font-family:  "Noto Sans KR",sans-serif;
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
@@ -190,7 +218,7 @@
 
 .detail-info-subtitle-region{
     height: 37px;
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 25px;
     font-weight: normal;
     font-style: normal;
@@ -204,7 +232,7 @@
 .detail-info-subtitle-step{
     margin-top: 24px;
     height: 36px;
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
@@ -218,7 +246,7 @@
 .detail-info-subtitle-period{
     margin-top: 24px;
     height: 36px;
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
@@ -236,7 +264,7 @@
 
 .detail-info-region{
     height: 36px;
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
@@ -250,7 +278,7 @@
 .detail-info-step{
     margin-top:23px;
     height: 36px;
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
@@ -264,7 +292,7 @@
 .detail-info-period{
     margin-top:23px;
     height: 36px;
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
@@ -283,7 +311,7 @@
 
 .detail-block-title{
     height: 47px;
-    font-family: "Noto Sans KR";
+    font-family: "Noto Sans KR",sans-serif;
     font-size: 32px;
     font-weight: 500;
     font-style: normal;

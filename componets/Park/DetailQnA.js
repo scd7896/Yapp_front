@@ -8,15 +8,16 @@ export default class DetailQnA extends React.Component{
         this.state = {
             value : '',
             contents : [
-                {type:'Q', user : 'mjmj9400', content : '네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.서비스 네이밍이나 컨셉은 있나요?'},
-                {type:'A', user : 'dklfjadf', content : '네 있습니다!'},
-                {type:'Q', user : '26000115', content : '개발자와 협업경험이 많지 않은데 괜찮은가요?'},
-                {type:'A', user : 'dklfjadf', content : '네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.네 상관없습니다!! 디자이너라면 모두 환영입니다.'}
-            ] 
+            ],
+            visibleRest : false
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    async fetchQnAList(){
+
     }
 
     handleChange(event) {
@@ -77,7 +78,7 @@ export default class DetailQnA extends React.Component{
         return (
             <div className = 'detail-qna-wrapper'>
                 <div className = 'detail-qna-container container'>
-                    <div className = 'detail-qna-title'>Q&A</div>
+                    <div className = 'detail-qna-title'>Q & A</div>
                     <div className = 'detail-qna-input-container'>
                         <div className = 'detail-qna-input-flex'>
                             <div className = 'detail-qna-input-wrapper'>
