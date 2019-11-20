@@ -10,7 +10,8 @@ import "../css/container.scss";
 import Axios from "axios";
 
 import Frist from '../componets/Kim/enrollment/template/First'
-const enrollment = ({lev}) => {
+import { Router } from "next/router";
+const enrollment = ({lev, create}) => {
 
   return (
     <div >
@@ -30,7 +31,18 @@ const enrollment = ({lev}) => {
   );
 };
 enrollment.getInitialProps = async(ctx)=>{
+  const create = ctx.query.create;
+  if(create === 'create'){
+    return{lev : ctx.query.level }
+  }else if(create === "change"){
 
-  return{lev : ctx.query.level}
+    //프로젝트 게시물 가져와버리기
+    ctx.store.dispatch({
+
+    })
+  }else{
+    Router.push('/error/404')
+  }
+  
 }
 export default enrollment;
