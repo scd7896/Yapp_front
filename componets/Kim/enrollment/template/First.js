@@ -1,18 +1,50 @@
 import React,{useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { SET_PROJECT_TITLE, MOVE_TO_SECONDPAGE, SET_PROJECT_CONTENTS, RMV_PORJECT_POSITION, ADD_PORJECT_POSITION } from '../../../../action/enrollment'
+import { SET_PROJECT_TITLE, MOVE_TO_SECONDPAGE, SET_PROJECT_CONTENTS, RMV_PORJECT_POSITION, ADD_PORJECT_POSITION, SET_PROJECT_NOWTEAM } from '../../../../action/enrollment'
 import SelectBox from '../../../Jun/SelectBox'
 import JobGroupCardView from '../../../Park/JobGroupCardView'
+import location from '../../../../methods/location'
+import expectedPeriod from '../../../../methods/expectedPeriod'
+import step from '../../../../methods/step'
+import keywords from '../../../../methods/keywords'
+import role from '../../../../methods/role'
+import Keyword from '../../Keyword'
 import './css/First.scss'
 import '../../../../css/Jun/enrollment.scss'
 const First = ()=>{
     const dispatch = useDispatch()
-    const {projectTitle, projectContent, projectPosition} = useSelector(state=> state.enrollment)
+    const {projectTitle, projectContent, projectPosition, projectRegion, projectNowTeam, projectKeyword} = useSelector(state=> state.enrollment)
     const [inputs, setInputs] = useState({
-        region: "",
+        region: projectRegion!==0 ? {id : projectRegion, text : location[projectRegion-1]} :"",
         level: "",
-        long : ""
+        long : "",
+        
       });
+    const locationItem = location.map((el,i)=>{
+        return {
+            id : i+1,
+            text : el
+        }
+    })
+    const expectedPeriodItem = expectedPeriod.map((el,i)=>{
+        return{
+            id : (i+1) *10,
+            text : el
+        }
+    })
+    const stepItem = step.map((el,i)=>{
+        return{
+            id : i+100,
+            text : el
+        }
+    })
+    const countItem = [0,1,2,3,4,5,6,7,8,9].map((el,i)=>{
+        return {
+            id : i,
+            text : el
+        }
+    })
+    
     const { region, level, long } = inputs;
     const onClick = e => {
         const { name, value } = e;
@@ -22,7 +54,14 @@ const First = ()=>{
         });
         console.log(region, level)
     };  
-
+    const setPositionNow = (index) => e => {
+        const { name, value } = e;
+        dispatch({
+            type : SET_PROJECT_NOWTEAM,
+            data : value.id,
+            index : index
+        })
+    };  
     
     const changeTitle = (e)=>{
         
@@ -98,11 +137,7 @@ const First = ()=>{
                     value={region.text}
                     type="under"
                     placeholder="선택하세요"
-                    items={[
-                        { id: 1, text: "서울" },
-                        { id: 2, text: "대구" },
-                        { id: 3, text: "울산" }
-                    ]}
+                    items={locationItem}
                     onClick={onClick}
                     />
                 </div>
@@ -113,11 +148,7 @@ const First = ()=>{
                     value={level.text}
                     type="under"
                     placeholder="선택하세요"
-                    items={[
-                        { id: 10, text: "기획완료" },
-                        { id: 20, text: "디자인완료" },
-                        { id: 30, text: "개발중" }
-                    ]}
+                    items={stepItem}
                     inputs={inputs}
                     onClick={onClick}
                     />
@@ -129,12 +160,7 @@ const First = ()=>{
                     value={long.text}
                     type="under"
                     placeholder="선택하세요"
-                    items={[
-                        { id: 101, text: "1주일" },
-                        { id: 102, text: "2주일" },
-                        { id: 103, text: "한 달" },
-                        {id : 104, text : '두 달'}
-                    ]}
+                    items={expectedPeriodItem}
                     inputs={inputs}
                     onClick={onClick}
                     />
@@ -155,7 +181,61 @@ const First = ()=>{
                 </div>
                 
             </div>
+            <div className = "project_info">
+                <p id = "nowteam_text">현재 팀원</p>
+                <div className = "select_info">
+                    <p>기획자</p>
+                    <SelectBox
+                    name="plannerCount"
+                    value={projectNowTeam[0]}
+                    type="under"
+                    placeholder="선택하세요"
+                    items={countItem}
+                    inputs={inputs}
+                    onClick={setPositionNow(0)}
+                    />
+                </div>
+                <div className = "select_info">
+                    <p>개발자</p>
+                    <SelectBox
+                    name="developerCount"
+                    value={projectNowTeam[1]}
+                    type="under"
+                    placeholder="선택하세요"
+                    items={countItem}
+                    inputs={inputs}
+                    onClick={setPositionNow(1)}
+                    />
+                </div>
+                <div className = "select_info">
+                    <p>디자이너</p>
+                    <SelectBox
+                    name="designerCount"
+                    value={projectNowTeam[2]}
+                    type="under"
+                    placeholder="선택하세요"
+                    items={countItem}
+                    inputs={inputs}
+                    onClick={setPositionNow(2)}
+                    />
+                </div>
+            </div>
+            <div className = "enrollment_keyword_container">
+                <div>
+                    <p id = "enrollment_keyword_title">모집글 키워드</p>
+                    <p id = "enrollment_keyword_subtitle">프로젝트를 대표할 수 있는 키워드를 선택하세요. 검색 노출에 반영됩니다.</p>
+                    <div className = "enrollment_keywords_container">
+                        {keywords.map((el,i)=>{
+                            return(<Keyword data ={el} index = {i}
+                                isSelected = {projectKeyword.findIndex((keyword)=> keyword === i)!==-1} key = {i}/>)
+                        })}
+
+                    </div>
+                </div>
+                
+            </div>
         </div>
+        
         <div className = "enrollment_first_bottom_container">
             
             <div className = "enrollment_first_bottom_next" onClick = {nextMove}>
@@ -163,6 +243,7 @@ const First = ()=>{
             </div>
 
         </div>
+        
     </div>
     )
 }
