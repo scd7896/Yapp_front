@@ -5,52 +5,27 @@ class PortfolioAddSection extends React.Component{
 
     constructor(props){
         super(props);
-
-        this.state = {
-            post : []
-        }
-
-        this.post_id = 0;
-
-        this.deletePost = this.deletePost.bind(this);
-        this.addPost = this.addPost.bind(this);
-    }
-
-    deletePost(victim){
-
-        var deleteConfirm = confirm('정말 취소하시겠습니까?');
-
-        if(deleteConfirm == true){
-            var curState = JSON.parse(JSON.stringify(this.state));
-            
-            curState.post = curState.post.filter(id => id != victim);
-
-            this.setState(curState);
-        }
-    }
-
-    addPost(){
-        var curState = JSON.parse(JSON.stringify(this.state));
-        curState.post.push(this.post_id);
-        this.post_id ++;
-        this.setState(curState);
     }
 
     render() {
 
-        var postPortfolioSection = this.state.post.map(id => 
+        var postPortfolioSection = this.props.post.map(post => 
             <MypagePortfolioPost 
-                key = {id}
-                id = {id}
-                onDelete = {this.deletePost}
+                key = {post.id}
+                id = {post.id}
+                portfolio = {post.portfolio}
+                fetchPortfolios = {this.props.fetchPortfolios}
+                onDelete = {this.props.deletePost}
             />
         )
+
+        var addPost = this.props.addPost
 
         return (
             <div className = 'portfolio-add-section'>
                 
                 {postPortfolioSection}
-                <div className = 'portfolio-add-button' onClick = {this.addPost}>
+                <div className = 'portfolio-add-button' onClick = {() => addPost(null)}>
                     <div className = 'portfolio-add-button-flex'>
                         <div className = 'portfolio-add-button-svg'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">

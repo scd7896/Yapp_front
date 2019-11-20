@@ -1,4 +1,7 @@
 import React from 'react'
+import fetch from 'isomorphic-unfetch'
+import baseURL from '../../url'
+import cookies from '../../methods/cookies'
 
 //실제 DB에 올릴 경우 : https://stackoverflow.com/questions/5587973/javascript-upload-file
 
@@ -8,12 +11,12 @@ class MyPortfolioPost extends React.Component{
         super(props);
 
         this.state={
-            title : '',
-            roll : '',
-            stack : '',
+            title : (this.props.portfolio ? this.props.portfolio.title : ''),
+            roll : (this.props.portfolio ? this.props.portfolio.myRole : ''),
+            stack : (this.props.portfolio ? this.props.portfolio.useStack : ''),
             link : '',
-            img : null,
-            previewURL : ''
+            previewURL : (this.props.portfolio ? this.props.portfolio.thumbnailImage : ''),
+            mutax : 0
         }
 
         this.handleLinkChange = this.handleLinkChange.bind(this);
@@ -23,6 +26,8 @@ class MyPortfolioPost extends React.Component{
         this.handleFileChange = this.handleFileChange.bind(this);
 
         this.handleClickDelete = this.handleClickDelete.bind(this);
+
+        this.fileFormData = new FormData();
     }
 
     handleTitleChange(event){
@@ -56,8 +61,6 @@ class MyPortfolioPost extends React.Component{
     handleFileChange(event){
         var fileList = event.target.files;
 
-        console.log(fileList);
-
         if(fileList[0] != undefined){
             if(fileList[0].type == 'image/png' ||
                 fileList[0].type == 'image/x-png' ||
@@ -71,6 +74,11 @@ class MyPortfolioPost extends React.Component{
                 alert('이미지 파일만 업로드 가능합니다.');
             }
         }
+
+        this.fileFormData = new FormData();
+        this.fileFormData.append('thumbnailImage', fileList[0]);
+
+        
     }
 
     handleClickDelete(event){
@@ -79,7 +87,52 @@ class MyPortfolioPost extends React.Component{
         }
     }
 
+    registerPortfolio(){
+        
+        var userToken = cookies.getCookie('user-token');
+        var data = {
+            "title": this.state.title,
+            "myRole": this.state.roll,
+            "useStack": this.state.stack,
+            "thumbnailImage": null,
+            "attachFile": this.state.link
+        };
+
+        this.fileFormData.forEach((v,k) => data[v]  = k);
+
+        
+        var fileFormData = this.fileFormData;
+        fileFormData.append('title',this.state.title);
+        fileFormData.append("myRole", this.state.roll);
+        fileFormData.append("useStack", this.state.stack);
+        fileFormData.append("attachFile", this.state.link);
+        
+
+        return fetch(baseURL + '/mypage/portfolio',{
+            headers : {
+                
+                'Authorization' : 'bearer ' + userToken,
+            },
+            'method' : "POST",
+            'body' : fileFormData
+        });
+    }
+
     render(){
+
+        var registerPortfolio = this.registerPortfolio.bind(this);
+        var fetchPortfolios = this.props.fetchPortfolios;
+        var onDelete = this.props.onDelete;
+        var state = this.state;
+        var id = this.props.id;
+        
+        var toggleMutax = ((curMuatx) => {
+            
+            var curState = JSON.parse(JSON.stringify(this.state));
+            curState.mutax = curMuatx;
+            this.setState(curState);
+        }).bind(this);
+
         return (
             <div className = 'portfolio-post-container'>
                 <div className = 'portfolio-post-contents-container'>
@@ -178,8 +231,24 @@ class MyPortfolioPost extends React.Component{
                     <div className = 'portfolio-post-button-cancle' onClick={this.handleClickDelete}>
                         취소
                     </div>
-                    <div className = 'portfolio-post-button-submit'>
-                        등록
+                    <div 
+                        className = 'portfolio-post-button-submit'
+                        onClick = {() => {
+                            if(state.mutax == 0){
+                                toggleMutax(1);
+                                registerPortfolio().then(res => {
+                                    if(res.ok){
+                                        fetchPortfolios();
+                                    }
+                                    toggleMutax(0);
+                                    onDelete(id,true);
+                                }).catch(err => {
+                                    toggleMutax(0);
+                                    console.log(err);
+                                })
+                            }
+                        }}>
+                        {this.props.portfolio ? '수정완료' : '등록'}
                     </div>
                 </div>
 
