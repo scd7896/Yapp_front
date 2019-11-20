@@ -1,0 +1,42 @@
+.enrollment_level_atomic{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom : 19.5px;
+    &.is_now{
+        border-bottom : 5px solid #4244ff;
+        ;
+    }
+}
+
+.enrollment_level_atomic_number{
+    font-family: RedHatDisplay;
+    font-size: 28px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: -1.4px;
+    text-align: left;
+    color: #e2e2e2;
+    margin-right: 6px;
+    &.is_now{
+        color: #4244ff;
+    }
+}
+
+.enrollment_level_atomic_text{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1.4px;
+    text-align: left;
+    color: #e2e2e2;
+    &.is_now{
+        color : #333333;
+    }
+}

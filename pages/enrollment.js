@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import JobGroupCardView from "../componets/Park/JobGroupCardView";
-import Question from "../componets/Jun/Question";
-import SelectBox from "../componets/Jun/SelectBox";
-import Plus from "../componets/Jun/Plus";
 
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
 
-import Axios from "axios";
+import axios from "axios";
 
 import Frist from '../componets/Kim/enrollment/template/First'
-import { Router } from "next/router";
+import LevelContainer from '../componets/Kim/enrollment/blockcontainer/LevelContainer'
+import Router from "next/router";
 const enrollment = ({lev, create}) => {
 
   return (
@@ -19,7 +16,7 @@ const enrollment = ({lev, create}) => {
         <div className="container">
           <h1>모집글 작성하기</h1>
           <div className = "enrollment_level_container">
-            
+            <LevelContainer lev = {lev}/>
           </div>
         </div>
         
