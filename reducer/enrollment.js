@@ -5,7 +5,7 @@ import {
   PROJECT_ENROLLMENT_REQUEST
 } from "../action";
 import Router from "next/router";
-import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION } from "../action/enrollment";
+import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD } from "../action/enrollment";
 
 const initialProps = {
   selectList: [],
@@ -16,9 +16,9 @@ const initialProps = {
   projectLevel : 0,
   projectLong : 0,
   projectPosition : 0,
-  projectNowTeam : 0,
+  projectNowTeam : [0,0,0],
   projectKeyword : [],
-  projectImage : ""
+  projectImage : {file : null, url : null}
 };
 
 const enrollment = (state = initialProps, action) => {
@@ -34,9 +34,7 @@ const enrollment = (state = initialProps, action) => {
       case SET_PROJECT_TITLE :
         draft.projectTitle = action.data
         break;
-      case SET_PROJECT_IMAGE :
-        draft.projectImage = action.data
-        break;
+      
       case SET_PROJECT_LONG :
         draft.projectLong = action.data
         break;
@@ -54,7 +52,22 @@ const enrollment = (state = initialProps, action) => {
       case RMV_PORJECT_POSITION :
         draft.projectPosition -= action.data
         break;
-        
+      case SET_PROJECT_NOWTEAM :
+        draft.projectNowTeam[action.index] = action.data
+        break;
+      case ADD_PROJECT_KEYWORD :
+        draft.projectKeyword.push(action.data)
+        break;
+      case RMV_PROJECT_KEYWORD :
+        draft.projectKeyword = draft.projectKeyword.filter((el)=> el!==action.data)
+        break;
+
+      case SET_PROJECT_IMAGE :
+        draft.projectImage= {
+          file : action.data.file,
+          url : action.data.fileUrl
+        }
+        break;
       default:
         break;
     }

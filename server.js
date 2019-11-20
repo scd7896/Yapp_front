@@ -20,8 +20,8 @@ app.prepare().then(()=>{
         
         return app.render(req, res, "/_error")
     })
-    server.get('/enrollment/:level' ,(req, res)=>{
-        return app.render(req,res,'/enrollment', {level : req.params.level})
+    server.get('/enrollment/:create/:level' ,(req, res)=>{
+        return app.render(req,res,'/enrollment', {create : req.params.create,level : req.params.level})
     })
     server.get('/', (req,res)=>{
         return app.render(req,res, '/',{});
