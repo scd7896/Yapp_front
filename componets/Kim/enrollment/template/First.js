@@ -7,17 +7,21 @@ import location from '../../../../methods/location'
 import expectedPeriod from '../../../../methods/expectedPeriod'
 import step from '../../../../methods/step'
 import keywords from '../../../../methods/keywords'
-import role from '../../../../methods/role'
+
 import Keyword from '../../Keyword'
 import './css/First.scss'
 import '../../../../css/Jun/enrollment.scss'
-const First = ()=>{
+import  Router from 'next/router'
+import Link from 'next/link'
+const First = ({projectId})=>{
     const dispatch = useDispatch()
-    const {projectTitle, projectContent, projectPosition, projectRegion, projectNowTeam, projectKeyword,projectImage} = useSelector(state=> state.enrollment)
+    const {projectTitle, projectContent, projectPosition, projectRegion, 
+        projectNowTeam, projectKeyword,projectImage,
+        projectLevel, projectLong} = useSelector(state=> state.enrollment)
     const [inputs, setInputs] = useState({
         region: projectRegion!==0 ? {id : projectRegion, text : location[projectRegion-1]} :"",
-        level: "",
-        long : "",
+        level: projectLevel !== 0? {id : projectLevel , text : step[projectLevel/10 -1]} : "",
+        long : projectLong !== 0 ? {id : projectLong, text : expectedPeriod[projectLong-100]}:"",
         
       });
     const locationItem = location.map((el,i)=>{
@@ -322,11 +326,17 @@ const First = ()=>{
         </div>
         
         <div className = "enrollment_first_bottom_container">
+                
+            <Link  href={{ pathname: '/enrollment', query: { create : 'create', level : 2, projectid : projectId} }}
+                    as={`/enrollment/create/2/${projectId}`}
+                    >
+                <a>
+                    <div className = "enrollment_first_bottom_next" onClick = {nextMove}>
+                        <p>다음</p>
+                    </div>
+                </a>
+            </Link>
             
-            <div className = "enrollment_first_bottom_next" onClick = {nextMove}>
-                <p>다음</p>            
-            </div>
-
         </div>
         
     </div>

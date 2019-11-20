@@ -18,7 +18,8 @@ const initialProps = {
   projectPosition : 0,
   projectNowTeam : [0,0,0],
   projectKeyword : [],
-  projectImage : {file : null, url : null}
+  projectImage : {file : null, url : null},
+  projectQuestion : [[],[],[],[]]
 };
 
 const enrollment = (state = initialProps, action) => {
