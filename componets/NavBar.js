@@ -28,7 +28,7 @@ const NavBar = () => {
     setSubOpen(!subOpen)
   }
   const goToEnrollment = ()=>{
-    Router.push('/enrollment')
+    Router.push('/enrollment/create/1/0')
   }
   return (
     <div className="navbar">

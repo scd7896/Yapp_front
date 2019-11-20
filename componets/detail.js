@@ -9,7 +9,11 @@ import DetailQnA from './Park/DetailQnA'
 import role from '../methods/role'
 import ProjectJobGroup from './Park/ProjectJobGroup'
 
+import cookies from 'next-cookies';
 
+import projectLocation from '../methods/location'
+import projectStep from '../methods/step'
+import projectPeriod from '../methods/expectedPeriod'
 
 class Detail extends React.Component{
 
@@ -19,15 +23,45 @@ class Detail extends React.Component{
     
     render(){
         
-        var jobgroups = role[this.props.role];
-        var title = this.props.title;
-        var content = this.props.content ? this.props.content : '';
+        var jobgroups = [];
+        var roleNumber = 1;
+        for(var i = 0 ; i < role.length ; i ++){
+          if((this.props.project.role & roleNumber) !== 0){
+            jobgroups.push(role[i]);
+          }
+          roleNumber *= 2;
+        }
+        
+        var title = this.props.project.title;
+        var content = this.props.project.content ? this.props.project.content : '';
         var contentLines = content.split('\n').map(contentLine =>  (
             <span>
               {contentLine}<br/>
             </span>
           )
         );
+
+        var buttons = (
+          <div className = 'detail-button-flex'>
+            <div className = "detail-favorite-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17.854" height="25.768" viewBox="0 0 17.854 25.768">
+                <g id="그룹_1901" data-name="그룹 1901" transform="translate(-1450.769 -61)">
+                    <path id="패스_1756" data-name="패스 1756" d="M1477.957,92.98v12.79h-.166l-8.582-6.594Z" transform="translate(-9.334 -19.003)" fill="#afafaf"/>
+                    <path id="패스_1757" data-name="패스 1757" d="M1464.623,61V73.977l-8.749,6.2-9.106,6.452V61Z" transform="translate(4 0)" fill="#cccdd0"/>
+                </g>
+                </svg>
+            </div>
+            <div className = "detail-apply-button" onClick = {this.props.openModal}>지원하기</div>
+          </div>
+        )
+        console.log(this.props.user.userId);
+
+        if(this.props.project && this.props.user.userId && 
+          this.props.project.userId == this.props.userId){
+            <div className = 'detail-button-flex'>
+              <div className = "detail-apply-button">모집마감</div>
+            </div>
+        }
         
         return(
             <div id = 'detail_root'>
@@ -37,25 +71,18 @@ class Detail extends React.Component{
                 <div className = 'detail-title-wrapper'>
                     <div className = 'detail-title-container container'>
                         <div className = 'detail-title-jobgroup-wrapper'>
-                            <ProjectJobGroup jobgroup = {jobgroups}/>
+                          {
+                            
+                            jobgroups.map(jobgroup => 
+                            <ProjectJobGroup jobgroup = {jobgroup}/>)
+                            
+                          }
                         </div>
                         <div className = 'detail-title-contents-wrapper'>
                             <div className = 'detail-title-flex'>
                                 <div className = 'detail-title'>{title}</div>
                                 <div className = "detail-button-wrapper">
-                                    <div className = 'detail-button-flex'>
-                                    <div className = "detail-favorite-button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.854" height="25.768" viewBox="0 0 17.854 25.768">
-                                        <g id="그룹_1901" data-name="그룹 1901" transform="translate(-1450.769 -61)">
-                                            <path id="패스_1756" data-name="패스 1756" d="M1477.957,92.98v12.79h-.166l-8.582-6.594Z" transform="translate(-9.334 -19.003)" fill="#afafaf"/>
-                                            <path id="패스_1757" data-name="패스 1757" d="M1464.623,61V73.977l-8.749,6.2-9.106,6.452V61Z" transform="translate(4 0)" fill="#cccdd0"/>
-                                        </g>
-                                        </svg>
-                                    </div>
-                                    <div className = "detail-apply-button" onClick = {this.props.openModal}>지원하기</div>
-                                    
-                                    </div>
-                                    
+                                  {buttons}
                                 </div>
                             </div>
                         </div>
@@ -80,10 +107,18 @@ class Detail extends React.Component{
             <div className="detail-info-subtitle">
               <div className="detail-info-subtitle-region">지역</div>
               <div className="detail-info-subtitle-step">진행단계</div>
+              <div className="detail-info-subtitle-period">예상기간</div>
             </div>
             <div className="detail-info-contents">
-              <div className="detail-info-region">서울</div>
-              <div className="detail-info-step">팀 빌딩 단계</div>
+              <div className="detail-info-region">
+                {this.props.project.location ?  projectLocation[this.props.project.location] : projectLocation[0] }
+              </div>
+              <div className="detail-info-step"> 
+                {this.props.project.step ?  projectStep[this.props.project.step] : projectStep[0] }
+              </div>
+              <div className="detail-info-period">
+                {this.props.project.expectedPeriod ?  projectPeriod[this.props.project.expectedPeriod] : projectPeriod[0] }
+              </div>
             </div>
           </div>
         </div>
@@ -92,7 +127,8 @@ class Detail extends React.Component{
           <div className="detail-recruit-title  detail-block-title">
             모집 직군
           </div>
-          <JobGroupCardView type="big" jobgroup={jobgroups} toggle="default" />
+          { jobgroups.map(jobgroup => <JobGroupCardView type="big" jobgroup={jobgroup} toggle="default" />)}
+          
         </div>
 
         <div className="detail-curmember-container container">
