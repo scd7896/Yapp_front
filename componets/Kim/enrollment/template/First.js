@@ -11,7 +11,6 @@ import keywords from '../../../../methods/keywords'
 import Keyword from '../../Keyword'
 import './css/First.scss'
 import '../../../../css/Jun/enrollment.scss'
-import  Router from 'next/router'
 import Link from 'next/link'
 const First = ({projectId})=>{
     const dispatch = useDispatch()

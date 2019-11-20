@@ -5,7 +5,7 @@ import {
   PROJECT_ENROLLMENT_REQUEST
 } from "../action";
 import Router from "next/router";
-import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD } from "../action/enrollment";
+import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD, ADD_QUESTION_LIST } from "../action/enrollment";
 
 const initialProps = {
   selectList: [],
@@ -19,7 +19,7 @@ const initialProps = {
   projectNowTeam : [0,0,0],
   projectKeyword : [],
   projectImage : {file : null, url : null},
-  projectQuestion : [[],[],[],[]]
+projectQuestion : [[{id: 0, text :""}],[{id : 1, text: ""}],[{id : 2, text : ""}],[{id: 4 , text : ""}]]
 };
 
 const enrollment = (state = initialProps, action) => {
@@ -68,6 +68,13 @@ const enrollment = (state = initialProps, action) => {
           file : action.data.file,
           url : action.data.fileUrl
         }
+        break;
+
+      case ADD_QUESTION_LIST :
+        draft.projectQuestion[action.data].push({
+          id: draft.projectQuestion[action.data][0].id,
+          text : ""
+        })
         break;
       default:
         break;

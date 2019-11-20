@@ -13,3 +13,13 @@
 .enroll_question_container{
     border-top : 1px solid #f5f7fa
 }
+
+.enroll_bottom_container{
+    background-color: white;
+    display: flex;
+    width : 100%;
+    height : 146px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
