@@ -16,9 +16,9 @@ export default class MyPortfolioSection extends React.Component{
 
         var PortfolioSection = this.props.portfolios.map(portfolio => 
             <PorfolioSimpleComponent 
-                key = {portfolio.id}
+                key = {portfolio.portfolioId}
                 portfolio = {portfolio}
-                id = {portfolio.id}
+                id = {portfolio.portfolioId}
                 addPost = {addPost}
                 fetchPortfolios = {fetchPortfolios}
             />
