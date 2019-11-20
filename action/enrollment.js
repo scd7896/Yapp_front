@@ -17,4 +17,5 @@ export const KEYWORD_ON_CLICK = "KEYWORD_ON_CLICK"
 
 /* 질문 관련 액션*/
 export const ADD_QUESTION_LIST = "ADD_QUESTION_LIST"
+export const RMV_QUESTION_LIST = "RMV_QUESTION_LIST"
 export const SET_QUESTION_TEXT = "SET_QUESTION_TEXT"
