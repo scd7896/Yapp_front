@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
 
 .detail-qna-wrapper {
   width: 100%;
@@ -22,6 +21,21 @@
   color: #333333;
 
   display: block;
+}
+
+.detail-qna-ask-go-double{
+  height: 29px;
+  font-family: "Noto Sans KR",sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #333333;
+  display: block;
+  margin-top : 50px;
 }
 
 .detail-qna-input-flex {
@@ -89,7 +103,7 @@
 }
 
 .detail-qna-input-container {
-  margin-top: 65px;
+  margin-top: 15px;
   display: block;
   width: 100%;
 }
@@ -102,25 +116,35 @@
   margin-top: 48px;
 }
 
+//detail - q
+
 .detail-q-wrapper {
   width: 100%;
   border-bottom: solid 1px #e5e5e5;
-  padding-top: 47.5px;
-  padding-bottom: 23.5px;
+  padding-top: 52px;
+  padding-bottom: 52px;
 
+  display: block;
+}
+
+.detail-q-header {
   display: flex;
+  justify-content: space-between;
+}
+
+.detail-q-title-wrapper{
+  display: inline-block;
 }
 
 .detail-q {
-  width: 32px;
-  height: 46px;
-  font-family: Futura;
-  font-size: 36px;
+  height: 40px;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 38px;
   font-weight: 500;
-  font-style: normal;
   font-stretch: normal;
-  line-height: 1.31;
-  letter-spacing: -1.8px;
+  font-style: normal;
+  line-height: 1.34;
+  letter-spacing: -1.9px;
   text-align: left;
   color: #1f254b;
 
@@ -129,24 +153,39 @@
   vertical-align: top;
 }
 
-.detail-q-content-wrapper {
-  display: inline-block;
-  margin-left: 29px;
-  width: calc(100% - 61px);
-}
 
 .detail-name {
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
+  height: 29px;
+  font-family: "Noto Sans KR",sans-serif;
+  font-size: 20px;
   font-weight: 500;
-  font-style: normal;
   font-stretch: normal;
-  line-height: 1.22;
-  letter-spacing: -0.9px;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: -1px;
   text-align: left;
   color: #333333;
 
-  display: block;
+  display: inline-block;
+  margin-top : 10px;
+  margin-left : 10px;
+}
+
+.detail-time {
+  height: 20px;
+  font-family: "Noto Sans KR",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: -0.7px;
+  text-align: left;
+  color: #b9b9b9;
+  margin-top : 21px;
+  margin-left : 12px;
+
+  display: inline-block;
 }
 
 .detail-content {
@@ -161,10 +200,12 @@
   text-align: left;
   color: #333333;
 
-  margin-top: 9px;
+  margin-top: 16px;
 
   display: block;
 }
+
+//detail - a
 
 .detail-a-stair {
   margin-left: 18px;
