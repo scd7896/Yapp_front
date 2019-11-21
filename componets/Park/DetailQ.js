@@ -11,6 +11,7 @@ export default function DetailQ(props){
 
     const [toggleReply, setToggleReply] = useState(false) ;
     const [toggleEdit, setToggleEdit] = useState(false);
+    const [replyValue , setReplyValue] = useState('')
 
     function handleClickReplyButton(){
         if(toggleReply){
@@ -37,6 +38,14 @@ export default function DetailQ(props){
             setToggleEdit(true);
         }
     }
+
+    function  handleReplyChange(event) {
+        setReplyValue(event.target.value);
+    }
+
+    function sendReply(){
+
+    }
     
     return (
         <React.Fragment>
@@ -53,22 +62,27 @@ export default function DetailQ(props){
                             <div className= 'detail-time'>
                                 {timeStr}
                             </div>
-                            <div className = 'detail-q-reply-button'
-                                onClick = {handleClickReplyButton}>
-                                <div className = 'detail-q-reply-button-text'>
-                                    {toggleReply ? '답글 취소' : '답글 달기'}
-                                </div>
-                            </div>
+                            {
+                                user.isLogging ? 
+                                <div className = 'button detail-q-reply-button'
+                                    onClick = {handleClickReplyButton}>
+
+                                        <div className = 'detail-q-reply-button-text'>
+                                            {toggleReply ? '답글 취소' : '답글 달기'}
+                                        </div> : null
+                                
+                                </div> : null
+                            }
                         </div>
 
                         { user.userId != props.userId ? null :
                         (
                             <div className='detail-qna-button-container'>
-                                <div className = 'detail-qna-button'
+                                <div className = 'button detail-qna-button'
                                     onClick= {handleClickEditButton}>
                                     { toggleEdit ? '취소'  : '수정' }
                                 </div>
-                                <div className = 'detail-qna-button'>
+                                <div className = 'button detail-qna-button'>
                                     삭제
                                 </div>
                             </div>
@@ -95,11 +109,15 @@ export default function DetailQ(props){
                             <div className = 'detail-a-stair'>
 
                             </div>
-                            <div className = 'detail-q-reply-input'>
+                            <div className = 'detail-q-reply-input-container'>
+                                <textarea className = 'detail-q-reply-input'
+                                    value = {replyValue}
+                                    onChange  = {handleReplyChange} >
 
+                                </textarea>
                             </div>
-                            <div className = 'detail-q-reply-send-button'>
-                                
+                            <div className = 'button detail-q-reply-send-button'>
+                                답변하기
                             </div>
                         </div>
                     </div>

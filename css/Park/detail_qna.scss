@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
 
+.button{
+  cursor: pointer;
+}
+
 .detail-qna-wrapper {
   width: 100%;
   padding-top: 58px;
@@ -258,7 +262,7 @@
   margin-left : 8px;
 }
 
-.detail-q-reply-input{
+.detail-q-reply-input-container{
   margin-left :  calc((100% - 26px - 170px - 4px) * 0.0223);
   margin-right :  calc((100% - 26px - 170px - 4px) * 0.0156);
   width : calc((100% - 26px - 170px - 4px) * 0.962);
@@ -267,11 +271,51 @@
   background-color: #ffffff;
 }
 
+.detail-q-reply-input{
+  margin-top : 20px;
+  margin-left : 20px;
+  margin-right : 20px;
+  width : calc(100% - 40px);
+  height: calc(100% - 40px);
+
+  overflow-y: scroll;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 24px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.21;
+  letter-spacing: -1.2px;
+  text-align: left;
+  color: #666666;
+
+  resize: none;
+  border : 0;
+}
+
+.detail-q-reply-input:focus{
+  outline: 0px;
+}
+
 .detail-q-reply-send-button{
   width: 170px;
-  height: 124px;
+  height: 78px;
   border: solid 1px #b9b9b9;
+
+  padding-top : 46px;
+  font-family: "Noto Sans KR",sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.1px;
+  text-align: center;
+  color: #666666;
 }
+
 
 //detail - a
 
