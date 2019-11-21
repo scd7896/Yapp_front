@@ -8,6 +8,8 @@ import DetailQ from './DetailQ';
 import DetailA from './DetailA';
 import cookies from '../../methods/cookies'
 
+import fetch from 'isomorphic-unfetch'
+
 export default class DetailQnA extends React.Component{
     constructor(props){
         super(props);
@@ -88,6 +90,14 @@ export default class DetailQnA extends React.Component{
     }
 
     handleClickReplyButton(){
+
+        var setValue = ((text) => {
+            var curState = JSON.parse(JSON.stringify(this.state));
+            curState.value = text;
+            this.setState(curState);
+            
+        }).bind(this);
+
         if(this.state.value == ''){
             alert('댓글을 입력해주세요.');
         }
@@ -95,6 +105,26 @@ export default class DetailQnA extends React.Component{
             var userToken = cookies.getCookie('user-token');
             if(userToken == undefined || userToken == ''){
                 this.props.openLoginModal();
+            }
+            else{
+                var fetchQnAList = this.fetchQnAList;
+                fetch(baseURL + '/projects/' +  this.props.project.projectId + '/qna',{
+                    headers : {
+                        Authorization : 'bearer ' + userToken,
+                        'accept' : 'application/json',
+                        'Content-Type' :  'application/json'
+                    },
+                    method : 'POST',
+                    body : JSON.stringify({
+                        "content" : this.state.value,
+                        "parentId" : 0
+                    })
+                }).then(res => {
+                    if(res.ok){
+                        setValue('');
+                        fetchQnAList();
+                    }
+                })
             }
         }
 
@@ -173,7 +203,7 @@ export default class DetailQnA extends React.Component{
                         {contents}
                     </div>
                     {
-                        this.state.visibleRest ? null :
+                        this.state.visibleRest || this.state.contents.length == 0 ? null :
                         (
                             <div className = 'detail-qna-more'
                                 onClick = {this.handleClickViewMore }>

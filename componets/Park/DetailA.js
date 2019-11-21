@@ -1,8 +1,9 @@
 import '../../css/park/detail_qna.scss'
+import getTimeDiff from '../../methods/getTimeDiff'
 
 export default function DetailA(props){
 
-
+    var timeStr = getTimeDiff(props.createAt);
 
     return (
         <div className = {props.className + ' detail-wrapper-wrapper'}>
