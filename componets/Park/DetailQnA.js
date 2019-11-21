@@ -30,6 +30,11 @@ export default class DetailQnA extends React.Component{
     }
 
     render(){
+    handleClickViewMore(){
+        var curState = JSON.parse(JSON.stringify(this.state));
+        curState.visibleRest = true;
+        this.setState(curState);
+    }
 
         var contents = this.state.contents.map(function(content){
             if(content.type == 'Q'){
@@ -92,24 +97,30 @@ export default class DetailQnA extends React.Component{
                     <div className = 'detail-qna-contents'>
                         {contents}
                     </div>
-                    <div className = 'detail-qna-more'>
-                        <div className = 'detail-qna-more-contents'>
-                            <div className = 'detail-qna-more-qna'>
-                                Q&A
+                    {
+                        this.state.visibleRest ? null :
+                        (
+                            <div className = 'detail-qna-more'
+                                onClick = {this.handleClickViewMore }>
+                                <div className = 'detail-qna-more-contents'>
+                                    <div className = 'detail-qna-more-qna'>
+                                        Q&A
+                                    </div>
+                                    <div className = 'detail-qna-more-more'>
+                                        더 보기
+                                    </div>
+                                    <div className = 'detail-qna-more-plus'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.289" height="20.289" viewBox="0 0 20.289 20.289">
+                                        <g id="그룹_1965" data-name="그룹 1965" transform="translate(-1032.355 -2954.355)">
+                                            <line id="선_129" data-name="선 129" x2="20.289" transform="translate(1032.355 2964.5)" fill="none" stroke="#5c63ff" strokeWidth="2"/>
+                                            <line id="선_130" data-name="선 130" x2="20.289" transform="translate(1042.5 2954.355) rotate(90)" fill="none" stroke="#5c63ff" strokeWidth="2"/>
+                                        </g>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
-                            <div className = 'detail-qna-more-more'>
-                                더 보기
-                            </div>
-                            <div className = 'detail-qna-more-plus'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20.289" height="20.289" viewBox="0 0 20.289 20.289">
-                                <g id="그룹_1965" data-name="그룹 1965" transform="translate(-1032.355 -2954.355)">
-                                    <line id="선_129" data-name="선 129" x2="20.289" transform="translate(1032.355 2964.5)" fill="none" stroke="#5c63ff" strokeWidth="2"/>
-                                    <line id="선_130" data-name="선 130" x2="20.289" transform="translate(1042.5 2954.355) rotate(90)" fill="none" stroke="#5c63ff" strokeWidth="2"/>
-                                </g>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                        )
+                    }
                 </div>
 
 
