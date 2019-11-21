@@ -15,6 +15,7 @@ import projectLocation from '../methods/location'
 import projectStep from '../methods/step'
 import projectPeriod from '../methods/expectedPeriod'
 
+
 import fetch from 'isomorphic-unfetch'
 
 class Detail extends React.Component{
@@ -174,7 +175,9 @@ class Detail extends React.Component{
 
         {/* QnA 영역입니다 */}
 
-        <DetailQnA />
+        <DetailQnA 
+          project = {this.props.project}
+          openLoginModal = {this.props.openLoginModal}/>
       </div>
     );
   }
