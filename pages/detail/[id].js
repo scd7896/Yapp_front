@@ -9,7 +9,7 @@
 import Router from 'next/router'
 import Detail from '../../componets/detail.js'
 
-import { OPEN_APPLY_MODAL } from '../../action/index.js';
+import { OPEN_APPLY_MODAL , OPEN_LOGIN_MODAL } from '../../action/index.js';
 import fetch from 'isomorphic-unfetch';
 import baseURL from '../../url'
 
@@ -19,7 +19,7 @@ var detailRouter = (props) => {
     const dispatch = useDispatch();
     const { user } = useSelector(state => state);
     
-    const openModal = ()=>{
+    const openApplyModal = ()=>{
         dispatch({
             type : OPEN_APPLY_MODAL,
             postId : props.query.id
@@ -35,7 +35,7 @@ var detailRouter = (props) => {
 
     return (
         <Detail 
-            openModal = {openModal} 
+            openApplyModal = {openApplyModal} 
             openLoginModal = {openLoginModal}
             user = {user}
             {... props}
@@ -79,6 +79,7 @@ detailRouter.getInitialProps = async function(ctx){
       }
     }
     
+    data.projectId = projectId;
 
     return data;
 }
