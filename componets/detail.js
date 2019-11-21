@@ -9,7 +9,7 @@ import DetailQnA from './Park/DetailQnA'
 import role from '../methods/role'
 import ProjectJobGroup from './Park/ProjectJobGroup'
 
-import cookies from 'next-cookies';
+import cookies from '../methods/cookies'
 
 import projectLocation from '../methods/location'
 import projectStep from '../methods/step'
@@ -27,6 +27,7 @@ class Detail extends React.Component{
         }
 
         this.projectId = this.props.query.id;
+        this. handleClickApplyButton = this. handleClickApplyButton.bind(this);
     }
 
     handleClickFavorite(){
@@ -38,6 +39,16 @@ class Detail extends React.Component{
 
     componentDidMount(){
       
+    }
+
+    handleClickApplyButton(){
+      var userToken = cookies.getCookie('user-token');
+      if(userToken == undefined || userToken == ''){
+          this.props.openLoginModal();
+      }
+      else{
+        this.props.openApplyModal()
+      }
     }
     
     render(){
@@ -70,7 +81,7 @@ class Detail extends React.Component{
                 </g>
                 </svg>
             </div>
-            <div className = "detail-apply-button" onClick = {this.props.openModal}>지원하기</div>
+            <div className = "detail-apply-button" onClick = {this.handleClickApplyButton}>지원하기</div>
           </div>
         )
         console.log(this.props.user.userId);
