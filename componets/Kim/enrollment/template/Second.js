@@ -14,7 +14,7 @@ const Second = ({projectId})=>{
                 <p id = "enroll_question_text">지원자에게 질문</p>
                 <div className = "enroll_question_container">
                      {positionArr.map((el,i)=>{
-                         return <PositionQuestion index = {i} isRender = {(projectPosition&idArr[i])===idArr[i]} text = {el}/>
+                         return <PositionQuestion idValue = {idArr[i]} index = {i} isRender = {(projectPosition&idArr[i])===idArr[i]} text = {el}/>
                      })}
                 </div>
             </div>

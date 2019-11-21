@@ -25,7 +25,7 @@ const QuestionLine = ({position, jindex, text})=>{
             <div className = "question_text_number">{jindex + 1}</div>
             <input className = "quesition_text_input" type = "text" value = {text} onChange = {changeText}
                 placeholder = "질문을 입력하세요 ex)성실히 참여 할 수 있나요?"/>
-            <div className = {jindex ===0 ?"display_none":"delete_container"} onClick = {removeQuestionList}>
+            <div className = {"delete_container"} onClick = {removeQuestionList}>
                 <img src = "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/05E60A73-F0A9-4ED5-9684-62DD71155A8A.svg"/>
             </div>
         </div>

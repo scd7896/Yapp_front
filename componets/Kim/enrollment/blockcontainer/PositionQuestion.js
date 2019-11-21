@@ -5,13 +5,14 @@ import './css/PositionQuestion.scss'
 import QuestionLine from '../atomic/QuestionLine'
 import { ADD_QUESTION_LIST } from '../../../../action/enrollment';
 
-const PositionQuestion = ({isRender, text, index})=>{
+const PositionQuestion = ({isRender, text, index, idValue})=>{
     const dispatch = useDispatch();
     const {projectQuestion} = useSelector(state=> state.enrollment)
     const clickAddList = ()=>{
         dispatch({
             type : ADD_QUESTION_LIST,
-            data : index
+            data : index,
+            idValue : idValue
         })
     }
     return(

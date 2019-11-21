@@ -72,7 +72,7 @@ const enrollment = (state = initialProps, action) => {
 
       case ADD_QUESTION_LIST :
         draft.projectQuestion[action.data].push({
-          id: draft.projectQuestion[action.data][0].id,
+          id: action.idValue,
           text : ""
         })
         break;
