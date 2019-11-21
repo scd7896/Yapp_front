@@ -5,7 +5,7 @@ import {
   PROJECT_ENROLLMENT_REQUEST
 } from "../action";
 import Router from "next/router";
-import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD, ADD_QUESTION_LIST, SET_QUESTION_TEXT, RMV_QUESTION_LIST } from "../action/enrollment";
+import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD, ADD_QUESTION_LIST, SET_QUESTION_TEXT, RMV_QUESTION_LIST, POST_PROJECT_REQUEST, POST_PROJECT_SUCCESS, POST_PROJECT_FAILURE } from "../action/enrollment";
 
 const initialProps = {
   selectList: [],
@@ -83,7 +83,13 @@ const enrollment = (state = initialProps, action) => {
         draft.projectQuestion[action.index][action.jindex].text = action.data
         break;
 
-      
+      case POST_PROJECT_REQUEST:
+          break;
+      case POST_PROJECT_SUCCESS :
+          Router.push('/enrollment/create/3/0')
+          break;
+      case POST_PROJECT_FAILURE :
+        break;  
       default:
         break;
     }

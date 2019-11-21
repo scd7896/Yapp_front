@@ -4,10 +4,23 @@ import PositionQuestion from '../blockcontainer/PositionQuestion'
 import Link from 'next/link'
 import '../../../../css/Jun/enrollment.scss'
 import './css/Second.scss'
+import Router from 'next/router'
+import { POST_PROJECT_REQUEST } from '../../../../action/enrollment'
 const Second = ({projectId})=>{
     const positionArr = ["직군공통", "기획자", "개발자", "디자이너"]
     const idArr = [0,1,2,4]
     const {projectPosition} = useSelector(state => state.enrollment)
+    const datas = useSelector(state=> state.enrollment)
+    const {userToken} = useSelector(state => state.user)
+    const dispatch = useDispatch();
+    const postProject = ()=>{
+        
+        dispatch({
+            type : POST_PROJECT_REQUEST,
+            data : {...datas, userToken}
+        })
+        
+    }
     return(
         <div>
             <div className = "enroll_container">
@@ -28,16 +41,12 @@ const Second = ({projectId})=>{
                             <p>이전</p>
                         </div>
                     </a>
-                </Link>
-                <Link  href={{ pathname: '/enrollment', query: { create : 'create', level : 3, projectid : projectId} }}
-                        as={`/enrollment/create/3/${projectId}`}
-                >
-                    <a>
-                        <div>
-                            <p>다음</p>
-                        </div>
-                    </a>
-                </Link>
+                </Link>        
+                <div onClick = {postProject}>
+                    <p>다음</p>
+                </div>
+                
+            
             </div>
             
         </div>
