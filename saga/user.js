@@ -2,25 +2,39 @@ import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/e
 import { GET_MYDATA_REQUEST, GET_MYDATA_FAILURE, GET_MYDATA_SUCCESS,
     USER_LOGIN_REQUEST,USER_LOGIN_FAILURE,USER_LOGIN_SUCCESS, GET_MYPORTFOLIO_REQUEST, GET_MYPORTFOLIO_SUCCESS, GET_MYPORTFOLIO_FAILURE} from '../action'
 import axios from 'axios'
+import fetch from 'isomorphic-unfetch'
 import url from '../url'
+import cookies from '../methods/cookies'
 
 function getUserAPI(myCookie){
-    
-    
-    return {userToken : myCookie, userId : '유저아이디', userNickName : "유저닉네임"}
-    //return axios.get('/로그인api', {headers :{autholrize : myCookie}}) 이렇게 써요
+    return fetch(url + '/me', {
+        headers : {
+            Authorization: 'bearer ' + myCookie,
+            accept : 'application/json'
+        }
+    }).then(res => {
+        if(res.ok){
+            return res.json();
+        }
+        else{
+            throw '로그인 실패'
+        }
+    }).catch(err=>{
+        throw '로그인실패'
+    })
 }
 function* getUser(action){
     try{
         
-        
+
         const result = yield call(getUserAPI, action.data)
         
         yield put({
             type : GET_MYDATA_SUCCESS,
-            userToken : result.userToken,
-            userNickName : result.userNickName,
-            userId : result.userId
+            userName : result.user.userName,
+            userId : result.user.userId,
+            userEmail : result.user.email,
+            userProfileImage : result.user.profileImage
         })
     }catch(e){
         console.error(e)
@@ -56,14 +70,21 @@ function* userLogin(action){
             password : action.password
         }
         
-        const result = yield call(userLoginAPI, userData)
+        const loginResult = yield call(userLoginAPI, userData)
         
-        document.cookie = `user-token=${result.data.token}`
+        const userToken = loginResult.data.token
+        cookies.setCookie('user-token', userToken, 7);
+
+        const getUserResult = yield call(getUserAPI, userToken)
         
         yield put({
             type : USER_LOGIN_SUCCESS,
-            userToken : result.data.token,
-        })
+            userToken : userToken,
+            userName : getUserResult.user.userName,
+            userId : getUserResult.user.userId,
+            userEmail : getUserResult.user.email,
+            userProfileImage : getUserResult.user.profileImage
+        })        
         
     }catch(e){
         

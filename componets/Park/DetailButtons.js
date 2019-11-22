@@ -7,6 +7,8 @@ export default function DetailButtons(props){
     const dispatch = useDispatch();
     const { user } = useSelector(state => state);
 
+    console.log(user);
+
     const openApplyModal = ()=>{
         dispatch({
             type : OPEN_APPLY_MODAL,
