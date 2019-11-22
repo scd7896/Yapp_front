@@ -93,7 +93,7 @@ export default function DetailQ(props){
             }
             else{
                 try {
-                    var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna' , {
+                    var res = await fetch(baseURL + '/projects/' + props.project.projectId + '/qna' , {
                         headers : {
                             Authorization : 'bearer ' + userToken,
                             'accept' : 'application/json',
@@ -133,7 +133,7 @@ export default function DetailQ(props){
             }
             else{
                 try{
-                    var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna' , {
+                    var res = await fetch(baseURL + '/projects/' + props.project.projectId + '/qna' , {
                         headers : {
                             Authorization : 'bearer ' + userToken,
                             'accept' : 'application/json',
@@ -165,7 +165,7 @@ export default function DetailQ(props){
         }
         else{
             try{
-                var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna', {
+                var res = await fetch(baseURL + '/projects/' + props.project.proejectId + '/qna', {
                     headers : {
                         Authorization : 'bearer ' + userToken,
                         'accept' : 'application/json',
@@ -205,7 +205,7 @@ export default function DetailQ(props){
                                 {timeStr}
                             </div>
                             {
-                                user.userId ? 
+                                user.userId && (user.userId == props.userId || user.userId == props.project.userId)? 
                                 (
                                     <div className = 'button detail-q-reply-button'
                                         onClick = {handleClickReplyToggleButton}>

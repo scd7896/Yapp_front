@@ -49,7 +49,7 @@ export default function DetailButtons(props){
             <div className = "button detail-apply-button" onClick = {handleClickApplyButton}>지원하기</div>
         </div>) :(
             <div className = 'detail-button-flex'>
-                <div className = "button detail-apply-button">수정</div>
+                <div className = "button detail-edit-button">수정</div>
                 <div className = "button detail-apply-button">모집마감</div>
             </div>
         )
