@@ -67,6 +67,9 @@ export default function DetailQ(props){
     function  handleReplyChange(event) {
         setReplyValue(event.target.value);
     }
+    function  handleEditReplyChange(event) {
+        setEditValue(event.target.value);
+    }
 
     async function handleClickSendReplyButton(){
         if(replyMutex == 0){
@@ -75,6 +78,8 @@ export default function DetailQ(props){
             replyMutex = 0;            
         }
     }
+
+    
 
     async function sendReply(){
 
@@ -86,25 +91,32 @@ export default function DetailQ(props){
             if(userToken == undefined || userToken == ''){
                 openLoginModal();
             }
-
-            var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna' , {
-                headers : {
-                    Authorization : 'bearer ' + userToken,
-                    'accept' : 'application/json',
-                    'Content-Type' :  'application/json'
-                },
-                method : 'POST',
-                body : JSON.stringify({
-                    "content" : replyValue,
-                    "parentId" : props.id
-                })
-            });
-
-            if(res.ok){
-                setReplyValue('');
-                props.fetchQnAList();
-                setToggleReply(false);
+            else{
+                try {
+                    var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna' , {
+                        headers : {
+                            Authorization : 'bearer ' + userToken,
+                            'accept' : 'application/json',
+                            'Content-Type' :  'application/json'
+                        },
+                        method : 'POST',
+                        body : JSON.stringify({
+                            "content" : replyValue,
+                            "parentId" : props.id
+                        })
+                    });
+        
+                    if(res.ok){
+                        setReplyValue('');
+                        props.fetchQnAList();
+                        setToggleReply(false);
+                    }    
+                }   
+                catch(err){
+                    console.log(err);
+                }             
             }
+
 
         }
     }
@@ -119,28 +131,61 @@ export default function DetailQ(props){
             if(userToken == undefined || userToken == ''){
                 openLoginModal();
             }
-
-            var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna' , {
-                headers : {
-                    Authorization : 'bearer ' + userToken,
-                    'accept' : 'application/json',
-                    'Content-Type' :  'application/json'
-                },
-                method : 'DELETE',
-                body : JSON.stringify({
-                    "projectQnaId" : props.id
-                })
-            })
-
-            if(res.ok){
-                props.fetchQnAList();
+            else{
+                try{
+                    var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna' , {
+                        headers : {
+                            Authorization : 'bearer ' + userToken,
+                            'accept' : 'application/json',
+                            'Content-Type' :  'application/json'
+                        },
+                        method : 'DELETE',
+                        body : JSON.stringify({
+                            "projectQnaId" : props.id
+                        })
+                    })
+        
+                    if(res.ok){
+                        props.fetchQnAList();
+                    }
+                }   
+                catch(err){
+                    console.log(err);
+                }             
             }
+
         }
 
     }
 
     async function editReply(){
-
+        var userToken = cookies.getCookie('user-token');
+        if(userToken == undefined || userToken == ''){
+            openLoginModal();
+        }
+        else{
+            try{
+                var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna', {
+                    headers : {
+                        Authorization : 'bearer ' + userToken,
+                        'accept' : 'application/json',
+                        'Content-Type' :  'application/json'
+                    },
+                    method : 'PATCH',
+                    body : JSON.stringify({
+                        "projectQnaId": props.id,
+                        "content": editValue
+                    })
+                })
+                if(res.ok){
+                    setToggleEdit(false);
+                    props.fetchQnAList();
+                }
+            }   
+            catch(err){
+                console.log(err);
+            }             
+        }
     }
     
     
@@ -200,7 +245,21 @@ export default function DetailQ(props){
                     {
                         toggleEdit ? 
                         <div className = 'detail-edit-container'>
+                            <div className = 'detail-edit-flex'>
+                                <div className = 'detail-edit-input-container'>
+                                    <textarea className = 'detail-reply-input'
+                                        value = {editValue}
+                                        onChange  = {handleEditReplyChange} >
 
+                                    </textarea>
+                                </div>
+                                <div className = 'button detail-edit-send-button'
+                                    onClick = {editReply}>
+                                    <div className = 'detail-edit-send-button-text'>
+                                        완료
+                                    </div>
+                                </div>
+                            </div>
                         </div> :
                         <div className = 'detail-content'>
                             {props.content}
@@ -219,7 +278,7 @@ export default function DetailQ(props){
 
                             </div>
                             <div className = 'detail-q-reply-input-container'>
-                                <textarea className = 'detail-q-reply-input'
+                                <textarea className = 'detail-reply-input'
                                     value = {replyValue}
                                     onChange  = {handleReplyChange} >
 

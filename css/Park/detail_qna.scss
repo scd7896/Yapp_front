@@ -147,7 +147,45 @@
 }
 
 .detail-edit-container{
+  padding-top : 28px;
+  width : 100%;
+  height: 124px;
+}
+.detail-edit-input-container{
+  width : calc((100% - 170px) * 0.9847);
+  height: 100%;
+  border: solid 1px #b9b9b9;
+  background-color: #ffffff;
+  display: inline-block;
+}
 
+.detail-edit-send-button{
+  width: 170px;
+  height: 100%;
+  border: solid 1px #b9b9b9;
+  display : inline-block;
+
+text-align: center;
+}
+.detail-edit-send-button-text{
+  margin-top : 46px;
+  height: 33px;
+  font-family: "Noto Sans KR",sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.1px;
+  text-align: center;
+  color: #666666;
+}
+
+.detail-edit-flex{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width : 100%;
 }
 
 //detail - q
@@ -280,7 +318,7 @@
   background-color: #ffffff;
 }
 
-.detail-q-reply-input{
+.detail-reply-input{
   margin-top : 20px;
   margin-left : 20px;
   margin-right : 20px;
@@ -304,7 +342,7 @@
   border : 0;
 }
 
-.detail-q-reply-input:focus{
+.detail-reply-input:focus{
   outline: 0px;
 }
 

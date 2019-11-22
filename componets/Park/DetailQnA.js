@@ -156,6 +156,9 @@ export default class DetailQnA extends React.Component{
                     fetchQnAList = {fetchQnAList}
                 />
             }
+            else{
+                visibleCount ++;
+            }
 
 
             var answerNodes = question.answer.map(answer => {
@@ -174,6 +177,7 @@ export default class DetailQnA extends React.Component{
                         />
                     }
                     else{
+                        visibleCount ++;
                         return null;
                     }
 
@@ -209,7 +213,7 @@ export default class DetailQnA extends React.Component{
                         {contents}
                     </div>
                     {
-                        this.state.visibleRest || this.state.contents.length == 0 ? null :
+                        this.state.visibleRest || visibleCount <= 4 ? null :
                         (
                             <div className = 'detail-qna-more'
                                 onClick = {this.handleClickViewMore }>
