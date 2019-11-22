@@ -17,6 +17,7 @@ import projectPeriod from '../methods/expectedPeriod'
 
 
 import fetch from 'isomorphic-unfetch'
+import baseURL from '../url'
 
 class Detail extends React.Component{
 
@@ -39,7 +40,19 @@ class Detail extends React.Component{
     }
 
     componentDidMount(){
-      
+
+      var userToken = cookies.getCookie('user-token');
+      var headers = {
+        'accept' : 'application/json'
+      }
+      if(userToken != '' && userToken == undefined){
+        headers.Authorization = "bearer " + userToken;
+      }
+
+      fetch(baseURL + '/project/' + this.projectId + '/viewCnt', {
+        headers : headers,
+        method : 'PATCH'
+      })
     }
 
     handleClickApplyButton(){
