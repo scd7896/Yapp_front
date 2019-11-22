@@ -43,7 +43,7 @@ class Detail extends React.Component{
         headers.Authorization = "bearer " + userToken;
       }
 
-      fetch(baseURL + '/project/' + this.projectId + '/viewCnt', {
+      fetch(baseURL + '/projects/' + this.projectId + '/viewCnt', {
         headers : headers,
         method : 'PATCH'
       })
