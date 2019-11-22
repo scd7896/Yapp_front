@@ -93,7 +93,7 @@ export default function DetailQ(props){
             }
             else{
                 try {
-                    var res = await fetch(baseURL + '/projects/' + props.projectId + '/qna' , {
+                    var res = await fetch(baseURL + '/projects/' + props.project.projectId + '/qna' , {
                         headers : {
                             Authorization : 'bearer ' + userToken,
                             'accept' : 'application/json',
