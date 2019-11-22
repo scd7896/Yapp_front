@@ -146,6 +146,48 @@
   margin-top : 7px;
 }
 
+.detail-edit-container{
+  padding-top : 28px;
+  width : 100%;
+  height: 124px;
+}
+.detail-edit-input-container{
+  width : calc((100% - 170px) * 0.9847);
+  height: 100%;
+  border: solid 1px #b9b9b9;
+  background-color: #ffffff;
+  display: inline-block;
+}
+
+.detail-edit-send-button{
+  width: 170px;
+  height: 100%;
+  border: solid 1px #b9b9b9;
+  display : inline-block;
+
+text-align: center;
+}
+.detail-edit-send-button-text{
+  margin-top : 46px;
+  height: 33px;
+  font-family: "Noto Sans KR",sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.1px;
+  text-align: center;
+  color: #666666;
+}
+
+.detail-edit-flex{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width : 100%;
+}
+
 //detail - q
 
 .detail-q-wrapper {
@@ -157,12 +199,12 @@
   display: block;
 }
 
-.detail-q-header {
+.detail-qna-header {
   display: flex;
   justify-content: space-between;
 }
 
-.detail-q-title-wrapper{
+.detail-qna-title-wrapper{
   display: inline-block;
 }
 
@@ -197,7 +239,7 @@
   color: #333333;
 
   display: inline-block;
-  margin-top : 10px;
+  margin-top : 15px;
   margin-left : 10px;
 }
 
@@ -246,6 +288,11 @@
   margin-left : 8px;
 }
 
+.detail-q-reply-button-svg{
+  margin-top : 8.2px;
+  margin-left : 14.3px;
+}
+
 .detail-q-reply-button-text{
   height: 20px;
   font-family: "Noto Sans KR",sans-serif;
@@ -259,7 +306,7 @@
   color: #5c63ff;
   margin-top : 3px;
   display: inline-block;
-  margin-left : 8px;
+  margin-left : 8.4px;
 }
 
 .detail-q-reply-input-container{
@@ -271,7 +318,7 @@
   background-color: #ffffff;
 }
 
-.detail-q-reply-input{
+.detail-reply-input{
   margin-top : 20px;
   margin-left : 20px;
   margin-right : 20px;
@@ -295,7 +342,7 @@
   border : 0;
 }
 
-.detail-q-reply-input:focus{
+.detail-reply-input:focus{
   outline: 0px;
 }
 
@@ -330,28 +377,24 @@
 }
 
 .detail-a {
-  margin-left: 27.5px;
-
-  width: 27px;
-  height: 46px;
-  font-family: Futura;
-  font-size: 36px;
+  height: 40px;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 38px;
   font-weight: 500;
-  font-style: normal;
   font-stretch: normal;
-  line-height: 1.31;
-  letter-spacing: -1.8px;
+  font-style: normal;
+  line-height: 1.34;
+  letter-spacing: -1.9px;
   text-align: left;
-  color: #4244ff;
-
+  color: #5c63ff;
   display: inline-block;
 }
 
 .detail-a-content-wrapper {
-  margin-left: 37px;
+  margin-left: 20px;
   display: inline-block;
 
-  width: calc(100% - 138px);
+  width: calc(100% - 40px);
 }
 
 .detail-a-wrapper {

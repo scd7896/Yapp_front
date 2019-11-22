@@ -123,6 +123,7 @@ export default class DetailQnA extends React.Component{
                     if(res.ok){
                         setValue('');
                         fetchQnAList();
+                        
                     }
                 })
             }
@@ -134,6 +135,8 @@ export default class DetailQnA extends React.Component{
 
         var visibleRest = this.state.visibleRest;
         var visibleCount = 0;
+        var projectId = this.props.project.projectId;
+        var fetchQnAList = this.fetchQnAList;
 
         var contents = this.state.contents.map(question => {
 
@@ -149,7 +152,12 @@ export default class DetailQnA extends React.Component{
                     id = {question.projectQnaId}
                     content  = {question.content}
                     createAt = {question.createAt}
+                    projectId = {projectId}
+                    fetchQnAList = {fetchQnAList}
                 />
+            }
+            else{
+                visibleCount ++;
             }
 
 
@@ -165,9 +173,12 @@ export default class DetailQnA extends React.Component{
                             id = {answer.projectQnaId}
                             content  = {answer.content}
                             createAt = {answer.createAt}
+                            projectId = {projectId}
+                            fetchQnAList = {fetchQnAList}
                         />
                     }
                     else{
+                        visibleCount ++;
                         return null;
                     }
 
@@ -203,7 +214,7 @@ export default class DetailQnA extends React.Component{
                         {contents}
                     </div>
                     {
-                        this.state.visibleRest || this.state.contents.length == 0 ? null :
+                        this.state.visibleRest || visibleCount <= 4 ? null :
                         (
                             <div className = 'detail-qna-more'
                                 onClick = {this.handleClickViewMore }>
