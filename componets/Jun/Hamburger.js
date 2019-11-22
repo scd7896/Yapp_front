@@ -2,18 +2,37 @@ import React, { useState } from "react";
 import "../../css/Jun/hamburger.scss";
 
 import { useSelector, useDispatch } from "react-redux";
-import { OPEN_LOGIN_MODAL } from "../../action";
+import {  USER_LOGOUT_REQUEST, SET_LOGIN_MODAL, OPEN_LOGIN_MODAL } from "../../action";
+import Link from 'next/link'
+import UserProfileImg from "../Park/UserProfileImg";
 
 function Hamburger() {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
   const dispatch = useDispatch();
+  var {user } = useSelector(state => state);
 
   const openLoginModal = () => {
     dispatch({
       type: OPEN_LOGIN_MODAL
     });
   };
+  const openJoinModal = () => {
+    dispatch({
+      type: SET_LOGIN_MODAL,
+      data : 1
+    });
+    dispatch({
+      type: OPEN_LOGIN_MODAL
+    });
+  };
+
+  
+  const logout = () => {
+    dispatch({
+        type : USER_LOGOUT_REQUEST
+    })
+  }
 
   return (
     <>
@@ -126,20 +145,35 @@ function Hamburger() {
             </div>
             <div className="hambergur_container">
               <div className="session_check">
+                {!user.isLogging ?(
                 <h5>
                   로그인이 <br></br> 필요합니다.{" "}
                 </h5>
+                ) : (
+                  <React.Fragment>
+                    <UserProfileImg src = {user.UserProfileImg} size = {89}></UserProfileImg>
+                    <div className="hambergur_user-name">{user.userName + ' 님'}</div>
+                  </React.Fragment>
+                )}
                 <div className="session_check_href">
-                  <a onClick = {openLoginModal}>로그인</a>
-                  <a>회원가입</a>
+                {!user.isLogging ?(
+                  <React.Fragment>
+                    <a onClick = {openLoginModal}>로그인</a>
+                    <a onClick = {openJoinModal}>회원가입</a>
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    <a onClick = {logout}>로그아웃</a>
+                  </React.Fragment>
+                )}
                 </div>
               </div>
               <div className="menu-list">
-                <a>모집중인 프로젝트 </a>
+                <Link href="/recruit"><a>모집중인 프로젝트 </a></Link>
                 <a>프로젝트 후기 </a>
-                <a>마이페이지 </a>
-                <a>알림 </a>
-                <a>모집글 작성하기 </a>
+                {user.isLogging ? <Link href="/mypage"><a>마이페이지 </a></Link> : null}
+                {user.isLogging ? <a>알림 </a> : null}
+                {user.isLogging ? <a>모집글 작성하기 </a> : null}
               </div>
             </div>
           </div>
