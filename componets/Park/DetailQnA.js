@@ -174,6 +174,7 @@ export default class DetailQnA extends React.Component{
                             content  = {answer.content}
                             createAt = {answer.createAt}
                             projectId = {projectId}
+                            fetchQnAList = {fetchQnAList}
                         />
                     }
                     else{

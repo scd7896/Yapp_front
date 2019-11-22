@@ -193,8 +193,8 @@ export default function DetailQ(props){
         <React.Fragment>
             <div className = {props.className + ' detail-wrapper-wrapper' }>
                 <div className= 'detail-q-wrapper'>
-                    <div className = 'detail-q-header'>
-                        <div className = 'detail-q-title-wrapper'>
+                    <div className = 'detail-qna-header'>
+                        <div className = 'detail-qna-title-wrapper'>
                             <div className = 'detail-q'>
                                 Q
                             </div>
