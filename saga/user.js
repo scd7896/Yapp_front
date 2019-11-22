@@ -1,6 +1,8 @@
 import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/effects'
 import { GET_MYDATA_REQUEST, GET_MYDATA_FAILURE, GET_MYDATA_SUCCESS,
-    USER_LOGIN_REQUEST,USER_LOGIN_FAILURE,USER_LOGIN_SUCCESS, GET_MYPORTFOLIO_REQUEST, GET_MYPORTFOLIO_SUCCESS, GET_MYPORTFOLIO_FAILURE} from '../action'
+    USER_LOGIN_REQUEST,USER_LOGIN_FAILURE,USER_LOGIN_SUCCESS,
+    USER_LOGOUT_REQUEST,USER_LOGOUT_FAILURE,USER_LOGOUT_SUCCESS,
+    GET_MYPORTFOLIO_REQUEST, GET_MYPORTFOLIO_SUCCESS, GET_MYPORTFOLIO_FAILURE} from '../action'
 import axios from 'axios'
 import fetch from 'isomorphic-unfetch'
 import url from '../url'
@@ -97,8 +99,40 @@ function* userLogin(action){
     }
 }
 
+function* userLogout(action){
+    try{
+        var userToken = cookies.getCookie('user-token');
+        if(userToken != '' && userToken != undefined){
+            cookies.deleteCookie('user-token');
+
+        }
+
+        yield put({
+            type : USER_LOGOUT_SUCCESS,
+            userToken : '',
+            userName : '',
+            userId : '',
+            userEmail : '',
+            userProfileImage : '',
+        })
+    }
+    catch(e){
+        yield put({
+            type : USER_LOGOUT_FAILURE,
+            userToken : '',
+            userName : '',
+            userId : '',
+            userEmail : '',
+            userProfileImage : '',
+        })
+    }
+}
+
 function * watchUserLogin(){
     yield takeLatest(USER_LOGIN_REQUEST, userLogin)
+}
+function * watchUserLogout(){
+    yield takeLatest(USER_LOGOUT_REQUEST, userLogout)
 }
 function getPortFolioApi(userToken){
     //return axios.get() 포트폴리오 가져오는 리스트 ㄲ
@@ -126,6 +160,7 @@ export default function* userSaga(){
     yield all([
         fork(watchGetUser),
         fork(watchUserLogin),
+        fork(watchUserLogout),
         fork(watchGetPortFolio)
         
     ])

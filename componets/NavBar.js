@@ -76,7 +76,8 @@ const NavBar = () => {
                   src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/34B2916A-4DBF-46B6-94E2-B9F802EE2A0B.svg"
                 />
               </button>
-              <NavbarSubMenu open = {subOpen}/>
+              <NavbarSubMenu open = {subOpen}
+              setSubOpen = {setSubOpen}/>
             </div>
             
             <button>

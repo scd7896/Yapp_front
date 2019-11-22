@@ -9,6 +9,9 @@ import {
   USER_JOIN_REQUEST,
   USER_JOIN_SUCCESS,
   USER_JOIN_FAILURE,
+  USER_LOGOUT_REQUEST,
+  USER_LOGOUT_SUCCESS,
+  USER_LOGOUT_FAILURE,
   REPAIR_PASSWORD,
   GET_MYPORTFOLIO_REQUEST,
   GET_MYPORTFOLIO_SUCCESS,
@@ -63,6 +66,21 @@ const user = (state = initialState, action) => {
       case USER_LOGIN_FAILURE :
         draft.nowLogging = false;
         draft.loginFail = true;
+        draft.isLogging = false;
+        break;
+
+      case USER_LOGOUT_REQUEST :
+        draft.nowLogging = true;
+        draft.isLogging = false;
+        break;
+      case USER_LOGOUT_SUCCESS :
+      case USER_LOGOUT_FAILURE :
+        draft.userToken = action.userToken;
+        draft.userId = action.userId;
+        draft.userEmail = action.userEmail;
+        draft.userName = action.userName;
+        draft.userProfileImage = action.userProfileImage;
+        draft.nowLogging = false;
         draft.isLogging = false;
         break;
 
