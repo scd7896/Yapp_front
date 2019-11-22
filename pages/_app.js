@@ -38,7 +38,8 @@ class MyApp extends App {
           userToken : userToken,
           userEmail : result.data.user.email,
           userId : result.data.user.userId,
-          userName : result.data.user.name
+          userName : result.data.user.name,
+          userProfileImage : result.data.user.profileImage
         })
       }catch(e){
         ctx.store.dispatch({
