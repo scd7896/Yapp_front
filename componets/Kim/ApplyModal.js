@@ -12,7 +12,7 @@ const ApplyModal = () => {
   const dispatch = useDispatch();
   const { applyModalLevel, visible } = useSelector(state => state.button);
   const { postId } = useSelector(state => state.apply);
-  const {userToken} = useSelector(state=> state.user)
+  const { userToken } = useSelector(state => state.user)
   let modalContainer;
   const closeModal = () => {
     dispatch({
@@ -30,8 +30,8 @@ const ApplyModal = () => {
 
   useEffect(() => {
     dispatch({
-      type : GET_MYPORTFOLIO_REQUEST,
-      data : userToken
+      type: GET_MYPORTFOLIO_REQUEST,
+      data: userToken
     })
   }, []);
   return (
@@ -57,7 +57,7 @@ const ApplyModal = () => {
               </div>
 
               <div id="modal_body_container">
-                <div>
+                <div id="StartToEnd">
                   <span
                     className={
                       applyModalLevel >= 1
@@ -65,7 +65,7 @@ const ApplyModal = () => {
                         : "modal_top_not_select"
                     }
                   >
-                    1
+                    <span id="flexNum">1</span>
                   </span>
                   <div className="modal_body_top_line"></div>
                   <span
@@ -75,7 +75,7 @@ const ApplyModal = () => {
                         : "modal_top_not_select"
                     }
                   >
-                    2
+                    <span id="flexNum">2</span>
                   </span>
                   <div className="modal_body_top_line"></div>
                   <span
@@ -85,7 +85,7 @@ const ApplyModal = () => {
                         : "modal_top_not_select"
                     }
                   >
-                    3
+                    <span id="flexNum">3</span>
                   </span>
                 </div>
                 <div id="modal_section_question_container">
@@ -125,8 +125,8 @@ const ApplyModal = () => {
               </div>
             </div>
           ) : (
-            <ApplyCompleted />
-          )}
+              <ApplyCompleted />
+            )}
           <div id="apply_head_modal_blank"></div>
         </div>
       </Modal>
