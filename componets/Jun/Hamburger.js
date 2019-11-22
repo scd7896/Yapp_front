@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import "../../css/Jun/hamburger.scss";
 
+import { useSelector, useDispatch } from "react-redux";
+import { OPEN_LOGIN_MODAL } from "../../action";
+
 function Hamburger() {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
+  const dispatch = useDispatch();
+
+  const openLoginModal = () => {
+    dispatch({
+      type: OPEN_LOGIN_MODAL
+    });
+  };
 
   return (
     <>
@@ -120,7 +130,7 @@ function Hamburger() {
                   로그인이 <br></br> 필요합니다.{" "}
                 </h5>
                 <div className="session_check_href">
-                  <a>로그인</a>
+                  <a onClick = {openLoginModal}>로그인</a>
                   <a>회원가입</a>
                 </div>
               </div>
