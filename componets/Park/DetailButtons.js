@@ -1,6 +1,7 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { OPEN_APPLY_MODAL , OPEN_LOGIN_MODAL } from '../../action/index.js';
+import cookies from '../../methods/cookies'
 
 export default function DetailButtons(props){
 
@@ -12,7 +13,7 @@ export default function DetailButtons(props){
     const openApplyModal = ()=>{
         dispatch({
             type : OPEN_APPLY_MODAL,
-            postId : props.query.id
+            postId : props.projectId
         })
         
     }
