@@ -44,7 +44,9 @@ const LoginInput = ()=>{
             email : email,
             password : password
         })
-        
+        document.querySelector('#login_email').value = '';
+        document.querySelector('#login_password').value= '';
+        setEmailCheck(null)
     }
 
     useEffect(()=>{
