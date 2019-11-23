@@ -13,14 +13,17 @@
     line-height: 1.47;
     letter-spacing: -1.6px;
     text-align: left;
-    margin-left : 25%;
+    margin-left : 19%;
     color: #333333;
 }
 
 .modify_profile_body_container{
-    margin-left : 25%;
-    padding-top : 70.5px;
-    
+    margin-left : 19%;
+    padding-top : 76.5px;
+    padding-bottom: 29.5px;;
+}
+.modify_profile_body_image_container > p{
+    margin-top : 0;
 }
 .modify_profile_body_image_container{
     display : flex;
@@ -41,8 +44,6 @@
     height : 148px;
     width : 148px;
     margin-left : 10%;
-    background: #f5f7fa;
-    border-radius: 70px;
     margin-right: 5%;
 }
 .modify_profile_body_image_action_container{
@@ -83,7 +84,7 @@
     border-top: none;
     width : 40%;
     border-bottom : 2px solid #f5f7fa;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-size: 22px;
     font-weight: 300;
     font-stretch: normal;
