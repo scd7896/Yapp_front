@@ -10,7 +10,7 @@ import baseURL from '../../url';
 import UserProfileImg from '../../componets/Park/UserProfileImg'
 const profile = ()=>{
 
-    var [imgFile, setImgFlag] = useState(null);
+    var [imgFile, setImgFile] = useState(null);
 
     const { user }  = useSelector(state => state);
 
@@ -50,7 +50,15 @@ const profile = ()=>{
             }
         }
 
-        setImgFlag(fileList[0]);
+        setImgFile(fileList[0]);
+    }
+
+    function handleClickDeleteAvatar(){
+        if(confirm('정말 삭제하시겠습니까?')){
+
+            setImgFile(null);
+            setPreviewURL('');
+        }
     }
 
     function registerProfile(){
@@ -95,7 +103,8 @@ const profile = ()=>{
                                     <p className = "modify_profile_body_image_action_text">등록</p>
                                 </div>
                             </label>
-                            <div className = "modify_profile_body_image_action_button">
+                            <div className = "modify_profile_body_image_action_button"
+                                onClick = {handleClickDeleteAvatar}>
                                 <p className = "modify_profile_body_image_action_text">삭제</p>
                             </div>
                         </div>
@@ -107,14 +116,14 @@ const profile = ()=>{
                     </div>
                     <div className = "modify_profile_body_name_container">
                         <p className = "modify_profile_body_text">지역</p>
-                        <SelectBox
-                            name="locationSelectBox"
-                            value={location[region]}
-                            type="under"
-                            placeholder="선택하세요"
-                            items={locationItem}
-                            onClick={onClick}
-                        />
+                            <SelectBox
+                                name="locationSelectBox"
+                                value={location[region]}
+                                type="under"
+                                placeholder="선택하세요"
+                                items={locationItem}
+                                onClick={onClick}
+                            />
                     </div>
                     <div className = "modify_profile_body_name_container">
                         <p className = "modify_profile_body_text">전화번호</p>
