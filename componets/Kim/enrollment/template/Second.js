@@ -6,7 +6,7 @@ import '../../../../css/Jun/enrollment.scss'
 import './css/Second.scss'
 import Router from 'next/router'
 import { POST_PROJECT_REQUEST } from '../../../../action/enrollment'
-const Second = ({projectId})=>{
+const Second = ({projectId, changed})=>{
     const positionArr = ["직군공통", "기획자", "개발자", "디자이너"]
     const idArr = [0,1,2,4]
     const {projectPosition} = useSelector(state => state.enrollment)
@@ -14,21 +14,27 @@ const Second = ({projectId})=>{
     const {userToken} = useSelector(state => state.user)
     const dispatch = useDispatch();
     const postProject = ()=>{
-        
-        dispatch({
-            type : POST_PROJECT_REQUEST,
-            data : {...datas, userToken}
-        })
-        
+        if(changed){
+
+        }else{
+            dispatch({
+                type : POST_PROJECT_REQUEST,
+                data : {...datas, userToken}
+            })
+        }
     }
     return(
         <div>
             <div className = "enroll_container">
-                <p id = "enroll_question_text">지원자에게 질문</p>
-                <div className = "enroll_question_container">
-                     {positionArr.map((el,i)=>{
-                         return <PositionQuestion idValue = {idArr[i]} index = {i} isRender = {(projectPosition&idArr[i])===idArr[i]} text = {el}/>
-                     })}
+                <div style = {{alignSelf : "flex-start", width : "100%"}}>
+
+                
+                    <p id = "enroll_question_text">지원자에게 질문</p>
+                    <div className = "enroll_question_container">
+                        {positionArr.map((el,i)=>{
+                            return <PositionQuestion idValue = {idArr[i]} index = {i} isRender = {(projectPosition&idArr[i])===idArr[i]} text = {el}/>
+                        })}
+                    </div>
                 </div>
             </div>
 

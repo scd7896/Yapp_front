@@ -12,7 +12,7 @@ import {
 
 import axios from "axios";
 import url from "../url";
-import { POST_PROJECT_REQUEST, POST_PROJECT_FAILURE, POST_PROJECT_SUCCESS } from "../action/enrollment";
+import { POST_PROJECT_REQUEST, POST_PROJECT_FAILURE, POST_PROJECT_SUCCESS, GET_PROJECT_REQUEST, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE } from "../action/enrollment";
 const postProjectAPI = (data)=>{
   const {projectQuestion,projectNowTeam, projectImage} = data
   const dataQuestion = projectQuestion.flat()
@@ -22,7 +22,7 @@ const postProjectAPI = (data)=>{
   const filterQuestion = [];
   dataQuestion.map((el)=>{
     if(el.text !== ""){
-      const data = JSON.stringify({"contents" : el.text, "id": el.id})
+      const data = JSON.stringify({"content" : el.text, "role": el.id})
       filterQuestion.push(data)
     }
 
@@ -79,8 +79,29 @@ function * postProject(action){
 function * watchPostProject(){
   yield takeEvery(POST_PROJECT_REQUEST, postProject)
 }
+const getProjectAPI = (id)=>{
+  return axios.get(`${url}/projects/${id}`)
+}
+function * getProject (action){
+  try{
+    const result = yield call(getProjectAPI, action.data);
+    yield put({
+      type : GET_PROJECT_SUCCESS,
+      data : result.data
+    })
+  }catch(err){
+    yield put({
+      type : GET_PROJECT_FAILURE,
+      err : err
+    })
+  }
+}
+function * watchGetProject(){
+  yield takeEvery(GET_PROJECT_REQUEST, getProject)
+}
 export default function* enrollSaga() {
   yield all([
-    fork(watchPostProject)
+    fork(watchPostProject),
+    fork(watchGetProject)
   ]);
 }
