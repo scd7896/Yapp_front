@@ -43,7 +43,6 @@ enrollment.getInitialProps = async (ctx) => {
     ctx.store.dispatch({
 
     })
-<<<<<<< HEAD
     return{lev : ctx.query.level, id : ctx.query.projectid }
   }else{
     if (ctx.res) {
@@ -54,11 +53,6 @@ enrollment.getInitialProps = async (ctx) => {
     } else {
         Router.push('/error/404');
     }
-=======
-    return { lev: ctx.query.level, id: ctx.query.projectid }
-  } else {
-    Router.push('/error/404')
->>>>>>> applyModal_jun
   }
 
 }
