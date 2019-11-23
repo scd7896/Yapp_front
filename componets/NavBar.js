@@ -47,8 +47,9 @@ const NavBar = () => {
     <div className="navbar">
       <div className="container">
         <div className="logo" onClick = {routeToMain}>
-          <img src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3AA5A2F7-12E0-43B7-AF49-91A7451A8096.svg"></img>
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="50" viewBox="0 0 96 50">
+  <text id="Toys" transform="translate(0 40)" fill="#1f254b" font-size="41" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">Toys</tspan></text>
+</svg></div>
 
         <div className="nav_right">
           <span className="nav_list">

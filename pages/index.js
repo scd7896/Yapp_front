@@ -29,6 +29,7 @@ const Index = (props) => {
   var PostCardViewSection = HigherOrderCardView(PostCardView, "post");
   var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
   const dispatch = useDispatch()
+  var {user} = useSelector(state => state)
   useEffect(()=>{
     // dispatch({
     //   type : GET_MYDATA_REQUEST,
@@ -80,13 +81,23 @@ const Index = (props) => {
             <p id="post_text_head">최신등록 모집글</p>
             <div id="post_text_sub_container">
               <span id="post_text_sub">더 많은 모집글을 만나보세요</span>
-              <span id="post_text_more">더보기</span>
+              <div className = "post-more-button">
+                <span id="post_text_more">더보기</span>
+                <div className = "post-more-svg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18.058" height="6.469" viewBox="0 0 18.058 6.469">
+                    <g id="icon_arrow2" transform="translate(-21.071 0.5)">
+                      <line id="선_14" data-name="선 14" y1="5.621" x2="5.428" transform="translate(33.341)" fill="none" stroke="#4244ff" strokeWidth="1"/>
+                      <path id="패스_1605" data-name="패스 1605" d="M0,0H17.338" transform="translate(21.072)" fill="none" stroke="#4244ff" strokeWidth="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
           <ProjectSection projects = {props.projects} />
           
           {
-            props.userToken ? 
+            user.userToken ? 
             (
             <div style = {{width: '100%'}}>
               <div id="post_text_container">
@@ -111,6 +122,8 @@ const Index = (props) => {
           </div>
         </div>
       </div>
+      {
+        /*
       <div id="footer_container" className="container">
         <div id="best_projects_container">
           <div id="post_text_container">
@@ -135,6 +148,8 @@ const Index = (props) => {
           />
         </div>
       </div>
+      */
+      }
     </div>
   );
 };

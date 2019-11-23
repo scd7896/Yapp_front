@@ -66,10 +66,7 @@ class MyApp extends App {
             href="//cdn.quilljs.com/1.2.6/quill.snow.css"
           />
           {/* google web font Montserrat */}
-          <link
-            href="https://fonts.googleapis.com/css?family=Montserrat"
-            rel="stylesheet"
-          ></link>
+          <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet"/>
           {/* google web font Noto Sans */}
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
