@@ -1,9 +1,9 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
-import '../../css/kim/componentcss/Keyword.scss'
-import {ADD_SELECTORS_CONTENT, REMOVE_SELECTORS_CONTENT} from '../../action'
-import { ADD_PROJECT_KEYWORD, RMV_PORJECT_POSITION, RMV_PROJECT_KEYWORD } from '../../action/enrollment'
+import './css/Keyword.scss'
+
+import { ADD_PROJECT_KEYWORD, RMV_PORJECT_POSITION, RMV_PROJECT_KEYWORD } from '../../../../action/enrollment'
 const Keyword = ({data, index, isSelected})=>{
     
     const dispatch = useDispatch();

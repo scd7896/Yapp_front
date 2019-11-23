@@ -8,11 +8,11 @@ import expectedPeriod from '../../../../methods/expectedPeriod'
 import step from '../../../../methods/step'
 import keywords from '../../../../methods/keywords'
 
-import Keyword from '../../Keyword'
+import Keyword from '../atomic/Keyword'
 import './css/First.scss'
 import '../../../../css/Jun/enrollment.scss'
 import Link from 'next/link'
-const First = ({projectId})=>{
+const First = ({projectId, changed})=>{
     const dispatch = useDispatch()
     const {projectTitle, projectContent, projectPosition, projectRegion, 
         projectNowTeam, projectKeyword,projectImage,
@@ -327,7 +327,7 @@ const First = ({projectId})=>{
         
         <div className = "enrollment_first_bottom_container">
                 
-            <Link  href={{ pathname: '/enrollment', query: { create : 'create', level : 2, projectid : projectId} }}
+            <Link  href={{ pathname: '/enrollment', query: { create : changed ? "change": "create", level : 2, projectid : projectId} }}
                     as={`/enrollment/create/2/${projectId}`}
                     >
                 <a>

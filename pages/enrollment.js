@@ -26,13 +26,13 @@ const enrollment = ({lev,id, changed}) => {
       </div>
       <div className="container">
         <div style={lev != 1 ? { display: "none" } : {}}>
-          <First projectId={id} />
+          <First projectId={id} changed = {changed} />
         </div>
         <div style={lev != 2 ? { display: "none" } : {}}>
           <Second projectId={id} changed = {changed}/>
         </div>
         <div style = {lev != 3? {display : "none"}:{}}>
-          <Third projectId = {id}/>
+          <Third projectId = {id} changed = {changed}/>
         </div>
       </div>  
     </div>
