@@ -9,6 +9,7 @@ import First from '../componets/Kim/enrollment/template/First'
 import LevelContainer from '../componets/Kim/enrollment/blockcontainer/LevelContainer'
 import Router from "next/router";
 import Second from "../componets/Kim/enrollment/template/Second";
+import Third from '../componets/Kim/enrollment/template/Third'
 const enrollment = ({lev, create,id}) => {
   
   return (
@@ -29,6 +30,9 @@ const enrollment = ({lev, create,id}) => {
         <div style = {lev != 2? {display : "none"}:{}}>
           <Second projectId = {id}/>
         </div>
+        {/* <div style = {lev != 3? {display : "none"}:{}}>
+          <Third projectId = {id}/>
+        </div> */}
       </div>  
     </div>
   );

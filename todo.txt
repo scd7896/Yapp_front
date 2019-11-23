@@ -15,3 +15,25 @@
 
 3. UI 작업
     - 마이페이지 아이콘 클릭시 화살표 박스 만들기 (김태경 11/13 1차완료)
+
+
+/detail/{projectid}
+
+projectid -> 내용들가져오고 
+지원하기 버튼 => 질문리스트-> useEffect()-> 리덕스, useState
+
+페이지 컴포넌트바뀌어요
+
+리스트들을 filter((el)=> el.sn === "0" || el.sn === position)
+.map((el)=> {
+    return(
+        <질문컴포넌트 data : contents ={el.contents} />
+    )
+})
+
+[
+    {
+        sn : "0",
+        contents : "넌 잘하니?"
+    }
+]

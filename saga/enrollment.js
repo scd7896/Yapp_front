@@ -55,10 +55,7 @@ const postProjectAPI = (data)=>{
   */
   return axios.post(`${url}/projects`, formData, {
     headers :{
-      Authorization: `bearer ${data.userToken}`,
-      'Access-Control-Allow-Origin' : "http://106.10.46.206",
-      "accept" : "application/json",
-      "Content-Type" : "application/json",
+      Authorization: `bearer ${data.userToken}`
     }
   })
   return {data : 1}
@@ -67,7 +64,7 @@ function * postProject(action){
   try{
     
     const result = yield call(postProjectAPI, action.data)
-    console.log(result)
+    console.log(result.data)
     yield put({
       type : POST_PROJECT_SUCCESS,
       data : result.data
