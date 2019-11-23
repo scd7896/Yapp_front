@@ -90,6 +90,7 @@ class MyPortfolioPost extends React.Component{
     registerPortfolio(){
         
         var userToken = cookies.getCookie('user-token');
+        /*
         var data = {
             "title": this.state.title,
             "myRole": this.state.roll,
@@ -97,8 +98,9 @@ class MyPortfolioPost extends React.Component{
             "thumbnailImage": null,
             "attachFile": this.state.link
         };
+        */
 
-        /*
+        
         this.fileFormData.forEach((v,k) => data[v]  = k);
 
         
@@ -107,7 +109,7 @@ class MyPortfolioPost extends React.Component{
         fileFormData.append("myRole", this.state.roll);
         fileFormData.append("useStack", this.state.stack);
         fileFormData.append("attachFile", this.state.link);
-        */
+        
         
 
         return fetch(baseURL + '/mypage/portfolio',{
@@ -118,7 +120,7 @@ class MyPortfolioPost extends React.Component{
                 'Content-Type' : 'application/json'
             },
             'method' : "POST",
-            'body' : data
+            'body' : fileFormData
         });
     }
 
