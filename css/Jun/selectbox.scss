@@ -31,7 +31,7 @@
   &.full {
     align-items: center;
     padding: 0 25px;
-    min-width: 466px;
+    width: 466px;
     height: 96px;
     border: solid #b9b9b9 0.8px;
     font-size: 32px;
@@ -78,6 +78,7 @@
     }
   }
   &.full {
+    position :absolute;
     border: solid 1px #b9b9b9;
     font-size: 32px;
     font-weight: 300;
@@ -100,4 +101,7 @@
 }
 .potatoBox {
   z-index: 10012;
+}
+.selectBoxRelative{
+  position: relative;
 }

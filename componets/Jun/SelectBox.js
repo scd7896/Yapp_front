@@ -23,7 +23,7 @@ function SelectBox({
   };
 
   const potato = value => {
-    return function(event) {
+    return function (event) {
       onClick({ name: name, value: value });
     };
   };
@@ -78,7 +78,7 @@ function SelectBox({
       )}
 
       {open && (
-        <>
+        <div className="selectBoxRelative">
           <div className={classNames("select_open", type)} onClick={onToggle}>
             {items.map(item => (
               <div
@@ -91,7 +91,7 @@ function SelectBox({
             ))}
           </div>
           {/* <div className="select_cover" onClick={onToggle}></div> */}
-        </>
+        </div>
       )}
     </div>
   );
