@@ -99,7 +99,6 @@ class Detail extends React.Component{
                 </div>
 
                 <div className = 'detail-contents-container container'>
-                    <img className = 'detail-img'/>
                     <div className = 'detail-introduce  detail-block-title'>
                         프로젝트 간단 소개
                     </div>
