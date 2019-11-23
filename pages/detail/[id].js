@@ -9,76 +9,76 @@
 import Router from 'next/router'
 import Detail from '../../componets/detail.js'
 
-import { OPEN_APPLY_MODAL , OPEN_LOGIN_MODAL } from '../../action/index.js';
+import { OPEN_APPLY_MODAL, OPEN_LOGIN_MODAL } from '../../action/index.js';
 import fetch from 'isomorphic-unfetch';
 import baseURL from '../../url'
-
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 var detailRouter = (props) => {
     const dispatch = useDispatch();
     const { user } = useSelector(state => state);
-    
-    const openApplyModal = ()=>{
+
+    const openApplyModal = () => {
         dispatch({
-            type : OPEN_APPLY_MODAL,
-            postId : props.query.id
+            type: OPEN_APPLY_MODAL,
+            postId: props.query.id
         })
-        
+
     }
 
     const openLoginModal = () => {
-      dispatch({
-        type: OPEN_LOGIN_MODAL
-      });
+        dispatch({
+            type: OPEN_LOGIN_MODAL
+        });
     };
 
     return (
-        <Detail 
-            openApplyModal = {openApplyModal} 
-            openLoginModal = {openLoginModal}
-            user = {user}
-            {... props}
-            />
+        <Detail
+            openApplyModal={openApplyModal}
+            openLoginModal={openLoginModal}
+            user={user}
+            {...props}
+        />
     )
 }
 
-detailRouter.getInitialProps = async function(ctx){
+detailRouter.getInitialProps = async function (ctx) {
 
-    var data  = {};
+    var data = {};
     var projectId = parseInt(ctx.query.id);
 
     var res = await fetch(`${baseURL}/projects/${projectId}`, {
-        headers : {
+        headers: {
             accept: 'application/json'
         }
     });
-    
-    if(res.ok){
+
+    if (res.ok) {
         var resJSON = await res.json();
-        if(resJSON == null){
-          if (ctx.res) {
+        if (resJSON == null) {
+            if (ctx.res) {
+                ctx.res.writeHead(302, {
+                    Location: '/error/404'
+                })
+                ctx.res.end();
+            } else {
+                Router.push('/error/404');
+            }
+        }
+        data.project = resJSON;
+    }
+    else {
+        if (ctx.res) {
             ctx.res.writeHead(302, {
                 Location: '/error/404'
             })
             ctx.res.end();
-          } else {
-              Router.push('/error/404');
-          }
-        } 
-        data.project = resJSON;
+        } else {
+            Router.push('/error/404');
+        }
     }
-    else{
-      if (ctx.res) {
-        ctx.res.writeHead(302, {
-            Location: '/error/404'
-        })
-        ctx.res.end();
-      } else {
-          Router.push('/error/404');
-      }
-    }
-    
+
     data.projectId = projectId;
 
     return data;

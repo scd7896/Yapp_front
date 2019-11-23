@@ -8,7 +8,28 @@ import "../../css/kim/componentcss/ApplyFirst.scss";
 import "react-dropdown/style.css";
 import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from "../../action";
 
-const ApplyFirst = () => {
+
+const dummyqeustions = [
+  {
+    sn: 0,
+    content: '공통질문입니다~!'
+  },
+  {
+    sn: 1,
+    content: '기획자 질문입니다~!'
+  },
+  {
+    sn: 2,
+    content: '개발자 질문입니다~!'
+  },
+  {
+    sn: 4,
+    content: '디자이너 질문입니다~!'
+  }
+];
+const ApplyFirst = ({ question }) => {
+  console.log(question[1].sn);
+
   const dispatch = useDispatch();
   const { position, answers } = useSelector(state => state.apply);
 
@@ -55,7 +76,10 @@ const ApplyFirst = () => {
   };
 
   const [inputs, setInputs] = useState({
-    job: ""
+    job: {
+      id: 0,
+      text: null
+    }
   });
 
   const { job } = inputs;
@@ -64,7 +88,7 @@ const ApplyFirst = () => {
     const { name, value } = e;
     setInputs({
       ...inputs,
-      [name]: value
+      [name]: { id: value.id, text: value.text }
     });
   };
 
@@ -97,17 +121,29 @@ const ApplyFirst = () => {
 
         <SelectBox
           name="job"
-          value={job}
+          value={job.text}
           type="full"
           placeholder="선택하세요"
           items={[
-            { id: 1, text: "디자이너" },
-            { id: 2, text: "기획자" },
-            { id: 3, text: "개발자" }
+            { id: 1, text: "기획자" },
+            { id: 2, text: "개발자" },
+            { id: 4, text: "디자이너" }
           ]}
           inputs={inputs}
           onClick={onClick}
         />
+
+        <ul>
+          {dummyqeustions
+            .filter((el) => {
+              return (el.sn === 0 || el.sn === job.id)
+            })
+            .map(user => (
+              <li>
+                {user.content}
+              </li>
+            ))}
+        </ul>
 
 
 
