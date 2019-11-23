@@ -19,7 +19,15 @@ const postProjectAPI = (data)=>{
   const dataNowTeam = projectNowTeam[0] *100 + projectNowTeam[1] * 10 + projectNowTeam[2]
   const dataFile = projectImage.file
   const formData = new FormData()
-  console.log(data)
+  const filterQuestion = [];
+  dataQuestion.map((el)=>{
+    if(el.text !== ""){
+      const data = JSON.stringify({"contents" : el.text, "id": el.id})
+      filterQuestion.push(data)
+    }
+
+  })
+  
   formData.append("title", data.projectTitle)
   formData.append("content",data.projectContent)
   formData.append("role", data.projectPosition)
@@ -27,8 +35,8 @@ const postProjectAPI = (data)=>{
   formData.append("location", data.projectRegion)
   formData.append("thumbnailImage", dataFile)
   formData.append("expectedPeriod", data.projectLong)
-  formData.append("interviewQuestions",dataQuestion)
-  console.log(dataQuestion)
+  formData.append("interviewQuestions",filterQuestion)
+  
   /*
     {
   "title": "string",
@@ -45,17 +53,18 @@ const postProjectAPI = (data)=>{
   ]
 }
   */
-  // return axios.post(`${url}/projects`, formData, {
-  //   headers :{
-  //     Authorization: `bearer ${data.userToken}`
-  //   }
-  // })
+  return axios.post(`${url}/projects`, formData, {
+    headers :{
+      Authorization: `bearer ${data.userToken}`
+    }
+  })
   return {data : 1}
 }
 function * postProject(action){
   try{
     
     const result = yield call(postProjectAPI, action.data)
+    console.log(result.data)
     yield put({
       type : POST_PROJECT_SUCCESS,
       data : result.data
