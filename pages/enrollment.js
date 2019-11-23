@@ -43,9 +43,16 @@ enrollment.getInitialProps = async (ctx) => {
     ctx.store.dispatch({
 
     })
-    return { lev: ctx.query.level, id: ctx.query.projectid }
-  } else {
-    Router.push('/error/404')
+    return{lev : ctx.query.level, id : ctx.query.projectid }
+  }else{
+    if (ctx.res) {
+      ctx.res.writeHead(302, {
+          Location: '/error/404'
+      })
+      ctx.res.end();
+    } else {
+        Router.push('/error/404');
+    }
   }
 
 }

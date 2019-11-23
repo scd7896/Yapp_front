@@ -61,6 +61,13 @@ const SignUpInput = ()=>{
                 password : password,
                 password2 : passwordEqualCheck
             })
+            setisPasswordTypeCheck(null);
+            setIsPasswordEqualCheck(null);
+            setEmailCheck(null);
+            document.querySelector('#sign_up_name').value = '';
+            document.querySelector('#sign_up_email').value= '';
+            document.querySelector('#login_password').value= '';
+            document.querySelector('#login_password_equal_check').value= '';
             
         }
     }

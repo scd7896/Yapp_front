@@ -2,6 +2,25 @@ import baseURL from '../url'
 import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/effects'
 import {USER_JOIN_REQUEST, USER_JOIN_SUCCESS, USER_JOIN_FAILURE} from '../action'
 import axios from 'axios'
+
+function getUserAPI(myCookie){
+    return fetch(url + '/me', {
+        headers : {
+            Authorization: 'bearer ' + myCookie,
+            accept : 'application/json'
+        }
+    }).then(res => {
+        if(res.ok){
+            return res.json();
+        }
+        else{
+            throw '로그인 실패'
+        }
+    }).catch(err=>{
+        throw '로그인실패'
+    })
+}
+
 function userJoinAPI(userData){
     
     return axios.post(`${baseURL}/join`, 
@@ -11,8 +30,9 @@ function userJoinAPI(userData){
                 password : userData.password,
                 password2 : userData.password2
             }
-        )
-    //로그인의 에러처리
+        ).catch(err=>{
+            throw '로그인실패'
+        })
 }
 
 function* userJoin(action){
@@ -24,15 +44,23 @@ function* userJoin(action){
             password : action.password,
             password2 : action.password2
         }
+
+        const loginResult = yield call(userJoinAPI, userData)
         
-        const result = yield call(userJoinAPI, userData)
-        
-        document.cookie = `user-token=${result.data.token}`
+        const userToken = loginResult.data.token
+        cookies.setCookie('user-token', userToken, 7);
+
+        const getUserResult = yield call(getUserAPI, userToken)
         
         yield put({
             type : USER_JOIN_SUCCESS,
-            userToken : result.data.token,
-        })
+            userToken : loginResult.data.token,
+            userName : getUserResult.user.userName,
+            userId : getUserResult.user.userId,
+            userEmail : getUserResult.user.email,
+            userProfileImage : getUserResult.user.profileImage
+        })        
+        
         
     }catch(e){
         

@@ -4,7 +4,7 @@ import Router from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import "../css/NavBar.scss";
 import "../css/container.scss";
-import { OPEN_LOGIN_MODAL } from "../action";
+import {SET_LOGIN_MODAL, OPEN_LOGIN_MODAL } from "../action";
 import Hamburger from "../componets/Jun/Hamburger";
 import NavBarSubMenu from './Kim/Navbar/atomic/NavbarSubMenu'
 import NavbarSubMenu from "./Kim/Navbar/atomic/NavbarSubMenu";
@@ -19,6 +19,19 @@ const NavBar = () => {
     Router.push("/");
   };
   const openLoginModal = () => {
+    dispatch({
+      type: SET_LOGIN_MODAL,
+      data : 0
+    });
+    dispatch({
+      type: OPEN_LOGIN_MODAL
+    });
+  };
+  const openJoinModal = () => {
+    dispatch({
+      type: SET_LOGIN_MODAL,
+      data : 1
+    });
     dispatch({
       type: OPEN_LOGIN_MODAL
     });
@@ -59,8 +72,8 @@ const NavBar = () => {
             id="nav_login_signup_container"
             style={user.userToken ? { display: "none" } : { display: "block" }}
           >
-            <p id="nav_login_signup" onClick={openLoginModal}>
-              로그인 / 회원가입
+            <p id="nav_login_signup" >
+              <a onClick={openLoginModal}>로그인</a> / <a onClick={openJoinModal}>회원가입</a>
             </p>
           </span>
 
@@ -68,15 +81,17 @@ const NavBar = () => {
             className="nav_png"
             style={!user.userToken ? { display: "none" } : {}}
           >
-            <div className = "mypage_navbar_container">
+            <div className = "mypage_navbar_container"
+            onClick = {openSubMenu}>
               <button>
                 <img
-                  onClick = {openSubMenu}
+                  
                   style={{ width: "25px", height: "32px" }}
                   src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/34B2916A-4DBF-46B6-94E2-B9F802EE2A0B.svg"
                 />
               </button>
-              <NavbarSubMenu open = {subOpen}/>
+              <NavbarSubMenu open = {subOpen}
+              setSubOpen = {setSubOpen}/>
             </div>
             
             <button>

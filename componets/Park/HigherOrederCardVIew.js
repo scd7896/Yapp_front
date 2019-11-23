@@ -185,14 +185,14 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                         onClick = {this.HandleClickLeft}
                         style = {{top :  this.props.buttonTop }}>
                         <svg className = 'CardView-Hover-Arrrow' xmlns="http://www.w3.org/2000/svg" width="14.484" height="26.139" viewBox="0 0 14.484 26.139">
-                        <path id="icon_prev" d="M1213.814,697.353l-11.655,11.655,11.655,11.655" transform="translate(-1200.745 -695.939)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+                        <path id="icon_prev" d="M1213.814,697.353l-11.655,11.655,11.655,11.655" transform="translate(-1200.745 -695.939)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="2"/>
                         </svg>
                     </button>
                     <button className = "CardView-Hover-Right" 
                         onClick = {this.HandleClickRight}
                         style = {{top :  this.props.buttonTop}}>
                         <svg className = 'CardView-Hover-Arrrow' xmlns="http://www.w3.org/2000/svg" width="14.484" height="26.139" viewBox="0 0 14.484 26.139">
-                        <path id="icon_next" d="M1213.814,697.353l-11.655,11.655,11.655,11.655" transform="translate(1215.228 722.078) rotate(180)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+                        <path id="icon_next" d="M1213.814,697.353l-11.655,11.655,11.655,11.655" transform="translate(1215.228 722.078) rotate(180)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="2"/>
                         </svg>
                     </button>
                     <div ref = {this.wrapperRef} className = "CardView-Section">
