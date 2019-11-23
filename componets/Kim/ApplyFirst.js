@@ -86,11 +86,14 @@ const ApplyFirst = () => {
         </div>
       </div>
       <div id="first_modal_body_container">
-        <span id="modal_position_selector_title">
-          <span>지원</span>
-          <span>직군</span>
-        </span>
-        <span id="modal_most_select_icon">*</span>
+        <div className="modal-title">
+          <span id="modal_position_selector_title">
+            <span>지원</span>
+            <span>직군</span>
+          </span>
+          <span id="modal_most_select_icon">*</span>
+        </div>
+
 
         <SelectBox
           name="job"
@@ -105,6 +108,8 @@ const ApplyFirst = () => {
           inputs={inputs}
           onClick={onClick}
         />
+
+
 
         <div style={{ paddingBottom: "92px" }}>
           <div id="apply_modal_next_first_button" onClick={nextModal}>
