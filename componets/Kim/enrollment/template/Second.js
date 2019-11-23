@@ -37,12 +37,12 @@ const Second = ({projectId})=>{
                         as={`/enrollment/create/1/${projectId}`}
                 >
                     <a>
-                        <div>
+                        <div className = "enrollment_bottom_button_prev">
                             <p>이전</p>
                         </div>
                     </a>
                 </Link>        
-                <div onClick = {postProject}>
+                <div onClick = {postProject} className = "enrollment_bottom_button_next">
                     <p>다음</p>
                 </div>
                 
