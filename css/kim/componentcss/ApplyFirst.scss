@@ -135,3 +135,60 @@
 .modal-title{
     margin-bottom:32px;
 }
+
+.questionList{
+    margin-top:82px;
+    & #questionQ{
+        font-family: "RedHatDisplay";
+        font-size: 36px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: -1.8px;
+        text-align: left;
+        color: #1f254b;
+    }
+    & #questionNum{
+        font-family: "RedHatDisplay";
+        font-size: 36px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: -1.8px;
+        text-align: left;
+        color: #4244ff;
+    }
+    & #questionContent{
+        margin-left:26px;
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 36px;
+        font-weight: 300;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.22;
+        letter-spacing: -1.8px;
+        text-align: left;
+        color: #333333;
+    }
+    & #Redstar{
+        margin-left:12px;
+        font-family: "RedHatDisplay";
+        font-size: 36px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: -1.8px;
+        text-align: left;
+        color: #ff3e85;
+    }
+}
+
+li{
+    list-style: none;
+}
+ul{
+    padding:0;
+}

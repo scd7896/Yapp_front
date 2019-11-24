@@ -132,18 +132,22 @@ const ApplyFirst = ({ question }) => {
           inputs={inputs}
           onClick={onClick}
         />
+        <div className="questionList">
+          <ul>
+            {dummyqeustions
+              .filter((el) => {
+                return (el.sn === 0 || el.sn === job.id)
+              })
+              .map(user => (
+                <li>
+                  <span id="questionQ">Q</span><span id="questionNum">1</span>
+                  <span id="questionContent">{user.content}</span>
+                  <span id="Redstar">*</span>
+                </li>
+              ))}
+          </ul>
 
-        <ul>
-          {dummyqeustions
-            .filter((el) => {
-              return (el.sn === 0 || el.sn === job.id)
-            })
-            .map(user => (
-              <li>
-                {user.content}
-              </li>
-            ))}
-        </ul>
+        </div>
 
 
 
