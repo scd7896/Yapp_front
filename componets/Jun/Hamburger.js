@@ -151,7 +151,7 @@ function Hamburger() {
                 </h5>
                 ) : (
                   <React.Fragment>
-                    <UserProfileImg src = {user.UserProfileImg} size = {89}></UserProfileImg>
+                    <UserProfileImg src = {user.userProfileImage} size = {89}></UserProfileImg>
                     <div className="hambergur_user-name">{user.userName + ' 님'}</div>
                   </React.Fragment>
                 )}

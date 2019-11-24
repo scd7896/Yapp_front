@@ -7,6 +7,7 @@ import {useSelector} from 'react-redux'
 import LoginModal from './Kim/Login/LoginModal'
 import NavBar from './NavBar'
 import ApplyModal from './Kim/ApplyModal'
+import Footer from './Footer'
 
 const AppLayOut = ({children})=>{
     const style = {
@@ -32,7 +33,7 @@ const AppLayOut = ({children})=>{
                 {children}
             </div>
             
-            <div id  = "footer"> </div>
+            <Footer/>
         </div>
     )
 }

@@ -1,27 +1,35 @@
 
 import React,{useState, useEffect} from 'react'
 import {useSelector} from 'react-redux';
-import RecruitSearch from '../componets/Kim/RecruitSearch'
-import Keyword from '../componets/Kim/Keyword'
+
 import CardView from '../componets/Park/ProjectCardView'
 
 import FindSelectbox from "../componets/FindSelectbox";
 import {SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD} from '../action'
-
-
-import{keyword} from '../dummydatas/dummyKeywords'
+import Keyword from '../componets/Kim/enrollment/atomic/Keyword'
+import keywords from '../methods/keywords'
+import axios from 'axios'
+import url from '../url'
 import '../css/kim/recruit.scss'
-const recruit = ()=>{
-    const {selects} = useSelector(state=>state.button);
-    const [cardListDatas, setCardListDatas] = useState([])
+const recruit = ({firstData})=>{
+    const {projectKeyword} = useSelector(state => state.enrollment)
+    const [isFisrt, setIsFirst] = useState(true)
+    const [cardListDatas, setCardListDatas] = useState(firstData.projects)
 
+    const getCardListByKeyword = async()=>{
+        const result = await axios.post(`${url}/projects/search`,{"keywords" : projectKeyword})
+            .catch((err) =>{alert("잠시 후에 다시 시도해주세요")})
+        console.log(result.data)
+        setCardListDatas(result.data)
+    }
     useEffect(()=>{
-        const arr = [];
-        for(let i = 0; i<12 ; i++){
-            arr.push(0)
+        if(isFisrt){
+            setIsFirst(false);
+            return;
         }
-        setCardListDatas(arr)
-    },[])
+        getCardListByKeyword()
+        
+    },[projectKeyword])
     return(
         <div id = "reqcruit_root">
             <div id = "recruit_container">
@@ -33,9 +41,9 @@ const recruit = ()=>{
                     <div id = "keyword_container">
                         <p id = "keyword_text">추천 키워드</p>
                         <div id = "keyword_card_container">
-                            {keyword.map((e,i)=>{
-                                const isSelected = selects.findIndex((el)=> el === e.name) === -1? false: true;
-                                return <Keyword data = {e} index = {i} isSelected ={isSelected} key = {i} />
+                            {keywords.map((el,i)=>{
+                                const isSelected = projectKeyword.findIndex((el)=> el === i) !== -1
+                                return <Keyword data = {el} index = {i} isSelected = {isSelected}/>
                             })}
                         </div>
                     </div>
@@ -52,6 +60,7 @@ recruit.getInitialProps =async(context)=>{
         type : SET_SELECTED_PAGES,
         data : 'recruit'
     })
-    return {}
+    const firstData = await axios.get(`${url}/projects`).catch((err)=>console.log("err남"))
+    return {firstData : firstData.data}
 }
 export default recruit;

@@ -12,14 +12,23 @@ import {
 
 import axios from "axios";
 import url from "../url";
-import { POST_PROJECT_REQUEST, POST_PROJECT_FAILURE, POST_PROJECT_SUCCESS } from "../action/enrollment";
+import { POST_PROJECT_REQUEST, POST_PROJECT_FAILURE, POST_PROJECT_SUCCESS, GET_PROJECT_REQUEST, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE } from "../action/enrollment";
 const postProjectAPI = (data)=>{
+  console.log('gggg')
   const {projectQuestion,projectNowTeam, projectImage} = data
   const dataQuestion = projectQuestion.flat()
   const dataNowTeam = projectNowTeam[0] *100 + projectNowTeam[1] * 10 + projectNowTeam[2]
   const dataFile = projectImage.file
   const formData = new FormData()
-  console.log(data)
+  const filterQuestion = [];
+  dataQuestion.map((el)=>{
+    if(el.text !== ""){
+      const data = JSON.stringify({"content" : el.text, "role": el.id})
+      filterQuestion.push(data)
+    }
+
+  })
+  
   formData.append("title", data.projectTitle)
   formData.append("content",data.projectContent)
   formData.append("role", data.projectPosition)
@@ -27,8 +36,8 @@ const postProjectAPI = (data)=>{
   formData.append("location", data.projectRegion)
   formData.append("thumbnailImage", dataFile)
   formData.append("expectedPeriod", data.projectLong)
-  formData.append("interviewQuestions",dataQuestion)
-  console.log(dataQuestion)
+  formData.append("interviewQuestions",filterQuestion)
+  
   /*
     {
   "title": "string",
@@ -45,17 +54,18 @@ const postProjectAPI = (data)=>{
   ]
 }
   */
-  // return axios.post(`${url}/projects`, formData, {
-  //   headers :{
-  //     Authorization: `bearer ${data.userToken}`
-  //   }
-  // })
+  return axios.post(`${url}/projects`, formData, {
+    headers :{
+      Authorization: `bearer ${data.userToken}`
+    }
+  })
   return {data : 1}
 }
 function * postProject(action){
   try{
-    
+    console.log(action)
     const result = yield call(postProjectAPI, action.data)
+    console.log(result.data)
     yield put({
       type : POST_PROJECT_SUCCESS,
       data : result.data
@@ -70,8 +80,29 @@ function * postProject(action){
 function * watchPostProject(){
   yield takeEvery(POST_PROJECT_REQUEST, postProject)
 }
+const getProjectAPI = (id)=>{
+  return axios.get(`${url}/projects/${id}`)
+}
+function * getProject (action){
+  try{
+    const result = yield call(getProjectAPI, action.data);
+    yield put({
+      type : GET_PROJECT_SUCCESS,
+      data : result.data
+    })
+  }catch(err){
+    yield put({
+      type : GET_PROJECT_FAILURE,
+      err : err
+    })
+  }
+}
+function * watchGetProject(){
+  yield takeEvery(GET_PROJECT_REQUEST, getProject)
+}
 export default function* enrollSaga() {
   yield all([
-    fork(watchPostProject)
+    fork(watchPostProject),
+    fork(watchGetProject)
   ]);
 }

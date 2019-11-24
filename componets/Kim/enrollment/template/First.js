@@ -8,36 +8,36 @@ import expectedPeriod from '../../../../methods/expectedPeriod'
 import step from '../../../../methods/step'
 import keywords from '../../../../methods/keywords'
 
-import Keyword from '../../Keyword'
+import Keyword from '../atomic/Keyword'
 import './css/First.scss'
 import '../../../../css/Jun/enrollment.scss'
 import Link from 'next/link'
-const First = ({projectId})=>{
+const First = ({projectId, changed})=>{
     const dispatch = useDispatch()
     const {projectTitle, projectContent, projectPosition, projectRegion, 
         projectNowTeam, projectKeyword,projectImage,
         projectLevel, projectLong} = useSelector(state=> state.enrollment)
     const [inputs, setInputs] = useState({
-        region: projectRegion!==0 ? {id : projectRegion, text : location[projectRegion-1]} :"",
-        level: projectLevel !== 0? {id : projectLevel , text : step[projectLevel/10 -1]} : "",
-        long : projectLong !== 0 ? {id : projectLong, text : expectedPeriod[projectLong-100]}:"",
+        region: projectRegion!==-1 ? {id : projectRegion, text : location[projectRegion]} :"",
+        level: projectLevel !== -1? {id : projectLevel , text : step[projectLevel]} : "",
+        long : projectLong !== -1 ? {id : projectLong, text : expectedPeriod[projectLong]}:"",
         
       });
     const locationItem = location.map((el,i)=>{
         return {
-            id : i+1,
+            id : i,
             text : el
         }
     })
     const expectedPeriodItem = expectedPeriod.map((el,i)=>{
         return{
-            id : (i+1) *10,
+            id : i,
             text : el
         }
     })
     const stepItem = step.map((el,i)=>{
         return{
-            id : i+100,
+            id : i,
             text : el
         }
     })
@@ -142,13 +142,14 @@ const First = ({projectId})=>{
                     
                     <textarea onChange = {contentChange} value = {projectContent} id="section_intro_contents" placeholder="프로젝트를 간단히 소개해주세요"></textarea>
                 </div>
-                <div className="section">
-                    <span id="section_title">진행 정보</span>
-                </div>
+                
 
 
 
             <div className="project_info">
+                <div className="section">
+                    <span id="section_title">진행 정보</span>
+                </div>
                 <div className="select_info">
                     <p>지역</p>
                     <SelectBox
@@ -326,7 +327,7 @@ const First = ({projectId})=>{
         
         <div className = "enrollment_first_bottom_container">
                 
-            <Link  href={{ pathname: '/enrollment', query: { create : 'create', level : 2, projectid : projectId} }}
+            <Link  href={{ pathname: '/enrollment', query: { create : changed ? "change": "create", level : 2, projectid : projectId} }}
                     as={`/enrollment/create/2/${projectId}`}
                     >
                 <a>

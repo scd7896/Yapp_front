@@ -1,68 +1,7 @@
-h5 {
-  margin: 0;
-}
-
-.header-container {
-  padding-top: 113px;
-  padding-bottom: 87px;
-}
-.contents-container {
-  background: #f5f7fa;
-  padding-top: 120px;
-  padding-bottom: 230px;
-}
-
-#review_title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 72px;
-
-  & h5 {
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 32px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.22;
-    letter-spacing: -1.6px;
-    text-align: left;
-    color: #000000;
-  }
-
-  & button {
-    width: 289px;
-    height: 65px;
-    border: solid 1px #5c63ff;
-    background-color: #ffffff;
-
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 22px;
-    font-weight: 400;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: -1.1px;
-    text-align: center;
-    color: #5c63ff;
-  }
-}
-
-.recommend_tag {
-  margin-top: 80px;
-  margin-bottom: 87px;
-  text-align: center;
-  & p {
-    margin: 0;
-    margin-bottom: 48px;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 28px;
-    font-weight: 340;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.21;
-    letter-spacing: -1.4px;
-    text-align: left;
-    color: #1f254b;
-  }
+.page_container{
+    padding-top : 100px;
+    background: #f5f7fa;
+    width : 100%;
+    padding-bottom : 100px;
+    
 }

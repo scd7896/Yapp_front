@@ -32,7 +32,7 @@ textarea {
   padding: 72px 5.8%;
   background-color: white;
   margin-bottom: 71px;
-
+  
   & p {
     margin-bottom: 14px;
     font-family: "Montserrat", sans-serif;
@@ -158,13 +158,12 @@ textarea {
     letter-spacing: -1.4px;
     text-align: left;
     color: #333333;
-
-    margin-right: 119px;
   }
   & .select_info {
-    width : 50%;
+    width : 350px;
     display: flex;
     justify-content: space-between;
+
   }
   .select_info + .select_info {
     margin-top: 49.5px;
