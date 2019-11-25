@@ -17,6 +17,7 @@ const ApplyModal = () => {
   const { postId } = useSelector(state => state.apply);
   const { userToken } = useSelector(state => state.user)
   const [question, setQuestion] = useState(null);
+  const [portfolios, setPortfolios] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   let modalContainer;
@@ -30,7 +31,7 @@ const ApplyModal = () => {
       case 1:
         return <ApplyFirst question={question}></ApplyFirst>;
       case 2:
-        return <ApplySecond></ApplySecond>;
+        return <ApplySecond portfolios={portfolios}></ApplySecond>;
     }
   };
 
@@ -53,17 +54,24 @@ const ApplyModal = () => {
       // 요청이 시작 할 때에는 error 와 users 를 초기화하고
       setError(null);
       setQuestion(null);
+      setPortfolios(null);
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
 
       if (apply.postId != null) {
+        const responseUser = await axios.get(
+          `${url}/user/portfolios`, {
+          headers: {
+            Authorization: `bearer ${userToken}`
+          }
+        });
 
         const response = await axios.get(
           `${url}/projects/${apply.postId}/question`
         );
 
 
-        console.dir(response.data.interviewQuestions);
+        console.dir(responseUser.data);
         setQuestion(response.data.interviewQuestions); // 데이터는 response.data 안에 들어있습니다.
       }
 

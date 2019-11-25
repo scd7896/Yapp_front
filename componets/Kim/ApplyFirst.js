@@ -4,7 +4,6 @@ import DropDown from "react-dropdown";
 import SelectBox from "../Jun/SelectBox";
 import ModalInput from "../Jun/ModalInput";
 import Question from "./ApplyModalComponents/Question";
-import { qeustions } from "../../dummydatas/dummyQuestion";
 import "../../css/kim/componentcss/ApplyFirst.scss";
 import "react-dropdown/style.css";
 import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from "../../action";
@@ -46,7 +45,7 @@ const ApplyFirst = ({ question }) => {
 
   const positionChange = e => {
     const list = document.querySelector("#first_modal_qna_container");
-    const length = qeustions.filter(e => e.position === selectPosition).length;
+    const length = qeustion.filter(e => e.position === selectPosition).length;
     for (let i = 0; i < length; i++) {
       const answer = list.childNodes[i].querySelector(
         "#qustion_to_answer_input"
@@ -65,24 +64,24 @@ const ApplyFirst = ({ question }) => {
     dispatch({
       type: NEXT_APPLY_MODAL
     });
-    listTest();
+    //listTest();
   };
-  const listTest = () => {
-    const list = document.querySelector("#first_modal_qna_container");
-    const length = qeustions.filter(e => e.position === selectPosition).length;
-    const writeAnswers = [];
-    for (let i = 0; i < length; i++) {
-      const answer = list.childNodes[i].querySelector(
-        "#qustion_to_answer_input"
-      ).value;
-      writeAnswers.push(answer);
-    }
-    dispatch({
-      type: SET_APPLYQNA_DATA,
-      position: selectPosition,
-      answers: writeAnswers
-    });
-  };
+  // const listTest = () => {
+  //   const list = document.querySelector("#first_modal_qna_container");
+  //   const length = qeustion.filter(e => e.position === selectPosition).length;
+  //   const writeAnswers = [];
+  //   for (let i = 0; i < length; i++) {
+  //     const answer = list.childNodes[i].querySelector(
+  //       "#qustion_to_answer_input"
+  //     ).value;
+  //     writeAnswers.push(answer);
+  //   }
+  //   dispatch({
+  //     type: SET_APPLYQNA_DATA,
+  //     position: selectPosition,
+  //     answers: writeAnswers
+  //   });
+  // };
 
   const [inputs, setInputs] = useState({
     job: {
@@ -139,7 +138,7 @@ const ApplyFirst = ({ question }) => {
         />
         <div className="questionList">
           <ul>
-            {dummyqeustions
+            {question
               .filter((el) => {
                 return (el.sn === 0 || el.sn === job.id)
               })
