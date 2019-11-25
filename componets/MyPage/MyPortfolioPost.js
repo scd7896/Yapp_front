@@ -76,7 +76,7 @@ class MyPortfolioPost extends React.Component{
         }
 
         this.fileFormData = new FormData();
-        this.fileFormData.append('thumbnailImage', fileList[0]);
+        this.fileFormData.append('portfolioImage', fileList[0]);
 
         
     }
@@ -99,10 +99,6 @@ class MyPortfolioPost extends React.Component{
             "attachFile": this.state.link
         };
         */
-
-        
-        this.fileFormData.forEach((v,k) => data[v]  = k);
-
         
         var fileFormData = this.fileFormData;
         fileFormData.append('title',this.state.title);
@@ -115,9 +111,7 @@ class MyPortfolioPost extends React.Component{
         return fetch(baseURL + '/mypage/portfolio',{
             headers : {
                 
-                'Authorization' : 'bearer ' + userToken,
-                'accpet'  : 'application/json',
-                'Content-Type' : 'application/json'
+                'Authorization' : 'bearer ' + userToken
             },
             'method' : "POST",
             'body' : fileFormData
