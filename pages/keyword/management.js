@@ -4,7 +4,7 @@ import cookies from 'next-cookies'
 import KeywordBorder from '../../componets/Kim/KeywordBorder'
 import '../../css/container.scss'
 import '../../css/kim/keyword_management.scss'
-import {keywordAllLists} from '../../dummydatas/dummyKeywords'
+import keywordAllLists from '../../methods/keywords'
 import { DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST, GET_KEYWORDS_REQUEST } from '../../action'
 
 const management = ()=>{
@@ -52,9 +52,9 @@ const management = ()=>{
                         <div style = {{marginTop : "50px"}}>
                             {keywordAllLists.map((el, i)=>{
                                 
-                                const check = selectList.findIndex((list)=> list === el.id)
+                                const check = selectList.findIndex((list)=> list === i)
                                 
-                                return <KeywordBorder data = {el} isSelected = {check === -1? false : true} key = {i}/>
+                                return <KeywordBorder name = {el} isSelected = {check === -1? false : true} key = {i}  id = {i}/>
                             })}
                         </div>
                     </div>

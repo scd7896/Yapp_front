@@ -8,6 +8,10 @@ import steps from '../../methods/step';
 import roles from  '../../methods/role';
 import locations from '../../methods/location'
 
+import {useSelector} from 'react-redux'
+
+import FavoriteButton from '../Park/FavoriteButton'
+
 const ProjectCardView = props => {
 
   var jobgroup_main = "JOBGROUP_MAIN",
@@ -16,6 +20,9 @@ const ProjectCardView = props => {
     region = "REGION",
     time = "TIME";
 
+  var rolesArr = []; 
+  var rolesComponent = null;
+
   var title = (props.project ? props.project.title : '');
   
   if (props != undefined && props.project != undefined) {
@@ -23,13 +30,33 @@ const ProjectCardView = props => {
     time = getTimeDiff(props.project.createAt);
     step = steps[props.project.step]
     title = props.project.title;
-    role = roles[props.project.role];
-  }
-  const moveToDetailPage = ()=>{
-    if(props.project){
-      Router.push('/detail/' + props.project.projectId);
+    role = props.project.role;
+    console.log('??? ' + role , (role & 4)  == 4)
+    
+    if((role & 1)  == 1){
+      rolesArr.push(roles[0]);
     }
+    if((role & 2)  == 2){
+      rolesArr.push(roles[1]);
+    }
+    if((role & 4)  == 4){
+      rolesArr.push(roles[2]);
+    }
+
+    rolesComponent = rolesArr.map(role => <ProjectJobGroup jobgroup = {role} size ="small"/>)
+
   }
+
+  var {user} = useSelector(state => state);
+
+  if(user.isLogging){
+    
+  }
+
+  function handleClickFavorite(){
+
+  }
+
   return (
  
       <div className="project-cardview">
@@ -40,7 +67,7 @@ const ProjectCardView = props => {
           src="https://www.10wallpaper.com/wallpaper/medium/1909/2019_Planetary_Nebula_Clouds_4K_Universe_medium.jpg"
         ></img>
         <div className="project-cardview-contents">
-          <ProjectJobGroup jobgroup = {jobgroup_main}/>
+          {rolesComponent}
 
           <div className="project-cardview-main">{title}</div>
           <div className="project-cardview-step">{step}</div>
@@ -48,9 +75,9 @@ const ProjectCardView = props => {
           <div className="project-cardview-time">
             {time}
             <div className="project-cardview-detail">
-              <img
-                className="project-cardview-icon"
-                src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/16E3DB23-AD22-4AA7-99C8-8D692461CA17.svg"
+              <FavoriteButton 
+                onClick = {handleClickFavorite}
+                toggle = {false}
               />
             </div>
           </div>
