@@ -2,18 +2,19 @@
     text-align: left;
     width : 100%;
     margin-top : 23px;
-    
+
 }
 #modal_position_selector_title{
     font-family: 'Montserrat';
-    font-size: 36px;
-    font-weight: 300;
-    font-style: normal;
+    font-size: 24px;
+    font-weight: normal;
     font-stretch: normal;
-    line-height: 1.22;
-    letter-spacing: -1.8px;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -1.2px;
     text-align: left;
     color: #333333;
+
 }
 
 #modal_most_select_icon{
@@ -133,5 +134,64 @@
 }
 
 .modal-title{
-    margin-bottom:32px;
+    margin-bottom:22px;
+}
+
+.questionList{
+    & .question_container{
+        margin-top:40px;
+    }
+    & #questionQ{
+        font-family: "RedHatDisplay";
+        font-size: 28px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.36;
+        letter-spacing: -1.4px;
+        text-align: left;
+        color: #1f254b;
+    }
+    & #questionNum{
+        font-family: "RedHatDisplay";
+        font-size: 28px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.36;
+        letter-spacing: -1.4px;
+        text-align: left;
+        color: #4244ff;
+    }
+    & #questionContent{
+        margin-left:26px;
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 24px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: -1.2px;
+        text-align: left;
+        color: #333333;
+    }
+    & #Redstar{
+        margin-left:12px;
+        font-family: "RedHatDisplay";
+        font-size: 24px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: -1.8px;
+        text-align: left;
+        color: #ff3e85;
+    }
+}
+
+li{
+    list-style: none;
+}
+ul{
+    padding:0;
 }

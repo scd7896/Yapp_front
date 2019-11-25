@@ -1,5 +1,0 @@
-export const ANDROID = "ANDROID"
-export const IOS = "iOS"
-export const UI_UX = "UI/UX"
-export const DESIGN = "디자인"
-export const WEB = "웹서비스"

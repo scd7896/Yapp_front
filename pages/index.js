@@ -20,8 +20,9 @@ import PostCardView from "../componets/Park/PostCardView";
 import HigherOrderCardView from "../componets/Park/HigherOrederCardVIew";
 import ProjectSection from "../componets/Park/ProjectSection";
 import "../css/container.scss";
+import baseURL from '../url'
+import {useState} from 'react'
 
-import { keywordSearch } from "../dummydatas/dummyKeywords";
 import { SET_SELECTED_PAGES, GET_MYDATA_REQUEST } from "../action";
 const Index = (props) => {
   /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
@@ -30,12 +31,34 @@ const Index = (props) => {
   var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
   const dispatch = useDispatch()
   var {user} = useSelector(state => state)
+  var [keywords, setKeywords] = useState([])
   useEffect(()=>{
     // dispatch({
     //   type : GET_MYDATA_REQUEST,
     //   data : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTc0MDA3NDc0fQ.NT0cRRB_YYyjEU_BYeVvt1hspiiyNQ2LJJi3GJMzZVA'
     // })
   })
+
+  useEffect(() => {
+    fetch(baseURL + '/user/keywords', {
+      headers : {
+        Authorization : "bearer " + user.userToken,
+        'accept' : 'application/json',
+        'Content-Type' : 'application/json'
+      },
+      method : 'GET'
+    }).then(res => {
+      if(res.ok){
+        return res.json()
+      }
+    }).then(res => {
+      //setKeywords(res);
+    })
+  }, [user])
+
+  
+
+
   return (
     <div>
       <div id="index_root">
@@ -104,11 +127,11 @@ const Index = (props) => {
                 <p id="post_text_head">관심 키워드로 보기</p>
               </div>
               <div id="keyword_list_box_container">
-                {keywordSearch
-                  ? keywordSearch.map((e, i) => {
-                      return <KeywordSearch data={e} key={i} selected = {true} />;
+                { 
+                  keywords.map(keyword => {
+                      return <KeywordSearch data={keyword} key={keyword.id} selected = {true} />;
                     })
-                  : ""}
+                }
               </div>
             </div>) : null
           }

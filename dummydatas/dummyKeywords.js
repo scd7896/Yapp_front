@@ -1,4 +1,4 @@
-import { IOS, ANDROID, UI_UX, DESIGN, WEB } from "../componets/icons/name"
+
 
 export const keyword = [
     {

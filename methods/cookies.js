@@ -17,7 +17,7 @@ function setCookie(cookie_name, value, days) {
 	exdate.setDate(exdate.getDate() + days);
 
 	var cookie_value = escape(value) + ((days == null) ? '' : ';    expires=' + exdate.toUTCString());
-	document.cookie = cookie_name + '=' + cookie_value;
+	document.cookie = cookie_name + '=' + cookie_value + '; Path=/';
 }
 
 function deleteCookie( name ) {

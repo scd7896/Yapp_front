@@ -77,6 +77,10 @@ const profile = ()=>{
             },
             method : 'PUT',
             body : fileFormData
+        }).then(res => {
+            if(res.ok){
+                Router.push('/mypage');
+            }
         })
     }
 

@@ -20,6 +20,7 @@
       margin-left: 3.5%;
     }
   }
+  position: relative;
 }
 .CardView-Section  .project-cardview{
   margin-left : 0 !important;
@@ -36,6 +37,16 @@
   height: 135px;
   object-fit: cover;
 }
+
+.project-cardview-contents .jobgroup{
+  display: inline-block;
+  margin-right: 4.9%;;
+  
+}
+.project-cardview-contents .jobgroup:nth-child(3){
+  margin-right: 0;
+}
+
 .jobgroup {
   text-align: left;
   height: 29px;
@@ -100,6 +111,25 @@
   vertical-align: text-top;
 }
 
+.jobgroup-small .jobgroup-circle{
+  width: 12px;
+  height: 12px;
+  margin-top : 8px;
+}
+
+.jobgroup-small .jobgroup-main{
+  height: 27px;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -1.5px;
+  text-align: left;
+  color: #333333;
+  margin-left : 6px;
+}
+
 .jobgroup-big .jobgroup-circle{
   margin-top : 18px;
 }
@@ -114,12 +144,13 @@
   letter-spacing: -1.5px;
   text-align: left;
   color: #333333;
+  
 }
 
 .project-cardview-main {
-  height: 29px;
+  height: 36px;
   font-family: "Noto Sans KR";
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -128,16 +159,17 @@
   text-align: left;
   color: #333333;
 
-  margin-top: 39px;
+  margin-top: 26px;
 }
 .project-cardview-contents {
   margin: 0 32px;
   padding: 22px 0px;
+  text-align: left;
 }
 .project-cardview-step {
-  height: 24px;
+  height: 27px;
   font-family: "Noto Sans KR";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -146,12 +178,12 @@
   text-align: left;
   color: #666666;
 
-  margin-top: 8px;
+  margin-top: 12px;
 }
 .project-cardview-region {
-  height: 24px;
+  height: 27px;
   font-family: "Noto Sans KR";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -159,7 +191,7 @@
   letter-spacing: normal;
   text-align: left;
   color: #666666;
-  margin-top: 4px;
+  margin-top: 1px;
 }
 .project-cardview-time {
   display: flex;
@@ -175,16 +207,24 @@
   text-align: left;
   color: #666666;
 
-  margin-top: 70px;
+  margin-top: 58px;
 }
 .project-cardview-detail {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 14.28%;
+  padding-top : 14.28%;
   background-color: #f4f4f8;
-  border-radius: 25px;
+  border-radius: 100%;
+  position: relative;
+}
+.project-cardview-detail .favorite-button-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .project-cardview-detail img {
   width: 12px;

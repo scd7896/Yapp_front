@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DropDown from "react-dropdown";
 import SelectBox from "../Jun/SelectBox";
+import ModalInput from "../Jun/ModalInput";
 import Question from "./ApplyModalComponents/Question";
 import { qeustions } from "../../dummydatas/dummyQuestion";
 import "../../css/kim/componentcss/ApplyFirst.scss";
@@ -15,8 +16,16 @@ const dummyqeustions = [
     content: '공통질문입니다~!'
   },
   {
+    sn: 0,
+    content: '공통질문2입니다~!'
+  },
+  {
     sn: 1,
     content: '기획자 질문입니다~!'
+  },
+  {
+    sn: 1,
+    content: '기획자 질문2입니다~!'
   },
   {
     sn: 2,
@@ -92,6 +101,7 @@ const ApplyFirst = ({ question }) => {
     });
   };
 
+  let count = 1;
   return (
     <div id="first_modal_contents_container">
       <div id="first_modal_head_container">
@@ -132,18 +142,25 @@ const ApplyFirst = ({ question }) => {
           inputs={inputs}
           onClick={onClick}
         />
+        <div className="questionList">
+          <ul>
+            {dummyqeustions
+              .filter((el) => {
+                return (el.sn === 0 || el.sn === job.id)
+              })
+              .map(user => (
+                <>
+                  <li className="question_container">
+                    <span id="questionQ">Q</span><span id="questionNum">{count++}</span>
+                    <span id="questionContent">{user.content}</span>
+                  </li>
+                  <ModalInput />
+                </>
+              ))}
+          </ul>
 
-        <ul>
-          {dummyqeustions
-            .filter((el) => {
-              return (el.sn === 0 || el.sn === job.id)
-            })
-            .map(user => (
-              <li>
-                {user.content}
-              </li>
-            ))}
-        </ul>
+
+        </div>
 
 
 
