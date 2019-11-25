@@ -108,67 +108,74 @@ const ApplyModal = () => {
 
               <div id="modal_body_container">
                 <div id="StartToEnd">
-                  <span
-                    className={
-                      applyModalLevel >= 1
-                        ? "modal_body_top_number"
-                        : "modal_top_not_select"
-                    }
-                  >
-                    <span id="flexNum">1</span>
+                  <div className="flexColumn">
+                    <span
+                      className={
+                        applyModalLevel >= 1
+                          ? "modal_body_top_number"
+                          : "modal_top_not_select"
+                      }
+                    >
+                      <span id="flexNum">1</span>
+                    </span>
+                    <span
+                      id="modal_section_one_question"
+                      className={
+                        applyModalLevel >= 1
+                          ? "section_text_color_selected"
+                          : "section_text_color_noselected"
+                      }
+                    >
+                      지원자님께 질문
                   </span>
+                  </div>
+
                   <div className="modal_body_top_line"></div>
-                  <span
-                    className={
-                      applyModalLevel >= 2
-                        ? "modal_body_top_number"
-                        : "modal_top_not_select"
-                    }
-                  >
-                    <span id="flexNum">2</span>
+                  <div className="flexColumn">
+                    <span
+                      className={
+                        applyModalLevel >= 2
+                          ? "modal_body_top_number"
+                          : "modal_top_not_select"
+                      }
+                    >
+                      <span id="flexNum">2</span>
+                    </span>
+                    <span
+                      id="modal_section_second_question"
+                      className={
+                        applyModalLevel >= 2
+                          ? "section_text_color_selected"
+                          : "section_text_color_noselected"
+                      }
+                    >
+                      이력뽐내기
                   </span>
+                  </div>
+
                   <div className="modal_body_top_line"></div>
-                  <span
-                    className={
-                      applyModalLevel === 3
-                        ? "modal_body_top_number"
-                        : "modal_top_not_select"
-                    }
-                  >
-                    <span id="flexNum">3</span>
+                  <div className="flexColumn">
+                    <span
+                      className={
+                        applyModalLevel === 3
+                          ? "modal_body_top_number"
+                          : "modal_top_not_select"
+                      }
+                    >
+                      <span id="flexNum">3</span>
+                    </span>
+                    <span
+                      id="modal_section_third_completed"
+                      className={
+                        applyModalLevel === 3
+                          ? "section_text_color_selected"
+                          : "section_text_color_noselected"
+                      }
+                    >
+                      지원완료
                   </span>
-                </div>
-                <div id="modal_section_question_container">
-                  <span
-                    id="modal_section_one_question"
-                    className={
-                      applyModalLevel >= 1
-                        ? "section_text_color_selected"
-                        : "section_text_color_noselected"
-                    }
-                  >
-                    지원자님께 질문
-                  </span>
-                  <span
-                    id="modal_section_second_question"
-                    className={
-                      applyModalLevel >= 2
-                        ? "section_text_color_selected"
-                        : "section_text_color_noselected"
-                    }
-                  >
-                    이력뽐내기
-                  </span>
-                  <span
-                    id="modal_section_third_completed"
-                    className={
-                      applyModalLevel === 3
-                        ? "section_text_color_selected"
-                        : "section_text_color_noselected"
-                    }
-                  >
-                    지원완료
-                  </span>
+                  </div>
+
                 </div>
 
                 <div>{renderModal(applyModalLevel)}</div>
