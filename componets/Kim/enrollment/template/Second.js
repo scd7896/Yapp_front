@@ -6,6 +6,7 @@ import '../../../../css/Jun/enrollment.scss'
 import './css/Second.scss'
 import Router from 'next/router'
 import { POST_PROJECT_REQUEST } from '../../../../action/enrollment'
+
 const Second = ({projectId, changed})=>{
     const positionArr = ["직군공통", "기획자", "개발자", "디자이너"]
     const idArr = [0,1,2,4]
