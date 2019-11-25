@@ -34,7 +34,7 @@ const user = (state = initialState, action) => {
     switch (action.type) {
 
       case GET_MYDATA_SUCCESS:
-        console.log(action)
+        
         draft.userToken = action.userToken;
         draft.userId = action.userId;
         draft.userEmail = action.userEmail;
@@ -100,7 +100,7 @@ const user = (state = initialState, action) => {
         draft.isLogging = true; 
         break;
       case USER_JOIN_FAILURE :
-        console.log(action)
+        
         draft.nowLogging = false;
         draft.loginFail = true;
         draft.isLogging = false;

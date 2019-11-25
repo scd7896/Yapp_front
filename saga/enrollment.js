@@ -14,7 +14,7 @@ import axios from "axios";
 import url from "../url";
 import { POST_PROJECT_REQUEST, POST_PROJECT_FAILURE, POST_PROJECT_SUCCESS, GET_PROJECT_REQUEST, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE } from "../action/enrollment";
 const postProjectAPI = (data)=>{
-  console.log('gggg')
+  
   const {projectQuestion,projectNowTeam, projectImage} = data
   const dataQuestion = projectQuestion.flat()
   const dataNowTeam = projectNowTeam[0] *100 + projectNowTeam[1] * 10 + projectNowTeam[2]
@@ -36,8 +36,9 @@ const postProjectAPI = (data)=>{
   formData.append("location", data.projectRegion)
   formData.append("thumbnailImage", dataFile)
   formData.append("expectedPeriod", data.projectLong)
-  formData.append("interviewQuestions",filterQuestion)
-  
+  // formData.append("interviewQuestions",filterQuestion)
+  formData.append("currentMember" , dataNowTeam)
+  formData.append("keywords", data.projectKeyword)
   /*
     {
   "title": "string",
@@ -63,9 +64,9 @@ const postProjectAPI = (data)=>{
 }
 function * postProject(action){
   try{
-    console.log(action)
+    
     const result = yield call(postProjectAPI, action.data)
-    console.log(result.data)
+    
     yield put({
       type : POST_PROJECT_SUCCESS,
       data : result.data
