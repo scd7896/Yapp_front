@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../../lib/react-awesome-modal/lib/index";
 import { useSelector, useDispatch } from "react-redux";
-import axios from 'axios';
+import axios from "axios";
 import ApplyCompleted from "./ApplyCompleted";
 import ApplyFirst from "./ApplyFirst";
 import ApplySecond from "./ApplySecond";
 import "../../css/container.scss";
 import "../../css/kim/componentcss/ApplyModal.scss";
-import { CLOSE_APPLY_MODAL, GET_MYPORTFOLIO_REQUEST, GET_QUESTION_REQUEST } from "../../action";
+import {
+  CLOSE_APPLY_MODAL,
+  GET_MYPORTFOLIO_REQUEST,
+  GET_QUESTION_REQUEST
+} from "../../action";
 import url from "../../url";
 
 const ApplyModal = () => {
@@ -15,8 +19,9 @@ const ApplyModal = () => {
   var { apply } = useSelector(state => state);
   const { applyModalLevel, visible } = useSelector(state => state.button);
   const { postId } = useSelector(state => state.apply);
-  const { userToken } = useSelector(state => state.user)
+  const { userToken } = useSelector(state => state.user);
   const [question, setQuestion] = useState(null);
+  const [portfolios, setPortfolios] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   let modalContainer;
@@ -30,7 +35,7 @@ const ApplyModal = () => {
       case 1:
         return <ApplyFirst question={question}></ApplyFirst>;
       case 2:
-        return <ApplySecond></ApplySecond>;
+        return <ApplySecond portfolios={portfolios}></ApplySecond>;
     }
   };
 
@@ -38,36 +43,39 @@ const ApplyModal = () => {
     dispatch({
       type: GET_QUESTION_REQUEST,
       data: postId
-    })
+    });
     dispatch({
       type: GET_MYPORTFOLIO_REQUEST,
       data: userToken
-    })
+    });
   }, []);
 
-  //========================================Question List 가져오기 
-
+  //========================================Question List 가져오기
 
   const fetchQuestion = async () => {
     try {
       // 요청이 시작 할 때에는 error 와 users 를 초기화하고
       setError(null);
       setQuestion(null);
+      setPortfolios(null);
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
 
       if (apply.postId != null) {
+        const responseUser = await axios.get(`${url}/user/portfolios`, {
+          headers: {
+            Authorization: `bearer ${userToken}`
+          }
+        });
 
         const response = await axios.get(
           `${url}/projects/${apply.postId}/question`
         );
 
-
-        console.dir(response.data.interviewQuestions);
+        console.dir(responseUser.data);
+        setPortfolios(responseUser.data.portfolios);
         setQuestion(response.data.interviewQuestions); // 데이터는 response.data 안에 들어있습니다.
       }
-
-
     } catch (e) {
       setError(e);
     }
@@ -82,7 +90,6 @@ const ApplyModal = () => {
   if (error) return <div>에러가 발생했습니다</div>;
   if (!question) return null;
   //===============================================================================
-
 
   return (
     <div className="container">
@@ -100,9 +107,11 @@ const ApplyModal = () => {
                   <p id="modal_title_text">프로젝트 지원하기</p>
                 </span>
                 <span>
-                  <p id="modal_cancle_button" onClick={closeModal}>
-                    <img src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/FEF83BDA-4E98-497A-9456-B1E169BDD060.svg"></img>
-                  </p>
+                  <img
+                    id="modal_cancle_button"
+                    onClick={closeModal}
+                    src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/FEF83BDA-4E98-497A-9456-B1E169BDD060.svg"
+                  ></img>
                 </span>
               </div>
 
@@ -127,7 +136,7 @@ const ApplyModal = () => {
                       }
                     >
                       지원자님께 질문
-                  </span>
+                    </span>
                   </div>
 
                   <div className="modal_body_top_line"></div>
@@ -150,7 +159,7 @@ const ApplyModal = () => {
                       }
                     >
                       이력뽐내기
-                  </span>
+                    </span>
                   </div>
 
                   <div className="modal_body_top_line"></div>
@@ -173,17 +182,16 @@ const ApplyModal = () => {
                       }
                     >
                       지원완료
-                  </span>
+                    </span>
                   </div>
-
                 </div>
 
                 <div>{renderModal(applyModalLevel)}</div>
               </div>
             </div>
           ) : (
-              <ApplyCompleted />
-            )}
+            <ApplyCompleted />
+          )}
           <div id="apply_head_modal_blank"></div>
         </div>
       </Modal>

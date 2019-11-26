@@ -1,19 +1,13 @@
 .selectbox {
-  display: inline;
-  
-  //position: relative;
   cursor: pointer;
+  width: 466px;
+  margin-right: -77px;
 }
 .select_default {
   z-index: 10010;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  text-align: left;
-  color: #b9b9b9;
-  font-stretch: normal;
-  font-style: normal;
 
   &.under {
     padding: 0 5px;
@@ -21,21 +15,28 @@
     height: 44px;
     border-bottom: solid #b9b9b9 0.8px;
     font-size: 28px;
-    
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    text-align: left;
+    color: #b9b9b9;
+
     line-height: 44px;
-    overflow:hidden;
+    overflow: hidden;
     & span {
       padding: 0 10px;
     }
   }
 
   &.full {
-    align-items: center;
     padding: 0 25px;
     width: 466px;
-    height: 96px;
+    height: 74px;
     border: solid #b9b9b9 0.8px;
-    font-size: 32px;
+    font-size: 24px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    text-align: left;
+    color: #b9b9b9;
     line-height: 1.22;
     letter-spacing: -1.6px;
   }
@@ -79,9 +80,9 @@
     }
   }
   &.full {
-    position :absolute;
+    position: absolute;
     border: solid 1px #b9b9b9;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
@@ -89,7 +90,7 @@
     letter-spacing: -1.6px;
     & div {
       padding: 30px 25px;
-      min-width: 466px;
+      width: 466px;
       transition: 0.5s;
       border-top: solid 0.5px #e5e5e5;
     }
@@ -103,6 +104,6 @@
 .potatoBox {
   z-index: 10012;
 }
-.selectBoxRelative{
+.selectBoxRelative {
   position: relative;
 }
