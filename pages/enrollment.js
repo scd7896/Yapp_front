@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
 
-import axios from "axios";
+
 
 import First from '../componets/Kim/enrollment/template/First'
 import LevelContainer from '../componets/Kim/enrollment/blockcontainer/LevelContainer'
 import Router from "next/router";
 import Second from "../componets/Kim/enrollment/template/Second";
 import Third from '../componets/Kim/enrollment/template/Third'
+import {useDispatch} from 'react-redux'
 import { GET_PROJECT_REQUEST } from "../action/enrollment";
 const enrollment = ({lev,id, changed}) => {
-  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(changed){
+      dispatch({
+        type : GET_PROJECT_REQUEST,
+        data : parseInt(id)
+      })
+    }
+    
+  }, [])
   return (
     <div >
       <div style={{ background: "#ffffff", marginBottom: "100px" }}>
@@ -44,11 +54,6 @@ enrollment.getInitialProps = async (ctx) => {
     return { lev: ctx.query.level, id: ctx.query.projectid, changed : false }
   } else if (create === "change") {
 
-    //프로젝트 게시물 가져와버리기
-    ctx.store.dispatch({
-      type : GET_PROJECT_REQUEST,
-      data : ctx.query.projectid
-    })
     return{lev : ctx.query.level, id : ctx.query.projectid, changed : true }
   }else{
     if (ctx.res) {

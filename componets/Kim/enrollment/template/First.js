@@ -328,7 +328,7 @@ const First = ({projectId, changed})=>{
         <div className = "enrollment_first_bottom_container">
                 
             <Link  href={{ pathname: '/enrollment', query: { create : changed ? "change": "create", level : 2, projectid : projectId} }}
-                    as={`/enrollment/create/2/${projectId}`}
+                    as={`/enrollment/${changed? "change" : "create"}/2/${projectId}`}
                     >
                 <a>
                     <div className = "enrollment_first_bottom_next" onClick = {nextMove}>
