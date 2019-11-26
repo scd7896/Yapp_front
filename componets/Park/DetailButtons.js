@@ -8,8 +8,6 @@ export default function DetailButtons(props){
     const dispatch = useDispatch();
     const { user } = useSelector(state => state);
 
-    console.log(user);
-
     const openApplyModal = ()=>{
         dispatch({
             type : OPEN_APPLY_MODAL,
@@ -34,8 +32,6 @@ export default function DetailButtons(props){
             openApplyModal()
         }
     }
-
-    console.log(user.userId != '' && props.projectUserId != '' && user.userId == props.projectUserId)
 
     return !(user.userId != '' && props.projectUserId != '' && user.userId == props.projectUserId) ? (
         <div className = 'detail-button-flex'>
