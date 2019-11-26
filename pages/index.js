@@ -41,21 +41,24 @@ const Index = (props) => {
   })
 
   useEffect(() => {
-    fetch(baseURL + '/user/keywords', {
-      headers : {
-        Authorization : "bearer " + user.userToken,
-        'accept' : 'application/json',
-        'Content-Type' : 'application/json'
-      },
-      method : 'GET'
-    }).then(res => {
-      if(res.ok){
-        return res.json()
-      }
-    }).then(res => {
-      setKeywords(res.keywords);
-      console.log(res.keywords);
-    })
+    if(user.userToken != ''){
+      fetch(baseURL + '/user/keywords', {
+        headers : {
+          Authorization : "bearer " + user.userToken,
+          'accept' : 'application/json',
+          'Content-Type' : 'application/json'
+        },
+        method : 'GET'
+      }).then(res => {
+        if(res.ok){
+          return res.json()
+        }
+      }).then(res => {
+        setKeywords(res.keywords);
+        console.log(res.keywords);
+      })
+    }
+
   }, [user])
 
   
