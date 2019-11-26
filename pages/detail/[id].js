@@ -79,7 +79,16 @@ detailRouter.getInitialProps = async function (ctx) {
         }
     }
 
-    data.projectId = projectId;
+    data.projectId = projectId; 
+    try{
+        const te = await fetch(`${baseURL}/${projectId}/viewCnt`,{
+            method : 'PATCH'
+        })
+        console.log(te.data);
+    }catch(err){
+        console.log(err)
+        return data
+    }
 
     return data;
 }

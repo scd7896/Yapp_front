@@ -4,9 +4,10 @@ import './css/Third.scss'
 import Router from 'next/router'
 import {useSelector} from 'react-redux'
 const Third = ()=>{
-    const {resId} = useSelector(state=> state.enrollment)
+    const {resId} = useSelector(state => state.enrollment)
     const goToDetail = ()=>{
-        Router.push(`/detail/1`)
+        console.log(resId)
+        Router.push(`/detail/${resId}`)
     }
     return(
         <div className = "enroll_container">

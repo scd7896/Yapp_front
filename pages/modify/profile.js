@@ -32,7 +32,7 @@ const profile = ()=>{
     const onClick = e => {
         const { name, value } = e;
         setRegion(value.id);
-        console.log(region);
+        
     };  
 
     function handleFileChange(event){
@@ -61,6 +61,7 @@ const profile = ()=>{
         }
     }
 
+
     function registerProfile(){
         var fileFormData = new FormData();
         fileFormData.append('avatar', imgFile);   
@@ -76,6 +77,10 @@ const profile = ()=>{
             },
             method : 'PUT',
             body : fileFormData
+        }).then(res => {
+            if(res.ok){
+                Router.push('/mypage');
+            }
         })
     }
 

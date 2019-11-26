@@ -19,7 +19,6 @@ const recruit = ({firstData})=>{
     const getCardListByKeyword = async()=>{
         const result = await axios.post(`${url}/projects/search`,{"keywords" : projectKeyword})
             .catch((err) =>{alert("잠시 후에 다시 시도해주세요")})
-        console.log(result.data)
         setCardListDatas(result.data)
     }
     useEffect(()=>{
