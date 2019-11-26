@@ -3,7 +3,7 @@ import React from "react";
 import "../../css/kim/componentcss/KeywordSearch.scss";
 import Icons from '../icons/index'
 import keyword from '../../methods/keywords'
-const KeywordSearch = ({ id,  count, selected }) => {
+const KeywordSearch = ({data, selected }) => {
   return (
     <div id="keyword_search">
       <div id="keyword_container">

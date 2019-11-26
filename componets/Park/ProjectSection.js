@@ -3,6 +3,7 @@ import ProjectCardView from "../../componets/Park/ProjectCardView";
 import "../../css/container.scss";
 
 import "../../css/kim/index.scss";
+import Router from 'next/router'
 
 export default class ProjectSection extends React.Component {
   constructor(props) {
@@ -26,6 +27,9 @@ export default class ProjectSection extends React.Component {
       var oldData = JSON.parse(JSON.stringify(this.state.data));
       var newData = oldData.concat(this.props.projects.slice(6,12));
       this.setState({ data: newData });
+    }
+    else{
+     Router.push('/recruit')
     }
 
   }

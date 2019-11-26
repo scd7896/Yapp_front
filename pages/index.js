@@ -24,6 +24,7 @@ import baseURL from '../url'
 import {useState} from 'react'
 
 import { SET_SELECTED_PAGES, GET_MYDATA_REQUEST } from "../action";
+import  Router  from "next/router";
 const Index = (props) => {
   /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
@@ -52,7 +53,8 @@ const Index = (props) => {
         return res.json()
       }
     }).then(res => {
-      //setKeywords(res);
+      setKeywords(res.keywords);
+      console.log(res.keywords);
     })
   }, [user])
 
@@ -104,7 +106,7 @@ const Index = (props) => {
             <p id="post_text_head">최신등록 모집글</p>
             <div id="post_text_sub_container">
               <span id="post_text_sub">더 많은 모집글을 만나보세요</span>
-              <div className = "post-more-button">
+              <div className = "post-more-button" onClick = {() => Router.push('/recruit')}>
                 <span id="post_text_more">더보기</span>
                 <div className = "post-more-svg">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18.058" height="6.469" viewBox="0 0 18.058 6.469">

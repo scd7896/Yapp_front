@@ -31,8 +31,7 @@ const ProjectCardView = props => {
     step = steps[props.project.step]
     title = props.project.title;
     role = props.project.role;
-    console.log('??? ' + role , (role & 4)  == 4)
-    
+
     if((role & 1)  == 1){
       rolesArr.push(roles[0]);
     }
@@ -57,6 +56,11 @@ const ProjectCardView = props => {
 
   }
 
+  var imgURLs = [
+    "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/739156FF-863D-4DD0-8588-5F88CA758C4D.png",
+    "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/CEBCE4E5-38C2-4A61-9979-13E59971FA6F.png",
+    "https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/6E3357B4-AD86-4246-922B-C46ADDCA2C98.png"]
+
   return (
  
       <div className="project-cardview">
@@ -64,7 +68,7 @@ const ProjectCardView = props => {
       <a>
         <img
           className="project-cardview-banner"
-          src="https://www.10wallpaper.com/wallpaper/medium/1909/2019_Planetary_Nebula_Clouds_4K_Universe_medium.jpg"
+          src={props.project && props.project.thumbnailImage ? props.project.thumbnailImage :  imgURLs[props.project ? props.project.projectId%3 : 0] }
         ></img>
         <div className="project-cardview-contents">
           {rolesComponent}
