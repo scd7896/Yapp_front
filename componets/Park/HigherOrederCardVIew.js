@@ -1,5 +1,7 @@
 
 import '../../css/Park/CardViewSection.scss'
+import fetch from 'isomorphic-unfetch'
+import baseURL from '../../url'
 
 function HigherOrderCardViewSection(CardView, CardViewTypeStr){
     return class CardViewSectionWrapper extends React.Component{
@@ -22,6 +24,8 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
             //scroll 버튼을 누르면 스크롤 뮤텍스를 취득하지만, 화면 resize에 의해 mutex를 박탈당할수 있다.
             this.scrollMutex = 0;
+
+            this.getNextDataFromServer();
         }
 
         getNextDataFromServer(callback){
@@ -33,15 +37,16 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                     var size = 5;
 
                     if(CardViewTypeStr == 'project'){
-                        for(let i = index ; i < index + size; i ++){
-                            data.push({
-                                'jobgroup' : ['개발자', '프론트','백엔드'] ,
-                                'title' : '팀원 모집 #' + i,
-                                'step' : '팀 빌딩 단계',
-                                'region' : '서울',
-                                'time' : '5시간 전'
-                            })
-                        }
+                        fetch(baseURL + '/projects/popularity',{
+                            headers : {
+                                'accepet' : 'application/json',
+                                'Content-Type' : 'application/json'
+                            }
+                        }).then(res => {
+                            if(res.ok){
+                                return res.json()
+                            }
+                        }).then(res => resolve(res.projects))
                     }
                     else if(CardViewTypeStr == 'post'){
                         for(let i = index ; i < index + size; i ++){
@@ -52,9 +57,10 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                                 'star' : 2 + index % 3
                             })
                         }
+                        resolve(data);
                     }
 
-                    resolve(data);
+                    
                     
                 });
             }
@@ -70,10 +76,6 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                     data  = data.concat(value);
 
                     _this.setState({data: data});
-
-                    if(typeof(callback) === 'function'){
-                        callback.call(_this);
-                    }
                 });
             })(this);
 
@@ -131,15 +133,12 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
             if(this.scrollMutex == 0){
                 this.scrollMutex = 1;
-
-                this.curContents ++;
-
-                if(this.curContents >= this.state.data.length - 3){
-                    this.getNextDataFromServer(function(){
-                        this.animatedScroll(this.WrapperDOM, this.WrapperDOM.children[this.curContents].offsetLeft, 700);
-                    })
+            
+                if(this.curContents >= this.state.data.length - parseInt(this.WrapperDOM.offsetWidth / this.WrapperDOM.children[this.curContents].offsetWidth)){
+                    this.scrollMutex = 0;
                 }
                 else{
+                    this.curContents ++;
                     this.animatedScroll(this.WrapperDOM, this.WrapperDOM.children[this.curContents].offsetLeft, 700);
                 }
             }
@@ -147,10 +146,6 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
             
 
  
-        }
-
-        componentWillMount(){
-            this.getNextDataFromServer();
         }
 
         componentDidMount(){
@@ -167,7 +162,10 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                 (function(wrapperDom,_this){
                     window.addEventListener('resize',function(){
                         _this.scrollMutex = 0;
-                        //wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
+                        if(_this.curContents >= _this.state.data.length - parseInt(_this.WrapperDOM.offsetWidth / _this.WrapperDOM.children[_this.curContents].offsetWidth)){
+                            _this.curContents = _this.state.data.length - parseInt(_this.WrapperDOM.offsetWidth / _this.WrapperDOM.children[_this.curContents].offsetWidth);
+                        }
+                        wrapperDom.scrollLeft = wrapperDom.children[_this.curContents].offsetLeft;
                     })
                 })(this.WrapperDOM,this);
             }
@@ -198,7 +196,7 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                     <div ref = {this.wrapperRef} className = "CardView-Section">
                         {
                             this.state.data ? this.state.data.map((e)=>{
-                                return(<CardView data = {e}></CardView>)
+                                return(<CardView project = {e}></CardView>)
                             }): null
                         }
                     </div>
