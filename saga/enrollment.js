@@ -14,21 +14,21 @@ import axios from "axios";
 import url from "../url";
 import { POST_PROJECT_REQUEST, POST_PROJECT_FAILURE, POST_PROJECT_SUCCESS, GET_PROJECT_REQUEST, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE } from "../action/enrollment";
 const postProjectAPI = (data)=>{
-  console.log('gggg')
+  
   const {projectQuestion,projectNowTeam, projectImage} = data
   const dataQuestion = projectQuestion.flat()
   const dataNowTeam = projectNowTeam[0] *100 + projectNowTeam[1] * 10 + projectNowTeam[2]
   const dataFile = projectImage.file
   const formData = new FormData()
-  const filterQuestion = [];
-  dataQuestion.map((el)=>{
-    if(el.text !== ""){
-      const data = JSON.stringify({"content" : el.text, "role": el.id})
-      filterQuestion.push(data)
-    }
+  // dataQuestion.map((el)=>{
+  //   if(el.text !== ""){
+  //     formData.append("interviewQuestions",{"content" : el.text, "sn": el.id})
+  //   }
+  // })
+  for(let i = 0 ; i<data.projectKeyword.length; i++){
+    formData.append("keywords", data.projectKeyword[i])
+  }
 
-  })
-  
   formData.append("title", data.projectTitle)
   formData.append("content",data.projectContent)
   formData.append("role", data.projectPosition)
@@ -36,8 +36,8 @@ const postProjectAPI = (data)=>{
   formData.append("location", data.projectRegion)
   formData.append("thumbnailImage", dataFile)
   formData.append("expectedPeriod", data.projectLong)
-  formData.append("interviewQuestions",filterQuestion)
   
+  formData.append("currentMember" , dataNowTeam)
   /*
     {
   "title": "string",
@@ -54,18 +54,19 @@ const postProjectAPI = (data)=>{
   ]
 }
   */
+  console.log('폼데이터', formData)
   return axios.post(`${url}/projects`, formData, {
     headers :{
       Authorization: `bearer ${data.userToken}`
     }
-  })
+  }).catch((err)=> console.log(err))
   return {data : 1}
 }
 function * postProject(action){
   try{
-    console.log(action)
+    
     const result = yield call(postProjectAPI, action.data)
-    console.log(result.data)
+    console.log('포스트등록 결과 ', result.data)
     yield put({
       type : POST_PROJECT_SUCCESS,
       data : result.data

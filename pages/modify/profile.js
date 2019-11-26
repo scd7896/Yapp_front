@@ -32,7 +32,7 @@ const profile = ()=>{
     const onClick = e => {
         const { name, value } = e;
         setRegion(value.id);
-        console.log(region);
+        
     };  
 
     function handleFileChange(event){
@@ -60,6 +60,7 @@ const profile = ()=>{
             setPreviewURL('');
         }
     }
+
 
     function registerProfile(){
         var fileFormData = new FormData();

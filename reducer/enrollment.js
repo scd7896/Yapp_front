@@ -87,8 +87,12 @@ const enrollment = (state = initialProps, action) => {
           draft.resId = null;
           break;
       case POST_PROJECT_SUCCESS :
-          draft.resId = action.data;
-          Router.push('/enrollment/create/3/0')
+          draft.resId = action.data.projectId;
+          Router.push({
+            pathname : '/enrollment',
+            query: { create: 'create', level : '3', projectid : action.data.projectId },
+            
+          })
           break;
       case POST_PROJECT_FAILURE :
         break;  
