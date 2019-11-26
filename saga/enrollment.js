@@ -88,13 +88,20 @@ function * watchPostProject(){
 const getProjectAPI = (id)=>{
   return axios.get(`${url}/projects/${id}`)
 }
+
+const getQuestionAPI = id =>{
+  return axios.get(`${url}/projects/${id}/question`)
+}
 function * getProject (action){
   try{
     const result = yield call(getProjectAPI, action.data);
     console.log(result.data)
+    const questions = yield call(getQuestionAPI, action.data)
     yield put({
       type : GET_PROJECT_SUCCESS,
-      data : result.data
+      data : result.data,
+      questions : questions.data
+      
     })
   }catch(err){
     console.log(err)
