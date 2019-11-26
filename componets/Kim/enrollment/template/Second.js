@@ -5,7 +5,7 @@ import Link from 'next/link'
 import '../../../../css/Jun/enrollment.scss'
 import './css/Second.scss'
 import Router from 'next/router'
-import { POST_PROJECT_REQUEST } from '../../../../action/enrollment'
+import { POST_PROJECT_REQUEST, PATCH_PROJECT_REQUEST } from '../../../../action/enrollment'
 
 const Second = ({projectId, changed})=>{
     const positionArr = ["직군공통", "기획자", "개발자", "디자이너"]
@@ -16,7 +16,11 @@ const Second = ({projectId, changed})=>{
     const dispatch = useDispatch();
     const postProject = ()=>{
         if(changed){
-
+            
+            dispatch({
+                type : PATCH_PROJECT_REQUEST,
+                data : {...datas, userToken}
+            })
         }else{
             dispatch({
                 type : POST_PROJECT_REQUEST,
@@ -40,8 +44,8 @@ const Second = ({projectId, changed})=>{
             </div>
 
             <div className = "enroll_bottom_container">
-                <Link  href={{ pathname: '/enrollment', query: { create : 'create', level : 1, projectid : projectId} }}
-                        as={`/enrollment/create/1/${projectId}`}
+                <Link  href={{ pathname: '/enrollment', query: { create : changed? "change" : "create", level : 1, projectid : projectId} }}
+                        as={`/enrollment/${changed ? "change" :"create"}/1/${projectId}`}
                 >
                     <a>
                         <div className = "enrollment_bottom_button_prev">
