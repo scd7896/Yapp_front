@@ -199,13 +199,13 @@ export default function DetailQ(props){
                                 Q
                             </div>
                             <div className= 'detail-name'>
-                                {'사용자 이름'}
+                                {props.user.name}
                             </div>
                             <div className= 'detail-time'>
                                 {timeStr}
                             </div>
                             {
-                                user.userId && (user.userId == props.userId || user.userId == props.project.userId)? 
+                                props.isDelete == false && user.userId && (user.userId == props.userId || user.userId == props.project.userId)? 
                                 (
                                     <div className = 'button detail-q-reply-button'
                                         onClick = {handleClickReplyToggleButton}>
@@ -225,7 +225,7 @@ export default function DetailQ(props){
                             }
                         </div>
 
-                        { user.userId != props.userId ? null :
+                        { props.isDelete || user.userId != props.userId ? null :
                         (
                             <div className='detail-qna-button-container'>
                                 <div className = 'button detail-qna-button'
@@ -261,8 +261,8 @@ export default function DetailQ(props){
                                 </div>
                             </div>
                         </div> :
-                        <div className = 'detail-content'>
-                            {props.content}
+                        <div className = {'detail-content ' + (props.isDelete ? 'detail-content-delete' : '')}>
+                            {props.isDelete ? '사용자가 삭제한 글입니다.' : props.content}
                         </div>
                     }
 

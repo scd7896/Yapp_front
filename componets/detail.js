@@ -69,6 +69,13 @@ class Detail extends React.Component{
             </span>
           )
         );
+
+        var curMember = parseInt(this.props.project.currentMember);
+        var curDesigner = curMember % 10;
+        curMember = parseInt(curMember/ 10);
+        var curDeveloper = curMember % 10;
+        curMember = parseInt(curMember/ 10);
+        var curPlanner = curMember % 10;
         
         return(
             <div id = 'detail_root'>
@@ -141,12 +148,16 @@ class Detail extends React.Component{
 
         <div className="detail-curmember-container container">
           <div className="detail-curmember-title  detail-block-title">
-            모집 직군
+            현재 팀원
           </div>
-          <JobGroupCardView type="small" jobgroup="developer" number="1" />
-          <JobGroupCardView type="small" jobgroup="designer" number="1" />
-          <JobGroupCardView type="small" jobgroup="designer" number="2" />
-          <JobGroupCardView type="small" jobgroup="planner" number="1" />
+
+          {curPlanner > 0 ? <JobGroupCardView type="small" jobgroup="planner" number={curPlanner} /> : null}
+          {curDeveloper > 0 ? <JobGroupCardView type="small" jobgroup="developer" number={curDeveloper} />: null}
+          {curDesigner > 0 ? <JobGroupCardView type="small" jobgroup="designer" number={curDesigner} />: null}
+          {(curDesigner <= 0 && curDeveloper <= 0 && curPlanner <= 0 )? (
+            <div className = 'detail-curmember-none'>
+              아직 현재 팀원이 없습니다.
+            </div>) : null}
         </div>
 
         {/* QnA 영역입니다 */}
