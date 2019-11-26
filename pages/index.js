@@ -131,7 +131,7 @@ const Index = (props) => {
               <div id="keyword_list_box_container">
                 { 
                   keywords.map(keyword => {
-                      return <KeywordSearch data={keyword} key={keyword.id} selected = {true} />;
+                      return <KeywordSearch data={keyword} key={keyword.keywordId} selected = {true} />;
                     })
                 }
               </div>
