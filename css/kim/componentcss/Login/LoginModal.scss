@@ -1,34 +1,36 @@
-#login_modal_container{
-    text-align: center;
-    width : 100%;
-    height : 100vh;
-    
-    overflow-y: scroll;
+#login_modal_container {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+
+  overflow-y: scroll;
 }
-#login_modal_body_container{
-    padding-left: 5.7%;
-    padding-bottom : 40px;
-    background: #ffffff;
+#login_modal_body_container {
+  padding-left: 5.7%;
+  padding-bottom: 40px;
+  background: #ffffff;
 }
-#login_modal_header_container{
-    background: #ffffff;
+#login_modal_header_container {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5.7%;
+  padding-top: 50px;
 }
-#login_modal_header_contents{
-    margin-top : 50px;
-    display: inline-block;
-    
-    width : 50%;
-    font-family:  "Noto Sans KR", sans-serif;;
-    font-size: 48px;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.48;
-    letter-spacing: -2.4px;
-    text-align: left;
-    color: #333333;
+#login_modal_header_contents {
+  display: inline-block;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.48;
+  letter-spacing: -2.4px;
+  text-align: left;
+  color: #333333;
 }
 
-.modal-wrapper>div>div>div {
-    width: 100%;
+.modal-wrapper > div > div > div {
+  width: 100%;
 }
