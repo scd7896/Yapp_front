@@ -44,7 +44,6 @@ function * favoriteRequest(action){
         }
         else{
             const getFavoriteResult = yield call(favoriteRequestAPI, userToken);
-            console.log(getFavoriteResult);
             yield put({
                 type : GET_FAVORITE_SUCCESS,
                 favoriteList : getFavoriteResult.cart.map(cart => cart.projectId)

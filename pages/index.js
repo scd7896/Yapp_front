@@ -60,11 +60,6 @@ const Index = (props) => {
 
   }, [user])
 
-  useEffect(() => {
-    
-  },[favorite])
-
-
   return (
     <div>
       <div id="index_root">

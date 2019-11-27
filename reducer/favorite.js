@@ -13,46 +13,56 @@ import {
 } from '../action'
 const initialState ={
     favoriteList : [],
-    favortieFail : false
+    favoriteFail : false,
+    lastEdited : -1
 }
 const test = (state = initialState , action) =>{
     return produce(state, (draft)=>{
         switch(action.type) {
             case GET_FAVORITE_REQUEST :
                 draft.favoriteList = [];
-                draft.favortieFail = false;
+                draft.favoriteFail = false;
                 break;
             case GET_FAVORITE_SUCCESS :
                
                 draft.favoriteList = action.favoriteList;
-                draft.favortieFail = false;
+                draft.favoriteFail = false;
+                draft.lastEdited = 0;
                 break;
             case GET_FAVORITE_FAILURE :
                 draft.favoriteList = [];
-                draft.favortieFail = true;
+                draft.favoriteFail = true;
                 break;
             case GET_FAVORITE_FLUSH :
                 draft.favoriteList = [];
-                draft.favortieFail = false;
+                draft.favoriteFail = false;
+                break;
+            case ADD_FAVORITE_REQUEST : 
+                draft.lastEdited = -1;
                 break;
             case ADD_FAVORITE_SUCCESS :
                 if(draft.favoriteList[action.favoriteId] == -1){
                     draft.favoriteList.push(action.favoriteId);
                     draft.favoriteList.sort();
                 }
-                draft.favortieFail = false;
+                draft.favoriteFail = false;
+                draft.lastEdited = action.favoriteId;
                 break;
             case ADD_FAVORITE_FAILURE :
-                draft.favortieFail = true;
+                draft.favoriteFail = true;
+                break;
+            case DELETE_FAVORITE_REQUEST : 
+                draft.lastEdited = -1;
                 break;
             case DELETE_FAVORITE_SUCCESS :
                 if(draft.favoriteList[action.favoriteId] != -1){
                     draft.favoriteList.splice(draft.favoriteList[action.favoriteId],1)
                 }
-                draft.favortieFail = false;
+                draft.favoriteFail = false;
+                draft.lastEdited = action.favoriteId;
                 break;
             case DELETE_FAVORITE_FAILURE :
-                draft.favortieFail = true;
+                draft.favoriteFail = true;
                 break;
 
         }

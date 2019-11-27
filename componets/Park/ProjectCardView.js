@@ -80,8 +80,7 @@ const ProjectCardView = props => {
             {time}
             <div className="project-cardview-detail">
               <FavoriteButton 
-                onClick = {handleClickFavorite}
-                toggle = {false}
+                project = {props.project}
               />
             </div>
           </div>
