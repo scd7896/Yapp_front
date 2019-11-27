@@ -22,12 +22,12 @@ export default function FavoriteButton(props){
         if(favorite.lastEdited == props.project.projectId || favorite.lastEdited == 0)
         {
             var newToggle = favorite.favoriteList.includes(parseInt(props.project.projectId));
-            console.log(props.project.projectId,newToggle,toggle)
             if(newToggle !== toggle){
                 setToggle(newToggle)
             }
- 
+
         }
+
 
     },[favorite])
 
@@ -40,7 +40,7 @@ export default function FavoriteButton(props){
                 favoriteId : props.project.projectId
             })
         }
-        else{
+        else if(toggle == true){
             dispatch({
                 type : DELETE_FAVORITE_REQUEST,
                 favoriteId : props.project.projectId

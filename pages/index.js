@@ -25,11 +25,13 @@ import {useState} from 'react'
 
 import { SET_SELECTED_PAGES, GET_MYDATA_REQUEST } from "../action";
 import  Router  from "next/router";
+
+var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
+
 const Index = (props) => {
   /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
-  var PostCardViewSection = HigherOrderCardView(PostCardView, "post");
-  var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
+  
   const dispatch = useDispatch()
   var {user,favorite} = useSelector(state => state)
   var [keywords, setKeywords] = useState([])

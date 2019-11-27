@@ -41,7 +41,7 @@ const test = (state = initialState , action) =>{
                 draft.lastEdited = -1;
                 break;
             case ADD_FAVORITE_SUCCESS :
-                if(draft.favoriteList[action.favoriteId] == -1){
+                if(draft.favoriteList.indexOf(action.favoriteId) == -1){
                     draft.favoriteList.push(action.favoriteId);
                     draft.favoriteList.sort();
                 }
@@ -55,8 +55,8 @@ const test = (state = initialState , action) =>{
                 draft.lastEdited = -1;
                 break;
             case DELETE_FAVORITE_SUCCESS :
-                if(draft.favoriteList[action.favoriteId] != -1){
-                    draft.favoriteList.splice(draft.favoriteList[action.favoriteId],1)
+                if(draft.favoriteList.indexOf(action.favoriteId) != -1){
+                    draft.favoriteList.splice(draft.favoriteList.indexOf(action.favoriteId),1)
                 }
                 draft.favoriteFail = false;
                 draft.lastEdited = action.favoriteId;
