@@ -94,7 +94,7 @@ const Index = (props) => {
                 <input
                   type="text"
                   id="header_input"
-                  placeholder="검색어를 입력 해주세요"
+                  placeholder="검색어를 입력해주세요"
                 ></input>
               </div>
               <div id="header_inputButton">검색</div>

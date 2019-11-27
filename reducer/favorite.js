@@ -28,12 +28,10 @@ const test = (state = initialState , action) =>{
                 draft.favoriteList = action.favoriteList;
                 draft.favoriteFail = false;
                 draft.lastEdited = 0;
-                console.log(action);
                 break;
             case GET_FAVORITE_FAILURE :
                 draft.favoriteList = [];
                 draft.favoriteFail = true;
-                console.log(action);
                 break;
             case GET_FAVORITE_FLUSH :
                 draft.favoriteList = [];

@@ -4,6 +4,7 @@ import { OPEN_APPLY_MODAL , OPEN_LOGIN_MODAL } from '../../action/index.js';
 import cookies from '../../methods/cookies'
 
 import FavoriteButton from './FavoriteButton'
+import '../../css/Park/detail.scss'
 
 export default function DetailButtons(props){
 
@@ -37,7 +38,9 @@ export default function DetailButtons(props){
 
     return !(user.userId != '' && props.projectUserId != '' && user.userId == props.projectUserId) ? (
         <div className = 'detail-button-flex'>
-            <FavoriteButton project = {props.project}></FavoriteButton>
+            <div className = 'detail-favorite-button'>
+                <FavoriteButton project = {{projectId : props.projectId}} type = "detail"></FavoriteButton>
+            </div>
             <div className = "button detail-apply-button" onClick = {handleClickApplyButton}>지원하기</div>
         </div>) :(
             <div className = 'detail-button-flex'>
