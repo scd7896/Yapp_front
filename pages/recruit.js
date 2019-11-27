@@ -57,7 +57,7 @@ const recruit = ({firstData})=>{
                     </div>
                 </div>
             </div>
-            </div>)}
+        </div>)}
 recruit.getInitialProps =async(context)=>{
     context.store.dispatch({
         type : SET_SELECTED_PAGES,
