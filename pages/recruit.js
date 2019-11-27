@@ -63,7 +63,17 @@ recruit.getInitialProps =async(context)=>{
         type : SET_SELECTED_PAGES,
         data : 'recruit'
     })
+    
+    if(context.query.keyword !== undefined){
+        const firstData = await axios.post(`${url}/projects/search?location=${context.query.keyword}`).catch((err)=>console.log("err남"))    
+            
+        return {firstData : {projects : firstData.data}}
+    }
+    if(context.query.text !== undefined){
+        const firstData = await axios.post(encodeURI(`${url}/projects/search?term=${context.query.text}`)).catch((err)=>console.log("err남"))
+        return {firstData : {projects : firstData.data}}
+    }
     const firstData = await axios.get(`${url}/projects`).catch((err)=>console.log("err남"))
-    return {firstData : firstData.data}
+    return {firstData : firstData.data} 
 }
 export default recruit;
