@@ -52,7 +52,7 @@ const recruit = ({firstData})=>{
                     </div>
                     <div id = "recruit_card_container">
                         {cardListDatas ? cardListDatas.map((e,i)=>{
-                            return <CardView key = {i}/>
+                            return <CardView key = {e.projectId} project = {e}/>
                         }) :''}
                     </div>
                 </div>
