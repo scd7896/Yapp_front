@@ -10,32 +10,36 @@ import Keyword from '../componets/Kim/enrollment/atomic/Keyword'
 import keywords from '../methods/keywords'
 import axios from 'axios'
 import url from '../url'
+
 import '../css/kim/recruit.scss'
 const recruit = ({firstData})=>{
     const {projectKeyword} = useSelector(state => state.enrollment)
     const [isFisrt, setIsFirst] = useState(true)
     const [cardListDatas, setCardListDatas] = useState(firstData.projects)
-
+    
     const getCardListByKeyword = async()=>{
         const result = await axios.post(`${url}/projects/search`,{"keywords" : projectKeyword})
             .catch((err) =>{alert("잠시 후에 다시 시도해주세요")})
         setCardListDatas(result.data)
     }
-    useEffect(()=>{
-        if(isFisrt){
-            setIsFirst(false);
-            return;
-        }
-        getCardListByKeyword()
+    const onSubmit = (data)=>{
+        setCardListDatas(data)
+    }
+    // useEffect(()=>{
+    //     if(isFisrt){
+    //         setIsFirst(false);
+    //         return;
+    //     }
+    //     getCardListByKeyword()
         
-    },[projectKeyword])
+    // },[projectKeyword])
     return(
         <div id = "reqcruit_root">
             <div id = "recruit_container">
                 <div className = "container" >
                     <div id = "search_container">
                         <p id ="project_serch_text">프로젝트 검색</p>
-                        <FindSelectbox />
+                        <FindSelectbox onSubmit = {onSubmit}/>
                     </div>
                     <div id = "keyword_container">
                         <p id = "keyword_text">추천 키워드</p>

@@ -105,12 +105,7 @@ const ApplyFirst = ({ question }) => {
   return (
     <div id="first_modal_contents_container">
       <div id="first_modal_head_container">
-        <div>
-          <img
-            width="100%"
-            src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/7CDB8BF0-8F5E-4284-B01A-B4AC1CBF83BA.svg"
-          />
-        </div>
+
         <div id="first_modal_head_text_container">
           <div id="first_modal_head_icon_container">
             <p id="first_modal_head_icon">1</p>
