@@ -37,7 +37,6 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
                 return new Promise((resolve, reject) => {
                     var data = [];
                     var size = 5;
-                    console.log('?');
 
                     if(CardViewTypeStr == 'project'){
                         fetch(baseURL + '/projects/popularity',{

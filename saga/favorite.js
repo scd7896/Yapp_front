@@ -37,7 +37,7 @@ function favoriteRequestAPI(userToken){
 
 function * favoriteRequest(action){
     try{
-
+        
         var userToken = action.userToken;
         if(userToken == undefined || userToken == ''){
             throw '로그인 후 시도해주세요'

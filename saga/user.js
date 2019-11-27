@@ -42,7 +42,6 @@ function* getUser(action){
         })
 
     }catch(e){
-        console.error(e)
         yield put({
             type : GET_MYDATA_FAILURE,
             error : e
@@ -85,7 +84,7 @@ function* userLogin(action){
         yield put({
             type : USER_LOGIN_SUCCESS,
             userToken : userToken,
-            userName : getUserResult.user.userName,
+            userName : getUserResult.user.name,
             userId : getUserResult.user.userId,
             userEmail : getUserResult.user.email,
             userProfileImage : getUserResult.user.profileImage
@@ -162,7 +161,8 @@ function * watchGetPortFolio(){
 
 function * afterUserLogin(action){
     yield put({
-        type : GET_FAVORITE_REQUEST
+        type : GET_FAVORITE_REQUEST,
+        userToken : action.userToken
     })
 }
 

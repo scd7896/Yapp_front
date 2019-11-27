@@ -1,6 +1,6 @@
 import '../../css/Park/favoriteButton.scss'
 import {useSelector, useDispatch} from 'react-redux'
-import {ADD_FAVORITE_REQUEST,DELETE_FAVORITE_REQUEST} from '../../action'
+import {ADD_FAVORITE_REQUEST,DELETE_FAVORITE_REQUEST,OPEN_LOGIN_MODAL} from '../../action'
 import {useState, useEffect} from 'react'
 
 export default function FavoriteButton(props){
@@ -34,18 +34,26 @@ export default function FavoriteButton(props){
 
     function handleClick(event){
         event.preventDefault();
-        if(toggle == false){
-            dispatch({
-                type : ADD_FAVORITE_REQUEST,
-                favoriteId : props.project.projectId
-            })
+        if(user.isLogging){
+            if(toggle == false){
+                dispatch({
+                    type : ADD_FAVORITE_REQUEST,
+                    favoriteId : props.project.projectId
+                })
+            }
+            else if(toggle == true){
+                dispatch({
+                    type : DELETE_FAVORITE_REQUEST,
+                    favoriteId : props.project.projectId
+                })
+            }
         }
-        else if(toggle == true){
+        else{
             dispatch({
-                type : DELETE_FAVORITE_REQUEST,
-                favoriteId : props.project.projectId
-            })
+                type: OPEN_LOGIN_MODAL
+            });
         }
+
 
     }
 

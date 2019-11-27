@@ -31,6 +31,7 @@ const initialState = {
 
 const user = (state = initialState, action) => {
   return produce(state, draft => {
+
     switch (action.type) {
 
       case GET_MYDATA_SUCCESS:
@@ -81,6 +82,7 @@ const user = (state = initialState, action) => {
         draft.userProfileImage = action.userProfileImage;
         draft.nowLogging = false;
         draft.isLogging = false;
+        
         break;
 
       case USER_JOIN_REQUEST :
