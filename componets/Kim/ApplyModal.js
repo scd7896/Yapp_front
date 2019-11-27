@@ -71,8 +71,8 @@ const ApplyModal = () => {
         const response = await axios.get(
           `${url}/projects/${apply.postId}/question`
         );
-
-        console.dir(responseUser.data);
+        console.log("질문리스트====================");
+        console.dir(response.data.interviewQuestions);
         setPortfolios(responseUser.data.portfolios);
         setQuestion(response.data.interviewQuestions); // 데이터는 response.data 안에 들어있습니다.
       }
