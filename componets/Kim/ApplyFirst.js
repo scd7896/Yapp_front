@@ -4,36 +4,34 @@ import DropDown from "react-dropdown";
 import SelectBox from "../Jun/SelectBox";
 import ModalInput from "../Jun/ModalInput";
 import Question from "./ApplyModalComponents/Question";
-import { qeustions } from "../../dummydatas/dummyQuestion";
 import "../../css/kim/componentcss/ApplyFirst.scss";
 import "react-dropdown/style.css";
 import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from "../../action";
 
-
 const dummyqeustions = [
   {
     sn: 0,
-    content: '공통질문입니다~!'
+    content: "공통질문입니다~!"
   },
   {
     sn: 0,
-    content: '공통질문2입니다~!'
+    content: "공통질문2입니다~!"
   },
   {
     sn: 1,
-    content: '기획자 질문입니다~!'
+    content: "기획자 질문입니다~!"
   },
   {
     sn: 1,
-    content: '기획자 질문2입니다~!'
+    content: "기획자 질문2입니다~!"
   },
   {
     sn: 2,
-    content: '개발자 질문입니다~!'
+    content: "개발자 질문입니다~!"
   },
   {
     sn: 4,
-    content: '디자이너 질문입니다~!'
+    content: "디자이너 질문입니다~!"
   }
 ];
 const ApplyFirst = ({ question }) => {
@@ -46,7 +44,7 @@ const ApplyFirst = ({ question }) => {
 
   const positionChange = e => {
     const list = document.querySelector("#first_modal_qna_container");
-    const length = qeustions.filter(e => e.position === selectPosition).length;
+    const length = qeustion.filter(e => e.position === selectPosition).length;
     for (let i = 0; i < length; i++) {
       const answer = list.childNodes[i].querySelector(
         "#qustion_to_answer_input"
@@ -65,24 +63,24 @@ const ApplyFirst = ({ question }) => {
     dispatch({
       type: NEXT_APPLY_MODAL
     });
-    listTest();
+    //listTest();
   };
-  const listTest = () => {
-    const list = document.querySelector("#first_modal_qna_container");
-    const length = qeustions.filter(e => e.position === selectPosition).length;
-    const writeAnswers = [];
-    for (let i = 0; i < length; i++) {
-      const answer = list.childNodes[i].querySelector(
-        "#qustion_to_answer_input"
-      ).value;
-      writeAnswers.push(answer);
-    }
-    dispatch({
-      type: SET_APPLYQNA_DATA,
-      position: selectPosition,
-      answers: writeAnswers
-    });
-  };
+  // const listTest = () => {
+  //   const list = document.querySelector("#first_modal_qna_container");
+  //   const length = qeustion.filter(e => e.position === selectPosition).length;
+  //   const writeAnswers = [];
+  //   for (let i = 0; i < length; i++) {
+  //     const answer = list.childNodes[i].querySelector(
+  //       "#qustion_to_answer_input"
+  //     ).value;
+  //     writeAnswers.push(answer);
+  //   }
+  //   dispatch({
+  //     type: SET_APPLYQNA_DATA,
+  //     position: selectPosition,
+  //     answers: writeAnswers
+  //   });
+  // };
 
   const [inputs, setInputs] = useState({
     job: {
@@ -105,7 +103,6 @@ const ApplyFirst = ({ question }) => {
   return (
     <div id="first_modal_contents_container">
       <div id="first_modal_head_container">
-
         <div id="first_modal_head_text_container">
           <div id="first_modal_head_icon_container">
             <p id="first_modal_head_icon">1</p>
@@ -123,7 +120,6 @@ const ApplyFirst = ({ question }) => {
           <span id="modal_most_select_icon">*</span>
         </div>
 
-
         <SelectBox
           name="job"
           value={job.text}
@@ -137,27 +133,25 @@ const ApplyFirst = ({ question }) => {
           inputs={inputs}
           onClick={onClick}
         />
+
         <div className="questionList">
           <ul>
-            {dummyqeustions
-              .filter((el) => {
-                return (el.sn === 0 || el.sn === job.id)
+            {question
+              .filter(el => {
+                return el.sn === 0 || el.sn === job.id;
               })
               .map(user => (
                 <>
                   <li className="question_container">
-                    <span id="questionQ">Q</span><span id="questionNum">{count++}</span>
+                    <span id="questionQ">Q</span>
+                    <span id="questionNum">{count++}</span>
                     <span id="questionContent">{user.content}</span>
                   </li>
                   <ModalInput />
                 </>
               ))}
           </ul>
-
-
         </div>
-
-
 
         <div style={{ paddingBottom: "92px" }}>
           <div id="apply_modal_next_first_button" onClick={nextModal}>
