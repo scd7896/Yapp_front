@@ -19,7 +19,6 @@ const test = (state = initialState , action) =>{
     return produce(state, (draft)=>{
         switch(action.type) {
             case GET_FAVORITE_REQUEST :
-                console.log(action);
                 draft.favoriteList = [];
                 draft.favortieFail = false;
                 break;
@@ -27,7 +26,6 @@ const test = (state = initialState , action) =>{
                
                 draft.favoriteList = action.favoriteList;
                 draft.favortieFail = false;
-                console.log(draft.favoriteList);
                 break;
             case GET_FAVORITE_FAILURE :
                 draft.favoriteList = [];

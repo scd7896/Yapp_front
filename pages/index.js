@@ -61,7 +61,7 @@ const Index = (props) => {
   }, [user])
 
   useEffect(() => {
-    console.log(favorite);
+    
   },[favorite])
 
 
