@@ -74,6 +74,8 @@ function favoriteAddApi(userToken, favoriteId){
     })
 }
 
+//test
+
 function * favoriteAdd(action){
     try{
         var userToken = cookies.getCookie('user-token');
