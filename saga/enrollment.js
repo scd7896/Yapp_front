@@ -20,17 +20,18 @@ const postProjectAPI = (data)=>{
   const dataNowTeam = projectNowTeam[0] *100 + projectNowTeam[1] * 10 + projectNowTeam[2]
   const dataFile = projectImage.file
   const formData = new FormData()
-  dataQuestion.map((el)=>{
-    if(el.text !== ""){
-      
-      const question = JSON.stringify({role : el.id, content : el.text})
-      formData.append("interviewQuestions",question)
-    }
+  const gtgt=dataQuestion.filter((el)=>{
+    return el.text != ""
+  }).map((el)=>{
+    formData.append("interviewQuestions",JSON.stringify({content : el.text, role : el.id}))
   })
   for(let i = 0 ; i<data.projectKeyword.length; i++){
     formData.append("keywords", data.projectKeyword[i])
   }
-
+  // if(gtgt.length !== 0){
+  //   formData.append("interviewQuestions", gtgt)
+  // }
+  
   formData.append("title", data.projectTitle)
   formData.append("content",data.projectContent)
   formData.append("role", data.projectPosition)
@@ -56,14 +57,37 @@ const postProjectAPI = (data)=>{
   ]
 }
   */
-  console.log('폼데이터', formData)
-  return axios.post(`${url}/projects`, formData, {
-    headers :{
-      "Access-Control-Allow-Origin" : "*",
-      "Content-Type" : 'multipart/form-data',
-      Authorization: `bearer ${data.userToken}`
-    }
-  }).catch((err)=> console.log(err))
+  // return axios.post('http://127.0.0.1:9170/test/123',formData)
+  console.dir(dataFile)
+  const eeee = {
+    "title": "김서버테스트",
+    "content": "모집글 테스트 내용",
+    "role": 2,
+    "step": 3,
+    "location": 1,
+    "thumbnailImage": dataFile,
+    "expectedPeriod": 1,
+    "currentMember": 10,
+    "interviewQuestions": [
+      {
+        "content": "참여할 것입니까?",
+        "role": 0
+      }
+    ],
+    "keywords": [
+      1,
+      2,
+      3
+    ]
+  }
+  
+  // return axios.post(`${url}/projects`, eeee, {
+  //   headers :{
+  //     'Content-Type': 'multipart/form-data',
+  //     Authorization: `bearer ${data.userToken}`
+  //   }
+  // }).catch((err)=> console.log(err))
+
   return {data : 1}
 }
 function * postProject(action){
