@@ -1,5 +1,5 @@
 import React from "react";
-import App,{Container} from "next/app";
+import App from "next/app";
 import Head from "next/head";
 import withRedux from "next-redux-wrapper";
 import withReduxSaga from 'next-redux-saga'
@@ -76,7 +76,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps, store } = this.props;
     return (
-      <Container>
+      
         <Provider store={store}>
           <Head>
             <meta
@@ -98,7 +98,7 @@ class MyApp extends App {
             <Component id="wrraper" {...pageProps} />
           </AppLayout>
         </Provider>
-      </Container>
+      
     );
   }
 }

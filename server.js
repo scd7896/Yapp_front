@@ -23,6 +23,7 @@ app.prepare().then(()=>{
     server.get('/enrollment/:create/:level/:projectid' ,(req, res)=>{
         return app.render(req,res,'/enrollment', {projectid : req.params.projectid,create : req.params.create,level : req.params.level})
     })
+    
     server.get('/', (req,res)=>{
         return app.render(req,res, '/',{});
     })

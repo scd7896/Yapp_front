@@ -1,5 +1,5 @@
 import React from 'react'
-import { ANDROID, iOS, WEB, UX_UI, DESIGN } from './id'
+import { ANDROID, iOS, WEB, UX_UI, DESIGN, DEVELOPER } from './id'
 
 const icons = ({id, isSelected})=>{
 
@@ -66,6 +66,9 @@ const icons = ({id, isSelected})=>{
             </svg>
 
           )
+
+        case DEVELOPER :
+          
         case DESIGN :
         default :
           return(
