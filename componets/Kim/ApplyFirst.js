@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DropDown from "react-dropdown";
 import SelectBox from "../Jun/SelectBox";
@@ -7,7 +7,6 @@ import Question from "./ApplyModalComponents/Question";
 import "../../css/kim/componentcss/ApplyFirst.scss";
 import "react-dropdown/style.css";
 import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from "../../action";
-import classNames from "classnames";
 
 const dummyqeustions = [
   {
@@ -37,11 +36,26 @@ const dummyqeustions = [
 ];
 const ApplyFirst = ({ question }) => {
   //console.log(question[1].sn);
-  const [text, setText] = useState("답변을 입력하세요");
+
   const dispatch = useDispatch();
   const { position, answers } = useSelector(state => state.apply);
 
   const [selectPosition, setSelectPosition] = useState("");
+  const [inputs, setInputs] = useState({
+    job: {
+      id: 0,
+      text: null
+    }
+  });
+  const { job } = inputs;
+
+  const [answerInputs, setAnswerInputs] = useState({
+    qeustion: {
+      id: 0,
+      text: null
+    }
+  });
+  const { qeustion } = answerInputs;
 
   const positionChange = e => {
     const list = document.querySelector("#first_modal_qna_container");
@@ -60,59 +74,58 @@ const ApplyFirst = ({ question }) => {
       answers: []
     });
   };
+  const nextModal = e => {
+    let answer = document.getElementsByClassName("qustion_to_answer_input");
+    console.log("답변리스트===================");
 
-  //listTest();
-};
-// const listTest = () => {
-//   const list = document.querySelector("#first_modal_qna_container");
-//   const length = qeustion.filter(e => e.position === selectPosition).length;
-//   const writeAnswers = [];
-//   for (let i = 0; i < length; i++) {
-//     const answer = list.childNodes[i].querySelector(
-//       "#qustion_to_answer_input"
-//     ).value;
-//     writeAnswers.push(answer);
-//   }
-//   dispatch({
-//     type: SET_APPLYQNA_DATA,
-//     position: selectPosition,
-//     answers: writeAnswers
-//   });
-// };
+    console.log("============================");
+    dispatch({
+      type: NEXT_APPLY_MODAL
+    });
+    //listTest();
 
-const [inputs, setInputs] = useState({
-  job: {
-    id: 0,
-    text: null
-  }
-});
+    const { name, value } = e;
+    setAnswerInputs({
+      ...answerInputs,
+      [name]: { text: value.text }
+    });
+  };
+  // const listTest = () => {
+  //   const list = document.querySelector("#first_modal_qna_container");
+  //   const length = qeustion.filter(e => e.position === selectPosition).length;
+  //   const writeAnswers = [];
+  //   for (let i = 0; i < length; i++) {
+  //     const answer = list.childNodes[i].querySelector(
+  //       "#qustion_to_answer_input"
+  //     ).value;
+  //     writeAnswers.push(answer);
+  //   }
+  //   dispatch({
+  //     type: SET_APPLYQNA_DATA,
+  //     position: selectPosition,
+  //     answers: writeAnswers
+  //   });
+  // };
 
-const { job } = inputs;
+  const onClick = e => {
+    const { name, value } = e;
+    setInputs({
+      ...inputs,
+      [name]: { id: value.id, text: value.text }
+    });
+  };
 
-const onClick = e => {
-  const { name, value } = e;
-  setInputs({
-    ...inputs,
-    [name]: { id: value.id, text: value.text }
-  });
-};
-const onChange = e => {
-  setText(e.target.placeholder);
-  /*e.target : 이벤트 객체가 일어남 DOM  */
-  /*e.target.value : 이벤트 객체가 일어남 DOM의 값들  */
-};
+  let count = 1;
 
-let count = 1;
+  const [answerText, setAnswerText] = useState("답변을 입력하세요");
 
-const nextModal = () => {
-  let answer = document.getElementsByClassName("qustion_to_answer_input");
-  console.log("답변리스트===================");
-  console.log(answer);
+  /*e : 이벤트 객체 */
+  const onChange = e => {
+    setAnswerText(e.target.placeholder);
+    /*e.target : 이벤트 객체가 일어남 DOM  */
+    /*e.target.value : 이벤트 객체가 일어남 DOM의 값들  */
+  };
 
-  dispatch({
-    type: NEXT_APPLY_MODAL
-    //count: listCount
-  });
   return (
     <div id="first_modal_contents_container">
       <div id="first_modal_head_container">
@@ -148,7 +161,7 @@ const nextModal = () => {
         />
 
         <div className="questionList">
-          <ul id="listLength">
+          <ul>
             {dummyqeustions
               .filter(el => {
                 return el.sn === 0 || el.sn === job.id;
@@ -160,10 +173,12 @@ const nextModal = () => {
                     <span id="questionNum">{count++}</span>
                     <span id="questionContent">{user.content}</span>
                   </li>
+                  {/* {<ModalInput />} */}
                   <input
-                    className={classNames("qustion_to_answer_input", count)}
+                    name={qeustion}
+                    value={qeustion.text}
                     onChange={onChange}
-                    placeholder={text}
+                    placeholder={answerText}
                   />
                 </>
               ))}
