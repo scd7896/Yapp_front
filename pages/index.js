@@ -31,7 +31,7 @@ const Index = (props) => {
   var PostCardViewSection = HigherOrderCardView(PostCardView, "post");
   var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
   const dispatch = useDispatch()
-  var {user} = useSelector(state => state)
+  var {user,favorite} = useSelector(state => state)
   var [keywords, setKeywords] = useState([])
   useEffect(()=>{
     // dispatch({
@@ -55,13 +55,14 @@ const Index = (props) => {
         }
       }).then(res => {
         setKeywords(res.keywords);
-        console.log(res.keywords);
       })
     }
 
   }, [user])
 
-  
+  useEffect(() => {
+    console.log(favorite);
+  },[favorite])
 
 
   return (
