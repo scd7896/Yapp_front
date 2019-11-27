@@ -23,14 +23,14 @@ const postProjectAPI = (data)=>{
   const gtgt=dataQuestion.filter((el)=>{
     return el.text != ""
   }).map((el)=>{
-    formData.append("interviewQuestions",JSON.stringify({content : el.text, role : el.id}))
+    return JSON.stringify({content : el.text, role : el.id})
   })
-  for(let i = 0 ; i<data.projectKeyword.length; i++){
-    formData.append("keywords", data.projectKeyword[i])
+  if(gtgt.length !== 0){
+    formData.append("interviewQuestions", "["+gtgt+"]")
   }
-  // if(gtgt.length !== 0){
-  //   formData.append("interviewQuestions", gtgt)
-  // }
+  if(data.projectKeyword.length !== 0){
+    formData.append("keywords", "["+data.projectKeyword+"]")
+  }
   
   formData.append("title", data.projectTitle)
   formData.append("content",data.projectContent)
@@ -39,54 +39,14 @@ const postProjectAPI = (data)=>{
   formData.append("location", data.projectRegion)
   formData.append("thumbnailImage", dataFile)
   formData.append("expectedPeriod", data.projectLong)
-  
   formData.append("currentMember" , dataNowTeam)
-  /*
-    {
-  "title": "string",
-  "content": "string",
-  "role": 0,
-  "step": 0,
-  "location": 0,
-  "thumbnailImage": "string",
-  "expectedPeriod": 0,
-  "interviewQuestions": [
-    {
-      "content": "참여할 것입니까?"
-    }
-  ]
-}
-  */
-  // return axios.post('http://127.0.0.1:9170/test/123',formData)
-  console.dir(dataFile)
-  const eeee = {
-    "title": "김서버테스트",
-    "content": "모집글 테스트 내용",
-    "role": 2,
-    "step": 3,
-    "location": 1,
-    "thumbnailImage": dataFile,
-    "expectedPeriod": 1,
-    "currentMember": 10,
-    "interviewQuestions": [
-      {
-        "content": "참여할 것입니까?",
-        "role": 0
-      }
-    ],
-    "keywords": [
-      1,
-      2,
-      3
-    ]
-  }
   
-  // return axios.post(`${url}/projects`, eeee, {
-  //   headers :{
-  //     'Content-Type': 'multipart/form-data',
-  //     Authorization: `bearer ${data.userToken}`
-  //   }
-  // }).catch((err)=> console.log(err))
+  
+  return axios.post(`${url}/projects`, formData, {
+    headers :{
+      Authorization: `bearer ${data.userToken}`
+    }
+  }).catch((err)=> console.log(err))
 
   return {data : 1}
 }
@@ -146,15 +106,17 @@ const patchProjectAPI = (data)=>{
   const dataNowTeam = projectNowTeam[0] *100 + projectNowTeam[1] * 10 + projectNowTeam[2]
   const dataFile = projectImage.file
   const formData = new FormData()
-  // dataQuestion.map((el)=>{
-  //   if(el.text !== ""){
-  //     formData.append("interviewQuestions",{"content" : el.text, "sn": el.id})
-  //   }
-  // })
-  for(let i = 0 ; i<data.projectKeyword.length; i++){
-    formData.append("keywords", data.projectKeyword[i])
+  const gtgt=dataQuestion.filter((el)=>{
+    return el.text != ""
+  }).map((el)=>{
+    return JSON.stringify({content : el.text, role : el.id})
+  })
+  if(gtgt.length !== 0){
+    formData.append("interviewQuestions", "["+gtgt+"]")
   }
-
+  if(data.projectKeyword.length !== 0){
+    formData.append("keywords", "["+data.projectKeyword+"]")
+  }
   formData.append("title", data.projectTitle)
   formData.append("content",data.projectContent)
   formData.append("role", data.projectPosition)
@@ -166,12 +128,13 @@ const patchProjectAPI = (data)=>{
 
 
   
-  console.log('data', data)
-  return axios.patch(`${url}/projects/${data.resId}`, formData, {
+  
+  axios.patch(`${url}/projects/${data.resId}`, formData, {
     headers :{
       Authorization: `bearer ${data.userToken}`
     }
   }).catch((err)=> console.log(err))
+  return data.resId
 }
 
 function* patchProject(action){
@@ -180,7 +143,7 @@ function* patchProject(action){
     console.log(result)
     yield put({
       type : PATCH_PROJECT_SUCCESS,
-      data : result.data
+      data : result
     })
   }catch(err){
     yield put({
