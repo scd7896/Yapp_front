@@ -26,9 +26,7 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
             //scroll 버튼을 누르면 스크롤 뮤텍스를 취득하지만, 화면 resize에 의해 mutex를 박탈당할수 있다.
             this.scrollMutex = 0;
-
-            this.getNextDataFromServer();
-
+            
             this.initialAct = false;
         }
 
@@ -181,6 +179,9 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
 
             if(this.initialAct == false){
+
+                
+                this.getNextDataFromServer();
                 //ie 체크 후에 resize이벤트 등록
                 var agent = navigator.userAgent.toLowerCase();
                 if ( (navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {

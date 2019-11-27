@@ -63,6 +63,7 @@ class MyApp extends App {
           userName : result.data.user.name,
           userProfileImage : result.data.user.profileImage
         })
+
       }catch(e){
         ctx.store.dispatch({
           type : GET_MYDATA_FAILURE
