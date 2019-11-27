@@ -36,15 +36,26 @@ export default function DetailButtons(props){
         }
     }
 
-    return !(user.userId != '' && props.projectUserId != '' && user.userId == props.projectUserId) ? (
-        <div className = 'detail-button-flex'>
-            <div className = 'detail-favorite-button'>
-                <FavoriteButton project = {{projectId : props.projectId}} type = "detail"></FavoriteButton>
-            </div>
-            <div className = "button detail-apply-button" onClick = {handleClickApplyButton}>지원하기</div>
-        </div>) :(
-            <div className = 'detail-button-flex'>
-                <div className = "button detail-edit-button">수정</div>
+    return !props.isClosed ?
+        (
+            !(user.userId != '' && props.projectUserId != '' && user.userId == props.projectUserId) 
+            ? (
+                <div className = 'detail-button-flex'>
+                    <div className = 'detail-favorite-button'>
+                        <FavoriteButton project = {{projectId : props.projectId}} type = "detail"></FavoriteButton>
+                    </div>
+                    <div className = "button detail-apply-button" onClick = {handleClickApplyButton}>지원하기</div>
+                </div>
+            ) 
+            :(
+                <div className = 'detail-button-flex'>
+                    <div className = "button detail-edit-button">수정</div>
+                    <div className = "button detail-apply-button">모집마감</div>
+                </div>
+            )
+        )
+        : (
+            <div className = 'detail-button-flex detail-button-finished'>
                 <div className = "button detail-apply-button">모집마감</div>
             </div>
         )
