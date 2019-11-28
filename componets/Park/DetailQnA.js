@@ -153,7 +153,9 @@ export default class DetailQnA extends React.Component{
                     content  = {question.content}
                     createAt = {question.createAt}
                     project = {project}
+                    user = {question.user}
                     fetchQnAList = {fetchQnAList}
+                    isDelete = {question.isDelete}
                 />
             }
             else{
@@ -174,7 +176,9 @@ export default class DetailQnA extends React.Component{
                             content  = {answer.content}
                             createAt = {answer.createAt}
                             project = {project}
+                            user = {answer.user}
                             fetchQnAList = {fetchQnAList}
+                            isDelete = {answer.isDelete}
                         />
                     }
                     else{

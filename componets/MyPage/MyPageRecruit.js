@@ -7,6 +7,8 @@ import RecruitSimpleContents from './RecruitSimpleContents.js'
 import ProjectSimpleHOC from './ProjectSimpleHOC.js'
 import ApplicantList from './ApplicantList'
 
+var RecruitSimpleComponent = ProjectSimpleHOC(RecruitSimpleContents);
+
 class MyPageRecruit extends React.Component{
 
     constructor(props){
@@ -108,7 +110,7 @@ class MyPageRecruit extends React.Component{
     
     render(){
 
-        var RecruitSimpleComponent = ProjectSimpleHOC(RecruitSimpleContents);
+        
         var handleToggle = this.handleToggle;
 
         var recruitSimpleComponents = this.state.recruit.map((info) => {

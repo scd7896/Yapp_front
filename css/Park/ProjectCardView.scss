@@ -157,9 +157,16 @@
   line-height: 1.45;
   letter-spacing: normal;
   text-align: left;
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
   color: #333333;
 
   margin-top: 26px;
+
+  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .project-cardview-contents {
   margin: 0 32px;

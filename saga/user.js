@@ -2,11 +2,15 @@ import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/e
 import { GET_MYDATA_REQUEST, GET_MYDATA_FAILURE, GET_MYDATA_SUCCESS,
     USER_LOGIN_REQUEST,USER_LOGIN_FAILURE,USER_LOGIN_SUCCESS,
     USER_LOGOUT_REQUEST,USER_LOGOUT_FAILURE,USER_LOGOUT_SUCCESS,
-    GET_MYPORTFOLIO_REQUEST, GET_MYPORTFOLIO_SUCCESS, GET_MYPORTFOLIO_FAILURE} from '../action'
+    GET_MYPORTFOLIO_REQUEST, GET_MYPORTFOLIO_SUCCESS, GET_MYPORTFOLIO_FAILURE,
+    GET_FAVORITE_REQUEST,
+    GET_FAVORITE_FLUSH} from '../action'
 import axios from 'axios'
 import fetch from 'isomorphic-unfetch'
 import url from '../url'
 import cookies from '../methods/cookies'
+
+import {useDispatch} from 'react-redux'
 
 function getUserAPI(myCookie){
     return fetch(url + '/me', {
@@ -27,8 +31,6 @@ function getUserAPI(myCookie){
 }
 function* getUser(action){
     try{
-        
-
         const result = yield call(getUserAPI, action.data)
         
         yield put({
@@ -38,8 +40,8 @@ function* getUser(action){
             userEmail : result.user.email,
             userProfileImage : result.user.profileImage
         })
+
     }catch(e){
-        console.error(e)
         yield put({
             type : GET_MYDATA_FAILURE,
             error : e
@@ -66,7 +68,7 @@ function userLoginAPI(userData){
 
 function* userLogin(action){
     try{
-        
+
         const userData = {
             email : action.email,
             password : action.password
@@ -82,7 +84,7 @@ function* userLogin(action){
         yield put({
             type : USER_LOGIN_SUCCESS,
             userToken : userToken,
-            userName : getUserResult.user.userName,
+            userName : getUserResult.user.name,
             userId : getUserResult.user.userId,
             userEmail : getUserResult.user.email,
             userProfileImage : getUserResult.user.profileImage
@@ -104,7 +106,6 @@ function* userLogout(action){
         var userToken = cookies.getCookie('user-token');
         if(userToken != '' && userToken != undefined){
             cookies.deleteCookie('user-token');
-
         }
 
         yield put({
@@ -156,12 +157,49 @@ function * getPortFolio(action){
 function * watchGetPortFolio(){
     yield takeLatest(GET_MYPORTFOLIO_REQUEST, getPortFolio)
 }
+
+function * afterUserLogin(action){
+    yield put({
+        type : GET_FAVORITE_REQUEST,
+        userToken : action.userToken
+    })
+}
+
+function * watchUserLoginSuccess(){
+    yield takeLatest(USER_LOGIN_SUCCESS, afterUserLogin)
+}
+
+function * afterUserLogout(action){
+    yield put({
+        type : GET_FAVORITE_FLUSH
+    })
+}
+
+function * watchUserLogoutSuccess(){
+    yield takeLatest(USER_LOGOUT_SUCCESS, afterUserLogout)
+}
+
+function *  afterGetMydata(action){
+    yield put({
+        type : GET_FAVORITE_REQUEST,
+        userToken : action.userToken
+    })
+}
+
+function * watchUserMydataSuccess(){
+    yield takeLatest(GET_MYDATA_SUCCESS, afterGetMydata)
+}
+
+
 export default function* userSaga(){
     yield all([
         fork(watchGetUser),
         fork(watchUserLogin),
         fork(watchUserLogout),
-        fork(watchGetPortFolio)
+        fork(watchGetPortFolio),
+        fork(watchUserLoginSuccess),
+        fork(watchUserLogoutSuccess),
+        fork(watchUserMydataSuccess)
         
     ])
 }

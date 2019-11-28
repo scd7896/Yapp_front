@@ -10,13 +10,15 @@ import apply from './apply'
 import user from './user'
 import keywords from './keywords'
 import enrollment from './enrollment'
+import favorite from "./favorite";
 const rootReducer = combineReducers({
     test,
     apply,
     button,
     user,
     keywords,
-    enrollment
+    enrollment,
+    favorite
 })
 
 export default rootReducer

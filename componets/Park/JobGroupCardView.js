@@ -12,7 +12,7 @@ export default props => {
     svg_size = "94";
     svg_color = "#eaebff";
   } else {
-    svg_size = "102";
+    svg_size = "112";
     svg_color = "#f5f7fa";
   }
 
@@ -250,7 +250,7 @@ export default props => {
   }
 
   if (!Number.isNaN(parseInt(props.number))) {
-    cur_jobgruop += parseInt(props.number);
+    cur_jobgruop += ' ' + parseInt(props.number) +'명';
   }
 
   return (

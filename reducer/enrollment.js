@@ -98,7 +98,7 @@ const enrollment = (state = initialProps, action) => {
         break;  
 
       case GET_PROJECT_SUCCESS :
-        console.log('tetet', action.data)
+        
         draft.resId = action.data.projectId;
         draft.projectTitle = action.data.title;
         draft.projectContent = action.data.content;
@@ -110,6 +110,13 @@ const enrollment = (state = initialProps, action) => {
         draft.projectNowTeam[2] = current %10;
         draft.projectNowTeam[1] = parseInt((current % 100) /10)
         
+        action.questions.interviewQuestions.map((el)=>{
+          const index = el.role === 4 ? 3 : el.role
+          draft.projectQuestion[index].push({
+            id : el.role,
+            text : el.content
+          })
+        })
         break;
       case GET_PROJECT_REQUEST :
         break;
