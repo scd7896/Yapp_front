@@ -6,6 +6,8 @@ import '../../css/MyPage/MyPageInterest.scss';
 import ProjectSimpleHOC from './ProjectSimpleHOC';
 import InterestSimpleContents from './InterestSimpleContents';
 
+import baseURL from '../../url'
+
 var InterestSimpleComponent = ProjectSimpleHOC(InterestSimpleContents);
 
 class MyPageInterest extends React.Component{
@@ -14,52 +16,53 @@ class MyPageInterest extends React.Component{
         super(props);
 
         this.state = {
-            info : [{
-                title : '프로젝트 타이틀 1',
-                jobgroup : '디자이너',
-                id : 0,
-                finish : false
-            }, {
-                title : '프로젝트 타이틀 2',
-                jobgroup : '디자이너',
-                id : 1,
-                finish : true
-            }]
+            cart : [
+
+            ]
         }
 
-        this.onDelete = this.onDelete.bind(this);
+        this.updateScreen = this.updateScreen.bind(this);
     }
 
-    async onDelete(victim){
-        var deleteConfirm = confirm('관심 프로젝트에서 제거하시겠습니까?');
+    async updateScreen(){
 
-        //실제로 서버와 통신할 공간
+        try{
 
-        var deleteResult = await true;
+            var userToken = cookies.getCookie('user-token');
 
-        if(deleteConfirm  && deleteResult){
-            var curState = JSON.parse(JSON.stringify(this.state));
-            
-            curState.info = curState.info.filter(info => info.id != victim);
+            if(userToken != '' && userToken != undefined){
+                var res = await fetch(baseURL + '/mypage/cart', {
+                    'headers' : {
+                        "Authorization" : "bearer " + userToken,
+                        'accept' : 'application/json',
+                        'Content-Type' : 'application/json'
+                    }
+                })
+                if(res.ok){
+                    var resJson = await res.json();
 
-            this.setState(curState);
+                    this.setState(resJson);
+                }
+            }
+
         }
-
-        //실제로는 전체 데이터를 긁어와야할수도있음
+        catch{}
     }
-    
-    render(){
 
-        
+    componentDidMount(){
+        this.updateScreen();
+    }
 
-        var onDelete = this.onDelete;
+    render(){        
 
-        var InterestSimpleComponents = this.state.info.map(info => {
+        var updateScreen = this.updateScreen;
+
+        var InterestSimpleComponents = this.state.cart.map(info => {
             return <InterestSimpleComponent 
-                        key = {info.id}
-                        id = {info.id}
+                        key = {info.projectId}
+                        id = {info.projectId}
                         info = {info} 
-                        onDelete = {onDelete}/>
+                        updateScreen = {updateScreen}/>
         })
 
         return (

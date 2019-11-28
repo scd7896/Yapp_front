@@ -32,29 +32,35 @@ export default function FavoriteButton(props){
 
     function handleClick(event){
         event.preventDefault();
-        
-        if(user.isLogging){
-            console.log(props.project.projectId, toggle)
-            if(toggle == false){
-                dispatch({
-                    type : ADD_FAVORITE_REQUEST,
-                    favoriteId : parseInt(props.project.projectId)
-                })
-            }
-            else if(toggle == true){
-                dispatch({
-                    type : DELETE_FAVORITE_REQUEST,
-                    favoriteId : parseInt(props.project.projectId)
-                })
-            }
-        }
-        else{
-            dispatch({
-                type: OPEN_LOGIN_MODAL
-            });
+
+        var toggleConfirm = true;
+        if(props.checkConfirm == true){
+            toggleConfirm = confirm('즐겨찾기에서 제거하시겠습니까?')
         }
 
-
+        if(toggleConfirm == true){
+            if(user.isLogging){
+                console.log(props.project.projectId, toggle)
+                if(toggle == false){
+                    dispatch({
+                        type : ADD_FAVORITE_REQUEST,
+                        favoriteId : parseInt(props.project.projectId)
+                    })
+                }
+                else if(toggle == true){
+                    dispatch({
+                        type : DELETE_FAVORITE_REQUEST,
+                        favoriteId : parseInt(props.project.projectId)
+                    })
+                }
+            }
+            else{
+                dispatch({
+                    type: OPEN_LOGIN_MODAL
+                });
+            }
+        }
+    
     }
 
     return (
