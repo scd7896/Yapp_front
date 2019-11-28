@@ -106,7 +106,6 @@ function* userLogout(action){
         var userToken = cookies.getCookie('user-token');
         if(userToken != '' && userToken != undefined){
             cookies.deleteCookie('user-token');
-
         }
 
         yield put({

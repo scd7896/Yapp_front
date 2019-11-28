@@ -160,6 +160,10 @@
   color: #333333;
 
   margin-top: 26px;
+
+  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .project-cardview-contents {
   margin: 0 32px;

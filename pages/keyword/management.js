@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import cookies from 'next-cookies'
 import KeywordBorder from '../../componets/Kim/KeywordBorder'
+import LogoutCheck from '../../componets/Park/LogoutCheck'
 import '../../css/container.scss'
 import '../../css/kim/keyword_management.scss'
 import keywordAllLists from '../../methods/keywords'
@@ -32,6 +33,7 @@ const management = ()=>{
     },[])
     return(
         <div>
+            <LogoutCheck/>
             <div style = {{background : "#ffffff", borderBottom : "3px solid #f5f7fa"}}>
                 <div className = "container">
                     <div className = "management_container">

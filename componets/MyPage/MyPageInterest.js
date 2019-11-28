@@ -6,6 +6,8 @@ import '../../css/MyPage/MyPageInterest.scss';
 import ProjectSimpleHOC from './ProjectSimpleHOC';
 import InterestSimpleContents from './InterestSimpleContents';
 
+var InterestSimpleComponent = ProjectSimpleHOC(InterestSimpleContents);
+
 class MyPageInterest extends React.Component{
 
     constructor(props){
@@ -48,7 +50,7 @@ class MyPageInterest extends React.Component{
     
     render(){
 
-        var InterestSimpleComponent = ProjectSimpleHOC(InterestSimpleContents);
+        
 
         var onDelete = this.onDelete;
 
