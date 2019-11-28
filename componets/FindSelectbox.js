@@ -48,6 +48,7 @@ const FindSelectbox = ({onSubmit}) => {
         />
         <input style={{paddingBottom: "20px"}} value = {searchString} placeholder="검색어 입력" onChange = {stringSet}></input>
       </div>
+      <hr id = "findbox_hr_line"/>
       <div className="text_find">
         <img
           style={{ width: "31px", height: "35px" }}

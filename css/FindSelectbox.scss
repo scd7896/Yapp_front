@@ -10,7 +10,17 @@ input {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
+  @media (max-width: 724px) {
+    width : 95%;
+    flex-direction: column;
+    height : 100%;
+    align-items: flex-start;
+    padding-left : 16px ;
+    padding-right: 16px;
+    padding-bottom: 11px;
+    margin-top : 30px;
+    margin-bottom : -20px;
+  }
   & > button {
     width: 14%;
     margin: 0 2.5%;
@@ -26,6 +36,10 @@ input {
     letter-spacing: -1.2px;
     text-align: center;
     color: #ffffff;
+    @media (max-width: 724px) {
+      width : 100%;
+      margin : 0;
+    }
   }
 }
 
@@ -35,7 +49,10 @@ input {
   align-items: center;
   width: 40.5%;
   margin-left: 2%;
-
+  @media (max-width: 724px){
+    margin-right : 0;
+    height: 68px;
+  }
   & > input {
     width: 100%;
     border: none;
@@ -49,15 +66,42 @@ input {
     text-align: left;
     color: #666666;
     margin-left: 3%;
+    @media (max-width: 724px){
+      font-size: 18px;
+    }
   }
+  
   & + & {
     border-left: 1.5px solid #f5f7fa;
     padding-left: 2.5%;
+    @media (max-width: 724px) {
+      padding-left: 0;
+    }
   }
 }
-
+#recruit_select_box{
+  
+}
 #recruit_select_box > .selectbox > .under {
   margin-left : 10px;
   border-bottom: none;
   width : 330px;
+  @media (max-width: 724px) {
+    width : 60%;
+    margin-left : 0;
+    height : 68px;
+    font-size: 20px;
+  }
+}
+
+#findbox_hr_line{
+  display: none;
+  @media (max-width: 724px) {
+    display: block;
+    border-top : 1.5px solid #f5f7fa;
+    width : 100% ;
+    margin-bottom : 15px;
+    
+  }
+  
 }
