@@ -29,6 +29,7 @@ var ProjectSimpleHOC = (RightSection) => {
                     <RightSection 
                         id = {props.id}
                         updateScreen = {props.updateScreen}
+                        handleToggle = {props.handleToggle}
                         info = {info}/>
     
                 </div>

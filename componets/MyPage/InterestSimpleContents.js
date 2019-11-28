@@ -22,7 +22,7 @@ var InterestSimpleContents = (props) =>
                     <FavoriteButton 
                         project = {props.info}
                         finish = {isClosed}
-                        toggleConfirm = {true}
+                        checkConfirm = {true}
                         afterClick = {props.updateScreen}
                         />
                 </div>

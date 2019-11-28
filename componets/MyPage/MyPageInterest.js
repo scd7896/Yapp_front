@@ -5,6 +5,7 @@ import '../../css/MyPage/MyPageInterest.scss';
 
 import ProjectSimpleHOC from './ProjectSimpleHOC';
 import InterestSimpleContents from './InterestSimpleContents';
+import cookies from '../../methods/cookies'
 
 import baseURL from '../../url'
 
@@ -43,10 +44,12 @@ class MyPageInterest extends React.Component{
 
                     this.setState(resJson);
                 }
+            }else{
             }
 
         }
-        catch{}
+        catch(e){
+        }
     }
 
     componentDidMount(){

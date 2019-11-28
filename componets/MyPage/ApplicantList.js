@@ -1,44 +1,40 @@
 import ProjectJobGroup from '../Park/ProjectJobGroup'
 import ApplicantSimpleComponent from './ApplicantSimpleComponent'
 import ProjectSimpleHOC from './ProjectSimpleHOC';
+import roles from '../../methods/role'
 
 class ApplicantList extends React.Component{
 
     constructor(props){
         super(props);
 
-        this.state = {
-            applicant : {
-                'developer' : [{
-                    id : 0,
-                    img : '',
-                    nickname : '박준호',
-                    portfolios : [{},{}]
-                }],
-                'designer' : [{
-                    id : 1,
-                    img : '',
-                    nickname : '장민정',
-                    portfolios : [{},{},{}]
-                }],
-                planner : []
-            }
+        this.applicants = {}
+
+        for(var i = 0 ; i < roles.length ; i ++){
+            this.applicants[roles[i]] = [];
         }
-    }
 
-    //최적화를 위해서 이 컴포넌트의 내용은 후처리할것
-    componentDidMount(){
+        for(var i = 0 ; i < props.project.applicants.length ; i ++){
+            let curRole = '';
 
+            if(props.project.applicants[i].role <= 1)
+                curRole = roles[0]
+            else if(props.project.applicants[i].role <= 2)
+                curRole = roles[1]
+            else
+                curRole = roles[2]
+            
+            this.applicants[curRole].push(props.project.applicants[i])
+        }
     }
 
     render(){
 
         var projectId = this.props.id;
-        var state = this.state;
-        var toggleState = this.props.toggleState;
+        var applicants = this.applicants;
 
-        var applicantList = Object.keys(state.applicant).map(function(jobgroup){
-            var list = state.applicant[jobgroup].map(function(applicant){
+        var applicantList = Object.keys(applicants).map(function(jobgroup){
+            var list = applicants[jobgroup].map(function(applicant){
                 return <ApplicantSimpleComponent 
                     projectId = {projectId}
                     applicant = {applicant}/>
@@ -75,7 +71,7 @@ class ApplicantList extends React.Component{
                                         {this.props.project.title}
                                     </div>
                                     <div className = 'applicant-list-number'>
-                                        { '지원자 ' + (this.state.applicant.designer.length + this.state.applicant.developer.length + this.state.applicant.planner.length ) + '명'}  
+                                        { '지원자 ' + (this.props.project.applicants.length ) + '명'}  
                                     </div>
                                 </div>
                             </div>

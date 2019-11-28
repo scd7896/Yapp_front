@@ -2,12 +2,10 @@ import '../../css/MyPage/ProjectSimpleContainer.scss'
 
 var RecruitSimpleComponent =(props) => {
 
-    var applicant = props.info.applicant;
-
     return (
         <div className = 'recruit-simple-contents-container'>
             <div className = 'recruit-simple-applicant'>
-                {applicant + '명 지원'}
+                {props.info.applicants.length + '명 지원'}
             </div>
             <div className = 'recruit-simple-view' onClick ={() => props.handleToggle(props.id)}>
                 <div className = 'recruit-simple-view-flex'>

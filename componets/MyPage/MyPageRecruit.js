@@ -6,6 +6,8 @@ import '../../css/MyPage/MyPageRecruit.scss';
 import RecruitSimpleContents from './RecruitSimpleContents.js'
 import ProjectSimpleHOC from './ProjectSimpleHOC.js'
 import ApplicantList from './ApplicantList'
+import cookies from '../../methods/cookies'
+import baseURL from '../../url'
 
 var RecruitSimpleComponent = ProjectSimpleHOC(RecruitSimpleContents);
 
@@ -15,66 +17,79 @@ class MyPageRecruit extends React.Component{
         super(props);
 
         this.state = {
-            recruit : [
-                {
-                    id : 1,
-                    title : '프로젝트 타이틀1',
-                    jobgroup : '개발자',
-                    applicant : 3,
-                    finish : false,
-                    toggle : 0 // 0 :init(off), 1 : on , 2 : off
-                },
-                {
-                    id : 2,
-                    title : '프로젝트 타이틀2',
-                    jobgroup : '기획자',
-                    applicant : 20,
-                    finish : false,
-                    toggle : 0 // 0 :init(off), 1 : on , 2 : off
-                },
-                {
-                    id : 3,
-                    title : '프로젝트 타이틀3',
-                    jobgroup : '기획자',
-                    applicant : 20,
-                    finish : true,
-                    toggle : 0 // -1 : init(on) 0 :init(off), 1 : on , 2 : off
-                }
+            recruitProjects : [
+            
             ]
         }
 
+        this.updateScreen = this.updateScreen.bind(this);
         this.handleToggle = this.handleToggle.bind(this);
     }
 
     componentDidMount(){
-        var toggleState = window.sessionStorage.getItem('toggleState');
+        this.updateScreen();
+    }
 
-        if(toggleState){
-            toggleState = JSON.parse(toggleState);
-            var toggleStateKeys = Object.keys(toggleState);
-            var curState = JSON.parse(JSON.stringify(this.state));
+    async updateScreen(){
 
-            for(var i = 0 ; i < toggleStateKeys.length ; i ++){
-                var toggleStateKey = toggleStateKeys[i];
+        try{
 
-                for(var j = 0 ; j < curState.recruit.length ; j ++){
-                    if(curState.recruit[j].id == toggleStateKey){
-                        curState.recruit[j].toggle = toggleState[toggleStateKey];
+            var userToken = cookies.getCookie('user-token');
+
+            if(userToken != '' && userToken != undefined){
+                var res = await fetch(baseURL + '/mypage/recruit', {
+                    'headers' : {
+                        "Authorization" : "bearer " + userToken,
+                        'accept' : 'application/json',
+                        'Content-Type' : 'application/json'
                     }
+                })
+                if(res.ok){
+                    var curState = await res.json();
+
+                    var toggleState = window.sessionStorage.getItem('toggleState');
+
+                    if(toggleState){
+                        toggleState = JSON.parse(toggleState);
+                        var toggleStateKeys = Object.keys(toggleState);
+            
+                        for(var i = 0 ; i < toggleStateKeys.length ; i ++){
+                            var toggleStateKey = toggleStateKeys[i];
+            
+                            for(var j = 0 ; j < curState.recruitProjects.length ; j ++){
+                                if(curState.recruitProjects[j].projectId == toggleStateKey){
+                                    curState.recruitProjects[j].toggle = toggleState[toggleStateKey];
+                                }
+                            }
+                        }
+
+                    }
+                    else{
+                        for(var i = 0 ; i < curState.recruitProjects.length ; i++){
+                            curState.recruitProjects[i].toggle = 0;
+                        }
+                    }
+
+                    console.log(curState)
+
+                    this.setState(curState);
                 }
+            }else{
             }
 
-            this.setState(curState);
+        }
+        catch(e){
+            console.log(e)
         }
     }
 
     handleToggle(id){
 
         var curState = JSON.parse(JSON.stringify(this.state));
-        var curRecruit = curState.recruit;
+        var curRecruit = curState.recruitProjects;
 
         for(var i = 0 ; i < curRecruit.length ; i ++){
-            if(curRecruit[i].id == id){
+            if(curRecruit[i].projectId == id){
                 if(curRecruit[i].toggle == -1){
                     curRecruit[i].toggle = 2;
                 }
@@ -94,16 +109,18 @@ class MyPageRecruit extends React.Component{
 
         for(var i = 0 ; i < curRecruit.length ; i ++){
             if(curRecruit[i].toggle == 1){
-                toggleState[curRecruit[i].id] = -1;
+                toggleState[curRecruit[i].projectId] = -1;
             }
             else{
-                if(toggleState.hasOwnProperty(curRecruit[i].id)){
-                    delete toggleState[curRecruit[i].id];
+                if(toggleState.hasOwnProperty(curRecruit[i].projectId)){
+                    delete toggleState[curRecruit[i].projectId];
                 }
             }
         }
 
         sessionStorage.setItem('toggleState', JSON.stringify(toggleState));
+
+
 
         this.setState(curState);
     }
@@ -113,23 +130,23 @@ class MyPageRecruit extends React.Component{
         
         var handleToggle = this.handleToggle;
 
-        var recruitSimpleComponents = this.state.recruit.map((info) => {
+        var recruitSimpleComponents = this.state.recruitProjects.map((info) => {
                 var toggle = info.toggle;
         
                 return (
                     <div className = 'recruit-simple-set'>
                         <div className = {('recruit-simple-component-' + (toggle == -1 ? 'init-off' : (toggle == 0 ? 'init' : (toggle == 1 ? 'off' : 'on'))))}>
                             <RecruitSimpleComponent
-                                key = {info.id}
-                                id = {info.id}
+                                key = {info.projectId}
+                                id = {info.projectId}
                                 info = {info}
                                 handleToggle = {handleToggle} //HOC개조해야함
                             />
                         </div> 
                         <div className = {('applicant-list-' + (toggle == -1 ? 'init-on' : (toggle == 0 ? 'init' : (toggle == 1 ? 'on' : 'off'))))}>
                             <ApplicantList
-                                key = {info.id}
-                                id = {info.id}
+                                key = {info.projectId}
+                                id = {info.projectId}
                                 project = {info}
                                 handleToggle = {handleToggle}
                             />
