@@ -127,6 +127,7 @@ class applicant extends React.Component{
             var resJson = await res.json();
 
             data.res = resJson
+            data.applicantId = applicantId
 
             return data;
         }
@@ -153,11 +154,11 @@ class applicant extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            ohter : []
+            other : []
         }
 
-        var interviewQuestions = JSON.parse(JSON.stringify(this.props.res.project.interviewQuestions));
-        var interviewAnswers = JSON.parse(JSON.stringify(this.props.res.project.interviewAnswers));
+        var interviewQuestions = JSON.parse(JSON.stringify(this.props.res.project[0].interviewQuestions));
+        var interviewAnswers = JSON.parse(JSON.stringify(this.props.res.project[0].interviewAnswers));
         this.interviewSet = [];
 
         interviewQuestions.sort((a,b) => a.sn - b.sn);
@@ -167,7 +168,8 @@ class applicant extends React.Component{
 
         while(interviewQuestions.length > 0){
             interviewQuestion = interviewQuestions.shift();
-            if(interviewAnswers[0].sn == interviewQuestion.sn){
+
+            if(interviewAnswers.length >0 && interviewAnswers[0].sn == interviewQuestion.sn){
                 interviewAnswer = interviewAnswers.shift();
 
                 this.interviewSet.push({
@@ -207,12 +209,14 @@ class applicant extends React.Component{
         if(this.initialLoad == false){
             this.initialLoad = true;
 
-            var curProjectId = this.props.res.project.projectId;
+            var curProjectId = this.props.res.project[0].projectId;
 
             var curState = JSON.parse(JSON.stringify(this.state));
-            var setState = this.setState;
+            var setState = (this.setState).bind(this);
 
             var userToken = cookies.getCookie('user-token');
+            var applicantId = this.props.applicantId;
+            console.log(this.props)
 
             if(userToken != '' && userToken != undefined){
                 fetch(baseURL + '/mypage/recruit' , {
@@ -230,9 +234,11 @@ class applicant extends React.Component{
                         throw res.statusText
                     }
                 }).then(res => {
+                    
                     var curProject = res.recruitProjects.filter((project) => project.projectId == curProjectId);
-                    var applicants = curProject.applicants;
+                    var applicants = curProject[0].applicants.filter(applicant => applicant.userId != applicantId);
                     curState.other = applicants;
+                    
                     setState(curState);
                 })
             }
@@ -241,20 +247,22 @@ class applicant extends React.Component{
     }
 
     render(){
-        var projectId = this.props.project.id;
+        var projectId = this.props.res.project[0].proejctId;
 
-        var role = parseInt(this.props.res.project.role) ;
-        var roleTexts = [];
+        var role = parseInt(this.props.res.project[0].role) ;
+        var roleTexts = ['안됨'];
 
-        if((role & 1) == 1){
+        /*
+        if(role <= 1){
             roleTexts.push(roles[0]);
         }
-        else if((role & 2) == 2){
+        else if(role <= 2){
             roleTexts.push(roles[1]);
         }
-        else if((role & 4) == 4){
+        else {
             roleTexts.push(roles[2]);
         }
+        */
 
         var roleComponentes = roleTexts.map(role =>  <ProjectJobGroup jobgroup = {role} size="big"/>)
 
@@ -269,7 +277,7 @@ class applicant extends React.Component{
                         <div className = 'applicant-header-subtitle'>
                             <div className = 'applicant-flex'>
                                 <div className = 'applicant-project-title'>
-                                    {this.props.res.project.title}
+                                    {this.props.res.project[0].title}
                                 </div>
                                 <div className = 'applicant-project-jobgroup'>
                                    {roleComponentes}
@@ -291,7 +299,14 @@ class applicant extends React.Component{
                                 </div>
                                 <div className = 'applicant-contents-profile-email'>
                                     <div className = 'applicant-flex'>
-                                        <img className = 'applicant-cotents-profile-icon'></img>
+                                        <div className = 'applicant-cotents-profile-icon-box'>
+                                        <svg className = 'applicant-contents-profile-icon-mail' xmlns="http://www.w3.org/2000/svg" width="19.847" height="13.59" viewBox="0 0 19.847 13.59">
+                                            <g id="그룹_2280" dataName="그룹 2280" transform="translate(.347 .5)">
+                                                <path id="사각형_3883" d="M0 0h18.847v12.59H0z" class="cls-1" dataName="사각형 3883" transform="translate(.153)" fill="none" strokeMiterlimit="10" stroke="#5c63ff"/>
+                                                <path id="패스_1949" d="M76.317 81.1l9.533 7.106L95.5 81.1" class="cls-2" dataName="패스 1949" transform="translate(-76.317 -81.031)" fill="none" strokeMiterlimit="10" stroke="#4ce4bd"/>
+                                            </g>
+                                        </svg>
+                                        </div>
                                         <div className = 'applicant-contents-profile-text'>
                                             {this.props.res.applicant.email ? this.props.res.applicant.email : ''}
                                         </div>
@@ -299,7 +314,16 @@ class applicant extends React.Component{
                                 </div>
                                 <div className = 'applicant-contents-profile-phonenubmer'>
                                     <div className = 'applicant-flex'>
-                                        <img className = 'applicant-cotents-profile-icon'></img>
+                                        <div className = 'applicant-cotents-profile-icon-box'>
+                                            <svg className = 'applicant-contents-profile-icon-phone' xmlns="http://www.w3.org/2000/svg" width="12.855" height="20.107" viewBox="0 0 12.855 20.107">
+                                                <g id="그룹_2281" dataName="그룹 2281" transform="translate(.5 .5)">
+                                                    <path id="사각형_3884" d="M0 0h19.107v11.856H0z" class="cls-1" dataName="사각형 3884" transform="rotate(90 5.928 5.928)" fill="none" strokeMiterlimit="10" stroke="#5c63ff"/>
+                                                    <path id="선_1013" d="M0 0h11.685" class="cls-2" dataName="선 1013" transform="translate(.005 15.83)"  fill="none" strokeMiterlimit="10" stroke="#4ce4bd"/>
+                                                    <path id="선_1014" d="M0 0h11.746" class="cls-2" dataName="선 1014" transform="translate(.035 2.065)" fill="none" strokeMiterlimit="10" stroke="#4ce4bd"/>
+                                                    <path id="선_1015" d="M1.233 0H0" class="cls-1" dataName="선 1015" transform="translate(5.334 17.401)" fill="none" strokeMiterlimit="10" stroke="#5c63ff"/>
+                                                </g>
+                                            </svg>
+                                        </div>
                                         <div className = 'applicant-contents-profile-text'>
                                             {this.props.res.applicant.phonenumber ? this.props.res.applicant.phonenumber : '비공개'}
                                         </div>
@@ -334,7 +358,7 @@ class applicant extends React.Component{
                                 this.props.res.portfolios.map(portfolio => 
                                     <PortfolioSimpleComponent 
                                         type ='applicant'
-                                        post = {portfolio}/>
+                                        portfolio = {portfolio}/>
                                 )
                             }
                         </div>
@@ -353,7 +377,7 @@ class applicant extends React.Component{
                         <div className = 'applicant-contents-other-title'>
                             <div className = 'applicant-flex'>
                                 <div className = 'applicant-contents-other-title-project'>
-                                    {this.props.res.project.title}
+                                    {this.props.res.project[0].title}
                                 </div>
                                 <div className = 'applicant-contents-other-title-title'>
                                     의 다른 지원자 보기
@@ -365,7 +389,7 @@ class applicant extends React.Component{
                                 this.state.other.map(applicant => <ApplicantSimpleComponent 
                                     projectId = {projectId}
                                     applicant = {applicant}
-                                    approve = 'false'/>)
+                                    type = 'other'/>)
                             }
                         </div>
                     </div>

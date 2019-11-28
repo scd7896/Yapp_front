@@ -107,11 +107,23 @@
     margin-top : 10px;
 }
 
-.applicant-cotents-profile-icon{
+.applicant-cotents-profile-icon-box{
     width: 32px;
     height: 32px;
     margin-top : 9px;
     display:inline-block;
+    background-color: #f5f7fa;
+    border-radius: 100%;
+    text-align: center;
+
+}
+.applicant-contents-profile-icon-mail{
+    margin-top : 9px;
+    margin-left : 2px;
+}
+
+.applicant-contents-profile-icon-phone{
+    margin-top : 6px;
 }
 
 .applicant-contents-profile-text{
@@ -127,6 +139,7 @@
     color: #666666;
 
     display: inline-block;
+    margin-left : 9px;
 }
 
 .applicant-contents-section-title{

@@ -63,7 +63,7 @@ function * watchFavoriteRequest(){
 }
 
 function favoriteAddApi(userToken, favoriteId){
-    fetch(baseURL + '/projects/' + favoriteId + '/cart', {
+    return fetch(baseURL + '/projects/' + favoriteId + '/cart', {
         headers : {
             Authorization : 'bearer ' + userToken,
             accept : 'application/json',
@@ -102,7 +102,7 @@ function * watchFavoriteAdd(){
 }
 
 function favoriteDeleteApi(userToken, favoriteId){
-    fetch(baseURL + '/projects/' + favoriteId + '/cart', {
+    return fetch(baseURL + '/projects/' + favoriteId + '/cart', {
         headers : {
             Authorization : 'bearer ' + userToken,
             accept : 'application/json',
@@ -121,7 +121,8 @@ function * favoriteDelete(action){
         }
         var favoriteId = action.favoriteId ;
 
-        yield call(favoriteDeleteApi, userToken , favoriteId)
+        var res = yield call(favoriteDeleteApi, userToken , favoriteId)
+
         yield put({
             type : DELETE_FAVORITE_SUCCESS,
             favoriteId : favoriteId

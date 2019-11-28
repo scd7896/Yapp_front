@@ -13,6 +13,7 @@ export default function FavoriteButton(props){
         useEffect(() => {
             if(favorite.lastEdited == props.project.projectId)
             {
+                console.log('?');
                 props.afterClick();
             }
         },[favorite.lastEdited])
@@ -40,7 +41,6 @@ export default function FavoriteButton(props){
 
         if(toggleConfirm == true){
             if(user.isLogging){
-                console.log(props.project.projectId, toggle)
                 if(toggle == false){
                     dispatch({
                         type : ADD_FAVORITE_REQUEST,
