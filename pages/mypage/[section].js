@@ -11,6 +11,8 @@ import MyPageRecruit from '../../componets/MyPage/MyPageRecruit';
 import MyPagePortfolio from '../../componets/MyPage/MyPagePortfolio';
 import MyPageInterest from '../../componets/MyPage/MyPageInterest';
 
+import LogoutCheck from '../../componets/Park/LogoutCheck'
+
 import fetch from 'isomorphic-unfetch'
 import baseURL from '../../url'
 
@@ -106,7 +108,7 @@ class MyPage extends React.Component{
         }
         return (
             <div className = 'mypage'>     
-
+                <LogoutCheck/>
                 {/*마이 페이지 프로필 섹션*/}      
                 <div className = 'mypage-profile-section'>
                     <div className = 'mypage-profile-container container'>

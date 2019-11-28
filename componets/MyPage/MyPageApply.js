@@ -6,80 +6,61 @@ import '../../css/MyPage/MyPageApply.scss';
 import ProjectSimpleHOC from './ProjectSimpleHOC';
 import ApplySimpleContents from './ApplySimpleContents';
 
+import cookies from '../../methods/cookies'
+
+var ApplySimpleComponent = ProjectSimpleHOC(ApplySimpleContents);
+
+import baseURL from '../../url'
+
 class MyPageApply extends React.Component{
 
     constructor(props){
         super(props);
 
         this.state = {
-            apply : [{
-                id : 0,
-                title : '프로젝트 타이틀 1',
-                jobgroup : '디자이너',
-                reading : true,
-                finish : false
-            },
-            {
-                id : 1,
-                title : '프로젝트 타이틀 2',
-                jobgroup : '디자이너',
-                reading : true,
-                finish : false
-            },
-            {
-                id : 2,
-                title : '프로젝트 타이틀 3',
-                jobgroup : '기획자',
-                reading : false,
-                finish : false
-            },
-            {
-                id : 3,
-                title : '프로젝트 타이틀 4',
-                jobgroup : '디자이너',
-                reading : false,
-                finish : true
-            },
-            {
-                id : 4,
-                title : '프로젝트 타이틀 5',
-                jobgroup : '디자이너',
-                reading : false,
-                finish : true
-            }]
+            "applicantCnt": 0,
+            "seenCnt": 0,
+            "acceptedCnt": 0,
+            "list" : []
         }
 
-        this.onDelete = this.onDelete.bind(this);
+        this.updateScreen = this.updateScreen.bind(this);
     }
 
-    async onDelete(victim){
-        var deleteConfirm = confirm('정말 지원을 취소하시겠습니까?');
+    async updateScreen(){
 
-        //실제로 서버와 통신할 공간
+        try{
 
-        var deleteResult = await true;
+            var userToken = cookies.getCookie('user-token');
 
-        if(deleteConfirm  && deleteResult){
-            var curState = JSON.parse(JSON.stringify(this.state));
-            
-            curState.apply = curState.apply.filter(apply => apply.id != victim);
+            if(userToken != '' && userToken != undefined){
+                var res = await fetch(baseURL + '/mypage/status', {
+                    'headers' : {
+                        "Authorization" : "bearer " + userToken,
+                        'accept' : 'application/json',
+                        'Content-Type' : 'application/json'
+                    }
+                })
+                if(res.ok){
+                    var resJson = await res.json();
 
-            this.setState(curState);
+                    this.setState(resJson);
+                }
+            }
+
         }
+        catch{}
 
-        //실제로는 전체 데이터를 긁어와야할수도있음
+    }
+
+    componentDidMount(){
+        this.updateScreen();
     }
     
     render(){
+        var updateScreen = this.updateScreen;
 
-        var totalNumber = this.state.apply.length;
-        var readingNumber = 0; 
-        var finishNumber = 0;
-        
-        var ApplySimpleComponent = ProjectSimpleHOC(ApplySimpleContents);
-        var onDelete = this.onDelete;
-
-        var ApplySimpleComponents = this.state.apply.map((info) => {
+        var ApplySimpleComponents = this.state.list.map((info) => {
 
             if(info.reading == true){
                 readingNumber ++;
@@ -91,10 +72,10 @@ class MyPageApply extends React.Component{
 
             return (
                 <ApplySimpleComponent 
-                    key = {info.id}
-                    id = {info.id}
+                    key = {info.projectId}
+                    id = {info.projectId}
                     info = {info}
-                    onDelete = {onDelete}/>
+                    updateScreen = {updateScreen}/>
             )
         })
 
@@ -105,7 +86,7 @@ class MyPageApply extends React.Component{
                         <div className = 'mypage-apply-scoreboard'>
                             <div className = 'mypage-apply-scoreboard-section'>
                                 <div className = 'mypage-apply-scoreboard-number'>
-                                    {totalNumber}
+                                    {this.state.applicantCnt}
                                 </div>
                                 <div className = 'mypage-apply-scoreboard-text'>
                                     지원완료
@@ -113,7 +94,7 @@ class MyPageApply extends React.Component{
                             </div>
                             <div className = 'mypage-apply-scoreboard-section mypage-apply-scoreboard-center'>
                                 <div className = 'mypage-apply-scoreboard-number'>
-                                    {readingNumber}
+                                    {this.state.seenCnt}
                                 </div>
                                 <div className = 'mypage-apply-scoreboard-text'>
                                     열람
@@ -121,10 +102,10 @@ class MyPageApply extends React.Component{
                             </div>
                             <div className = 'mypage-apply-scoreboard-section'>
                                 <div className = 'mypage-apply-scoreboard-number'>
-                                    {finishNumber}
+                                    {this.state.acceptedCnt}
                                 </div>
                                 <div className = 'mypage-apply-scoreboard-text'>
-                                    모집완료
+                                    승인완료
                                 </div>
                             </div>
                         </div>

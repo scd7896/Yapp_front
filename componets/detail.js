@@ -3,11 +3,11 @@ import React,{useEffect} from 'react'
 import '../css/park/detail.scss'
 import '../css/container.scss'
 
+import roles from '../methods/role'
 
 import JobGroupCardView from './Park/JobGroupCardView'
 import DetailQnA from './Park/DetailQnA'
-import role from '../methods/role'
-import ProjectJobGroup from './Park/ProjectJobGroup'
+
 import DetailButtons from './Park/DetailButtons'
 
 import cookies from '../methods/cookies'
@@ -20,6 +20,7 @@ import projectPeriod from '../methods/expectedPeriod'
 import fetch from 'isomorphic-unfetch'
 import baseURL from '../url'
 import  Router  from 'next/router'
+import JobgruopList from './Park/JobgruopList';
 
 class Detail extends React.Component{
 
@@ -55,9 +56,9 @@ class Detail extends React.Component{
         
         var jobgroups = [];
         var roleNumber = 1;
-        for(var i = 0 ; i < role.length ; i ++){
+        for(var i = 0 ; i < roles.length ; i ++){
           if((this.props.project.role & roleNumber) !== 0){
-            jobgroups.push(role[i]);
+            jobgroups.push(roles[i]);
           }
           roleNumber *= 2;
         }
@@ -86,12 +87,7 @@ class Detail extends React.Component{
                 <div className = 'detail-title-wrapper'>
                     <div className = 'detail-title-container container'>
                         <div className = 'detail-title-jobgroup-wrapper'>
-                          {
-                            
-                            jobgroups.map(jobgroup => 
-                            <ProjectJobGroup jobgroup = {jobgroup}/>)
-                            
-                          }
+                          <JobgruopList role = {this.props.project.role}/>
                         </div>
                         <div className = 'detail-title-contents-wrapper'>
                             <div className = 'detail-title-flex'>
