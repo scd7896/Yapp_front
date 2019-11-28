@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import Link from "next/link";
 import serverURL from '../url'
-import nextCookies from 'next-cookies'
-
 import fetch from 'isomorphic-unfetch'
 
 /* pages에는 파일이랑 폴더를 만드실 때 주의하셔야 합니다
@@ -35,13 +32,10 @@ const Index = (props) => {
   const dispatch = useDispatch()
   var {user,favorite} = useSelector(state => state)
   var [keywords, setKeywords] = useState([])
-  useEffect(()=>{
-    // dispatch({
-    //   type : GET_MYDATA_REQUEST,
-    //   data : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNTc0MDA3NDc0fQ.NT0cRRB_YYyjEU_BYeVvt1hspiiyNQ2LJJi3GJMzZVA'
-    // })
-  })
-
+  const moveToRecruit = ()=>{
+    const text = document.querySelector("#header_input").value
+    Router.push(`/recruit?text=${text}`)
+  }
   useEffect(() => {
     if(user.userToken != ''){
       fetch(baseURL + '/user/keywords', {
@@ -97,7 +91,7 @@ const Index = (props) => {
                   placeholder="검색어를 입력해주세요"
                 ></input>
               </div>
-              <div id="header_inputButton">검색</div>
+              <div id="header_inputButton" onClick = {moveToRecruit}>검색</div>
             </div>
           </div>
         </div>
