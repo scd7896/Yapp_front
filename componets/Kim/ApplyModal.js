@@ -24,7 +24,7 @@ const ApplyModal = () => {
   const [portfolios, setPortfolios] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  let modalContainer;
+
   const closeModal = () => {
     dispatch({
       type: CLOSE_APPLY_MODAL
@@ -94,11 +94,7 @@ const ApplyModal = () => {
   return (
     <div className="container">
       <Modal visible={visible} effect="fadeInUp">
-        <div
-          id={
-            applyModalLevel !== 3 ? "modal_container" : "modal_finish_container"
-          }
-        >
+        <div id={applyModalLevel !== 3 ? "modal_container" : "modal_container"}>
           {applyModalLevel <= 2 ? (
             <div>
               <div id="apply_head_modal_blank"></div>

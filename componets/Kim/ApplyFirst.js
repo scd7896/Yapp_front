@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DropDown from "react-dropdown";
 import SelectBox from "../Jun/SelectBox";
 import ModalInput from "../Jun/ModalInput";
 import Question from "./ApplyModalComponents/Question";
@@ -35,8 +34,6 @@ const dummyqeustions = [
   }
 ];
 const ApplyFirst = ({ question }) => {
-  //console.log(question[1].sn);
-
   const dispatch = useDispatch();
   const { position, answers } = useSelector(state => state.apply);
 
@@ -48,14 +45,6 @@ const ApplyFirst = ({ question }) => {
     }
   });
   const { job } = inputs;
-
-  const [answerInputs, setAnswerInputs] = useState({
-    qeustion: {
-      id: 0,
-      text: null
-    }
-  });
-  const { qeustion } = answerInputs;
 
   const positionChange = e => {
     const list = document.querySelector("#first_modal_qna_container");
@@ -75,20 +64,10 @@ const ApplyFirst = ({ question }) => {
     });
   };
   const nextModal = e => {
-    let answer = document.getElementsByClassName("qustion_to_answer_input");
-    console.log("답변리스트===================");
-
-    console.log("============================");
     dispatch({
       type: NEXT_APPLY_MODAL
     });
     //listTest();
-
-    const { name, value } = e;
-    setAnswerInputs({
-      ...answerInputs,
-      [name]: { text: value.text }
-    });
   };
   // const listTest = () => {
   //   const list = document.querySelector("#first_modal_qna_container");
@@ -174,12 +153,7 @@ const ApplyFirst = ({ question }) => {
                     <span id="questionContent">{user.content}</span>
                   </li>
                   {/* {<ModalInput />} */}
-                  <input
-                    name={qeustion}
-                    value={qeustion.text}
-                    onChange={onChange}
-                    placeholder={answerText}
-                  />
+                  <input name={count} placeholder={answerText} />
                 </>
               ))}
           </ul>
