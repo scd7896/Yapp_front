@@ -5,7 +5,7 @@ import cookies from '../../methods/cookies'
 
 import FavoriteButton from './FavoriteButton'
 import '../../css/Park/detail.scss'
-
+import Router from 'next/router'
 export default function DetailButtons(props){
 
     const dispatch = useDispatch();
@@ -35,7 +35,9 @@ export default function DetailButtons(props){
             openApplyModal()
         }
     }
-
+    const updatingProject = ()=>{
+        Router.push(`/enrollment/change/1/${props.projectId}`)
+    }
     return !props.isClosed ?
         (
             !(user.userId != '' && props.projectUserId != '' && user.userId == props.projectUserId) 
@@ -49,7 +51,7 @@ export default function DetailButtons(props){
             ) 
             :(
                 <div className = 'detail-button-flex'>
-                    <div className = "button detail-edit-button">수정</div>
+                    <div className = "button detail-edit-button" onClick = {updatingProject}>수정</div>
                     <div className = "button detail-apply-button">모집마감</div>
                 </div>
             )

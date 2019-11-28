@@ -99,12 +99,12 @@ function * watchGetProject(){
   yield takeEvery(GET_PROJECT_REQUEST, getProject)
 }
 
-const patchProjectAPI = (data)=>{
+const patchProjectAPI =async (data)=>{
 
   const {projectQuestion,projectNowTeam, projectImage} = data
   const dataQuestion = projectQuestion.flat()
   const dataNowTeam = projectNowTeam[0] *100 + projectNowTeam[1] * 10 + projectNowTeam[2]
-  const dataFile = projectImage.file
+  const dataFile = projectImage.file ?projectImage.file :""
   const formData = new FormData()
   const gtgt=dataQuestion.filter((el)=>{
     return el.text != ""
@@ -128,8 +128,8 @@ const patchProjectAPI = (data)=>{
 
 
   
-  
-  axios.patch(`${url}/projects/${data.resId}`, formData, {
+  console.log(data.resId)
+  const te = await axios.patch(`${url}/projects/${data.resId}`, formData, {
     headers :{
       Authorization: `bearer ${data.userToken}`
     }
