@@ -128,8 +128,8 @@ const patchProjectAPI =async (data)=>{
 
 
   
-  console.log(data.resId)
-  const te = await axios.patch(`${url}/projects/${data.resId}`, formData, {
+  
+  await axios.put(`${url}/projects/${data.resId}`, formData, {
     headers :{
       Authorization: `bearer ${data.userToken}`
     }
