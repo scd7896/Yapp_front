@@ -2,7 +2,9 @@
   background: #f5f7fa;
   padding-top: 50px;
 }
-
+#recruit_container{
+  padding-bottom : 30px;
+}
 #project_serch_text {
   padding-top: 100px;
   padding-bottom: 35px;
@@ -45,4 +47,29 @@
   justify-content: space-between;
   margin-top: 140px;
   text-align: center;
+}
+.recruit_more_button{
+    cursor: pointer;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-left : 45%;
+    border: none;
+    width: 120px;
+    height: 33px;
+
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.6px;
+    
+    background-color: #4244ff;
+    color : white;
+    
+    @media (max-width: 724px){
+      margin-left : 30%;
+    }
 }
