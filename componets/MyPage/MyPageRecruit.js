@@ -129,6 +129,7 @@ class MyPageRecruit extends React.Component{
 
         
         var handleToggle = this.handleToggle;
+        var updateScreen = this.updateScreen;
 
         var recruitSimpleComponents = this.state.recruitProjects.map((info) => {
                 var toggle = info.toggle;
