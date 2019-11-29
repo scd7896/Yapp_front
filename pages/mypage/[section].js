@@ -111,7 +111,7 @@ class MyPage extends React.Component {
       <div className="mypage">
         <LogoutCheck />
         <Head>
-          <title>Toys 마이페이지</title>
+          <title>Toys - 마이페이지</title>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=0.5"
