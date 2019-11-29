@@ -141,7 +141,7 @@ const ApplyFirst = ({ question }) => {
 
         <div className="questionList">
           <ul>
-            {dummyqeustions
+            {question
               .filter(el => {
                 return el.sn === 0 || el.sn === job.id;
               })
