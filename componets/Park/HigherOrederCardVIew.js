@@ -166,10 +166,10 @@ function HigherOrderCardViewSection(CardView, CardViewTypeStr){
 
                     swiper.on('swipe', function (e) {
                         switch (e.direction) {
-                          case Hammer.DIRECTION_RIGHT:
+                          case Hammer.DIRECTION_LEFT:
                             HandleClickRight();
                           break;
-                          case Hammer.DIRECTION_LEFT:
+                          case Hammer.DIRECTION_RIGHT:
                             HandleClickLeft();
                           break;
                         }
