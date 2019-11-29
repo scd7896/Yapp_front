@@ -1,7 +1,6 @@
 .selectbox {
   cursor: pointer;
-  width: 466px;
-  margin-right: -77px;
+  position: relative;
 }
 .select_default {
   z-index: 10010;
@@ -14,7 +13,7 @@
     width: 200px;
     height: 44px;
     border-bottom: solid #b9b9b9 0.8px;
-    font-size: 28px;
+    font-size: 24px;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     text-align: left;
@@ -24,6 +23,11 @@
     overflow: hidden;
     & span {
       padding: 0 10px;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: center;
     }
   }
 
@@ -66,6 +70,11 @@
   text-align: left;
   color: #b9b9b9;
   &.under {
+    max-height: 272px;
+    overflow: auto;
+    margin-left: 10px;
+    margin-top: -10px;
+
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.11);
     font-size: 24px;
     font-weight: 300;
@@ -104,6 +113,6 @@
 .potatoBox {
   z-index: 10012;
 }
-.selectBoxRelative {
-  position: relative;
-}
+// .selectBoxRelative {
+//   position: relative;
+// }
