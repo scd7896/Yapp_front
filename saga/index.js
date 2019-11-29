@@ -4,7 +4,7 @@ import keywords from "./keywords";
 import join from "./join";
 import enrollment from "./enrollment";
 import favorite from "./favorite";
-
+import apply from './apply'
 /* 비동기적으로 리듀서에 저장해야하는 데이터를 요청하는 부분을 올릴 예정입니다. */
 export default function* rootSaga() {
   yield all([
@@ -12,6 +12,7 @@ export default function* rootSaga() {
     fork(join),
     fork(keywords),
     fork(enrollment),
-    fork(favorite)
+    fork(favorite),
+    fork(apply)
   ]);
 }

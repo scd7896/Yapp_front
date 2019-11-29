@@ -5,39 +5,13 @@ import ModalInput from "../Jun/ModalInput";
 import Question from "./ApplyModalComponents/Question";
 import "../../css/kim/componentcss/ApplyFirst.scss";
 import "react-dropdown/style.css";
-import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL } from "../../action";
+import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL, SET_APPLY_JOB } from "../../action";
 
-const dummyqeustions = [
-  {
-    sn: 0,
-    content: "공통질문입니다~!"
-  },
-  {
-    sn: 0,
-    content: "공통질문2입니다~!"
-  },
-  {
-    sn: 1,
-    content: "기획자 질문입니다~!"
-  },
-  {
-    sn: 1,
-    content: "기획자 질문2입니다~!"
-  },
-  {
-    sn: 2,
-    content: "개발자 질문입니다~!"
-  },
-  {
-    sn: 4,
-    content: "디자이너 질문입니다~!"
-  }
-];
+
 const ApplyFirst = ({ question }) => {
   const dispatch = useDispatch();
   const { position, answers } = useSelector(state => state.apply);
 
-  const [selectPosition, setSelectPosition] = useState("");
   const [inputs, setInputs] = useState({
     job: {
       id: 0,
@@ -45,46 +19,12 @@ const ApplyFirst = ({ question }) => {
     }
   });
   const { job } = inputs;
-
-  const positionChange = e => {
-    const list = document.querySelector("#first_modal_qna_container");
-    const length = qeustion.filter(e => e.position === selectPosition).length;
-    for (let i = 0; i < length; i++) {
-      const answer = list.childNodes[i].querySelector(
-        "#qustion_to_answer_input"
-      );
-      answer.value = "";
-    }
-
-    setSelectPosition(e.value);
-    dispatch({
-      type: SET_APPLYQNA_DATA,
-      position: e.value,
-      answers: []
-    });
-  };
   const nextModal = e => {
     dispatch({
       type: NEXT_APPLY_MODAL
     });
-    //listTest();
+    
   };
-  // const listTest = () => {
-  //   const list = document.querySelector("#first_modal_qna_container");
-  //   const length = qeustion.filter(e => e.position === selectPosition).length;
-  //   const writeAnswers = [];
-  //   for (let i = 0; i < length; i++) {
-  //     const answer = list.childNodes[i].querySelector(
-  //       "#qustion_to_answer_input"
-  //     ).value;
-  //     writeAnswers.push(answer);
-  //   }
-  //   dispatch({
-  //     type: SET_APPLYQNA_DATA,
-  //     position: selectPosition,
-  //     answers: writeAnswers
-  //   });
-  // };
 
   const onClick = e => {
     const { name, value } = e;
@@ -92,18 +32,32 @@ const ApplyFirst = ({ question }) => {
       ...inputs,
       [name]: { id: value.id, text: value.text }
     });
+    const questionsLength = question.filter(el=> el.role==0||el.role == value.id).length
+    dispatch({
+      type : SET_APPLY_JOB,
+      data : value.id,
+      arrLength : questionsLength
+    })
   };
 
   let count = 1;
 
   const [answerText, setAnswerText] = useState("답변을 입력하세요");
-
-  /*e : 이벤트 객체 */
-  const onChange = e => {
-    setAnswerText(e.target.placeholder);
-    /*e.target : 이벤트 객체가 일어남 DOM  */
-    /*e.target.value : 이벤트 객체가 일어남 DOM의 값들  */
-  };
+  const setText = index => e=>{
+    if(position ==0){
+      dispatch({
+        type : SET_APPLYQNA_DATA,
+        index : index,
+        data : ""
+      })
+      return;
+    }
+    dispatch({
+      type : SET_APPLYQNA_DATA,
+      index : index,
+      data : e.target.value
+    })
+  }
 
   return (
     <div id="first_modal_contents_container">
@@ -141,11 +95,11 @@ const ApplyFirst = ({ question }) => {
 
         <div className="questionList">
           <ul>
-            {dummyqeustions
+            {question
               .filter(el => {
-                return el.sn === 0 || el.sn === job.id;
+                return el.role == 0 || el.role == job.id;
               })
-              .map(user => (
+              .map((user,i) => (
                 <>
                   <li className="question_container">
                     <span id="questionQ">Q</span>
@@ -153,7 +107,7 @@ const ApplyFirst = ({ question }) => {
                     <span id="questionContent">{user.content}</span>
                   </li>
                   {/* {<ModalInput />} */}
-                  <input name={count} placeholder={answerText} />
+                  <input name={count} onChange = {setText(i)} value = {answers[i]} placeholder={answerText} />
                 </>
               ))}
           </ul>
