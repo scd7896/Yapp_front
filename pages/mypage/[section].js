@@ -26,14 +26,6 @@ class MyPage extends React.Component{
     
     static async getInitialProps(ctx) {
 
-        const userAgent = ctx.req ?  ctx.req.headers['user-agent'] : navigator.userAgent
-
-        if(mobileCheck(userAgent)){
-            console.log('MOBILEEEEEEEEEEEEEE')
-        }
-        else{
-            console.log("PC")
-        }
 
         if(ctx.query.section  != 'apply' &&
             ctx.query.section  != 'recruit' &&

@@ -13,6 +13,8 @@ import AppLayout from "../componets/AppLayOut";
 import rootSaga from "../saga";
 import reducer from "../reducer";
 
+import mobileCheck from '../methods/mobileCheck'
+
 import "../css/wrraper.scss";
 import url from '../url'
 import { GET_MYDATA_REQUEST, GET_MYDATA_SUCCESS, GET_MYDATA_FAILURE } from "../action";
@@ -39,6 +41,10 @@ const configureStore = (initialState, option) => {
 };
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
+
+
+
+
     let pageProps = {}
     if(Component.getInitialProps){
       pageProps = await Component.getInitialProps(ctx)
@@ -69,6 +75,15 @@ class MyApp extends App {
           type : GET_MYDATA_FAILURE
         })
       }
+    }
+
+    const userAgent = ctx.req ?  ctx.req.headers['user-agent'] : navigator.userAgent
+
+    if(mobileCheck(userAgent)){
+      pageProps.isMobile = true;
+    }
+    else{
+      pageProps.isMobile = false;
     }
     
     
