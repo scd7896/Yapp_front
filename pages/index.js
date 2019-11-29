@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { useDispatch,useSelector } from "react-redux";
-import serverURL from '../url'
-import fetch from 'isomorphic-unfetch'
-import Head from 'next/head'
+import { useDispatch, useSelector } from "react-redux";
+import serverURL from "../url";
+import fetch from "isomorphic-unfetch";
+import Head from "next/head";
 
 /* pages에는 파일이랑 폴더를 만드실 때 주의하셔야 합니다
     이유는 여기에 있는 파일명이 곧 url 주소가 되버립니다
@@ -18,49 +18,50 @@ import PostCardView from "../componets/Park/PostCardView";
 import HigherOrderCardView from "../componets/Park/HigherOrederCardVIew";
 import ProjectSection from "../componets/Park/ProjectSection";
 import "../css/container.scss";
-import baseURL from '../url'
-import {useState} from 'react'
+import baseURL from "../url";
+import { useState } from "react";
 
 import { SET_SELECTED_PAGES, GET_MYDATA_REQUEST } from "../action";
-import  Router  from "next/router";
+import Router from "next/router";
 
 var KeywordCardViewSection = HigherOrderCardView(ProjectCardView, "project");
 
-const Index = (props) => {
+const Index = props => {
   /* jquery 쓰실때는 다음과같이 useEffect라는 함수를 가져와서 사용하시거나
     클래스기반 컴포넌트면 componentDidMount에 작성해주셔야합니다. */
-  
-  const dispatch = useDispatch()
-  var {user,favorite} = useSelector(state => state)
-  var [keywords, setKeywords] = useState([])
-  const moveToRecruit = ()=>{
-    const text = document.querySelector("#header_input").value
-    Router.push(`/recruit?text=${text}`)
-  }
-  useEffect(() => {
-    if(user.userToken != ''){
-      fetch(baseURL + '/user/keywords', {
-        headers : {
-          Authorization : "bearer " + user.userToken,
-          'accept' : 'application/json',
-          'Content-Type' : 'application/json'
-        },
-        method : 'GET'
-      }).then(res => {
-        if(res.ok){
-          return res.json()
-        }
-      }).then(res => {
-        setKeywords(res.keywords);
-      })
-    }
 
-  }, [user])
+  const dispatch = useDispatch();
+  var { user, favorite } = useSelector(state => state);
+  var [keywords, setKeywords] = useState([]);
+  const moveToRecruit = () => {
+    const text = document.querySelector("#header_input").value;
+    Router.push(`/recruit?text=${text}`);
+  };
+  useEffect(() => {
+    if (user.userToken != "") {
+      fetch(baseURL + "/user/keywords", {
+        headers: {
+          Authorization: "bearer " + user.userToken,
+          accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        method: "GET"
+      })
+        .then(res => {
+          if (res.ok) {
+            return res.json();
+          }
+        })
+        .then(res => {
+          setKeywords(res.keywords);
+        });
+    }
+  }, [user]);
 
   return (
     <div>
       <Head>
-          <title>Toys 토이프로젝트 모집 플랫폼</title> 
+        <title>Toys 토이프로젝트 모집 플랫폼</title>
       </Head>
       <div id="index_root">
         <div className="header_section">
@@ -95,7 +96,9 @@ const Index = (props) => {
                   placeholder="검색어를 입력해주세요"
                 ></input>
               </div>
-              <div id="header_inputButton" onClick = {moveToRecruit}>검색</div>
+              <div id="header_inputButton" onClick={moveToRecruit}>
+                검색
+              </div>
             </div>
           </div>
         </div>
@@ -105,49 +108,75 @@ const Index = (props) => {
             <p id="post_text_head">최신등록 모집글</p>
             <div id="post_text_sub_container">
               <span id="post_text_sub">더 많은 모집글을 만나보세요</span>
-              <div className = "post-more-button" onClick = {() => Router.push('/recruit')}>
+              <div
+                className="post-more-button"
+                onClick={() => Router.push("/recruit")}
+              >
                 <span id="post_text_more">더보기</span>
-                <div className = "post-more-svg">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18.058" height="6.469" viewBox="0 0 18.058 6.469">
+                <div className="post-more-svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18.058"
+                    height="6.469"
+                    viewBox="0 0 18.058 6.469"
+                  >
                     <g id="icon_arrow2" transform="translate(-21.071 0.5)">
-                      <line id="선_14" data-name="선 14" y1="5.621" x2="5.428" transform="translate(33.341)" fill="none" stroke="#4244ff" strokeWidth="1"/>
-                      <path id="패스_1605" data-name="패스 1605" d="M0,0H17.338" transform="translate(21.072)" fill="none" stroke="#4244ff" strokeWidth="1"/>
+                      <line
+                        id="선_14"
+                        data-name="선 14"
+                        y1="5.621"
+                        x2="5.428"
+                        transform="translate(33.341)"
+                        fill="none"
+                        stroke="#4244ff"
+                        strokeWidth="1"
+                      />
+                      <path
+                        id="패스_1605"
+                        data-name="패스 1605"
+                        d="M0,0H17.338"
+                        transform="translate(21.072)"
+                        fill="none"
+                        stroke="#4244ff"
+                        strokeWidth="1"
+                      />
                     </g>
                   </svg>
                 </div>
               </div>
             </div>
           </div>
-          <ProjectSection projects = {props.projects} />
-          
-          {
-            user.userToken ? 
-            (
-            <div style = {{width: '100%'}}>
+          <ProjectSection projects={props.projects} />
+
+          {user.userToken ? (
+            <div style={{ width: "100%" }}>
               <div id="post_text_container">
                 <p id="post_text_head">관심 키워드로 보기</p>
               </div>
               <div id="keyword_list_box_container">
-                { 
-                  keywords.map(keyword => {
-                      return <KeywordSearch data={keyword} key={keyword.keywordId} selected = {true} />;
-                    })
-                }
+                {keywords.map(keyword => {
+                  return (
+                    <KeywordSearch
+                      data={keyword}
+                      key={keyword.keywordId}
+                      selected={true}
+                    />
+                  );
+                })}
               </div>
-            </div>) : null
-          }
+            </div>
+          ) : null}
 
           <div id="nice_recruitment_container">
             <div id="post_text_container">
               <p id="post_text_head">인기 모집글</p>
             </div>
 
-            <KeywordCardViewSection buttonTop={170} isMobile={props.isMobile}/>
+            <KeywordCardViewSection buttonTop={170} isMobile={props.isMobile} />
           </div>
         </div>
       </div>
-      {
-        /*
+      {/*
       <div id="footer_container" className="container">
         <div id="best_projects_container">
           <div id="post_text_container">
@@ -172,8 +201,7 @@ const Index = (props) => {
           />
         </div>
       </div>
-      */
-      }
+      */}
     </div>
   );
 };
@@ -189,32 +217,27 @@ Index.getInitialProps = async context => {
 
   //최신등록 모집글 목록 불러오기
 
-  try{
-
-    var projectsResponse = await fetch(serverURL + '/projects' , {
-      headers : {
-        accept: 'application/json'
+  try {
+    var projectsResponse = await fetch(serverURL + "/projects", {
+      headers: {
+        accept: "application/json"
       }
-    })
+    });
 
-    if(!projectsResponse.ok){
-      throw(projectsResponse.status);
-    }
-    else{
+    if (!projectsResponse.ok) {
+      throw projectsResponse.status;
+    } else {
       var projectsResponseJSON = await projectsResponse.json();
 
       projects = projectsResponseJSON.projects;
     }
-  
-  }
-  catch(err){
+  } catch (err) {
     console.log(err);
   }
 
-  data.projects = projects
+  data.projects = projects;
 
   //로그인 정보 불러오기
-
 
   return data;
 };
