@@ -3,7 +3,7 @@ import React, { useState,useEffect } from "react";
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
 
-
+import Head from 'next/head'
 
 import First from '../componets/Kim/enrollment/template/First'
 import LevelContainer from '../componets/Kim/enrollment/blockcontainer/LevelContainer'
@@ -25,6 +25,9 @@ const enrollment = ({lev,id, changed}) => {
   }, [])
   return (
     <div >
+      <Head>
+        <title>Toys 모집글 작성하기</title>
+      </Head>
       <div style={{ background: "#ffffff", marginBottom: "100px" }}>
         <div className="container">
           <h1>모집글 작성하기</h1>

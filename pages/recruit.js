@@ -3,6 +3,7 @@ import React,{useState, useEffect} from 'react'
 import {useSelector} from 'react-redux';
 
 import CardView from '../componets/Park/ProjectCardView'
+import Head from 'next/head'
 
 import FindSelectbox from "../componets/FindSelectbox";
 import {SET_SELECTED_PAGES, CLEAR_SELECTED_KYEWORD} from '../action'
@@ -34,7 +35,11 @@ const recruit = ({firstData})=>{
         
     // },[projectKeyword])
     return(
+
         <div id = "reqcruit_root">
+            <Head>
+                <title>Toys 토이프로젝트 모집 플랫폼</title> 
+            </Head>
             <div id = "recruit_container">
                 <div className = "container" >
                     <div id = "search_container">

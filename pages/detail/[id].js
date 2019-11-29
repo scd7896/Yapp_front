@@ -8,11 +8,12 @@
 */
 import Router from 'next/router'
 import Detail from '../../componets/detail.js'
+import Head from 'next/head'
 
 import { OPEN_APPLY_MODAL, OPEN_LOGIN_MODAL } from '../../action/index.js';
 import fetch from 'isomorphic-unfetch';
 import baseURL from '../../url'
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 var detailRouter = (props) => {
@@ -34,12 +35,17 @@ var detailRouter = (props) => {
     };
 
     return (
-        <Detail
-            openApplyModal={openApplyModal}
-            openLoginModal={openLoginModal}
-            user={user}
-            {...props}
-        />
+        <React.Fragment>
+            <Head>
+                <title>Toys - {props.project.title}</title>
+            </Head>
+            <Detail
+                openApplyModal={openApplyModal}
+                openLoginModal={openLoginModal}
+                user={user}
+                {...props}
+            />
+        </React.Fragment>
     )
 }
 

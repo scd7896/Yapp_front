@@ -277,6 +277,9 @@ class applicant extends React.Component{
 
         return (
             <div className = 'applicant'>
+                <Head>
+                    <title>{this.props.res.applicant.name}님의 상세정보</title> 
+                </Head>
                 <LogoutCheck/>
                 <div className = 'applicant-header'>
                     <div className = 'container'>

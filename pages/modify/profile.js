@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import SelectBox from '../../componets/Jun/SelectBox'
 import locations from '../../methods/location'
 
+import Head from 'next/head'
 
 import LogoutCheck from '../../componets/Park/LogoutCheck'
 
@@ -92,6 +93,9 @@ const profile = ()=>{
     }
     return(
         <div style ={{background : "#ffffff"}}>
+            <Head>
+                <title>Toys - 프로필 수정</title>
+            </Head>
             <LogoutCheck/>
             <div className = "modify_profile_head_container">
                 <div className = "container" >

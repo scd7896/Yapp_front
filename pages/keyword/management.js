@@ -6,6 +6,7 @@ import LogoutCheck from '../../componets/Park/LogoutCheck'
 import '../../css/container.scss'
 import '../../css/kim/keyword_management.scss'
 import keywordAllLists from '../../methods/keywords'
+import Head from 'next/head'
 import { DEL_KEYWORDS_ALL, SET_KEYWORDS_REQUEST, GET_KEYWORDS_REQUEST } from '../../action'
 
 const management = ()=>{
@@ -33,6 +34,9 @@ const management = ()=>{
     },[])
     return(
         <div>
+            <Head>
+                <title>Toys - 키워드 관리</title>
+            </Head>
             <LogoutCheck/>
             <div style = {{background : "#ffffff", borderBottom : "3px solid #f5f7fa"}}>
                 <div className = "container">

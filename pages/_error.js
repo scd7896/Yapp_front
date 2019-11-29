@@ -1,5 +1,6 @@
 import Error from 'next/error'
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import ErrorCode from '../componets/Kim/error/atomic/ErrorCode'
 import ErrorContents from '../componets/Kim/error/atomic/ErrorContents'
@@ -9,7 +10,9 @@ const MyError = ({statusCode})=>{
     
     return(
         <div className = "error_page_container">
-            
+            <Head>
+                <title>Toys 에러 {statusCode}</title> 
+            </Head>
             <div className = "error_page_left_container">
                 <ErrorCode errorStatus = {statusCode}/>
                 <ErrorContents errorStatus = {statusCode}/>

@@ -1,6 +1,7 @@
 import Router from 'next/router'
 import React from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 
 
 import '../../css/Park/mypage.scss'
@@ -18,11 +19,21 @@ import baseURL from '../../url'
 
 import UserProfileImg from '../../componets/Park/UserProfileImg'
 import cookies from 'next-cookies';
+import mobileCheck from '../../methods/mobileCheck'
 
 class MyPage extends React.Component{
 
     
     static async getInitialProps(ctx) {
+
+        const userAgent = ctx.req ?  ctx.req.headers['user-agent'] : navigator.userAgent
+
+        if(mobileCheck(userAgent)){
+            console.log('MOBILEEEEEEEEEEEEEE')
+        }
+        else{
+            console.log("PC")
+        }
 
         if(ctx.query.section  != 'apply' &&
             ctx.query.section  != 'recruit' &&
@@ -109,6 +120,9 @@ class MyPage extends React.Component{
         return (
             <div className = 'mypage'>     
                 <LogoutCheck/>
+                <Head>
+                    <title>Toys 마이페이지</title> 
+                </Head>
                 {/*마이 페이지 프로필 섹션*/}      
                 <div className = 'mypage-profile-section'>
                     <div className = 'mypage-profile-container container'>
