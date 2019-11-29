@@ -8,7 +8,7 @@ var ProjectSimpleHOC = (RightSection) => {
 
         var title = props.info.title;
         var role = props.info.role;
-        var isClosed = props.info.isClosed ? props.info.finish : false
+        var isClosed = props.info.isClosed ? props.info.isClosed : false
 
         var info = JSON.parse(JSON.stringify(props.info));
         info.isClosed = props.info.isClosed ? props.info.isClosed : false

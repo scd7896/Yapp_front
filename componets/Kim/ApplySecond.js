@@ -4,7 +4,8 @@ import {
   PREV_APPLY_MODAL,
   NEXT_APPLY_MODAL,
   DEL_PORTFOLIO_MODAL,
-  ADD_PORTFOLIO_MODAL
+  ADD_PORTFOLIO_MODAL,
+  PROJECT_APPLY_REQUEST
 } from "../../action";
 import Portfolio from "./ApplyModalComponents/Portfolio";
 import { portFolios } from "../../dummydatas/dummyQuestion";
@@ -13,8 +14,8 @@ import "../../css/kim/componentcss/ApplySecond.scss";
 
 const ApplySecond = ({ portfolios }) => {
   const dispatch = useDispatch();
-  const { selectPortFolios } = useSelector(state => state.apply);
-  const apply = useSelector(state => state.apply);
+  const { selectPortFolios, answers, position, postId } = useSelector(state => state.apply);
+  const {userToken} = useSelector(state=> state.user)
   const prevModal = () => {
     dispatch({
       type: PREV_APPLY_MODAL
@@ -22,7 +23,12 @@ const ApplySecond = ({ portfolios }) => {
   };
   const applyFinish = () => {
     dispatch({
-      type: NEXT_APPLY_MODAL
+      type: PROJECT_APPLY_REQUEST,
+      role : position,
+      answers : answers,
+      portfolios : selectPortFolios,
+      postId : postId,
+      userToken : userToken
     });
   };
   const portFolioToggle = (selected, data) => {

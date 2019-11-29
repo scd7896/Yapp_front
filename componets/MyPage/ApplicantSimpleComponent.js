@@ -7,12 +7,35 @@ import Link from 'next/link'
 var ApplicantSimpleComponent = (props) => {
 
     var projectId = props.projectId;
-    var applicantId = props.applicant.id;
+    var applicantId = props.applicant.userId;
     var profileImg = props.applicant.profileImage;
     var profileNickname = props.applicant.name;
     var profilePortfolioCnt = props.applicant.portfolioCnt;
 
     var toggleState = props.toggleState;
+
+    function handleClickApprove(){
+        var userToken = cookies.getCookie('user-token');
+        if(userToken != '' || userToken != undefined){
+            if(confirm( props.applicant.name +' 지원자를 정말 승인하겠습니까?')){
+                fetch(baseURL + '/mypage/recruit/' + projectId + '/accept', {
+                    headers : {
+                        'Authorization' : 'bearer ' + userToken,
+                        'accpet' : 'application/json',
+                        'Content-Type' : 'application/json'
+                    },
+                    method : 'POST',
+                    body : JSON.stringify({'applicantId' : applicantId})
+                }).then(res => {
+                    if(res.ok){
+                        props.updateScreen();
+                    }
+                })
+        
+            }
+        }
+
+    }
 
     return (
         <div className = 'applicant-simple-container'>
@@ -52,7 +75,7 @@ var ApplicantSimpleComponent = (props) => {
                                 승인완료
                             </div>
                     </div>
-                    : <div className = 'applicant-simple-accept-button'>
+                    : <div className = 'applicant-simple-accept-button' onClick = {() => handleClickApprove()}>
                         <div className = 'applicant-simple-accept-button-text'>
                             승인
                         </div>

@@ -39,16 +39,7 @@ const ApplyModal = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch({
-      type: GET_QUESTION_REQUEST,
-      data: postId
-    });
-    dispatch({
-      type: GET_MYPORTFOLIO_REQUEST,
-      data: userToken
-    });
-  }, []);
+  
 
   //========================================Question List 가져오기
 
@@ -73,6 +64,7 @@ const ApplyModal = () => {
         );
         console.log("질문리스트====================");
         console.dir(response.data.interviewQuestions);
+        console.dir(responseUser.data.portfolios)
         setPortfolios(responseUser.data.portfolios);
         setQuestion(response.data.interviewQuestions); // 데이터는 response.data 안에 들어있습니다.
       }
@@ -106,6 +98,7 @@ const ApplyModal = () => {
                   <img
                     id="modal_cancle_button"
                     onClick={closeModal}
+                    style = {applyModalLevel === 3?{display : "none"}:{}}
                     src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/FEF83BDA-4E98-497A-9456-B1E169BDD060.svg"
                   ></img>
                 </span>

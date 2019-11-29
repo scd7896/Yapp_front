@@ -13,6 +13,8 @@ import cookies from '../methods/cookies'
 
 import roles from '../methods/role'
 
+import LogoutCheck from '../componets/Park/LogoutCheck'
+
 /*
 { 
    "project":[ 
@@ -91,7 +93,6 @@ class applicant extends React.Component{
         var userToken = nextCookies(ctx)['user-token']
 
         if(userToken == undefined || userToken == ''){
-            alert('로그인 후 시도해주세요')
             if (ctx.res) {
                 ctx.res.writeHead(302, {
                     Location: '/'
@@ -127,6 +128,7 @@ class applicant extends React.Component{
             var resJson = await res.json();
 
             data.res = resJson
+            data.projectId = projectId
             data.applicantId = applicantId
 
             return data;
@@ -156,6 +158,8 @@ class applicant extends React.Component{
         this.state = {
             other : []
         }
+
+        console.log(this.props);
 
         var interviewQuestions = JSON.parse(JSON.stringify(this.props.res.project[0].interviewQuestions));
         var interviewAnswers = JSON.parse(JSON.stringify(this.props.res.project[0].interviewAnswers));
@@ -190,18 +194,22 @@ class applicant extends React.Component{
     }
 
     handleClickApprove(){
-        if(confirm('이 지원자를 정말 승인하겠습니까?')){
-            fetch(baseURL + '/mypage/recruit/' + projectId + '/accept', {
-                headers : {
-                    'Authorization' : 'bearer ' + userToken,
-                    'accpet' : 'application/json',
-                    'Content-Type' : 'application/json'
-                },
-                method : 'POST',
-                body : JSON.stringify({'applicantId' : applicantId})
-            })
-    
+        var userToken = cookies.getCookie('user-token');
+        if(userToken != '' || userToken != undefined){
+            if(confirm('이 지원자를 정말 승인하겠습니까?')){
+                fetch(baseURL + '/mypage/recruit/' + this.props.projectId + '/accept', {
+                    headers : {
+                        'Authorization' : 'bearer ' + userToken,
+                        'accpet' : 'application/json',
+                        'Content-Type' : 'application/json'
+                    },
+                    method : 'POST',
+                    body : JSON.stringify({'applicantId' : this.props.applicantId})
+                })
+        
+            }
         }
+
 
     }
 
@@ -269,6 +277,7 @@ class applicant extends React.Component{
 
         return (
             <div className = 'applicant'>
+                <LogoutCheck/>
                 <div className = 'applicant-header'>
                     <div className = 'container'>
                         <div className = 'applicant-header-title'>
