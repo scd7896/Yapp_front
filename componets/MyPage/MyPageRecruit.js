@@ -149,6 +149,7 @@ class MyPageRecruit extends React.Component{
                                 id = {info.projectId}
                                 project = {info}
                                 handleToggle = {handleToggle}
+                                updateScreen = {updateScreen}
                             />
                         </div> 
                     </div>
