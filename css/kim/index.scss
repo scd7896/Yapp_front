@@ -9,6 +9,7 @@
 #index_root {
   background-color: #f5f7fa;
   width: 100%;
+  position: relative;
 }
 #header_container {
   position: relative;
@@ -191,6 +192,12 @@
 #nice_recruitment_container {
   text-align: center;
   padding-bottom : 133px;
+}
+
+@media (max-width: 724px) {
+  #nice_recruitment_container {
+    padding-bottom : 500px;
+  }
 }
 
 #best_projects_container {
