@@ -28,10 +28,11 @@ class Detail extends React.Component{
         super(props);
 
         this.state = {
-          favorite : false
+          isClosed : this.props.project.isClosed 
         }
 
         this.projectId = this.props.query.id;
+        this.setIsClosed = this.setIsClosed.bind(this);
     }
 
 
@@ -49,6 +50,14 @@ class Detail extends React.Component{
         headers : headers,
         method : 'PATCH'
       })
+    }
+
+    setIsClosed(isClosed){
+      var curState = JSON.parse(JSON.stringify(this.state));
+
+      curState.isClosed = isClosed;
+
+      this.setState(curState);
     }
 
     
@@ -96,7 +105,8 @@ class Detail extends React.Component{
                                   <DetailButtons
                                     projectId = {this.projectId}
                                     projectUserId = {this.props.project.userId}
-                                    isClosed = {this.props.project.isClosed}/>
+                                    isClosed = {this.state.isClosed}
+                                    setIsClosed = {this.setIsClosed}/>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +114,7 @@ class Detail extends React.Component{
                 </div>
 
                 {
-                  this.props.project.isClosed 
+                  this.state.isClosed 
                   ? (
                     <div className ='container'>
                       <div className = 'detail-finished'>

@@ -68,8 +68,10 @@ class MyPagePortfolio extends React.Component{
     }
 
     addPost(portfolio){
-        var contain = this.state.post.filter(post => post.portfolio.portfolioId == portfolio.portfolioId);
-        if(contain.length == 0){
+        var contain = [];
+        if(portfolio != null)
+            contain = this.state.post.filter(post => post.portfolio != null && post.portfolio.portfolioId == portfolio.portfolioId);
+        if(contain.length == 0 ){
             var curState = JSON.parse(JSON.stringify(this.state));
             curState.post.push({
                 id : this.post_id, 
@@ -77,6 +79,10 @@ class MyPagePortfolio extends React.Component{
             });
             this.post_id ++;
             this.setState(curState);
+            //this.post_id -1
+        }
+        else{
+            //contain[0].id
         }
     }
 

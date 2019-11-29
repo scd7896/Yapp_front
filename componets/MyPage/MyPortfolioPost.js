@@ -28,6 +28,9 @@ class MyPortfolioPost extends React.Component{
         this.handleClickDelete = this.handleClickDelete.bind(this);
 
         this.fileFormData = new FormData();
+        if(this.props.project){
+            this.fileFormData.append('portfolioImage', null)
+        }
     }
 
     handleTitleChange(event){
@@ -106,16 +109,29 @@ class MyPortfolioPost extends React.Component{
         fileFormData.append("useStack", this.state.stack);
         fileFormData.append("attachFile", this.state.link);
         
-        
+        if(this.props.portfolio){
+            fileFormData.append('portfolioId', this.props.portfolio.portfolioId)
+            return fetch(baseURL + '/mypage/portfolio',{
+                headers : {
+                    
+                    'Authorization' : 'bearer ' + userToken
+                },
+                'method' : "PUT",
+                'body' : fileFormData
+            });
+        }
+        else{
+            return fetch(baseURL + '/mypage/portfolio',{
+                headers : {
+                    
+                    'Authorization' : 'bearer ' + userToken
+                },
+                'method' : "POST",
+                'body' : fileFormData
+            });
+        }
 
-        return fetch(baseURL + '/mypage/portfolio',{
-            headers : {
-                
-                'Authorization' : 'bearer ' + userToken
-            },
-            'method' : "POST",
-            'body' : fileFormData
-        });
+
     }
 
     render(){
