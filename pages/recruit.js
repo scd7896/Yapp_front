@@ -65,7 +65,7 @@ recruit.getInitialProps =async(context)=>{
     })
     
     if(context.query.keyword !== undefined){
-        const firstData = await axios.post(`${url}/projects/search?location=${context.query.keyword}`).catch((err)=>console.log("err남"))    
+        const firstData = await axios.post(`${url}/projects/search`,{keywords : [parseInt(context.query.keyword)]}).catch((err)=>console.log("err남"))    
             
         return {firstData : {projects : firstData.data}}
     }
