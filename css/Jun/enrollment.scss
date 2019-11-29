@@ -32,7 +32,7 @@ textarea {
   padding: 72px 5.8%;
   background-color: white;
   margin-bottom: 71px;
-  
+
   & p {
     margin-bottom: 14px;
     font-family: "Montserrat", sans-serif;
@@ -160,13 +160,15 @@ textarea {
     color: #333333;
   }
   & .select_info {
-    width : 350px;
+    width: 350px;
     display: flex;
-    justify-content: space-between;
-
+    justify-content: flex-start;
   }
   .select_info + .select_info {
     margin-top: 49.5px;
+  }
+  & p {
+    width: 150px;
   }
 }
 
@@ -213,31 +215,31 @@ textarea {
 // 아래는 모집글 작성에 step을 추가하기 위한 css. 반응형 처리는 많이 안되어있습니다.
 
 //Red Hat Display는 많이 안쓰는 폰트니까 app.js에 넣지마세요
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap");
 
-.enroll_sections{
-  margin-top : 100px;
+.enroll_sections {
+  margin-top: 100px;
 }
 
-.enroll_wrapper_block{
+.enroll_wrapper_block {
   display: block;
-  width:  100%;
+  width: 100%;
 }
 
-.enroll_wrapper_none{
+.enroll_wrapper_none {
   display: none;
   width: 100%;
 }
 
-.enroll_header{
+.enroll_header {
   height: 313px;
   width: 100%;
   background-color: #fff;
 }
 
-.enroll_title{
+.enroll_title {
   height: 71px;
-  font-family: "Noto Sans KR",sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 48px;
   font-weight: 300;
   font-stretch: normal;
@@ -247,30 +249,30 @@ textarea {
   text-align: left;
   color: #333333;
 
-  padding-top : 124px;
+  padding-top: 124px;
 }
 
-.enroll_step_tabs{
-  margin-top : 56px;
-  width : 100%;
+.enroll_step_tabs {
+  margin-top: 56px;
+  width: 100%;
   display: flex;
   height: 62px;
 }
 
-.enroll_step_wrapper{
-  padding-left : 10px;
-  padding-right : 23px;
+.enroll_step_wrapper {
+  padding-left: 10px;
+  padding-right: 23px;
   height: 100%;
 }
 
-.enroll_step_wrapper_on{
+.enroll_step_wrapper_on {
   height: calc(100% - 3px) !important;
-  border-bottom: solid #5c5cff 3px  !important;
+  border-bottom: solid #5c5cff 3px !important;
 }
 
-.enroll_step_number{
+.enroll_step_number {
   height: 38px;
-  font-family: "Red Hat Display",sans-serif;
+  font-family: "Red Hat Display", sans-serif;
   font-size: 28px;
   font-weight: 500;
   font-stretch: normal;
@@ -280,14 +282,14 @@ textarea {
   text-align: left;
   color: #e2e2e2;
 
-  margin-top : 2px;
+  margin-top: 2px;
   display: inline-block;
 }
 
-.enroll_step_text{
-  margin-left : 6px;
+.enroll_step_text {
+  margin-left: 6px;
   height: 41px;
-  font-family: "Noto Sans KR",sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 28px;
   font-weight: 300;
   font-stretch: normal;
@@ -299,19 +301,18 @@ textarea {
   display: inline-block;
 }
 
-.enroll_step_wrapper_on .enroll_step_text{
+.enroll_step_wrapper_on .enroll_step_text {
   color: #333333;
 }
 
-.enroll_step_wrapper_on .enroll_step_number{
+.enroll_step_wrapper_on .enroll_step_number {
   color: #4244ff;
 }
 
-
-.thumbnail_image{
-  max-width : 564px;
+.thumbnail_image {
+  max-width: 564px;
   max-height: 211px;
 }
-.multerBox .background_none{
+.multerBox .background_none {
   background-color: #ffffff;
 }

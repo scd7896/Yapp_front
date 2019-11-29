@@ -12,8 +12,8 @@
   background-color: #ffffff;
   margin-bottom: 49px;
   display: inline-block;
-  @media (max-width: 724px){
-    width : 100%;
+  @media (max-width: 724px) {
+    width: 100%;
   }
   & + & {
     &:nth-child(3n-1) {
@@ -25,10 +25,9 @@
   }
   position: relative;
 }
-.CardView-Section  .project-cardview{
-  margin-left : 0 !important;
+.CardView-Section .project-cardview {
+  margin-left: 0 !important;
 }
-
 
 .project-cardview:hover {
   cursor: pointer;
@@ -41,12 +40,11 @@
   object-fit: cover;
 }
 
-.project-cardview-contents .jobgroup{
+.project-cardview-contents .jobgroup {
   display: inline-block;
-  margin-right: 4.9%;;
-  
+  margin-right: 4.9%;
 }
-.project-cardview-contents .jobgroup:nth-child(3){
+.project-cardview-contents .jobgroup:nth-child(3) {
   margin-right: 0;
 }
 
@@ -114,13 +112,13 @@
   vertical-align: text-top;
 }
 
-.jobgroup-small .jobgroup-circle{
+.jobgroup-small .jobgroup-circle {
   width: 12px;
   height: 12px;
-  margin-top : 8px;
+  margin-top: 8px;
 }
 
-.jobgroup-small .jobgroup-main{
+.jobgroup-small .jobgroup-main {
   height: 27px;
   font-size: 18px;
   font-weight: normal;
@@ -130,14 +128,14 @@
   letter-spacing: -1.5px;
   text-align: left;
   color: #333333;
-  margin-left : 6px;
+  margin-left: 6px;
 }
 
-.jobgroup-big .jobgroup-circle{
-  margin-top : 18px;
+.jobgroup-big .jobgroup-circle {
+  margin-top: 18px;
 }
 
-.jobgroup-big .jobgroup-main{
+.jobgroup-big .jobgroup-main {
   height: 45px;
   font-size: 30px;
   font-weight: normal;
@@ -147,7 +145,6 @@
   letter-spacing: -1.5px;
   text-align: left;
   color: #333333;
-  
 }
 
 .project-cardview-main {
@@ -161,7 +158,7 @@
   letter-spacing: normal;
   text-align: left;
   overflow: hidden;
-  white-space:nowrap;
+  white-space: nowrap;
   text-overflow: ellipsis;
   color: #333333;
 
@@ -223,12 +220,12 @@
   justify-content: center;
   align-items: center;
   width: 14.28%;
-  padding-top : 14.28%;
+  padding-top: 14.28%;
   background-color: #f4f4f8;
   border-radius: 100%;
   position: relative;
 }
-.project-cardview-detail .favorite-button-bg{
+.project-cardview-detail .favorite-button-bg {
   position: absolute;
   top: 0;
   left: 0;

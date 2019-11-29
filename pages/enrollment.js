@@ -1,32 +1,32 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../css/Jun/enrollment.scss";
 import "../css/container.scss";
 
-import Head from 'next/head'
+import Head from "next/head";
 
-import First from '../componets/Kim/enrollment/template/First'
-import LevelContainer from '../componets/Kim/enrollment/blockcontainer/LevelContainer'
+import First from "../componets/Kim/enrollment/template/First";
+import LevelContainer from "../componets/Kim/enrollment/blockcontainer/LevelContainer";
 import Router from "next/router";
 import Second from "../componets/Kim/enrollment/template/Second";
-import Third from '../componets/Kim/enrollment/template/Third'
-import {useDispatch} from 'react-redux'
+import Third from "../componets/Kim/enrollment/template/Third";
+import { useDispatch } from "react-redux";
 import { GET_PROJECT_REQUEST } from "../action/enrollment";
-const enrollment = ({lev,id, changed}) => {
+const enrollment = ({ lev, id, changed }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    if(changed){
+    if (changed) {
       dispatch({
-        type : GET_PROJECT_REQUEST,
-        data : parseInt(id)
-      })
+        type: GET_PROJECT_REQUEST,
+        data: parseInt(id)
+      });
     }
-    
-  }, [])
+  }, []);
   return (
-    <div >
+    <div>
       <Head>
         <title>Toys 모집글 작성하기</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5" />
       </Head>
       <div style={{ background: "#ffffff", marginBottom: "100px" }}>
         <div className="container">
@@ -35,39 +35,36 @@ const enrollment = ({lev,id, changed}) => {
             <LevelContainer lev={lev} />
           </div>
         </div>
-
       </div>
       <div className="container">
         <div style={lev != 1 ? { display: "none" } : {}}>
-          <First projectId={id} changed = {changed} />
+          <First projectId={id} changed={changed} />
         </div>
         <div style={lev != 2 ? { display: "none" } : {}}>
-          <Second projectId={id} changed = {changed}/>
+          <Second projectId={id} changed={changed} />
         </div>
-        <div style = {lev != 3? {display : "none"}:{}}>
-          <Third projectId = {id} changed = {changed}/>
+        <div style={lev != 3 ? { display: "none" } : {}}>
+          <Third projectId={id} changed={changed} />
         </div>
-      </div>  
+      </div>
     </div>
   );
 };
-enrollment.getInitialProps = async (ctx) => {
+enrollment.getInitialProps = async ctx => {
   const create = ctx.query.create;
-  if (create === 'create') {
-    return { lev: ctx.query.level, id: ctx.query.projectid, changed : false }
+  if (create === "create") {
+    return { lev: ctx.query.level, id: ctx.query.projectid, changed: false };
   } else if (create === "change") {
-
-    return{lev : ctx.query.level, id : ctx.query.projectid, changed : true }
-  }else{
+    return { lev: ctx.query.level, id: ctx.query.projectid, changed: true };
+  } else {
     if (ctx.res) {
       ctx.res.writeHead(302, {
-          Location: '/error/404'
-      })
+        Location: "/error/404"
+      });
       ctx.res.end();
     } else {
-        Router.push('/error/404');
+      Router.push("/error/404");
     }
   }
-
-}
+};
 export default enrollment;
