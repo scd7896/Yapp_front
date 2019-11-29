@@ -47,6 +47,7 @@
     "react-select-plus": "^1.0.0-rc.3.patch12",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
+    "rxjs": "^6.5.3",
     "ssuggestor": "^1.0.0",
     "uuid": "^3.3.3",
     "xmlhttprequest": "^1.8.0"

@@ -5,7 +5,7 @@ import {
   PROJECT_ENROLLMENT_REQUEST
 } from "../action";
 import Router from "next/router";
-import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD, ADD_QUESTION_LIST, SET_QUESTION_TEXT, RMV_QUESTION_LIST, POST_PROJECT_REQUEST, POST_PROJECT_SUCCESS, POST_PROJECT_FAILURE, GET_PROJECT_SUCCESS, GET_PROJECT_REQUEST, GET_PROJECT_FAILURE, PATCH_PROJECT_SUCCESS } from "../action/enrollment";
+import { SET_PROJECT_CONTENTS, SET_PROJECT_TITLE, SET_PROJECT_IMAGE, SET_PROJECT_LONG, MOVE_TO_SECONDPAGE, ADD_PORJECT_POSITION, RMV_PORJECT_POSITION, SET_PROJECT_NOWTEAM, ADD_PROJECT_KEYWORD, RMV_PROJECT_KEYWORD, ADD_QUESTION_LIST, SET_QUESTION_TEXT, RMV_QUESTION_LIST, POST_PROJECT_REQUEST, POST_PROJECT_SUCCESS, POST_PROJECT_FAILURE, GET_PROJECT_SUCCESS, GET_PROJECT_REQUEST, GET_PROJECT_FAILURE, PATCH_PROJECT_SUCCESS, SET_PROJECT_KEYWORD, SET_OFFSET_DATA, SET_HASMORE_DATA } from "../action/enrollment";
 
 const initialProps = {
   selectList: [],
@@ -19,7 +19,9 @@ const initialProps = {
   projectNowTeam : [0,0,0],
   projectKeyword : [],
   projectImage : {file : null, url : null},
-projectQuestion : [[{id: 0, text :""}],[{id : 1, text: ""}],[{id : 2, text : ""}],[{id: 4 , text : ""}]]
+  projectQuestion : [[{id: 0, text :""}],[{id : 1, text: ""}],[{id : 2, text : ""}],[{id: 4 , text : ""}]],
+  offset : 1,
+  hasMore : true
 };
 
 const enrollment = (state = initialProps, action) => {
@@ -58,6 +60,9 @@ const enrollment = (state = initialProps, action) => {
         break;
       case ADD_PROJECT_KEYWORD :
         draft.projectKeyword.push(action.data)
+        break;
+      case SET_PROJECT_KEYWORD :
+        draft.projectKeyword = [action.data];
         break;
       case RMV_PROJECT_KEYWORD :
         draft.projectKeyword = draft.projectKeyword.filter((el)=> el!==action.data)
@@ -126,6 +131,13 @@ const enrollment = (state = initialProps, action) => {
       case PATCH_PROJECT_SUCCESS:
         draft.resId = action.data
         Router.push(`/enrollment/change/3/${action.data}`)
+        break;
+      case SET_OFFSET_DATA :
+        draft.offset = action.data+1;
+        break;
+      case SET_HASMORE_DATA :
+        draft.hasMore = action.data;
+        break;
       default:
         break;
     }

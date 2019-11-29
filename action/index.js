@@ -82,3 +82,5 @@ export const DELETE_FAVORITE_FAILURE = "DELETE_FAVORITE_FAILURE";
 
 /* 지원하기 모달 관련 상태 */
 export const SET_APPLY_JOB = "SET_APPLY_JOB";
+
+
