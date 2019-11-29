@@ -9,7 +9,8 @@ var InterestSimpleContents = (props) =>
     const openModal = ()=>{
         dispatch({
             type : OPEN_APPLY_MODAL,
-            postId : props.id
+            postId : props.id,
+            role : props.info.role
         })
     }
     var isClosed = props.info.isClosed ? props.info.isClosed : false;
