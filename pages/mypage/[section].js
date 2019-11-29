@@ -106,6 +106,7 @@ class MyPage extends React.Component {
     const goToKeywordManagement = () => {
       Router.push("/keyword/management");
     };
+
     return (
       <div className="mypage">
         <LogoutCheck />
