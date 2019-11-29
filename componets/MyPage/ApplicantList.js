@@ -32,12 +32,14 @@ class ApplicantList extends React.Component{
 
         var projectId = this.props.id;
         var applicants = this.applicants;
+        var updateScreen = this.props.updateScreen;
 
         var applicantList = Object.keys(applicants).map(function(jobgroup){
             var list = applicants[jobgroup].map(function(applicant){
                 return <ApplicantSimpleComponent 
                     projectId = {projectId}
-                    applicant = {applicant}/>
+                    applicant = {applicant}
+                    updateScreen = {updateScreen}/>
             })
 
             if(list.length == 0)

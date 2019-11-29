@@ -194,18 +194,22 @@ class applicant extends React.Component{
     }
 
     handleClickApprove(){
-        if(confirm('이 지원자를 정말 승인하겠습니까?')){
-            fetch(baseURL + '/mypage/recruit/' + projectId + '/accept', {
-                headers : {
-                    'Authorization' : 'bearer ' + userToken,
-                    'accpet' : 'application/json',
-                    'Content-Type' : 'application/json'
-                },
-                method : 'POST',
-                body : JSON.stringify({'applicantId' : applicantId})
-            })
-    
+        var userToken = cookies.getCookie('user-token');
+        if(userToken != '' || userToken != undefined){
+            if(confirm('이 지원자를 정말 승인하겠습니까?')){
+                fetch(baseURL + '/mypage/recruit/' + this.props.projectId + '/accept', {
+                    headers : {
+                        'Authorization' : 'bearer ' + userToken,
+                        'accpet' : 'application/json',
+                        'Content-Type' : 'application/json'
+                    },
+                    method : 'POST',
+                    body : JSON.stringify({'applicantId' : this.props.applicantId})
+                })
+        
+            }
         }
+
 
     }
 
