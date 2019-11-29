@@ -3,6 +3,7 @@
   position: relative;
 }
 
+
 .CardView-Hover-Left {
   width: 50px;
   height: 120px;
@@ -52,6 +53,10 @@
   cursor: pointer;
 }
 
+.CardView-Wrapper:hover .CardView-Hover-Mobile{
+  display: none !important;
+}
+
 .CardView-Section {
   width: 100%;
 
@@ -59,6 +64,16 @@
   overflow-y: hidden;
   display: block;
   white-space: nowrap;
+
+}
+
+
+@media (max-width: 724px) {
+.CardView-Wrapper-Absolute{
+  position: absolute;
+  left : 0;
+  width: 100%;
+}
 }
 
 .CardView-Section .post-cardview {

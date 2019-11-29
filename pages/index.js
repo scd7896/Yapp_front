@@ -142,7 +142,7 @@ const Index = (props) => {
               <p id="post_text_head">인기 모집글</p>
             </div>
 
-            <KeywordCardViewSection buttonTop={170} />
+            <KeywordCardViewSection buttonTop={170} isMobile={props.isMobile}/>
           </div>
         </div>
       </div>

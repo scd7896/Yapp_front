@@ -169,6 +169,9 @@
 }
 .project-cardview-contents {
   margin: 0 32px;
+  @media (max-width: 724px) {
+    margin: 0 5%;
+  }
   padding: 22px 0px;
   text-align: left;
 }
