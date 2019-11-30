@@ -96,6 +96,8 @@
     line-height: 1.23;
     letter-spacing: -1.1px;
     text-align: left;
+    height: auto !important;
+    margin-top : 0px !important;
 }
 .tel{
 }
@@ -153,4 +155,10 @@
 
 .modify_profile_selectbox_wrapper{
     margin-left : 114px;
+}
+
+.modify_profile_body_container .select_default{
+    border-bottom: 2px solid #f5f7fa;
+    ;
+
 }

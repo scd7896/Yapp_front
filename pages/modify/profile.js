@@ -27,14 +27,15 @@ const profile = (props) => {
   var [flag, setFlag] = useState(props.profile.flag);
   var [phoneNumber, setPhoneNumber] = useState(props.profile.phone);
 
-  var [region, setRegion] = useState(0);
-
   const locationItem = locations.map((el, i) => {
     return {
       id: i,
       text: el
     };
   });
+  const flags = ['비공개','공개']
+
+  const flagItem = [{id: 0, text : '비공개'}, {id: 1 , text : '공개'}];
 
   const onClick = e => {
     const { name, value } = e;
@@ -138,11 +139,11 @@ const profile = (props) => {
             <p className="modify_profile_body_text">지역</p>
             <SelectBox
               name="locationSelectBox"
-              value={location[region]}
+              value={locations[location]}
               type="under"
               placeholder="선택하세요"
               items={locationItem}
-              onClick={onClick}
+              onClick={e => setLocation(e.value.id)}
             />
           </div>
           <div className="modify_profile_body_name_container">
@@ -153,6 +154,14 @@ const profile = (props) => {
               type="text"
               placeholder="숫자만 입력"
               onChange = {event => setPhoneNumber(event.target.value)}
+            />
+            <SelectBox
+              name="flagSelectBox"
+              value={flags[flag]}
+              type="under"
+              placeholder="선택하세요"
+              items={flagItem}
+              onClick={e => setFlag(e.value.id)}
             />
           </div>
         </div>
