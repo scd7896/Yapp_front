@@ -49,7 +49,7 @@ export default function DetailButtons(props){
         dispatch({
             type : OPEN_APPLY_MODAL,
             postId : props.projectId,
-            role : props.info.role
+            role : props.role
         })
         
     }

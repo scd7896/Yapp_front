@@ -10,7 +10,7 @@ import { SET_APPLYQNA_DATA, NEXT_APPLY_MODAL, SET_APPLY_JOB } from "../../action
 
 const ApplyFirst = ({ question }) => {
   const dispatch = useDispatch();
-  const { position, answers } = useSelector(state => state.apply);
+  const { position, answers, selectPosition } = useSelector(state => state.apply);
 
   const [inputs, setInputs] = useState({
     job: {
@@ -88,7 +88,9 @@ const ApplyFirst = ({ question }) => {
             { id: 1, text: "기획자" },
             { id: 2, text: "개발자" },
             { id: 4, text: "디자이너" }
-          ]}
+          ].filter((el)=>{
+            return (parseInt(selectPosition) & el.id) !== 0
+          })}
           inputs={inputs}
           onClick={onClick}
         />
