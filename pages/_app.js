@@ -16,7 +16,7 @@ import reducer from "../reducer";
 import mobileCheck from "../methods/mobileCheck";
 
 import "../css/wrraper.scss";
-//import "../css/MyPortfolioSection.scss/"
+import "../css/MyPage/MyPortfolioSection.scss"
 
 import url from "../url";
 import {
