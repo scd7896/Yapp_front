@@ -1,6 +1,6 @@
 import PorfolioSimpleComponent from './PortfolioSimpleComponent.js'
 
-import '../../css/Mypage/MyPortfolioSection.scss'
+import '../../css/MyPage/MyPortfolioSection.scss'
 
 export default class MyPortfolioSection extends React.Component{
 
