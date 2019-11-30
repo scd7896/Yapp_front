@@ -44,6 +44,8 @@ class MyPageApply extends React.Component{
                 if(res.ok){
                     var resJson = await res.json();
 
+                    resJson.list.sort((a,b) => a.isClosed - b.isClosed)
+
                     this.setState(resJson);
                 }
             }
