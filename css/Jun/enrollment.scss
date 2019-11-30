@@ -47,7 +47,7 @@ textarea {
   }
   & #section_title {
     font-family: "Noto Sans KR", sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -316,5 +316,8 @@ textarea {
   background-color: #ffffff;
 }
 .section2 {
-  margin-bottom: 10px;
+  margin-bottom: 4px;
+}
+#section_title_content {
+  margin-top: 0;
 }

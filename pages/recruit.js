@@ -122,18 +122,20 @@ const recruit = ({ firstData, isMobile }) => {
             <p id="keyword_text">추천 키워드</p>
             <div id="keyword_card_container">
               {keywords
-              .filter((el,i)=>{
-                  if(isMobile){
-                      return i<5
-                  }else{
-                      return true;
+                .filter((el, i) => {
+                  if (isMobile) {
+                    return i < 5;
+                  } else {
+                    return true;
                   }
-              })
-              .map((el, i) => {
-                const isSelected =
-                  projectKeyword.findIndex(el => el === i) !== -1;
-                return <Keyword data={el} index={i} isSelected={isSelected} />;
-              })}
+                })
+                .map((el, i) => {
+                  const isSelected =
+                    projectKeyword.findIndex(el => el === i) !== -1;
+                  return (
+                    <Keyword data={el} index={i} isSelected={isSelected} />
+                  );
+                })}
             </div>
           </div>
           <div id="recruit_card_container">
@@ -152,7 +154,6 @@ const recruit = ({ firstData, isMobile }) => {
   );
 };
 recruit.getInitialProps = async context => {
-    
   context.store.dispatch({
     type: SET_SELECTED_PAGES,
     data: "recruit"
@@ -168,17 +169,23 @@ recruit.getInitialProps = async context => {
       type: SET_PROJECT_KEYWORD,
       data: parseInt(context.query.keyword)
     });
-    return { firstData: { projects: firstData.data }, isMobile : context.isMobile };
+    return {
+      firstData: { projects: firstData.data },
+      isMobile: context.isMobile
+    };
   }
   if (context.query.text !== undefined) {
     const firstData = await axios
       .post(encodeURI(`${url}/projects/search?term=${context.query.text}`))
       .catch(err => console.log("err남"));
-    return { firstData: { projects: firstData.data }, isMobile : context.isMobile };
+    return {
+      firstData: { projects: firstData.data },
+      isMobile: context.isMobile
+    };
   }
   const firstData = await axios
     .get(`${url}/projects`)
     .catch(err => console.log("err남"));
-  return { firstData: firstData.data, isMobile : context.isMobile };
+  return { firstData: firstData.data, isMobile: context.isMobile };
 };
 export default recruit;
