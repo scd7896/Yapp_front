@@ -90,7 +90,6 @@ textarea {
     flex-direction: column;
   }
   & p {
-    padding-top: 20px;
     font-family: "Montserrat", sans-serif;
     font-size: 24px;
     font-weight: 300;
@@ -165,7 +164,7 @@ textarea {
     justify-content: flex-start;
   }
   .select_info + .select_info {
-    margin-top: 49.5px;
+    margin-top: 30px;
   }
   & p {
     width: 150px;
@@ -315,4 +314,7 @@ textarea {
 }
 .multerBox .background_none {
   background-color: #ffffff;
+}
+.section2 {
+  margin-bottom: 10px;
 }
