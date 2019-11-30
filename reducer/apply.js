@@ -13,7 +13,8 @@ const initialState = {
   position: 0,
   answers: [],
   selectPortFolios: [],
-  postId: null
+  postId: null,
+  selectPosition : 0
 };
 
 const apply = (state = initialState, action) => {
@@ -36,6 +37,7 @@ const apply = (state = initialState, action) => {
         break;
       case OPEN_APPLY_MODAL:
         draft.postId = action.postId;
+        draft.selectPosition = action.role
         break;
       // case NEXT_APPLY_MODAL:
       //   draft.count = action.count;
@@ -52,6 +54,7 @@ const apply = (state = initialState, action) => {
         alert("서버에러 새로고침하겠습니다");
         location.reload()
         break;
+      
       default:
         break;
     }

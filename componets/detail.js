@@ -104,6 +104,7 @@ class Detail extends React.Component{
                                 <div className = "detail-button-wrapper">
                                   <DetailButtons
                                     projectId = {this.projectId}
+                                    role = {this.props.project.role}
                                     projectUserId = {this.props.project.userId}
                                     isClosed = {this.state.isClosed}
                                     setIsClosed = {this.setIsClosed}/>
