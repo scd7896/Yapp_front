@@ -1,6 +1,6 @@
 import roles from '../../methods/role'
 import ProjectJobGroup from './ProjectJobGroup'
-import '../../css/park/detail.scss'
+import '../../css/Park/detail.scss'
 
 export default (props) => {
 

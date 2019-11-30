@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 
-import '../css/park/detail.scss'
+import '../css/Park/detail.scss'
 import '../css/container.scss'
 
 import roles from '../methods/role'
