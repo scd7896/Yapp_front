@@ -77,7 +77,7 @@ const Index = props => {
                   <span>
                     <img
                       id="header_in_img"
-                      src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/3028D3AE-1828-4041-AB3B-50618E3AB08D.svg"
+                      src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/AF4764EA-241D-4966-BAB0-66CDF64C708E.svg"
                     />
                   </span>
                 </div>
