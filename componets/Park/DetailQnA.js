@@ -1,4 +1,4 @@
-import '../../css/park/detail_qna.scss'
+import '../../css/Park/detail_qna.scss'
 import '../../css/container.scss'
 
 import baseURL from '../../url'

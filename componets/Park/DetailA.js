@@ -1,4 +1,4 @@
-import '../../css/park/detail_qna.scss'
+import '../../css/Park/detail_qna.scss'
 import getTimeDiff from '../../methods/getTimeDiff'
 
 import { OPEN_LOGIN_MODAL } from '../../action/index.js';
