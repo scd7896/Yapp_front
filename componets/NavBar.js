@@ -9,7 +9,7 @@ import Hamburger from "../componets/Jun/Hamburger";
 import NavBarSubMenu from './Kim/Navbar/atomic/NavbarSubMenu'
 import NavbarSubMenu from "./Kim/Navbar/atomic/NavbarSubMenu";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const dispatch = useDispatch();
   const { selectPage } = useSelector(state => state.button);
   const { user } = useSelector(state => state);
@@ -111,7 +111,7 @@ const NavBar = () => {
           </span>
         </div>
         <div className="nav_right_mobile">
-          <Hamburger></Hamburger>
+          <Hamburger isMobile = {props.isMobile}></Hamburger>
         </div>
       </div>
     </div>

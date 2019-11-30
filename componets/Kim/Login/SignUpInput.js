@@ -53,7 +53,7 @@ const SignUpInput = ()=>{
         const passwordEqualCheck = document.querySelector('#login_password_equal_check').value
         
         if(password == passwordEqualCheck){
-            console.log('체크테스트')
+            //console.log('체크테스트')
             dispatch({
                 type : USER_JOIN_REQUEST,
                 name : name,

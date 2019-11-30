@@ -54,7 +54,7 @@ const LoginInput = ()=>{
 
         container.addEventListener('keypress', (event)=>{
             if(event.keyCode ===13){
-                console.log(emailCheck)
+                //console.log(emailCheck)
                 loginRequest()
             }
             

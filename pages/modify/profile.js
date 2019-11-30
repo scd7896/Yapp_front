@@ -16,16 +16,16 @@ import UserProfileImg from "../../componets/Park/UserProfileImg";
 
 import nextCookies from "next-cookies";
 
-const profile = () => {
+const profile = (props) => {
   var [imgFile, setImgFile] = useState(null);
 
   const { user } = useSelector(state => state);
 
   var [previewURL, setPreviewURL] = useState(user.userProfileImage);
   var [name, setName] = useState(user.userName);
-  var [location, setLocation] = useState(0);
-  var [flag, setFlag] = useState(0);
-  var [phoneNumber, setPhoneNumber] = useState("");
+  var [location, setLocation] = useState(props.profile.location);
+  var [flag, setFlag] = useState(props.profile.flag);
+  var [phoneNumber, setPhoneNumber] = useState(props.profile.phone);
 
   var [region, setRegion] = useState(0);
 
@@ -148,9 +148,11 @@ const profile = () => {
           <div className="modify_profile_body_name_container">
             <p className="modify_profile_body_text">전화번호</p>
             <input
+              value = {phoneNumber}
               className="modify_profile_body_input_text tel"
               type="text"
               placeholder="숫자만 입력"
+              onChange = {event => setPhoneNumber(event.target.value)}
             />
           </div>
         </div>
@@ -179,20 +181,42 @@ profile.getInitialProps = async context => {
 
   var userToken = nextCookies(context)['user-token']
 
-  if(userToken)
+  var data ={};
 
-  var res = await fetch(baseURL + '/user/profile',{
-    headers : {
-      Authorization : 'bearer ' + userToken,
-      accept : 'application/json',
-      'Content-Type' : 'application/json'
+  try{
+
+    if(userToken == '' || userToken == undefined){
+      throw 'need login'
     }
-  })
 
-  if(res.ok){
+    var res = await fetch(baseURL + '/user/profile',{
+      headers : {
+        Authorization : 'bearer ' + userToken,
+        accept : 'application/json',
+        'Content-Type' : 'application/json'
+      }
+    })
+  
+    if(res.ok){
+      var res = await res.json();
+    }else{
+      throw 'need login'
+    }
 
+    data.profile=res;
+  }
+  catch{
+    if (ctx.res) {
+      ctx.res.writeHead(302, {
+        Location: "/"
+      });
+      ctx.res.end();
+    } else {
+      Router.push("/");
+    }
   }
 
-  return {};
+
+  return data;
 };
 export default profile;

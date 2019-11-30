@@ -1,4 +1,4 @@
-import '../../css/park/detail_qna.scss'
+import '../../css/Park/detail_qna.scss'
 import { useSelector , useDispatch } from "react-redux";
 
 import getTimeDiff from '../../methods/getTimeDiff'

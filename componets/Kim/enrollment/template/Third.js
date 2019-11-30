@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux'
 const Third = ()=>{
     const {resId} = useSelector(state => state.enrollment)
     const goToDetail = ()=>{
-        console.log(resId)
+        //console.log(resId)
         Router.push(`/detail/${resId}`)
     }
     return(
