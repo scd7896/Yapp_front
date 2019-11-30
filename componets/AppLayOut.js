@@ -9,7 +9,7 @@ import NavBar from './NavBar'
 import ApplyModal from './Kim/ApplyModal'
 import Footer from './Footer'
 
-const AppLayOut = ({children})=>{
+const AppLayOut = ({children,isMobile})=>{
     const style = {
         zIndex : '1000'
     }
@@ -25,7 +25,7 @@ const AppLayOut = ({children})=>{
         
     return(
         <div>
-            <NavBar style = {style}></NavBar>
+            <NavBar isMobile ={isMobile} style = {style}></NavBar>
             
             <LoginModal />
             <ApplyModal />

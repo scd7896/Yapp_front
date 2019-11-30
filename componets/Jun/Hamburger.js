@@ -6,7 +6,7 @@ import {  USER_LOGOUT_REQUEST, SET_LOGIN_MODAL, OPEN_LOGIN_MODAL } from "../../a
 import Link from 'next/link'
 import UserProfileImg from "../Park/UserProfileImg";
 
-function Hamburger() {
+function Hamburger(props) {
   const [open, setOpen] = useState(false);
   const onToggle = () => setOpen(!open);
   const dispatch = useDispatch();
@@ -173,7 +173,7 @@ function Hamburger() {
                 <a>프로젝트 후기 </a>
                 {user.isLogging ? <Link href="/mypage"><a>마이페이지 </a></Link> : null}
                 {user.isLogging ? <a>알림 </a> : null}
-                {user.isLogging ? <a>모집글 작성하기 </a> : null}
+                {user.isLogging ? (props.isMobile ? <a onClick={() => alert('모집글은 PC에서 작성해주세요!')}>모집글 작성하기</a> :  <Link href="/enrollment/create/1/0"><a>모집글 작성하기 </a></Link>) : null}
               </div>
             </div>
           </div>

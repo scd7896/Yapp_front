@@ -110,7 +110,7 @@ class MyApp extends App {
             <script src = "https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
           </Head>
 
-          <AppLayout>
+          <AppLayout isMobile = {isMobile}>
             <Component id="wrraper" {...pageProps} />
           </AppLayout>
         </Provider>
