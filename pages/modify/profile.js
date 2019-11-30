@@ -148,9 +148,11 @@ const profile = (props) => {
           <div className="modify_profile_body_name_container">
             <p className="modify_profile_body_text">전화번호</p>
             <input
+              value = {phoneNumber}
               className="modify_profile_body_input_text tel"
               type="text"
               placeholder="숫자만 입력"
+              onChange = {event => setPhoneNumber(event.target.value)}
             />
           </div>
         </div>
