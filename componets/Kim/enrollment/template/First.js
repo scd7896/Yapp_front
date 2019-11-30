@@ -210,31 +210,39 @@ const First = ({ projectId, changed }) => {
             />
           </div>
         </div>
-        <div className="enrollment_first_position_container">
-          <div onClick={jobGroupSelect(1)}>
-            <JobGroupCardView
-              type="big"
-              jobgroup="planner"
-              toggle={jobGroupToggle(1) ? "on" : "off"}
-            />
+
+        <div className="project_info">
+          <div className="section">
+            <span id="section_title">진행 정보</span>
           </div>
-          <div onClick={jobGroupSelect(2)}>
-            <JobGroupCardView
-              type="big"
-              jobgroup="developer"
-              toggle={jobGroupToggle(2) ? "on" : "off"}
-            />
-          </div>
-          <div onClick={jobGroupSelect(4)}>
-            <JobGroupCardView
-              type="big"
-              jobgroup="designer"
-              toggle={jobGroupToggle(4) ? "on" : "off"}
-            />
+          <div className="enrollment_first_position_container">
+            <div onClick={jobGroupSelect(1)}>
+              <JobGroupCardView
+                type="big"
+                jobgroup="planner"
+                toggle={jobGroupToggle(1) ? "on" : "off"}
+              />
+            </div>
+            <div onClick={jobGroupSelect(2)}>
+              <JobGroupCardView
+                type="big"
+                jobgroup="developer"
+                toggle={jobGroupToggle(2) ? "on" : "off"}
+              />
+            </div>
+            <div onClick={jobGroupSelect(4)}>
+              <JobGroupCardView
+                type="big"
+                jobgroup="designer"
+                toggle={jobGroupToggle(4) ? "on" : "off"}
+              />
+            </div>
           </div>
         </div>
         <div className="project_info">
-          <p id="nowteam_text">현재 팀원</p>
+          <div className="section">
+            <span id="section_title">현재 팀원</span>
+          </div>
           <div className="select_info">
             <p>기획자</p>
             <SelectBox
@@ -274,7 +282,9 @@ const First = ({ projectId, changed }) => {
         </div>
         <div className="enrollment_keyword_container">
           <div>
-            <p id="enrollment_keyword_title">모집글 키워드</p>
+            <div className="section2">
+              <span id="section_title">모집글 키워드</span>
+            </div>
             <p id="enrollment_keyword_subtitle">
               프로젝트를 대표할 수 있는 키워드를 선택하세요. 검색 노출에
               반영됩니다.
@@ -295,7 +305,9 @@ const First = ({ projectId, changed }) => {
             </div>
           </div>
           <div className="project_img">
-            <p id="enrollment_keyword_title">썸네일 이미지 선택</p>
+            <div className="section2">
+              <span id="section_title">썸네일 이미지 선택</span>
+            </div>
             <p id="enrollment_keyword_subtitle">
               (모집글 썸네일에 보여지는 이미지입니다.)
             </p>
