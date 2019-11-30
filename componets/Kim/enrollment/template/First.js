@@ -77,7 +77,7 @@ const First = ({ projectId, changed }) => {
       ...inputs,
       [name]: { id: value.id, text: value.text }
     });
-    console.log(region, level);
+    //console.log(region, level);
   };
   const setPositionNow = index => e => {
     const { name, value } = e;
