@@ -2,7 +2,7 @@
 import React,{useState, useEffect, useCallback} from 'react'
 import {useSelector,useDispatch} from 'react-redux';
 import {fromEvent, asyncScheduler, of} from 'rxjs'
-import {throttle, throttleTime, debounceTime,map, first, catchError, takeLast, last} from 'rxjs/operators'
+import {throttle, throttleTime, debounceTime,map, first, catchError, takeLast, last, filter} from 'rxjs/operators'
 import {ajax} from 'rxjs/ajax'
 import CardView from '../componets/Park/ProjectCardView'
 import Head from 'next/head'
@@ -20,7 +20,7 @@ import { defaultThrottleConfig } from 'rxjs/internal/operators/throttle';
 const recruit = ({firstData})=>{
     const dispatch = useDispatch()
     const {projectKeyword, offset} = useSelector(state => state.enrollment)
-    
+    console.log('여러번 하니?')
     const [locationId, setLocationId] = useState(null)
     const [hasMore, setHasMore] = useState(true)
     const [cardListDatas, setCardListDatas] = useState(firstData.projects)
@@ -36,14 +36,23 @@ const recruit = ({firstData})=>{
         setLocationId(data)
         
     }
-    const cardListSet = (data)=>{
+    const cardListSet = async()=>{
+        const termText = searchText.length===0? "":`&term=${searchText}`
+        const locationText = locationId === null? "" : `&location=${locationId}`           
+        const result = await axios.post(`${url}/projects/search?offset=${offset}${termText}${locationText}`,
+            {
+                keyword : projectKeyword
+            })            
         
+        if(result.data.length <15){
+            setHasMore(false)
+        }
         dispatch({
             type : SET_OFFSET_DATA,
             data : offset
         })
         
-        setCardListDatas(cardListDatas.concat(data))
+        setCardListDatas(cardListDatas.concat(result.data))
 
     }
     const reloadData = async()=>{
@@ -60,39 +69,18 @@ const recruit = ({firstData})=>{
             }
     }
     
-    // useEffect(()=>{
-    //     let timer;
-    //     const scrollEvent = fromEvent(window, 'scroll')
-    //         scrollEvent
-    //             .pipe(
-    //                 debounceTime(3000),
-                    
-    //             )
-    //             .subscribe(()=>{
-    //                 if (window.scrollY + document.documentElement.clientHeight > document.documentElement.scrollHeight - 30){            
-                        
-    //                     const termText = searchText.length===0? "":`&term=${searchText}`
-    //                     const locationText = locationId === null? "" : `&location=${locationId}`
-                        
-    //                     if(hasMore){
-    //                         if(timer){
-    //                             clearTimeout(timer);
-    //                         }
-    //                         timer = setTimeout(async()=>{
-    //                             const result = await axios.post(`${url}/projects/search?offset=${offset}${termText}${locationText}`,
-    //                                 {
-    //                                     keyword : projectKeyword
-    //                                 })
-                                
-    //                             cardListSet(result.data);
-    //                             if(result.data.length <15){
-    //                                 setHasMore(false)
-    //                             }
-    //                         }, 500)
-    //                     }        
-    //             }
-    //         })        
-    // },[hasMore, cardListDatas, offset])
+    useEffect(()=>{
+        const scrollEvent = fromEvent(window, 'scroll')
+            scrollEvent
+                .pipe(
+                    filter((el)=> window.scrollY + document.documentElement.clientHeight > document.documentElement.scrollHeight - 30),
+                    filter((el)=> hasMore),
+                    debounceTime(3000),
+                )
+                .subscribe(()=>{
+                    cardListSet()
+                })        
+    },[hasMore, cardListDatas, offset])
     return(
 
         <div id = "reqcruit_root">
@@ -121,9 +109,9 @@ const recruit = ({firstData})=>{
                     </div>
                     
                 </div>
-                <div style={hasMore ?{}:{display:"none"}} className = "recruit_more_button" onClick = {reloadData}>
+                {/* <div style={hasMore ?{}:{display:"none"}} className = "recruit_more_button" onClick = {reloadData}>
                     <p>더보기</p>
-                </div>
+                </div> */}
             </div>
         </div>)}
 recruit.getInitialProps =async(context)=>{
