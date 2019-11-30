@@ -3,6 +3,8 @@ import '../../css/Park/mypage.scss';
 import Router from 'next/router';
 import UserProfileImg from '../Park/UserProfileImg'
 import Link from 'next/link'
+import cookies from '../../methods/cookies'
+import baseURL from '../../url'
 
 var ApplicantSimpleComponent = (props) => {
 
@@ -69,8 +71,8 @@ var ApplicantSimpleComponent = (props) => {
                 <div className = 'applicant-simple-right'>
                 {
                     props.type != 'other'
-                    ? (props.aaaa == true 
-                    ? <div className = 'applicant-simple-accept-button'>
+                    ? (props.applicant.isAccepted == true 
+                    ? <div className = 'applicant-simple-accept-button-finish'>
                             <div className = 'applicant-simple-accept-button-text'>
                                 승인완료
                             </div>

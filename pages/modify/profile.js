@@ -7,11 +7,15 @@ import locations from "../../methods/location";
 import Head from "next/head";
 
 import LogoutCheck from "../../componets/Park/LogoutCheck";
+import fetch from 'isomorphic-unfetch'
 
 import "../../css/container.scss";
 import "../../css/kim/modify_profile.scss";
 import baseURL from "../../url";
 import UserProfileImg from "../../componets/Park/UserProfileImg";
+
+import nextCookies from "next-cookies";
+
 const profile = () => {
   var [imgFile, setImgFile] = useState(null);
 
@@ -160,7 +164,7 @@ const profile = () => {
         </div>
       </div>
       <input
-        style={{ width: 0 }}
+        style={{ width: 0 ,height:0 ,display:'none'}}
         id="profile-avatar"
         type="file"
         name="myImage"
@@ -172,8 +176,23 @@ const profile = () => {
 };
 
 profile.getInitialProps = async context => {
-  /* get /user/profile 로 데이터 가져오기
-        put /user/profile 로 데이터 보내기  */
+
+  var userToken = nextCookies(context)['user-token']
+
+  if(userToken)
+
+  var res = await fetch(baseURL + '/user/profile',{
+    headers : {
+      Authorization : 'bearer ' + userToken,
+      accept : 'application/json',
+      'Content-Type' : 'application/json'
+    }
+  })
+
+  if(res.ok){
+
+  }
+
   return {};
 };
 export default profile;

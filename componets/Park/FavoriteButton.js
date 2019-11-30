@@ -13,7 +13,6 @@ export default function FavoriteButton(props){
         useEffect(() => {
             if(favorite.lastEdited == props.project.projectId)
             {
-                console.log('?');
                 props.afterClick();
             }
         },[favorite.lastEdited])

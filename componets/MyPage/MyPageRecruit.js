@@ -47,6 +47,8 @@ class MyPageRecruit extends React.Component{
                 if(res.ok){
                     var curState = await res.json();
 
+                    curState.recruitProjects.sort((a,b)=> a.isClosed - b.isClosed);
+
                     var toggleState = window.sessionStorage.getItem('toggleState');
 
                     if(toggleState){
@@ -69,8 +71,6 @@ class MyPageRecruit extends React.Component{
                             curState.recruitProjects[i].toggle = 0;
                         }
                     }
-
-                    console.log(curState)
 
                     this.setState(curState);
                 }

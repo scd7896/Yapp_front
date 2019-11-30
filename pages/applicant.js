@@ -7,6 +7,7 @@ import PortfolioSimpleComponent from '../componets/MyPage/PortfolioSimpleCompone
 import ApplicantSimpleComponent from '../componets/MyPage/ApplicantSimpleComponent'
 import ApplicantQnA from '../componets/Park/ApplicantQnA'
 
+import Head from 'next/head'
 import baseURL from '../url';
 import nextCookies from'next-cookies';
 import cookies from '../methods/cookies'
@@ -14,77 +15,7 @@ import cookies from '../methods/cookies'
 import roles from '../methods/role'
 
 import LogoutCheck from '../componets/Park/LogoutCheck'
-
-/*
-{ 
-   "project":[ 
-      { 
-         "projectId":1,
-         "title":"해커톤 팀원 모집",
-         "content":"2019 yapp 해커톤에 참여하실 분들 구합니다. ",
-         "role":3,
-         "step":0,
-         "currentMember":"0",
-         "location":1,
-         "expectedPeriod":3,
-         "thumbnailImage":null,
-         "attachFile":null,
-         "viewCnt":593,
-         "createAt":"2019-11-24T04:32:23.000Z",
-         "isClosed":false,
-         "userId":1,
-         "interviewQuestions":[ 
-            { 
-               "sn":1,
-               "content":"일주일에 몇 회정도 참여 가능하신가요?",
-               "role":0,
-               "projectId":1
-            },
-            { 
-               "sn":2,
-               "content":"개발자와 협업 경험이 있으신가요?",
-               "role":2,
-               "projectId":1
-            }
-         ],
-         "interviewAnswers":[ 
-            { 
-               "id":5,
-               "content":"네 참여할 수 있습니다.",
-               "sn":1,
-               "role":0,
-               "userId":5,
-               "projectId":1
-            },
-            { 
-               "id":6,
-               "content":"네 참여할 수 있습니다.",
-               "sn":2,
-               "role":0,
-               "userId":5,
-               "projectId":1
-            }
-         ]
-      }
-   ],
-   "applicant":{ 
-      "email":"admin@toys.com",
-      "name":"박준호",
-      "profileImage":"https://yapp-backend.kr.object.ncloudstorage.com/avatar/dfd80c65c4e2747af925b32f07a6a973"
-   },
-   "portfolios":[ 
-      { 
-         "portfolioId":7,
-         "title":"portfolioImage",
-         "useStack":"portfolioImage",
-         "myRole":"portfolioImage",
-         "thumbnailImage":"https://yapp-backend.kr.object.ncloudstorage.com/project/6ea476b05b2cdba465fdc8bcaf1a7c5d",
-         "attachFile":""
-      }
-   ]
-}
-
-*/
+import JobgruopList from '../componets/Park/JobgruopList'
 
 class applicant extends React.Component{
 
@@ -159,8 +90,6 @@ class applicant extends React.Component{
             other : []
         }
 
-        console.log(this.props);
-
         var interviewQuestions = JSON.parse(JSON.stringify(this.props.res.project[0].interviewQuestions));
         var interviewAnswers = JSON.parse(JSON.stringify(this.props.res.project[0].interviewAnswers));
         this.interviewSet = [];
@@ -224,7 +153,6 @@ class applicant extends React.Component{
 
             var userToken = cookies.getCookie('user-token');
             var applicantId = this.props.applicantId;
-            console.log(this.props)
 
             if(userToken != '' && userToken != undefined){
                 fetch(baseURL + '/mypage/recruit' , {
@@ -257,22 +185,19 @@ class applicant extends React.Component{
     render(){
         var projectId = this.props.res.project[0].proejctId;
 
-        var role = parseInt(this.props.res.project[0].role) ;
-        var roleTexts = ['안됨'];
+        var role = parseInt(this.props.res.applicant.role) ;
 
-        /*
         if(role <= 1){
-            roleTexts.push(roles[0]);
+            role = 1;
         }
         else if(role <= 2){
-            roleTexts.push(roles[1]);
+            role = 2;
         }
-        else {
-            roleTexts.push(roles[2]);
+        else{
+            role = 4;
         }
-        */
 
-        var roleComponentes = roleTexts.map(role =>  <ProjectJobGroup jobgroup = {role} size="big"/>)
+        var roleComponentes = <JobgruopList role = {role} size="big"/>
 
 
         return (
@@ -375,12 +300,22 @@ class applicant extends React.Component{
                             }
                         </div>
                         <div className = 'applicant-contents-approve'>
-                            <div className = 'applicant-contents-approve-button'
-                                onClick = {this.handleClickApprove}>
-                                <div className = 'applicant-contents-approve-button-text'>
-                                    지원자 승인
+                            {
+                                this.props.res.applicant.isAccepted 
+                                ?  <div className = 'applicant-contents-approve-button'>
+                                    <div className = 'applicant-contents-approve-button-text'>
+                                        승인 완료
+                                    </div>
                                 </div>
-                            </div>
+                                : <div className = 'applicant-contents-approve-button'
+                                    onClick = {this.handleClickApprove}>
+                                    <div className = 'applicant-contents-approve-button-text'>
+                                        지원자 승인
+                                    </div>
+                                </div>
+
+                            }
+
                         </div>
                     </div>
 
