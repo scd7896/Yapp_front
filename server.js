@@ -20,10 +20,10 @@ app.prepare().then(()=>{
     const server = express()
     server.use(express.json())
     server.use(express.urlencoded({extended: true}))
-    // server.use(assignId)
-    // server.use(morgan('common',{
-    //     stream : fs.createWriteStream(path.join(__dirname, 'logs/access.log'), { flags: 'a' })
-    // }))
+    server.use(assignId)
+    server.use(morgan('common',{
+        stream : fs.createWriteStream(path.join(__dirname, 'logs/access.log'), { flags: 'a' })
+    }))
     
     server.get('/keyword/management', (req,res)=>{
         return app.render(req,res, '/keyword/management')

@@ -1,55 +1,54 @@
-
 .arrow_box {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #ffffff;
-    width: 180px;
-    height: 120px;
-    color: #cccdd0;
-    margin-top : 90px;
-    box-shadow: 1px 15px 44px 0 rgba(0, 0, 0, 0.24);
-	border: solid 1px #e5e5e5;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  width: 159px;
+  height: 78px;
+  color: #cccdd0;
+  margin-top: 90px;
+  box-shadow: 1px 15px 44px 0 rgba(0, 0, 0, 0.24);
+  border: solid 1px #e5e5e5;
 }
-.arrow_box:after, .arrow_box:before {
-	bottom: 100%;
-	left: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
+.arrow_box:after,
+.arrow_box:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
 }
 
 .arrow_box:after {
-	border-color: rgba(136, 183, 213, 0);
-	border-bottom-color: #ffffff;
-	border-width: 30px;
-	margin-left: -30px;
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #ffffff;
+  border-width: 30px;
+  margin-left: -30px;
 }
 .arrow_box:before {
-	border-color: rgba(194, 225, 245, 0);
-	border-bottom-color: #ffffff;
-	border-width: 36px;
-	margin-left: -36px;
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #ffffff;
+  border-width: 20px;
+  margin-left: -20px;
 }
 
-.arrow_box_none{
-    display : none;
+.arrow_box_none {
+  display: none;
 }
-.navbar_submenu_text{
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 20px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.45;
-    letter-spacing: -1px;
-    text-align: center;
-    
+.navbar_submenu_text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: -1px;
+  text-align: center;
 }
-.arrow_box p:hover{
-    color: #5c63ff;
+.arrow_box p:hover {
+  color: #5c63ff;
 }
