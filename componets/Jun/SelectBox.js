@@ -78,7 +78,7 @@ function SelectBox({
       )}
 
       {open && (
-        <div className="selectBoxRelative">
+        <>
           <div className={classNames("select_open", type)} onClick={onToggle}>
             {items.map(item => (
               <div className="potatoBox" onClick={potato(item)} key={item.id}>
@@ -86,8 +86,8 @@ function SelectBox({
               </div>
             ))}
           </div>
-          {/* <div className="select_cover" onClick={onToggle}></div> */}
-        </div>
+          <div className="select_cover" onClick={onToggle}></div>
+        </>
       )}
     </div>
   );

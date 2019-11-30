@@ -1,7 +1,7 @@
-.enrollment_level_container{
-    display: flex;
-    width : 80%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.enrollment_level_container {
+  display: flex;
+  min-width: 80%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
