@@ -85,8 +85,7 @@ class MyApp extends App {
     else{
       pageProps.isMobile = false;
     }
-    
-    
+
     return { pageProps };
   }
   render() {
