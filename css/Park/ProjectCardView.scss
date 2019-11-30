@@ -15,14 +15,17 @@
   @media (max-width: 724px) {
     width: 100%;
   }
-  & + & {
-    &:nth-child(3n-1) {
-      margin-left: 3.5%;
-    }
-    &:nth-child(3n) {
-      margin-left: 3.5%;
+  @media (min-width: 992px) {
+    & + & {
+      &:nth-child(3n-1) {
+        margin-left: 3.5%;
+      }
+      &:nth-child(3n) {
+        margin-left: 3.5%;
+      }
     }
   }
+
   position: relative;
 }
 .CardView-Section .project-cardview {
