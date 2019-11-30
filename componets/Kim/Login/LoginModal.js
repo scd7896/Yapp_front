@@ -28,9 +28,6 @@ const LoginModal = () => {
   };
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=0.5" />
-      </Head>
       <div className="modal-wrapper">
         <Modal visible={loginVisible} effect="fadeInUp">
           <div className="container">
