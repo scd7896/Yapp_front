@@ -213,7 +213,7 @@ const First = ({ projectId, changed }) => {
 
         <div className="project_info">
           <div className="section">
-            <span id="section_title">진행 정보</span>
+            <span id="section_title">모집 직군</span>
           </div>
           <div className="enrollment_first_position_container">
             <div onClick={jobGroupSelect(1)}>
@@ -320,7 +320,7 @@ const First = ({ projectId, changed }) => {
                   <img className="thumbnail_image" src={projectImage.url} />
                 </div>
               ) : (
-                <div>
+                <div className="imageBox">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="51.807"
