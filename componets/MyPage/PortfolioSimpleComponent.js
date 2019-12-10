@@ -87,7 +87,7 @@ class PortfolioSimpleComponent extends React.Component {
               src={
                 this.props.portfolio.thumbnailImage
                   ? this.props.portfolio.thumbnailImage
-                  : ""
+                  : "https://images.unsplash.com/photo-1508317469940-e3de49ba902e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
               }
             />
             <div className="portfolio-simple-contents-container">
