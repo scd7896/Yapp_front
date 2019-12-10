@@ -2,9 +2,10 @@ import baseURL from '../url'
 import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/effects'
 import {USER_JOIN_REQUEST, USER_JOIN_SUCCESS, USER_JOIN_FAILURE} from '../action'
 import axios from 'axios'
+import cookies from '../methods/cookies'
 
 function getUserAPI(myCookie){
-    return fetch(url + '/me', {
+    return fetch(baseURL + '/me', {
         headers : {
             Authorization: 'bearer ' + myCookie,
             accept : 'application/json'
@@ -55,15 +56,13 @@ function* userJoin(action){
         yield put({
             type : USER_JOIN_SUCCESS,
             userToken : loginResult.data.token,
-            userName : getUserResult.user.userName,
+            userName : getUserResult.user.name,
             userId : getUserResult.user.userId,
             userEmail : getUserResult.user.email,
             userProfileImage : getUserResult.user.profileImage
         })        
         
-        
     }catch(e){
-        
         //에러 코드에 따라서 비밀번호 틀리게할껀지 
         //이메일의문제일지 결정
         yield put({
