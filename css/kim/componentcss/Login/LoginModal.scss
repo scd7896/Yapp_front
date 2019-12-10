@@ -4,6 +4,12 @@
   height: 100vh;
 
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+#login_modal_container::-webkit-scrollbar{
+  width : 0px;
+  background: transparent;
 }
 #login_modal_body_container {
   padding-left: 5.7%;

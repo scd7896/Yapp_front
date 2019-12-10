@@ -3,6 +3,12 @@
   width: 200%;
   height: 100vh;
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+#modal_container::-webkit-scrollbar{
+  width : 0px;
+  background: transparent;
 }
 #apply_modal_head_container {
   padding: 40px 40px;
@@ -15,10 +21,7 @@
   height: 200px;
   background-color: rgba(0, 0, 0, 0);
 }
-::-webkit-scrollbar {
-  width: 0px; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
-}
+
 #modal_finish_container {
   text-align: center;
   width: 100%;
