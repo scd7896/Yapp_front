@@ -1,7 +1,12 @@
 @import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 .post-cardview {
-  text-align: left;
+  width: 49%;
+  height: 298px;
   display: inline-block;
+
+  margin-right: 1%;
+
+  text-align: left;
 }
 .post-cardview-image {
   width: 100%;

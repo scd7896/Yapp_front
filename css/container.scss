@@ -3,10 +3,17 @@
     width: 1200px;
     margin: 0 auto;
   }
-  .post-cardview {
-    width: 49%;
-    height: 298px;
-    margin-right: 1%;
+  .project-cardview {
+    width: 31%;
+    height: 20.26%;
+    & + & {
+      &:nth-child(3n-1) {
+        margin-left: 3.5%;
+      }
+      &:nth-child(3n) {
+        margin-left: 3.5%;
+      }
+    }
   }
 }
 
@@ -15,10 +22,17 @@
     width: 1024px;
     margin: 0 auto;
   }
-  .post-cardview {
-    width: 49%;
-    height: 298px;
-    margin-right: 1%;
+  .project-cardview {
+    width: 31%;
+    height: 20.26%;
+    & + & {
+      &:nth-child(3n-1) {
+        margin-left: 3.5%;
+      }
+      &:nth-child(3n) {
+        margin-left: 3.5%;
+      }
+    }
   }
 }
 
@@ -27,10 +41,17 @@
     width: 970px;
     margin: 0 auto;
   }
-  .post-cardview {
-    width: 49%;
-    height: 298px;
-    margin-right: 1%;
+  .project-cardview {
+    width: 31%;
+    height: 20.26%;
+    & + & {
+      &:nth-child(3n-1) {
+        margin-left: 3.5%;
+      }
+      &:nth-child(3n) {
+        margin-left: 3.5%;
+      }
+    }
   }
 }
 
