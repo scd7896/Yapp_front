@@ -65,6 +65,8 @@ const ApplyModal = () => {
         //console.dir(responseUser.data.portfolios)
         setPortfolios(responseUser.data.portfolios);
         setQuestion(response.data.interviewQuestions); // 데이터는 response.data 안에 들어있습니다.
+        console.log("질문리스트====================");
+        console.dir(responseUser.data.portfolios);
       }
     } catch (e) {
       setError(e);
