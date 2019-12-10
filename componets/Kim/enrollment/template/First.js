@@ -213,7 +213,7 @@ const First = ({ projectId, changed }) => {
 
         <div className="project_info">
           <div className="section">
-            <span id="section_title">진행 정보</span>
+            <span id="section_title">모집 직군</span>
           </div>
           <div className="enrollment_first_position_container">
             <div onClick={jobGroupSelect(1)}>
