@@ -3,6 +3,11 @@
     width: 1200px;
     margin: 0 auto;
   }
+  .post-cardview {
+    width: 49%;
+    height: 298px;
+    margin-right: 1%;
+  }
 }
 
 @media (max-width: 1919px) and (min-width: 1200px) {
@@ -10,12 +15,22 @@
     width: 1024px;
     margin: 0 auto;
   }
+  .post-cardview {
+    width: 49%;
+    height: 298px;
+    margin-right: 1%;
+  }
 }
 
 @media (max-width: 1199px) and (min-width: 992px) {
   .container {
     width: 970px;
     margin: 0 auto;
+  }
+  .post-cardview {
+    width: 49%;
+    height: 298px;
+    margin-right: 1%;
   }
 }
 
