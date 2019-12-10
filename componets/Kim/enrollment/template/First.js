@@ -320,7 +320,7 @@ const First = ({ projectId, changed }) => {
                   <img className="thumbnail_image" src={projectImage.url} />
                 </div>
               ) : (
-                <div>
+                <div className="imageBox">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="51.807"
