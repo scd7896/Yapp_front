@@ -57,48 +57,51 @@ const recruit = ({ firstData, isMobile }) => {
       }
     );
 
-    if (result.data.length < 15) {
-      setHasMore(false);
-    }
+    
     dispatch({
       type: SET_OFFSET_DATA,
       data: offset
     });
 
     setCardListDatas(cardListDatas.concat(result.data));
-  };
-  const reloadData = async () => {
-    const termText = searchText.length === 0 ? "" : `&term=${searchText}`;
-    const locationText = locationId === null ? "" : `&location=${locationId}`;
-
-    const result = await axios.post(
-      `${url}/projects/search?offset=${offset}${termText}${locationText}`,
-      {
-        keyword: projectKeyword
-      }
-    );
-    cardListSet(result.data);
     if (result.data.length < 15) {
       setHasMore(false);
     }
   };
+  // const reloadData = async () => {
+  //   const termText = searchText.length === 0 ? "" : `&term=${searchText}`;
+  //   const locationText = locationId === null ? "" : `&location=${locationId}`;
 
-  useEffect(() => {
+  //   const result = await axios.post(
+  //     `${url}/projects/search?offset=${offset}${termText}${locationText}`,
+  //     {
+  //       keyword: projectKeyword
+  //     }
+  //   );
+  //   cardListSet(result.data);
+  //   if (result.data.length < 15) {
+  //     setHasMore(false);
+  //   }
+  // };
+  useEffect(()=>{
     const scrollEvent = fromEvent(window, "scroll");
     scrollEvent
       .pipe(
         filter(
           el =>
             window.scrollY + document.documentElement.clientHeight >
-            document.documentElement.scrollHeight - 30
+            document.documentElement.scrollHeight - 500
         ),
         filter(el => hasMore),
-        debounceTime(3000)
-      )
-      .subscribe(() => {
-        cardListSet();
+        filter(el => projectKeyword.length === 0),
+        first()
+      ).subscribe(() => {
+        cardListSet()
       });
-  }, [hasMore, cardListDatas, offset]);
+  }, [cardListDatas])
+    
+  
+  
 
   console.log("=============================");
   console.log(isMobile);
