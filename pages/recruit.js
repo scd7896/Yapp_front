@@ -93,11 +93,12 @@ const recruit = ({ firstData, isMobile }) => {
             document.documentElement.scrollHeight - 500
         ),
         filter(el => hasMore),
+        filter(el => projectKeyword.length === 0),
         first()
       ).subscribe(() => {
         cardListSet()
       });
-  }, [offset])
+  }, [cardListDatas])
     
   
   
