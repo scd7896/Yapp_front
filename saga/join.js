@@ -3,6 +3,7 @@ import {all, delay,fork, takeEvery,takeLatest, call,put,take} from 'redux-saga/e
 import {USER_JOIN_REQUEST, USER_JOIN_SUCCESS, USER_JOIN_FAILURE} from '../action'
 import axios from 'axios'
 import cookies from '../methods/cookies'
+import Router from 'next/router'
 
 function getUserAPI(myCookie){
     return fetch(baseURL + '/me', {
@@ -60,7 +61,7 @@ function* userJoin(action){
             userId : getUserResult.user.userId,
             userEmail : getUserResult.user.email,
             userProfileImage : getUserResult.user.profileImage
-        })        
+        })   
         
     }catch(e){
         //에러 코드에 따라서 비밀번호 틀리게할껀지 
@@ -72,12 +73,24 @@ function* userJoin(action){
     }
 }
 
+function * userJoinSuccess(){
+    try{
+        alert('회원가입에 성공했습니다.\n원하는 키워드를 입력해주세요!');
+        Router.push('/keyword/management')
+    }catch{}
+}
+
 function * watchUserJoin(){
     yield takeLatest(USER_JOIN_REQUEST, userJoin)
 }
 
+function * watchUserSuccess(){
+    yield takeLatest(USER_JOIN_SUCCESS, userJoinSuccess)
+}
+
 export default function* joinSaga(){
     yield all([
-        fork(watchUserJoin)
+        fork(watchUserJoin),
+        fork(watchUserSuccess)
     ])
 }
