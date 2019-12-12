@@ -15,6 +15,22 @@ const Second = ({projectId, changed})=>{
     const {userToken} = useSelector(state => state.user)
     const dispatch = useDispatch();
     const postProject = ()=>{
+        if(datas.projectTitle.length < 1){
+            alert("제목을 입력해주세요");
+            return
+        }
+        if(datas.projectContent.length <1){
+            alert("프로젝트 내용을 입력해주세요");
+            return;
+        }
+        if(datas.projectKeyword.length <1){
+            alert("최소 한개의 키워드를 설정해주세요")
+            return
+        }
+        if(datas.projectPosition === 0){
+            alert("팀원 모집 직군을 선택해주세요");
+            return;
+        }
         if(changed){
             
             dispatch({
