@@ -55,7 +55,7 @@
     text-align: left;
     color: #666666;
     border: none;
-    width: 100%;
+    
   }
 }
 
@@ -234,7 +234,7 @@
     width: 88%;
   }
   #header_input_container {
-    width: 85%;
+
     height: 70px;
   }
 
@@ -319,6 +319,8 @@
   }
 
   #header_inputButton {
+    display: block;
+    width : 25%;
     font-size: 14px;
     font-weight: 500;
     font-stretch: normal;
