@@ -29,7 +29,7 @@ const AppLayOut = ({children,isMobile})=>{
             
             <LoginModal />
             <ApplyModal />
-            <div>
+            <div style = {{minHeight : "100%", paddingBottom : "50px"}}>
                 {children}
             </div>
             
