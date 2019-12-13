@@ -33,7 +33,8 @@ const Index = props => {
   const dispatch = useDispatch();
   var { user, favorite } = useSelector(state => state);
   var [keywords, setKeywords] = useState([]);
-  const moveToRecruit = () => {
+  const moveToRecruit = (e) => {
+    e.preventDefault();
     const text = document.querySelector("#header_input").value;
     Router.push(`/recruit?text=${text}`);
   };
@@ -85,20 +86,26 @@ const Index = props => {
             </div>
           </div>
           <div className="container">
-            <div id="header_input_container">
+            <div>
+            <form onSubmit = {moveToRecruit} id="header_input_container">
               <div id="header_inputIcon">
                 <img src="https://cdn.zeplin.io/5d8afd2a43adab15d5458ff0/assets/0A4A76EC-FF35-4D30-A469-340964DF83ED.svg" />
               </div>
-              <div id="header_inputBox">
-                <input
-                  type="text"
-                  id="header_input"
-                  placeholder="검색어를 입력해주세요"
-                ></input>
-              </div>
-              <div id="header_inputButton" onClick={moveToRecruit}>
-                검색
-              </div>
+              
+                
+                <div id="header_inputBox">
+                  <input
+                    type="text"
+                    id="header_input"
+                    placeholder="검색어를 입력해주세요"
+                  ></input>
+                </div>
+                
+                <button id="header_inputButton" >
+                  검색
+                </button>
+                
+              </form>
             </div>
           </div>
         </div>
