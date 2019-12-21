@@ -57,7 +57,6 @@ const recruit = ({ firstData, isMobile }) => {
       }
     );
 
-    
     dispatch({
       type: SET_OFFSET_DATA,
       data: offset
@@ -83,7 +82,7 @@ const recruit = ({ firstData, isMobile }) => {
   //     setHasMore(false);
   //   }
   // };
-  useEffect(()=>{
+  useEffect(() => {
     const scrollEvent = fromEvent(window, "scroll");
     scrollEvent
       .pipe(
@@ -95,16 +94,12 @@ const recruit = ({ firstData, isMobile }) => {
         filter(el => hasMore),
         filter(el => projectKeyword.length === 0),
         first()
-      ).subscribe(() => {
-        cardListSet()
+      )
+      .subscribe(() => {
+        cardListSet();
       });
-  }, [cardListDatas])
-    
-  
-  
+  }, [cardListDatas]);
 
-  console.log("=============================");
-  console.log(isMobile);
   return (
     <div id="reqcruit_root">
       <Head>

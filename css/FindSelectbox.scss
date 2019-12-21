@@ -72,8 +72,8 @@ input {
     }
   }
 
-  & + & {
-    border-left: 1.5px solid #f5f7fa;
+  & + #findbox_hr_line + & {
+    border-left: 1.5px solid #e5e5e5;
     padding-left: 2.5%;
     @media (max-width: 724px) {
       padding-left: 0;
@@ -81,8 +81,7 @@ input {
   }
 }
 #recruit_select_box {
-  width: 90%;
-  padding: 0 5%;
+  width: 100%;
 }
 #recruit_select_box > .selectbox {
   width: 100%;
