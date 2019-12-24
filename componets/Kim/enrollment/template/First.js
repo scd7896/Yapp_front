@@ -35,13 +35,13 @@ const First = ({ projectId, changed }) => {
   } = useSelector(state => state.enrollment);
   const [inputs, setInputs] = useState({
     region:
-      projectRegion !== -1
+      projectRegion !== 0
         ? { id: projectRegion, text: location[projectRegion] }
         : "",
     level:
-      projectLevel !== -1 ? { id: projectLevel, text: step[projectLevel] } : "",
+      projectLevel !== 0 ? { id: projectLevel, text: step[projectLevel] } : "",
     long:
-      projectLong !== -1
+      projectLong !== 0
         ? { id: projectLong, text: expectedPeriod[projectLong] }
         : ""
   });
@@ -180,8 +180,9 @@ const First = ({ projectId, changed }) => {
               name="region"
               value={region.text}
               type="under"
-              placeholder="선택하세요"
+              placeholder="서울특별시"
               items={locationItem}
+              inputs={inputs}
               onClick={onClick}
             />
           </div>
@@ -191,7 +192,7 @@ const First = ({ projectId, changed }) => {
               name="level"
               value={level.text}
               type="under"
-              placeholder="선택하세요"
+              placeholder="팀 빌딩"
               items={stepItem}
               inputs={inputs}
               onClick={onClick}
@@ -203,7 +204,7 @@ const First = ({ projectId, changed }) => {
               name="long"
               value={long.text}
               type="under"
-              placeholder="선택하세요"
+              placeholder="2주 이내"
               items={expectedPeriodItem}
               inputs={inputs}
               onClick={onClick}
@@ -249,7 +250,7 @@ const First = ({ projectId, changed }) => {
               name="plannerCount"
               value={projectNowTeam[0]}
               type="under"
-              placeholder="선택하세요"
+              placeholder="없음"
               items={countItem}
               inputs={inputs}
               onClick={setPositionNow(0)}
@@ -261,7 +262,7 @@ const First = ({ projectId, changed }) => {
               name="developerCount"
               value={projectNowTeam[1]}
               type="under"
-              placeholder="선택하세요"
+              placeholder="없음"
               items={countItem}
               inputs={inputs}
               onClick={setPositionNow(1)}
@@ -273,7 +274,7 @@ const First = ({ projectId, changed }) => {
               name="designerCount"
               value={projectNowTeam[2]}
               type="under"
-              placeholder="선택하세요"
+              placeholder="없음"
               items={countItem}
               inputs={inputs}
               onClick={setPositionNow(2)}
