@@ -1,14 +1,14 @@
 //MyPortfolioSection.js
 
-.mypage-portfolio-section{
-    margin-top : 66px;
-    width : 100%;
+.mypage-portfolio-section {
+    margin-top: 66px;
+    width: 100%;
     margin-bottom: 121.2px;
 }
 
-.mypage-portfolio-section-title{
+.mypage-portfolio-section-title {
     height: 47px;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 32px;
     font-weight: 500;
     font-stretch: normal;
@@ -21,51 +21,53 @@
 
 //PortfolioSimpleComponent.js
 
-.portfolio-simple-container{
+.portfolio-simple-container {
     width: calc(100% - 2.9% - 3.5%);
-    height: 184px;
-    padding-top : 25.6px;
+    padding-top: 25.6px;
     padding-bottom: 24.8px;
-    padding-left : 2.9%;
-    padding-right : 3.5%;
+    padding-left: 2.9%;
+    padding-right: 3.5%;
     background-color: #ffffff;
 
-    margin-top : 47.4px;
-    display : block;
+    margin-top: 47.4px;
+    display: block;
 }
 
-.portfolio-simple-container-space-between{
+.portfolio-simple-container-space-between {
     display: flex;
     justify-content: space-between;
 }
 
-.portfolio-simple-left{
+.portfolio-simple-left {
     display: flex;
+    width: 70%;
 }
 
-.portfolio-simple-right{
-    display : inline-block;
+.portfolio-simple-right {
+    display: inline-block;
+    max-width: 180px;
+
+    & div + div {
+        margin: 0 auto;
+    }
 }
 
-.portfolio-simple-img{
+.portfolio-simple-img {
     width: 184px;
     height: 184px;
     background-color: #efeff4;
 
-    display:inline-block;
+    display: inline-block;
 }
 
-.portfolio-simple-contents-container{
-    margin-left : 33px;
-    display : inline-block;
+.portfolio-simple-contents-container {
+    margin-left: 33px;
+    display: inline-block;
 }
 
-.portfolio-simple-title{
-    margin-top : 15px;
+.portfolio-simple-title {
     margin-bottom: 25px;
-
-    height: 38px;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 30px;
     font-weight: 500;
     font-stretch: normal;
@@ -78,15 +80,14 @@
     display: block;
 }
 
-.portfolio-simple-row{
-    margin-bottom : 8px;
+.portfolio-simple-row {
+    margin-bottom: 8px;
 
-    display: block;
+    display: flex;
 }
-.portfolio-simple-row-title{
-    width: 70px;
-    height: 27px;
-    font-family: "Noto Sans KR", sans-serif;
+.portfolio-simple-row-title {
+    min-width: 85px;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;
@@ -96,12 +97,11 @@
     text-align: left;
     color: #333333;
 
-    margin-right : 16px;
+    margin-right: 16px;
     display: inline-block;
 }
-.portfolio-simple-row-content{
-    height: 27px;
-    font-family: "Noto Sans KR", sans-serif;
+.portfolio-simple-row-content {
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;
@@ -113,15 +113,15 @@
     display: inline-block;
 }
 
-.portfolio-simple-delete-button{
+.portfolio-simple-delete-button {
     width: 81px;
     height: 39px;
-    padding-top : 5px;
+    padding-top: 5px;
 
     border: solid 1px #e5e5e5;
     background-color: #ffffff;
 
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 22px;
     font-weight: normal;
     font-stretch: normal;
@@ -131,21 +131,20 @@
     text-align: center;
     color: #666666;
 
-
     display: inline-block;
     cursor: pointer;
 }
 
-.portfolio-simple-edit-button{
-    margin-left : 14px;
+.portfolio-simple-edit-button {
+    margin-left: 14px;
     width: 81px;
     height: 39px;
-    padding-top : 5px;
+    padding-top: 5px;
 
     border: solid 1px #5c63ff;
     background-color: #ffffff;
 
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 22px;
     font-weight: normal;
     font-stretch: normal;
@@ -159,34 +158,33 @@
     cursor: pointer;
 }
 
-.portfolio-simple-container-applicant{
-    width : calc(50% - 15px) !important;
+.portfolio-simple-container-applicant {
+    width: calc(50% - 15px) !important;
     height: 168px !important;
     display: inline-block !important;
-    padding : 0 !important;
+    padding: 0 !important;
 }
 
-.portfolio-simple-container-applicant .portfolio-simple-img{
+.portfolio-simple-container-applicant .portfolio-simple-img {
     width: 168px;
     height: 168px;
 }
 
-.portfolio-simple-container-applicant .portfolio-simple-title{
-    margin-top : 14px;
+.portfolio-simple-container-applicant .portfolio-simple-title {
+    margin-top: 14px;
     font-size: 24px;
-    padding-bottom : 4px;
+    padding-bottom: 4px;
     margin-bottom: 0px;
 }
 
-.portfolio-simple-container-applicant .portfolio-simple-row{
-    margin-top : 4px;
+.portfolio-simple-container-applicant .portfolio-simple-row {
+    margin-top: 4px;
 }
 
-.portfolio-simple-container-applicant .portfolio-simple-row-title{
+.portfolio-simple-container-applicant .portfolio-simple-row-title {
     font-size: 16px;
 }
 
-
-.portfolio-simple-container-applicant .portfolio-simple-row-content{
+.portfolio-simple-container-applicant .portfolio-simple-row-content {
     font-size: 16px;
 }
